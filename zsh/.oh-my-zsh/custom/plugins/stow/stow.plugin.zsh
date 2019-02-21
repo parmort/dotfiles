@@ -1,0 +1,8 @@
+alias s="stow -v"
+alias sd="stow -vD"
+alias sa="stow -v */"
+alias sda="stow -vD */"
+alias sn="stow -vn"
+alias sdn="stow -vnD"
+alias sna="stow -vn */"
+alias sdna="stow -vnD */"
