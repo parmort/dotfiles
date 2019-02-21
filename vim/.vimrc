@@ -28,7 +28,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'PotatoesMaster/i3-vim-syntax'
   Plug 'romainl/vim-cool'
   Plug 'SirVer/ultisnips'
-  Plug 'skammer/vim-css-color'
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dispatch'
