@@ -1,105 +1,72 @@
-stty -ixon
-
-autoload -Uz compinit
-compinit
-
-# Reload Xresources
-xrdb ~/.Xresources
-
-# Source needed scripts
-source ~/.scripts/functions.sh
-source ~/.scripts/tmuxinator.zsh
-
-# hostname[user]%  ...  [folder] branch
-setopt PROMPT_SUBST
-PROMPT='%F{1}%m%F{13}[%n]%F{3}%F{3}%#%f '
-RPROMPT='%F{4}[$(dir)]%F{2}$(gbr)%f'
-
-HISTFILE=~/.tmp/histfile
-HISTSIZE=10000
-SAVEHIST=10000
-setopt extendedglob
-export GPG_TTY=$(tty)
-
-bindkey -e
-
-#=========#
-# Exports #
-#=========#
-
-# Set the default editor
-export EDITOR='nvim'
-
-# Add local folders
-export PATH="$HOME/.bin:$PATH"
-export PATH="$HOME/.scripts:$PATH"
-
-# Add ruby gems to the PATH
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/.bin:$PATH
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
-# Have go be in ~/code/go rather ~/go
-export GOPATH=$HOME/code/go
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
-#=========#
-# Aliases #
-#=========#
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="sorin"
 
-# Folder Switching/Viewing
-alias ls="exa --group-directories-first"
-alias l="exa --group-directories-first"
-alias la="exa -a --group-directories-first"
-alias ll="exa -lahg --git --group-directories-first"
-alias lc="clear && exa -lahg --git --group-directories-first"
-alias lt="exa --tree"
-alias c.="cd .."
-alias q="clear"
-alias e="exit"
-alias c="cd"
+# Set list of themes to pick from when loading at random
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# cd to directories
-alias cds="cd ~/sketchbook"
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# Pacman
-alias PS="packer"
-alias Ps="sudo pacman -Syy"
-alias PR="sudo pacman -Rns"
-alias PU="sudo pacman -Syu"
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# Rm Aliases
-alias rm="rm"
-alias rd="rm -r"
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# Git
-alias g="hub"
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-# Tmux
-alias t="tmux -2u"
-alias tls="tmux -2u list-sessions"
-alias tds="tmux -2u kill-session -t"
-alias ta="tmux -2u attach -t"
-alias tns="tmux -2u new-session -s"
-tmux_alias d dot
-tmux_alias e editor
-tmux_alias p drop
-tmux_alias l ledger
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-alias tss="tmux_sketch"
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-# Source .bashrc
-alias sb="source ~/.zshrc"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-# Scan keycode
-alias keys="bash ~/.scripts/keyScan.sh"
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
 
-# Colors
-alias colors="bash ~/.scripts/colors.sh"
+# Uncomment the following line to not mark untracked files as dirty
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Use less instead of more
-alias more="less"
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
 
-# Use $EDITOR
-alias vi=$EDITOR
-alias vim=$EDITOR
+source $ZSH/oh-my-zsh.sh
 
-# Mutt
-alias mutt="neomutt"
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"

@@ -1,5 +1,3 @@
-alias vim=nvim
-
 # Folder Viewing
 alias ls="exa --group-directories-first"
 alias l="exa --group-directories-first"
@@ -11,6 +9,7 @@ alias c.="cd .."
 alias q="clear"
 alias e="exit"
 alias c="cd ~"
+alias cg="f() {; gdir=$(git rev-parse --show-toplevel); cd $gdir; echo $gdir; }; f"
 
 # Easy source of config
 alias sb="source ~/.zshrc"
@@ -18,3 +17,9 @@ alias sb="source ~/.zshrc"
 # Git stuff
 alias gh="git hist"
 alias "gc-"="git checkout --"
+
+# Program substitutions
+alias more=less
+alias which=whence
+alias vim=nvim
+alias mutt=neomutt
