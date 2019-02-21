@@ -1,0 +1,4 @@
+#!/bin/sh
+
+choice=$(find ~/pictures | grep '.png' | cut -c 22- | dmenu -l 10)
+feh --bg-scale ~/pictures/$choice

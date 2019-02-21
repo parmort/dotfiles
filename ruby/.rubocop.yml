@@ -1,0 +1,14 @@
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Style/SymbolArray:
+  Exclude:
+    - **/*.gemfile
+    - **/Gemfile
+    - **/gems.rb

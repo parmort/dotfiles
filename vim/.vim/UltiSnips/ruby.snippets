@@ -1,0 +1,72 @@
+snippet def "Function"
+def $1
+  $2
+end$0
+endsnippet
+
+snippet gem "Gem"
+gem '$1', '$2'
+endsnippet
+
+snippet init "Initializer"
+def initialize($1)
+  $0
+end
+endsnippet
+
+snippet context "RSpec Context"
+context '$1' do
+  $0
+end
+endsnippet
+
+snippet scene "RSpec Scenario"
+scenario '$1' do
+  $0
+end
+endsnippet
+
+snippet it "RSpec Test"
+it '$1' do
+  $0
+end
+endsnippet
+
+snippet desc "RSpec Describe"
+describe '$1' do
+  $0
+end
+endsnippet
+
+snippet rdesc "RSpec Boilerplate"
+RSpec.$1 $2, type: :$3 do
+  $0
+end
+endsnippet
+
+snippet feat "RSpec feature"
+feature '$1' do
+  $0
+end
+endsnippet
+
+snippet pend "RSpec pending"
+pending '${0:Not implemented}'
+raise
+endsnippet
+
+snippet fbot "FactoryBot boilerplate"
+FactoryBot.define do
+  $0
+end
+endsnippet
+
+snippet fac "FactoryBot definition"
+factory :$1 do
+  $0
+end
+endsnippet
+
+snippet fcreate "FactoryBot.create"
+$1 = FactoryBot.create(:${2:$1})
+endsnippet

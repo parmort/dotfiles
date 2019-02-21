@@ -1,0 +1,1 @@
+call UltiSnips#AddFiletypes("html")
