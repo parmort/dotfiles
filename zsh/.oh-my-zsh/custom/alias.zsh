@@ -9,7 +9,9 @@ alias c.="cd .."
 alias q="clear"
 alias e="exit"
 alias c="cd ~"
-alias cg="f() {; gdir=$(git rev-parse --show-toplevel); cd $gdir; echo $gdir; }; f"
+
+# Search through the aliases
+alias gal='f() {; alias | grep "^$1"; }; f'
 
 # Easy source of config
 alias sb="source ~/.zshrc"
