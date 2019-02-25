@@ -42,6 +42,9 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line to not mark untracked files as dirty
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# Use a different custom folder than $ZSH/custom
+ZSH_CUSTOM=~/.zsh
+
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
