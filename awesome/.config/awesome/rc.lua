@@ -106,7 +106,7 @@ local altkey       = "Mod1"
 local hypkey       = "Mod3"
 local terminal     = "st"
 local editor       = os.getenv("EDITOR") or "vim"
-local browser      = "tabbed surf -e"
+local browser      = "firefox"
 local scrlocker    = "~/.config/i3/lock.sh"
 
 awful.util.terminal = terminal
