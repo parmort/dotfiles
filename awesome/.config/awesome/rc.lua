@@ -98,9 +98,10 @@ local themes = {
     "rainbow",         -- 8
     "steamburn",       -- 9
     "vertex",          -- 10
+    "parmort-prawd",   -- 11
 }
 
-local chosen_theme = themes[2]
+local chosen_theme = themes[11]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local hypkey       = "Mod3"
@@ -189,10 +190,10 @@ awful.util.tasklist_buttons = my_table.join(
     awful.button({ }, 5, function () awful.client.focus.byidx(-1) end)
 )
 
-lain.layout.termfair.nmaster           = 3
-lain.layout.termfair.ncol              = 1
-lain.layout.termfair.center.nmaster    = 3
-lain.layout.termfair.center.ncol       = 1
+-- lain.layout.termfair.nmaster           = 3
+-- lain.layout.termfair.ncol              = 1
+-- lain.layout.termfair.center.nmaster    = 1
+-- lain.layout.termfair.center.ncol       = 3
 lain.layout.cascade.tile.offset_x      = 2
 lain.layout.cascade.tile.offset_y      = 32
 lain.layout.cascade.tile.extra_padding = 5
@@ -303,6 +304,9 @@ globalkeys = my_table.join(
     awful.key({ modkey }, "r", function () awful.spawn(terminal.." -e ranger") end,
               {description = "open ranger", group = "launcher"}),
 
+    awful.key({}, "XF86AudioMedia", function () awful.spawn(terminal.." -e ncmpcpp") end,
+              {description = "open ncmpcpp", group = "launcher"}),
+
     -- }}}}
 
     -- {{{{ Layout
@@ -325,16 +329,10 @@ globalkeys = my_table.join(
     awful.key({ altkey, "Shift" }, "k", function() lain.util.useless_gaps_resize( 1) end,
               {description = "decrease gaps", group = "layout"}),
 
-    -- }}}}
-
-    -- {{{{ Widgets
-
-    awful.key({ altkey, }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
-              {description = "show calendar", group = "widgets"}),
-    awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end,
-              {description = "show filesystem", group = "widgets"}),
-    awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end,
-              {description = "show weather", group = "widgets"}),
+    awful.key({ hypkey }, "space", function() awful.layout.inc(1) end,
+              {description = "next layout", group = "layout"}),
+    awful.key({ hypkey, "Shift" }, "space", function() awful.layout.inc(-1) end,
+              {description = "previous layout", group = "layout"}),
 
     -- }}}}
 
