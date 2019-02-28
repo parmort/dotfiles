@@ -1,4 +1,4 @@
 #!/bin/sh
 
-choice=$(find ~/pictures | grep '.png' | cut -c 22- | dmenu -l 10)
-feh --bg-scale ~/pictures/$choice
+choice=$(find ~/pictures/wall | grep -E 'png|jpg' | cut -c 27- | dmenu -l 10)
+feh --bg-scale ~/pictures/wall/$choice
