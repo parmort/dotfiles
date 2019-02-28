@@ -59,6 +59,7 @@ theme.widget_vol_no                             = theme.dir .. "/icons/vol_no.pn
 theme.widget_vol_mute                           = theme.dir .. "/icons/vol_mute.png"
 theme.widget_mail                               = theme.dir .. "/icons/mail.png"
 theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.png"
+theme.widget_task                               = theme.dir .. "/icons/task.png"
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
 theme.useless_gap                               = 7
@@ -131,6 +132,14 @@ local cpu = lain.widget.cpu({
         widget:set_markup(markup.font(theme.font, " " .. cpu_now.usage .. "% "))
     end
 })
+
+-- Taskwarrior
+local task = wibox.widget.imagebox(theme.widget_task)
+lain.widget.contrib.task.attach(task, {
+    -- do not colorize output
+    show_cmd = "task | sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g'"
+})
+task:buttons(my_table.join(awful.button({}, 1, lain.widget.contrib.task.prompt)))
 
 -- / fs
 local fsicon = wibox.widget.imagebox(theme.widget_hdd)
@@ -260,13 +269,15 @@ function theme.at_screen_connect(s)
             wibox.widget.systray(),
             spr,
             -- mpd
-            arrl_ld,
-            wibox.container.background(mpdicon, theme.bg_focus),
-            wibox.container.background(theme.mpd.widget, theme.bg_focus),
+            wibox.container.background(mpdicon, theme.bg_normal),
+            wibox.container.background(theme.mpd.widget, theme.bg_normal),
             -- vol
+            arrl_ld,
+            wibox.container.background(volicon, theme.bg_focus),
+            wibox.container.background(theme.volume.widget, theme.bg_focus),
+            -- task
             arrl_dl,
-            wibox.container.background(volicon, theme.bg_normal),
-            wibox.container.background(theme.volume.widget, theme.bg_normal),
+            wibox.container.background(task, theme.bg_normal),
             -- mem
             arrl_ld,
             wibox.container.background(memicon, theme.bg_focus),
