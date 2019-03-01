@@ -304,8 +304,11 @@ globalkeys = my_table.join(
     awful.key({ modkey }, "r", function () awful.spawn(terminal.." -e ranger") end,
               {description = "open ranger", group = "launcher"}),
 
-    awful.key({}, "XF86AudioMedia", function () awful.spawn(terminal.." -e ncmpcpp") end,
+    awful.key({}, "XF86AudioMedia", function () awful.spawn(terminal.." -c mpd -e ncmpcpp") end,
               {description = "open ncmpcpp", group = "launcher"}),
+
+    awful.key({ modkey }, "m", function () awful.spawn(terminal.." -e neomutt") end,
+              {description = "open mutt", group = "launcher"}),
 
     -- }}}}
 
@@ -539,7 +542,11 @@ awful.rules.rules = {
                         width = 700,
                         height = 450,
                         placement = awful.placement.centered
-                      } }
+                      } },
+    { rule = { name = "mutt" },
+          properties = {tag = "EML", switch_to_tags = true} },
+    { rule = { class = "mpd" },
+          properties = {tag = "MUS", switch_to_tags = true} },
 }
 -- }}}
 
