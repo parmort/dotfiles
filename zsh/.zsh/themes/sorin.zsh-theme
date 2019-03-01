@@ -20,6 +20,7 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
   ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[magenta]%} ➜"
   ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[yellow]%} ═"
   ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✭"
+  ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg[yellow]%} ↑"
 else
   MODE_INDICATOR="❮❮❮"
   local return_status="%(?::⏎)"
