@@ -108,7 +108,7 @@ local hypkey       = "Mod3"
 local terminal     = "st"
 local editor       = os.getenv("EDITOR") or "vim"
 local browser      = "firefox"
-local scrlocker    = "~/.config/i3/lock.sh"
+local scrlocker    = "dm-tool switch-to-greeter"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "MUS", "EML" }
