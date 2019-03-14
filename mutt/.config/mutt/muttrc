@@ -3,7 +3,6 @@
 bind index,pager i noop
 bind index,pager g noop
 bind index \Cf noop
-source personal.muttrc
 set sleep_time = 0
 set sort = 'reverse-date'
 set editor = $EDITOR
@@ -86,6 +85,9 @@ bind index,pager \Co sidebar-open
 bind index,pager \Cp sidebar-prev-new
 bind index,pager \Cn sidebar-next-new
 bind index,pager B sidebar-toggle-visible
+
+# Source accounts
+source personal.muttrc
 
 # Default index colors:
 color index yellow default '.*'

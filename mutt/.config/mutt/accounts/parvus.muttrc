@@ -19,8 +19,9 @@ bind index,pager gg noop
 bind index,pager g noop
 bind index gg first-entry
 unmailboxes *
-mailboxes =parvus =------------------- "=College" "=[Gmail].Spam" "=[Gmail].Important" "=[Gmail].Starred" "=[Gmail].Trash" "=[Gmail].Drafts" "=[Gmail].Sent Mail" "=INBOX"
+mailboxes =parvus =------------------- "=INBOX" "=[Gmail].Important" "=College" "=[Gmail].Sent Mail" "=[Gmail].Starred" "=[Gmail].Drafts" "=[Gmail].Spam" "=[Gmail].Trash"
 macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox."
+macro index,pager ga "<change-folder>=[Gmail].Important<enter>" "Go to archive."
 macro index,pager gs "<change-folder>=[Gmail].Sent Mail<enter>" "Go to sent."
 macro index,pager gd "<change-folder>=[Gmail].Drafts<enter>" "Go to drafts."
 macro index,pager gt "<change-folder>=[Gmail].Trash<enter>" "Go to trash."
@@ -29,3 +30,6 @@ set spoolfile = "+INBOX"
 set record = "+[Gmail].Sent Mail"
 set postponed = "+[Gmail].Drafts"
 set trash = "+[Gmail].Trash"
+
+bind index D noop
+macro index D "<save-message>=[Gmail].Important<enter>" "Archive Message"
