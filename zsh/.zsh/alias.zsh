@@ -6,9 +6,13 @@ alias ll="exa -lahg --git --group-directories-first"
 alias lc="clear && exa -lahg --git --group-directories-first"
 alias lt="exa --tree"
 alias c.="cd .."
+alias c="cd ~"
+
 alias q="clear"
 alias e="exit"
-alias c="cd ~"
+
+# Folder switching shortcuts
+alias cdd="cd ~/dotfiles"
 
 # Easy source of config
 alias sb="source ~/.zshrc"
@@ -23,7 +27,9 @@ alias which=whence
 alias vim=nvim
 alias mutt=neomutt
 
-# Functions
+#===========#
+#-Functions-#
+#===========#
 
 gal() { alias | grep "^$1" }
-ec() { find ~/dotfiles/* -type f | fzf | xargs -r $EDITOR }
+ec() { find ~/dotfiles/* -type f | grep -v ".*\.png" | fzf | xargs -r $EDITOR }
