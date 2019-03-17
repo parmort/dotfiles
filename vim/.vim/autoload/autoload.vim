@@ -52,3 +52,9 @@ function! autoload#runspecs(spec)
   execute 'tabnew | terminal rspec '.a:spec
   execute feedkeys('\<c-\>\<c-n>')
 endfunction
+
+function! autoload#settabspace(spc)
+  exe 'set tabstop='.a:spc
+  exe 'set softtabstop='.a:spc
+  exe 'set shiftwidth='.a:spc
+endfunction

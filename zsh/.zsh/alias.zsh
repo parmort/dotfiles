@@ -10,9 +10,6 @@ alias q="clear"
 alias e="exit"
 alias c="cd ~"
 
-# Search through the aliases
-alias gal='f() {; alias | grep "^$1"; }; f'
-
 # Easy source of config
 alias sb="source ~/.zshrc"
 
@@ -25,3 +22,8 @@ alias more=less
 alias which=whence
 alias vim=nvim
 alias mutt=neomutt
+
+# Functions
+
+gal() { alias | grep "^$1" }
+ec() { find ~/dotfiles/* -type f | fzf | xargs -r $EDITOR }

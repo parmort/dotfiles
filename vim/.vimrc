@@ -115,12 +115,12 @@ set listchars+=extends:»
 set listchars+=precedes:«
 
 " Make tabs be two characters in width and use spaces
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+cal autoload#settabspace(2)
 set smarttab
 set expandtab
 set shiftround
+
+autocmd BufRead,BufNewFile *.hs cal autoload#settabspace(4)
 
 " Folding
 if has('folding')
