@@ -114,8 +114,8 @@ awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "MUS", "EML" }
 awful.layout.layouts = {
     -- awful.layout.suit.floating,
-    -- awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
+    awful.layout.suit.tile,
+    -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
@@ -131,7 +131,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.se,
     -- lain.layout.cascade,
     -- lain.layout.cascade.tile,
-    -- lain.layout.centerwork,
+    lain.layout.centerwork,
     -- lain.layout.centerwork.horizontal,
     -- lain.layout.termfair,
     -- lain.layout.termfair.center,
@@ -315,9 +315,9 @@ globalkeys = my_table.join(
     -- {{{{ Layout
 
     -- Resize master window width
-    awful.key({ altkey, "Shift" }, "l", function () awful.tag.incmwfact(-0.05) end,
+    awful.key({ hypkey, "Shift" }, "l", function () awful.tag.incmwfact(-0.05) end,
               {description = "increase master width", group = "layout"}),
-    awful.key({ altkey, "Shift" }, "h", function () awful.tag.incmwfact( 0.05) end,
+    awful.key({ hypkey, "Shift" }, "h", function () awful.tag.incmwfact( 0.05) end,
               {description = "decrease master width", group = "layout"}),
 
     -- Increase columns
