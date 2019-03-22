@@ -20,6 +20,7 @@ alias sb="source ~/.zshrc"
 # Git stuff
 alias gh="git hist"
 alias "gc-"="git checkout --"
+alias gapr="git apply -R"
 
 # Program substitutions
 alias more=less

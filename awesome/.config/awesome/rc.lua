@@ -35,7 +35,7 @@ do
         in_error = true
 
         naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
+                         title = "An error happened!",
                          text = tostring(err) })
         in_error = false
     end)
@@ -105,9 +105,11 @@ local chosen_theme = themes[11]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local hypkey       = "Mod3"
+local shift        = "Shift"
+local ctrl         = "Control"
 local terminal     = "st"
 local editor       = os.getenv("EDITOR") or "vim"
-local browser      = "firefox"
+local browser      = "surf"
 local scrlocker    = "dm-tool switch-to-greeter"
 
 awful.util.terminal = terminal
@@ -115,14 +117,14 @@ awful.util.tagnames = { "1", "2", "3", "4", "MUS", "EML" }
 awful.layout.layouts = {
     -- awful.layout.suit.floating,
     awful.layout.suit.tile,
-    -- awful.layout.suit.tile.left,
+    awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
-    -- awful.layout.suit.max,
+    awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
     -- awful.layout.suit.corner.nw,
@@ -227,16 +229,13 @@ globalkeys = my_table.join(
     -- X screen locker
     awful.key({ modkey }, "x", function () os.execute(scrlocker) end,
               {description = "lock screen", group = "hotkeys"}),
-    -- Go to previous tag
-    awful.key({ modkey }, "\\", awful.tag.history.restore,
-              {description = "go back", group = "tag"}),
     -- }}}}
 
     -- {{{{ Screen
 
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey, ctrl }, "j", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
+    awful.key({ modkey, ctrl }, "k", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ altkey }, "Tab",
         function ()
@@ -263,10 +262,10 @@ globalkeys = my_table.join(
             end
         end, {description = "toggle wibox", group = "awesome"}),
 
-    awful.key({ hypkey, "Shift" }, "r", awesome.restart,
+    awful.key({ hypkey, shift }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
 
-    awful.key({ modkey, "Shift" }, "x", function()
+    awful.key({ modkey, shift }, "x", function()
             os.execute('mpc pause')
             awesome.quit()
           end, {description = "quit awesome", group = "awesome"}),
@@ -277,17 +276,19 @@ globalkeys = my_table.join(
 
     -- {{{{ Tag
     -- Dynamic tagging
-    awful.key({ modkey, "Shift" }, "n", function () lain.util.add_tag() end,
+    awful.key({ modkey, shift }, "n", function () lain.util.add_tag() end,
               {description = "add new tag", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "r", function () lain.util.rename_tag() end,
+    awful.key({ modkey, shift }, "r", function () lain.util.rename_tag() end,
               {description = "rename tag", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "Left", function () lain.util.move_tag(-1) end,
+    awful.key({ modkey, shift }, "Left", function () lain.util.move_tag(-1) end,
               {description = "move tag to the left", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "Right", function () lain.util.move_tag(1) end,
+    awful.key({ modkey, shift }, "Right", function () lain.util.move_tag(1) end,
               {description = "move tag to the right", group = "tag"}),
-    awful.key({ modkey, "Shift" }, "d", function () lain.util.delete_tag() end,
+    awful.key({ modkey, shift }, "d", function () lain.util.delete_tag() end,
               {description = "delete tag", group = "tag"}),
-
+    -- Go to previous tag
+    awful.key({ modkey }, "\\", awful.tag.history.restore,
+              {description = "go back", group = "tag"}),
     -- }}}}
 
     -- {{{{ Launcher
@@ -315,26 +316,26 @@ globalkeys = my_table.join(
     -- {{{{ Layout
 
     -- Resize master window width
-    awful.key({ hypkey, "Shift" }, "l", function () awful.tag.incmwfact(-0.05) end,
+    awful.key({ hypkey, shift }, "l", function () awful.tag.incmwfact(-0.05) end,
               {description = "increase master width", group = "layout"}),
-    awful.key({ hypkey, "Shift" }, "h", function () awful.tag.incmwfact( 0.05) end,
+    awful.key({ hypkey, shift }, "h", function () awful.tag.incmwfact( 0.05) end,
               {description = "decrease master width", group = "layout"}),
 
     -- Increase columns
-    awful.key({ modkey, "Control" }, "h", function () awful.tag.incncol( 1, nil, true) end,
+    awful.key({ modkey, ctrl }, "h", function () awful.tag.incncol( 1, nil, true) end,
               {description = "increase the number of columns", group = "layout"}),
-    awful.key({ modkey, "Control" }, "l", function () awful.tag.incncol(-1, nil, true) end,
+    awful.key({ modkey, ctrl }, "l", function () awful.tag.incncol(-1, nil, true) end,
               {description = "decrease the number of columns", group = "layout"}),
 
     -- Make gaps bigger/smaller
-    awful.key({ altkey, "Shift" }, "j", function() lain.util.useless_gaps_resize(-1) end,
+    awful.key({ altkey, shift }, "j", function() lain.util.useless_gaps_resize(-1) end,
               {description = "increase gaps", group = "layout"}),
-    awful.key({ altkey, "Shift" }, "k", function() lain.util.useless_gaps_resize( 1) end,
+    awful.key({ altkey, shift }, "k", function() lain.util.useless_gaps_resize( 1) end,
               {description = "decrease gaps", group = "layout"}),
 
     awful.key({ hypkey }, "space", function() awful.layout.inc(1) end,
               {description = "next layout", group = "layout"}),
-    awful.key({ hypkey, "Shift" }, "space", function() awful.layout.inc(-1) end,
+    awful.key({ hypkey, shift }, "space", function() awful.layout.inc(-1) end,
               {description = "previous layout", group = "layout"}),
 
     -- }}}}
@@ -397,13 +398,13 @@ globalkeys = my_table.join(
         {description = "focus right", group = "client"}),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift" }, "j", function () swap_dir("down") end,
+    awful.key({ modkey, shift }, "j", function () swap_dir("down") end,
               {description = "swap down", group = "client"}),
-    awful.key({ modkey, "Shift" }, "k", function () swap_dir("up") end,
+    awful.key({ modkey, shift }, "k", function () swap_dir("up") end,
               {description = "swap up", group = "client"}),
-    awful.key({ modkey, "Shift" }, "h", function () swap_dir("left") end,
+    awful.key({ modkey, shift }, "h", function () swap_dir("left") end,
               {description = "swap left", group = "client"}),
-    awful.key({ modkey, "Shift" }, "l", function () swap_dir("right") end,
+    awful.key({ modkey, shift }, "l", function () swap_dir("right") end,
               {description = "swap right", group = "client"})
     -- }}}}
 )
@@ -414,11 +415,11 @@ local move_by = 15
 clientkeys = my_table.join(
     awful.key({ modkey }, "q", function (c) c:kill() end,
               {description = "close", group = "client"}),
-    awful.key({ altkey, "Shift" }, "m", lain.util.magnify_client,
+    awful.key({ altkey, shift }, "m", lain.util.magnify_client,
               {description = "magnify client", group = "client"}),
-    awful.key({ modkey, "Shift" }, "space", awful.client.floating.toggle,
+    awful.key({ modkey, shift }, "space", awful.client.floating.toggle,
               {description = "toggle floating", group = "client"}),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
+    awful.key({ modkey, ctrl }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey }, "o", function (c) c:move_to_screen() end,
               {description = "move to screen", group = "client"}),
@@ -442,10 +443,10 @@ clientkeys = my_table.join(
               {description = "move to right", group = "client"}),
 
     -- Resize client
-    awful.key({ modkey, "Shift" }, "y", function(c) c.width = c.width - move_by end),
-    awful.key({ modkey, "Shift" }, "u", function(c) c.height = c.height + move_by end),
-    awful.key({ modkey, "Shift" }, "i", function(c) c.height = c.height - move_by end),
-    awful.key({ modkey, "Shift" }, "o", function(c) c.width = c.width + move_by end)
+    awful.key({ modkey, shift }, "y", function(c) c.width = c.width - move_by end),
+    awful.key({ modkey, shift }, "u", function(c) c.height = c.height + move_by end),
+    awful.key({ modkey, shift }, "i", function(c) c.height = c.height - move_by end),
+    awful.key({ modkey, shift }, "o", function(c) c.width = c.width + move_by end)
 )
 -- }}}}
 
@@ -474,7 +475,7 @@ for i = 1, 9 do
                   end,
                   descr_view),
         -- Toggle tag display.
-        awful.key({ modkey, "Control" }, "#" .. i + 9,
+        awful.key({ modkey, ctrl }, "#" .. i + 9,
                   function ()
                       local screen = awful.screen.focused()
                       local tag = screen.tags[i]
@@ -484,7 +485,7 @@ for i = 1, 9 do
                   end,
                   descr_toggle),
         -- Move client to tag.
-        awful.key({ modkey, "Shift" }, "#" .. i + 9,
+        awful.key({ modkey, shift }, "#" .. i + 9,
                   function ()
                       if client.focus then
                           local tag = client.focus.screen.tags[i]
@@ -495,7 +496,7 @@ for i = 1, 9 do
                   end,
                   descr_move),
         -- Toggle tag on focused client.
-        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
+        awful.key({ modkey, ctrl, shift }, "#" .. i + 9,
                   function ()
                       if client.focus then
                           local tag = client.focus.screen.tags[i]

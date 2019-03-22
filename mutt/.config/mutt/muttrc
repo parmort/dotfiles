@@ -114,8 +114,8 @@ color normal default default
 color indicator cyan default
 color sidebar_highlight red default
 color sidebar_divider brightcyan default
-color sidebar_flagged red black
-color sidebar_new green black
+color sidebar_flagged red default
+color sidebar_new green default
 color normal brightyellow default
 color error red default
 color tilde black default

@@ -134,14 +134,6 @@ local cpu = lain.widget.cpu({
     end
 })
 
--- Taskwarrior
-local task = wibox.widget.imagebox(theme.widget_task)
-lain.widget.contrib.task.attach(task, {
-    -- do not colorize output
-    show_cmd = "task | sed -r 's/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g'"
-})
-task:buttons(my_table.join(awful.button({}, 1, lain.widget.contrib.task.prompt)))
-
 -- / fs
 local fsicon = wibox.widget.imagebox(theme.widget_hdd)
 theme.fs = lain.widget.fs({
@@ -270,15 +262,13 @@ function theme.at_screen_connect(s)
             wibox.widget.systray(),
             spr,
             -- mpd
-            wibox.container.background(mpdicon, theme.bg_normal),
-            wibox.container.background(theme.mpd.widget, theme.bg_normal),
-            -- vol
             arrl_ld,
-            wibox.container.background(volicon, theme.bg_focus),
-            wibox.container.background(theme.volume.widget, theme.bg_focus),
-            -- task
+            wibox.container.background(mpdicon, theme.bg_focus),
+            wibox.container.background(theme.mpd.widget, theme.bg_focus),
+            -- vol
             arrl_dl,
-            wibox.container.background(task, theme.bg_normal),
+            wibox.container.background(volicon, theme.bg_normal),
+            wibox.container.background(theme.volume.widget, theme.bg_normal),
             -- mem
             arrl_ld,
             wibox.container.background(memicon, theme.bg_focus),
