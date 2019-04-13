@@ -50,8 +50,6 @@ theme.widget_battery_empty                      = theme.dir .. "/icons/battery_e
 theme.widget_mem                                = theme.dir .. "/icons/mem.png"
 theme.widget_cpu                                = theme.dir .. "/icons/cpu.png"
 theme.widget_temp                               = theme.dir .. "/icons/temp.png"
-theme.widget_net                                = theme.dir .. "/icons/net.png"
-theme.widget_hdd                                = theme.dir .. "/icons/hdd.png"
 theme.widget_music                              = theme.dir .. "/icons/note.png"
 theme.widget_music_on                           = theme.dir .. "/icons/note_on.png"
 theme.widget_vol                                = theme.dir .. "/icons/vol.png"
@@ -134,15 +132,6 @@ local cpu = lain.widget.cpu({
     end
 })
 
--- / fs
-local fsicon = wibox.widget.imagebox(theme.widget_hdd)
-theme.fs = lain.widget.fs({
-    notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = theme.font },
-    settings = function()
-        widget:set_markup(markup.font(theme.font, " " .. fs_now["/"].percentage .. "% "))
-    end
-})
-
 -- Battery
 local baticon = wibox.widget.imagebox(theme.widget_battery)
 local bat = lain.widget.bat({
@@ -180,19 +169,6 @@ theme.volume = lain.widget.alsa({
         end
 
         widget:set_markup(markup.font(theme.font, " " .. volume_now.level .. "% "))
-    end
-})
-
--- Net
-local neticon = wibox.widget.imagebox(theme.widget_net)
-local net = lain.widget.net({
-    settings = function()
-      local net_state = " OFF "
-      if net_now.state == "up" then
-        net_state = markup("#7AC82E", " " .. net_now.received) .. " " ..  markup("#46A8C3", " " .. net_now.sent .. " ")
-      end
-
-      widget:set_markup(markup.font(theme.font, net_state))
     end
 })
 
@@ -277,18 +253,10 @@ function theme.at_screen_connect(s)
             arrl_dl,
             wibox.container.background(cpuicon, theme.bg_normal),
             wibox.container.background(cpu.widget, theme.bg_normal),
-            -- fs
-            arrl_ld,
-            wibox.container.background(fsicon, theme.bg_focus),
-            wibox.container.background(theme.fs.widget, theme.bg_focus),
             -- bat
-            arrl_dl,
-            wibox.container.background(baticon, theme.bg_normal),
-            wibox.container.background(bat.widget, theme.bg_normal),
-            -- network
             arrl_ld,
-            wibox.container.background(neticon, theme.bg_focus),
-            wibox.container.background(net.widget, theme.bg_focus),
+            wibox.container.background(baticon, theme.bg_focus),
+            wibox.container.background(bat.widget, theme.bg_focus),
             -- clock
             arrl_dl,
             wibox.container.background(clock, theme.bg_normal),

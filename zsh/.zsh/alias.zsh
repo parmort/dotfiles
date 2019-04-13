@@ -13,6 +13,7 @@ alias e="exit"
 
 # Folder switching shortcuts
 alias cdd="cd ~/dotfiles"
+alias cdb="cd ~/.build"
 
 # Easy source of config
 alias sb="source ~/.zshrc"

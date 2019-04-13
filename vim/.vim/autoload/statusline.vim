@@ -10,10 +10,7 @@ function! statusline#mode()
         \ '':'V-BLCK',
         \ 'c': 'SEARCH',
         \ }
-  return flagship#surround(
-        \ s:netrw() ? 'NETRW' :
-        \ get(l:modes, mode(), '')
-        \ )
+  return '[' . (s:netrw() ? 'NETRW' : get(l:modes, mode(), '')) . ']'
 endfunction
 
 function! statusline#name()
@@ -29,7 +26,7 @@ function! statusline#type()
 endfunction
 
 function! statusline#mod()
-  return flagship#surround(
+  return s:surround(
         \ s:helpfile() ? 'HLP':
         \ s:netrw() ? '' :
         \ &previewwindow ? 'PRV':
@@ -43,7 +40,7 @@ function! statusline#git()
     return ''
   endif
 
-  return s:netrw() ? '' : flagship#surround(' '.fugitive#Head())
+  return s:netrw() ? '' : s:surround(' '.fugitive#Head())
 endfunction
 
 function! statusline#err()
@@ -57,6 +54,14 @@ function! statusline#warn()
 endfunction
 
 " PRIVATE FUNCS
+
+function! s:surround(val)
+  if a:val != ''
+    return '[' . a:val . ']'
+  endif
+
+  return ''
+endfunction
 
 function! s:helpfile()
   return &filetype =~# '\v(help)'

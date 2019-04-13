@@ -17,7 +17,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'AndrewRadev/splitjoin.vim'
   Plug 'arcticicestudio/nord-vim'
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'vim-ctrlspace/vim-ctrlspace'
   Plug 'ervandew/supertab'
   Plug 'jiangmiao/auto-pairs'
   Plug 'ledger/vim-ledger', { 'for': 'ledger' }
@@ -33,7 +33,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
-  Plug 'tpope/vim-flagship'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
   Plug 'tpope/vim-rhubarb'
@@ -119,8 +118,6 @@ cal autoload#settabspace(2)
 set smarttab
 set expandtab
 set shiftround
-
-autocmd BufRead,BufNewFile *.hs cal autoload#settabspace(4)
 
 " Folding
 if has('folding')
@@ -213,23 +210,22 @@ set statusline=
       \%#slmd#%{statusline#mode()}\ %#sl#%{statusline#name()}\ \ %{statusline#git()}%{statusline#mod()}
       \%=%{statusline#type()}\ [%#sler#%{statusline#err()},\ %#slwn#%{statusline#warn()}%#sl#]\
       \ [U+%0004.B]\ [%4.l/%Lℓ,\ %3.p%%]
-let g:flagship_skip = 'fugitive#statusline\|FugitiveStatusline'
 " }}}}
 " Tabline {{{{
 set showtabline=2
-let g:tabprefix = 'Tabs:'
 " }}}}
 " PiParen {{{{
 hi clear MatchParen
 hi MatchParen ctermfg=9 guifg=#bf5858 cterm=bold
 " }}}}
-" Ctrl-P {{{{
-let g:ctrlp_show_hidden=1
-let g:ctrlp_custom_ignore = {
-      \ 'dir': '\v[/\](\.git|\.hg|\.svn|_site|node_modules)$'
-      \ }
-let g:ctrlp_status_func = {
-      \ 'main': 'stl#ctrlp#main'
+" CtrlSpace {{{{
+let g:CtrlSpaceDefaultMappingKey = "<C-space> "
+
+let g:CtrlSpaceSymbols = {
+      \ "BM": "⌹"
+      \ ,"WLoad": "⍵"
+      \ ,"WSave": "⍹"
+      \ ,"Tabs": "τ"
       \ }
 " }}}}
 " ALE {{{{
@@ -283,8 +279,7 @@ augroup END
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
+  let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
 endif
 " }}}}
 " Deoplete {{{{
@@ -309,6 +304,17 @@ augroup END
 if has('nvim')
   let g:rspec_command = ':call autoload#runspecs("{spec}")'
 endif
+" }}}}
+" FileType Settings {{{{
+aug parmort
+
+  " Haskall
+  autocmd BufRead,BufNewFile *.hs cal autoload#settabspace(4)
+
+  " Assembler
+  autocmd FileType asm cal ale#toggle#DisableBuffer(bufnr("%"))
+
+aug END
 " }}}}
 
 " }}}
@@ -403,8 +409,6 @@ nnoremap <leader>gu :Gpushup<CR>
 " Dispatch
 nnoremap <CR>d :Dispatch<CR>
 nnoremap <CR>D :Dispatch!<CR>
-nnoremap <CR>m :Make<CR>
-nnoremap <CR>M :Make<CR>
 
 " Ag
 nnoremap K :grep! "\b<C-r><C-w>\b"<CR>:cw<CR>
@@ -430,16 +434,19 @@ xmap [ee <plug>unimpairedMoveSelectionUp
 nmap ]ee <plug>unimpairedMoveDown
 xmap ]ee <plug>unimpairedMoveSelectionDown
 
-nnoremap yev :e ~/.vimrc<CR>
+nnoremap ]ev :e ~/.vimrc<CR>
 nnoremap [ev :tabnew ~/.vimrc<CR>
 
-nnoremap yea :e ~/.vim/autoload<CR>
+nnoremap ]ea :e ~/.vim/autoload<CR>
 nnoremap [ea :tabnew ~/.vim/autoload<CR>
 
 nnoremap [ad :ALEDetail<CR>
 
 onoremap <silent> ic :norm! v<CR>
 
+nnoremap <silent> <C-p> :CtrlSpace O<CR>
+
+tnoremap <ESC> <C-\><C-n>
 " }}}
 " Abbrevs --------------------------------------------------------- {{{
 

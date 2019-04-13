@@ -53,13 +53,6 @@ end
 local function swap_dir (dir)
   awful.client.swap.global_bydirection(dir)
 end
-
-local function center_win (w, h)
-  return {
-    x = awful.screen.focused().geometry.width / 2 - w / 2,
-    y = awful.screen.focused().geometry.height / 2 - h / 2,
-  }
-end
 -- }}}
 
 -- {{{ Autostart windowless processes
@@ -72,16 +65,27 @@ end
 
 -- This function will run every time Awesome is started (including restarts)
 
--- run_on_start({
---   'polybar bar',
--- })
+run_on_start({
+  'nm-applet &',
+})
 
 -- This function will run once, when Awesome is first started
 awful.spawn.with_shell(
-    'if (xrdb -query | grep -q "^awesome\\.started:\\s*true$"); then exit; fi;' ..
-    'xrdb -merge <<< "awesome.started:true";' ..
-    '~/.fehbg'
+    'if (xrdb -query | grep -q "^awesome\\.started:\\s*true$"); then exit; fi;'
+    ..'xrdb -merge <<< "awesome.started:true";'
+    ..'/home/nolan/.fehbg'
 )
+
+-- autorun = true
+-- autorunApps =
+-- {
+--   "nm-applet &"
+-- }
+-- if autorun then
+--   for app = 1, #autorunApps do
+--     awful.util.spawn(autorunApps[app])
+--   end
+-- end
 
 -- }}}
 
@@ -109,7 +113,7 @@ local shift        = "Shift"
 local ctrl         = "Control"
 local terminal     = "st"
 local editor       = os.getenv("EDITOR") or "vim"
-local browser      = "surf"
+local browser      = "firefox"
 local scrlocker    = "dm-tool switch-to-greeter"
 
 awful.util.terminal = terminal

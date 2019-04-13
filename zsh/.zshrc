@@ -49,7 +49,7 @@ ZSH_CUSTOM=~/.zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux stow tmux)
+plugins=(git archlinux stow tmux fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
