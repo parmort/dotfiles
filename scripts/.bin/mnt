@@ -1,0 +1,16 @@
+#!/usr/bin/sh
+
+chosen="$(lsblk -rpo 'name,type,size,mountpoint' | awk '$2=="part"&&$4==""{printf "%s (%s)\n",$1,$3}' | fzf | awk '{print $1}')"
+
+mountlist="/home/nolan/.scripts/mountlist"
+
+if [ -z $chosen ]; then
+  notify-send "Could not mount"
+  exit
+fi
+
+mountpoint="$(cat $mountlist | fzf)"
+
+sudo -A mount $chosen $mountpoint
+
+notify-send "Mounted $chosen to $mountpoint"

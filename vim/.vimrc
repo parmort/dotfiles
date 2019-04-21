@@ -34,6 +34,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-projectionist'
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
   Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-rsi'
@@ -70,7 +71,6 @@ call plug#end()
 
 " Plain vim settings {{{{
 set nocompatible " Make vim behave like vim, not vi
-
 if exists('&belloff')
   set belloff=all " Turn off all error sounds
 endif
@@ -187,6 +187,17 @@ if has('viminfo')
   endif
 endif
 " }}}}}
+" }}}}
+" FileType Settings {{{{
+aug parmort
+
+  " Haskall
+  autocmd BufRead,BufNewFile *.hs cal autoload#settabspace(4)
+
+  " Assembler
+  autocmd FileType asm cal ale#toggle#DisableBuffer(bufnr("%"))
+
+aug END
 " }}}}
 " Colorscheme {{{{
 set background=dark " Give vim a dark background
@@ -305,16 +316,26 @@ if has('nvim')
   let g:rspec_command = ':call autoload#runspecs("{spec}")'
 endif
 " }}}}
-" FileType Settings {{{{
-aug parmort
-
-  " Haskall
-  autocmd BufRead,BufNewFile *.hs cal autoload#settabspace(4)
-
-  " Assembler
-  autocmd FileType asm cal ale#toggle#DisableBuffer(bufnr("%"))
-
-aug END
+" vim-projectionist {{{{
+let g:projectionist_heuristics = {
+      \ "*.rb&*_test.rb": {
+      \   "*_test.rb": {
+      \     "type": "test",
+      \     "alternate": "{}.rb",
+      \     "dispatch": "ruby {file}"
+      \   },
+      \   "*.rb": {
+      \     "type": "implement",
+      \     "alternate": "{}_test.rb",
+      \     "dispatch": "ruby {}_test.rb"
+      \   }
+      \ },
+      \ "src/*.c&src/*.h&test/test_*.c": {
+      \   "src/*.c": { "type": "implement", "alternate": "src/{}.h" },
+      \   "src/*.h": { "type": "header", "alternate": "src/{}.c" },
+      \   "test/test_*.c": { "type": "test" }
+      \ }
+      \ }
 " }}}}
 
 " }}}
@@ -447,6 +468,8 @@ onoremap <silent> ic :norm! v<CR>
 nnoremap <silent> <C-p> :CtrlSpace O<CR>
 
 tnoremap <ESC> <C-\><C-n>
+
+nnoremap ga :A<CR>
 " }}}
 " Abbrevs --------------------------------------------------------- {{{
 

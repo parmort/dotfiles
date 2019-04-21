@@ -1,3 +1,0 @@
-# vim: ft=neomuttrc
-macro index,pager i1 '<sync-mailbox><enter-command>source "/home/nolan/.config/mutt"/accounts/parvus.muttrc<enter><change-folder>!<enter>;<check-stats>'
-source /home/nolan/.config/mutt/accounts/parvus.muttrc

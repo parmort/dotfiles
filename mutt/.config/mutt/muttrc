@@ -5,7 +5,7 @@ bind index,pager g noop
 bind index \Cf noop
 set sleep_time = 0
 set sort = 'reverse-date'
-set editor = $EDITOR
+set editor = 'nvim'
 #set copy = no
 set timeout = "5"
 set mail_check = "10"
@@ -114,7 +114,7 @@ color normal default default
 color indicator cyan default
 color sidebar_highlight red default
 color sidebar_divider brightcyan default
-color sidebar_flagged red default
+color sidebar_flagged yellow default
 color sidebar_new green default
 color normal brightyellow default
 color error red default

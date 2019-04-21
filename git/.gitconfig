@@ -1,7 +1,7 @@
 [user]
   email = parvus.mortalis@gmail.com
   name = Nolan Prochnau
-  signingkey = Saturnus Numerius <parvus.mortalis@gmail.com>
+  signingkey = Nolan Prochnau <parvus.mortalis@gmail.com>
 
 [core]
   editor = nvim
