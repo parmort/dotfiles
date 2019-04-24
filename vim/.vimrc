@@ -43,6 +43,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-vinegar'
   Plug 'Valloric/ListToggle'
   Plug 'vimoutliner/vimoutliner', { 'for': 'votl' }
+  Plug 'vim-scripts/ZoomWin'
   Plug 'w0rp/ale'
 
   " Prettier
