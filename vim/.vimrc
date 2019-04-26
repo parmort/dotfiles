@@ -14,8 +14,6 @@ endif
 " }}}
 " Vim-Plug -------------------------------------------------------- {{{
 call plug#begin('~/.vim/plugged')
-  Plug 'AndrewRadev/splitjoin.vim'
-  Plug 'arcticicestudio/nord-vim'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'vim-ctrlspace/vim-ctrlspace'
   Plug 'ervandew/supertab'
@@ -46,15 +44,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/ZoomWin'
   Plug 'w0rp/ale'
 
-  " Prettier
-  Plug 'prettier/vim-prettier', {
-    \ 'do': 'npm install',
-    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json',
-    \   'graphql', 'vue']
-    \ }
-
   " Colorscheme
-  " Plug '~/git/nord-vim'
   Plug 'nanotech/jellybeans.vim'
 
   if has('nvim')
@@ -62,9 +52,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/neco-vim', { 'for': 'vim' }
     Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
     Plug 'uplus/deoplete-solargraph', { 'for': 'ruby' }
-  else
-    " If vim, use YCM instead
-    Plug 'Valloric/YouCompleteMe'
   endif
 call plug#end()
 " }}}
