@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-function! statusline#mode()
+function! custom#statusline#mode()
   let l:modes = {
         \ 'n': 'NORMAL',
         \ 'i': 'INSERT',
@@ -13,19 +13,19 @@ function! statusline#mode()
   return '[' . (s:netrw() ? 'NETRW' : get(l:modes, mode(), '')) . ']'
 endfunction
 
-function! statusline#name()
+function! custom#statusline#name()
   return s:helpfile() ? expand('%:t:r') :
         \ s:netrw() ? b:netrw_curdir :
         \ expand('%:t')
 endfunction
 
-function! statusline#type()
+function! custom#statusline#type()
   return s:helpfile() ? '' :
         \ s:netrw() ? '' :
         \ &filetype
 endfunction
 
-function! statusline#mod()
+function! custom#statusline#mod()
   return s:surround(
         \ s:helpfile() ? 'HLP':
         \ s:netrw() ? '' :
@@ -35,7 +35,7 @@ function! statusline#mod()
         \ '')
 endfunction
 
-function! statusline#git()
+function! custom#statusline#git()
   if !exists('b:git_dir')
     return ''
   endif
@@ -43,12 +43,12 @@ function! statusline#git()
   return s:netrw() ? '' : s:surround(' '.fugitive#Head())
 endfunction
 
-function! statusline#err()
+function! custom#statusline#err()
   let l:counts = ale#statusline#Count(bufnr(''))
   return l:counts.error + l:counts.style_error
 endfunction
 
-function! statusline#warn()
+function! custom#statusline#warn()
   let l:counts = ale#statusline#Count(bufnr(''))
   return l:counts.total - (l:counts.error + l:counts.style_error)
 endfunction

@@ -4,14 +4,14 @@ let s:middot='·'
 let s:raquo='»'
 let s:small_l='ℓ'
 
-function! autoload#foldtext() abort
+function! custom#misc#foldtext() abort
   let l:lines='[' . (v:foldend - v:foldstart + 1) . s:small_l . ']'
   let l:first=substitute(getline(v:foldstart), '\v *', '', '')
   let l:dashes=substitute(v:folddashes, '-', s:middot, 'g')
   return s:raquo . l:dashes . l:lines . ': ' . l:first
 endfunction
 
-function! autoload#groot()
+function! custom#misc#groot()
   let root = systemlist('git rev-parse --show-toplevel')[0]
   if v:shell_error
     echo 'Not in git repo'
@@ -21,22 +21,22 @@ function! autoload#groot()
   endif
 endfunction
 
-function! autoload#focusline()
+function! custom#misc#focusline()
   if &foldmethod ==# 'marker'
     execute "keepjumps normal! zMzvzz"
   endif
 endfunction
 
-function! autoload#sourceConf()
+function! custom#misc#sourceConf()
   let l:pos = getcurpos()
   update
   so ~/.vimrc
   edit
   call setpos('.', pos)
-  call autoload#focusline()
+  call custom#misc#focusline()
 endfunction
 
-function! autoload#projectFile()
+function! custom#misc#projectFile()
   let l:fname = '~/.projects'
   let l:buf = bufwinnr(l:fname)
   if l:buf ==? -1
@@ -48,12 +48,12 @@ function! autoload#projectFile()
   endif
 endfunction
 
-function! autoload#runspecs(spec)
+function! custom#misc#runspecs(spec)
   execute 'tabnew | terminal rspec '.a:spec
   execute feedkeys('\<c-\>\<c-n>')
 endfunction
 
-function! autoload#settabspace(spc)
+function! custom#misc#settabspace(spc)
   exe 'set tabstop='.a:spc
   exe 'set softtabstop='.a:spc
   exe 'set shiftwidth='.a:spc
