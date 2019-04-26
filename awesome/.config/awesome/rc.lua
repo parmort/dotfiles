@@ -274,7 +274,8 @@ globalkeys = my_table.join(
             awesome.quit()
           end, {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ hypkey }, "b", function() os.execute('/home/nolan/.scripts/selbg') end),
+    awful.key({ hypkey }, "b", function() awful.spawn('/home/nolan/.scripts/selbg') end),
+    awful.key({ hypkey }, "p", function() awful.spawn('/home/nolan/.scripts/dpass') end),
 
     -- }}}}
 
