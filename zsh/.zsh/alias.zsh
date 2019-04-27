@@ -14,6 +14,7 @@ alias e="exit"
 # Folder switching shortcuts
 alias cdd="cd ~/dotfiles"
 alias cdb="cd ~/.build"
+alias cdc="cd ~/code"
 
 # Easy source of config
 alias sb="source ~/.zshrc"
@@ -22,6 +23,7 @@ alias sb="source ~/.zshrc"
 alias gh="git hist"
 alias "gc-"="git checkout --"
 alias gapr="git apply -R"
+alias gcaa="git commit -v --amend"
 
 # Program substitutions
 alias more=less
