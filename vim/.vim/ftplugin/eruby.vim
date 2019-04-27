@@ -1,1 +1,3 @@
-call UltiSnips#AddFiletypes("html")
+let b:AutoPairs = g:AutoPairs
+let b:AutoPairs["<%"]  = "%>"
+let b:AutoPairs["<%="] = "%>"

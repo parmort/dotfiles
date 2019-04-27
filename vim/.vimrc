@@ -16,7 +16,6 @@ endif
 call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'vim-ctrlspace/vim-ctrlspace'
-  Plug 'ervandew/supertab'
   Plug 'jiangmiao/auto-pairs'
   Plug 'ledger/vim-ledger', { 'for': 'ledger' }
   Plug 'mxw/vim-jsx'
@@ -25,7 +24,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
   Plug 'PotatoesMaster/i3-vim-syntax'
   Plug 'romainl/vim-cool'
-  Plug 'SirVer/ultisnips'
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dispatch'
@@ -156,15 +154,6 @@ set showtabline=2
 " Deoplete {{{{
 let g:deoplete#enable_at_startup = 1
 " }}}}
-" So YCM and UltiSnips play nice {{{{
-let g:SuperTabDefaultCompletionType = '<C-n>'
-let g:SuperTabCrMapping = 0
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:ycm_key_list_select_completion = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
-" }}}}
 " vim-rspec {{{{
 if has('nvim')
   let g:rspec_command = ':call custom#misc#runspecs("{spec}")'
@@ -279,6 +268,7 @@ nnoremap <silent> <C-p> :CtrlSpace O<CR>
 tnoremap <ESC> <C-\><C-n>
 
 nnoremap ga :A<CR>
+nnoremap gr :R<CR>
 " }}}
 " Abbrevs --------------------------------------------------------- {{{
 
