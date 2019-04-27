@@ -9,6 +9,7 @@ function! custom#statusline#mode()
         \ 'V': 'V-LINE',
         \ '':'V-BLCK',
         \ 'c': 'SEARCH',
+        \ 't': ' TERM '
         \ }
   return '[' . (s:netrw() ? 'NETRW' : get(l:modes, mode(), '')) . ']'
 endfunction
