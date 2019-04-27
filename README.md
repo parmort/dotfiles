@@ -17,6 +17,9 @@ install them and `stow -D */` to uninstall them. The `*/` in those commands can
 be substituted with any of the subdirectories you choose, `*/` is just a wildcard
 to select all subdirectories.
 
+***Hint:*** *Once `oh-my-zsh` is installed, you can use aliases from a stow plugin!
+With my config aliases, type `gal s` and the aliases should pop up*
+
 ## And a Few Notes on Them
 
 There are a few redundancies in here, like i3wm and awesomewm dotfiles. They come
