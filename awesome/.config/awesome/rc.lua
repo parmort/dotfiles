@@ -276,6 +276,8 @@ globalkeys = my_table.join(
 
     awful.key({ hypkey }, "b", function() awful.spawn('/home/nolan/.scripts/selbg') end),
     awful.key({ hypkey }, "p", function() awful.spawn('/home/nolan/.scripts/dpass') end),
+    awful.key({ hypkey }, "y", function() awful.spawn('/home/nolan/.scripts/dmenumount') end),
+    awful.key({ hypkey }, "u", function() awful.spawn('/home/nolan/.scripts/dmenuumount') end),
 
     -- }}}}
 
