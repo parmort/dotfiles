@@ -117,7 +117,7 @@ local browser      = "firefox"
 local scrlocker    = "dm-tool switch-to-greeter"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "1", "2", "3", "4", "MUS", "EML" }
+awful.util.tagnames = { "1", "2", "3", "4", "EML", "MUS" }
 awful.layout.layouts = {
     -- awful.layout.suit.floating,
     awful.layout.suit.tile,
