@@ -173,7 +173,7 @@ command! FocusLine cal custom#misc#focusline()
 command! -bar SourceConf cal custom#misc#sourceConf()
 
 " }}}
-" Mappings ------------------------------------------------------- {{{
+" Mappings -------------------------------------------------------- {{{
 
 " Prefix Keys {{{{
 nnoremap <Space> <nop>

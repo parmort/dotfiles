@@ -9,4 +9,4 @@ set foldmethod=indent
 set foldlevelstart=99
 
 " Set how folds look. See vim/autoload/autoload.vim
-set foldtext=autoload#foldtext()
+set foldtext=custom#misc#foldtext()
