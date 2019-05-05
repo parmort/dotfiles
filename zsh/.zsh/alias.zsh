@@ -30,6 +30,7 @@ alias more=less
 alias which=whence
 alias vim=nvim
 alias mutt=neomutt
+alias man=manpages
 
 #===========#
 #-Functions-#
@@ -37,3 +38,4 @@ alias mutt=neomutt
 
 gal() { alias | grep "^$1" }
 ec() { find ~/dotfiles/* -type f | grep -v ".*\.png" | fzf | xargs -r $EDITOR }
+ses() { find ~/.vim/sessions/* -type f | fzf | xargs -r $EDITOR -S }
