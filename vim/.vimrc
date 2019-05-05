@@ -15,7 +15,6 @@ endif
 " Vim-Plug -------------------------------------------------------- {{{
 call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'vim-ctrlspace/vim-ctrlspace'
   Plug 'jiangmiao/auto-pairs'
   Plug 'ledger/vim-ledger', { 'for': 'ledger' }
   Plug 'mxw/vim-jsx'
@@ -41,6 +40,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'vimoutliner/vimoutliner', { 'for': 'votl' }
   Plug 'vim-scripts/ZoomWin'
   Plug 'w0rp/ale'
+  Plug 'wincent/command-t', {
+    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
+    \ }
 
   " Colorscheme
   Plug 'nanotech/jellybeans.vim'
@@ -67,6 +69,10 @@ set clipboard=unnamedplus      " Make vim use the C-c clipboard
 set scrolloff=3                " Set scrolloff
 setglobal spelllang=en_us      " Spellchecking
 
+" File Searching {{{{
+set path+=**
+set wildmenu
+" }}}}
 " Belloff {{{{
 if exists('&belloff')
   set belloff=all " Turn off all error sounds
@@ -150,6 +156,13 @@ hi TabLineFill guibg=#333333
 set noshowmode
 set laststatus=2
 set showtabline=2
+hi User1 guifg=#EBCB8B guibg=#333333
+hi User2 guifg=#bf5858 guibg=#333333
+hi User3 guifg=#ab8e38 guibg=#333333
+set statusline=
+      \%1*%{custom#statusline#mode()}\ %*%{custom#statusline#name()}\ \ %{custom#statusline#git()}%{custom#statusline#mod()}
+      \%=%{custom#statusline#type()}\ [%2*%{custom#statusline#err()}%*,\ %3*%{custom#statusline#warn()}%*]\
+      \ [U+%0004.B]\ [%4.l/%Lℓ,\ %3.p%%]
 " }}}}
 " Deoplete {{{{
 let g:deoplete#enable_at_startup = 1
@@ -171,6 +184,10 @@ command! FocusLine cal custom#misc#focusline()
 
 " Reload configuration without losing filetype specific stuff
 command! -bar SourceConf cal custom#misc#sourceConf()
+
+command! -nargs=1 -bar Mksession cal custom#mks#mkses("<args>")
+command! -nargs=1 -bar -complete=customlist,custom#mks#complete Rmsession cal custom#mks#rmses("<args>")
+command! -nargs=1 -bar -complete=customlist,custom#mks#complete Ldsession cal custom#mks#ldses("<args>")
 
 " }}}
 " Mappings -------------------------------------------------------- {{{
@@ -253,11 +270,11 @@ xmap [ee <plug>unimpairedMoveSelectionUp
 nmap ]ee <plug>unimpairedMoveDown
 xmap ]ee <plug>unimpairedMoveSelectionDown
 
-nnoremap ]ev :e ~/.vimrc<CR>
-nnoremap [ev :tabnew ~/.vimrc<CR>
+nnoremap [ev :e ~/.vimrc<CR>
+nnoremap ]ev :tabnew ~/.vimrc<CR>
 
-nnoremap ]ea :e ~/.vim/autoload<CR>
-nnoremap [ea :tabnew ~/.vim/autoload<CR>
+nnoremap [ea :e ~/.vim/autoload<CR>
+nnoremap ]ea :tabnew ~/.vim/autoload<CR>
 
 nnoremap [ad :ALEDetail<CR>
 
@@ -265,10 +282,14 @@ onoremap <silent> ic :norm! v<CR>
 
 nnoremap <silent> <C-p> :CtrlSpace O<CR>
 
-tnoremap <ESC> <C-\><C-n>
+if has('nvim')
+  tnoremap <ESC> <C-\><C-n>
+endif
 
 nnoremap ga :A<CR>
 nnoremap gr :R<CR>
+
+nnoremap <leader>h :CommandTHelp<CR>
 " }}}
 " Abbrevs --------------------------------------------------------- {{{
 
@@ -287,7 +308,7 @@ cnoreabbrev snipe UltiSnipsEdit
 cnoreabbrev vs SourceConf
 
 " Shebang
-inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' '.&filetype)
+inoreabbrev <expr> #!! "#!/usr/bin/" . (empty(&filetype) ? 'bash' : 'env '.&filetype)
 
 " }}}
 " Macros ----------------------------------------------------------- {{{
