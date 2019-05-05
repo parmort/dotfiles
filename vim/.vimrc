@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'PotatoesMaster/i3-vim-syntax'
   Plug 'romainl/vim-cool'
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+  Plug 'tpope/vim-bundler'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-endwise'
@@ -155,7 +156,6 @@ hi TabLineFill guibg=#333333
 " Statusline {{{{
 set noshowmode
 set laststatus=2
-set showtabline=2
 hi User1 guifg=#EBCB8B guibg=#333333
 hi User2 guifg=#bf5858 guibg=#333333
 hi User3 guifg=#ab8e38 guibg=#333333
@@ -163,6 +163,12 @@ set statusline=
       \%1*%{custom#statusline#mode()}\ %*%{custom#statusline#name()}\ \ %{custom#statusline#git()}%{custom#statusline#mod()}
       \%=%{custom#statusline#type()}\ [%2*%{custom#statusline#err()}%*,\ %3*%{custom#statusline#warn()}%*]\
       \ [U+%0004.B]\ [%4.l/%Lℓ,\ %3.p%%]
+" }}}}
+" Tabline {{{{
+if has('windows')
+  set showtabline=2
+  set tabline=%!custom#tabline#line()
+endif
 " }}}}
 " Deoplete {{{{
 let g:deoplete#enable_at_startup = 1
@@ -280,8 +286,6 @@ nnoremap [ad :ALEDetail<CR>
 
 onoremap <silent> ic :norm! v<CR>
 
-nnoremap <silent> <C-p> :CtrlSpace O<CR>
-
 if has('nvim')
   tnoremap <ESC> <C-\><C-n>
 endif
@@ -290,6 +294,8 @@ nnoremap ga :A<CR>
 nnoremap gr :R<CR>
 
 nnoremap <leader>h :CommandTHelp<CR>
+
+nnoremap <leader>gg :find Gemfile<CR>
 " }}}
 " Abbrevs --------------------------------------------------------- {{{
 
