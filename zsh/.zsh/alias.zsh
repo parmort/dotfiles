@@ -24,6 +24,7 @@ alias gh="git hist"
 alias "gc-"="git checkout --"
 alias gapr="git apply -R"
 alias gcaa="git commit -v --amend"
+alias gdf="git difftool"
 
 # Program substitutions
 alias more=less
