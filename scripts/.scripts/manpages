@@ -1,3 +1,12 @@
 #!/usr/bin/bash
 
-man $1 | col -b | nvim -c 'setf man' -
+man $1 | col -b >/tmp/manpage
+
+# cat /tmp/manpage
+
+if [ ! -s /tmp/manpage ]
+then
+  exit 1
+fi
+
+$EDITOR -c 'setf man' /tmp/manpage
