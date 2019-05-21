@@ -20,5 +20,17 @@ endfunction
 function custom#tabline#label(n) abort
   let l:buflist=tabpagebuflist(a:n)
   let l:winnr=tabpagewinnr(a:n)
-  return a:n.' '.pathshorten(fnamemodify(bufname(buflist[winnr - 1]), ':~:.'))
+  let l:content=s:content(bufname(buflist[winnr - 1]))
+
+  return a:n.' '.l:content
+endfunction
+
+function s:content(bufname) abort
+  if a:bufname == ''
+    let l:content = fnamemodify(a:bufname, ':~:.')
+  else
+    let l:content = fnamemodify(a:bufname, ':t')
+  endif
+
+  return pathshorten(l:content)
 endfunction

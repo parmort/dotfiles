@@ -49,10 +49,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'nanotech/jellybeans.vim'
 
   if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/neco-vim', { 'for': 'vim' }
-    Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
-    Plug 'uplus/deoplete-solargraph', { 'for': 'ruby' }
+    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " Plug 'Shougo/neco-vim', { 'for': 'vim' }
+    " Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+    " Plug 'uplus/deoplete-solargraph', { 'for': 'ruby' }
+    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+    
   endif
 call plug#end()
 " }}}
@@ -152,6 +154,7 @@ hi StatusLine guifg=#e8e8d3 guibg=#333333 gui=none
 hi TabLine guifg=#e8e8d3 guibg=#333333 gui=italic
 hi TabLineSel guifg=#e8e8d3 guibg=#333333 gui=bold
 hi TabLineFill guibg=#333333
+autocmd FileType json syntax match Comment +\/\/.\+$+
 " }}}}
 " Statusline {{{{
 set noshowmode
@@ -191,7 +194,7 @@ command! FocusLine cal custom#misc#focusline()
 " Reload configuration without losing filetype specific stuff
 command! -bar SourceConf cal custom#misc#sourceConf()
 
-command! -nargs=1 -bar Mksession cal custom#mks#mkses("<args>")
+command! -nargs=1 -bar -bang -complete=customlist,custom#mks#complete Mksession cal custom#mks#mkses("<args>", "<bang>")
 command! -nargs=1 -bar -complete=customlist,custom#mks#complete Rmsession cal custom#mks#rmses("<args>")
 command! -nargs=1 -bar -complete=customlist,custom#mks#complete Ldsession cal custom#mks#ldses("<args>")
 
@@ -296,6 +299,8 @@ nnoremap gr :R<CR>
 nnoremap <leader>h :CommandTHelp<CR>
 
 nnoremap <leader>gg :find Gemfile<CR>
+
+nnoremap <silent> <leader>c :%s/^[	\ ]*#[\ \n].*//g<CR>:%s/^\n//g<CR>:nohl<CR>gg
 " }}}
 " Abbrevs --------------------------------------------------------- {{{
 

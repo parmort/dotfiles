@@ -1,12 +1,8 @@
 #!/usr/bin/bash
 
-man $1 | col -b >/tmp/manpage
-
-# cat /tmp/manpage
-
-if [ ! -s /tmp/manpage ]
+if [ -z "$(man -w $1)" ]
 then
   exit 1
 fi
 
-$EDITOR -c 'setf man' /tmp/manpage
+$EDITOR man://$1

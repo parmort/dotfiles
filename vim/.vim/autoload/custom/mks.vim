@@ -6,8 +6,14 @@ if exists("g:ses_path")
   let s:ses_path = g:ses_path
 endif
 
-function! custom#mks#mkses(ses_title)
-  execute "mksession " . s:ses_path . a:ses_title
+function! custom#mks#mkses(ses_title, bang)
+  let l:cmd = "mksession"
+
+  if a:bang ==# "!"
+    let l:cmd = "mksession!"
+  endif
+
+  execute l:cmd . " " . s:ses_path . a:ses_title
 endfunction
 
 function! custom#mks#rmses(ses_title)
