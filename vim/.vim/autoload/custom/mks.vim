@@ -6,14 +6,23 @@ if exists("g:ses_path")
   let s:ses_path = g:ses_path
 endif
 
-function! custom#mks#mkses(ses_title, bang)
+if !exists("s:ses_file")
+  let s:ses_file = ""
+endif
+
+function! custom#mks#mkses(ses_file, bang)
   let l:cmd = "mksession"
 
-  if a:bang ==# "!"
+  let s:ses_file = a:ses_file !=# "" ?
+        \ s:ses_path . a:ses_file :
+        \ s:ses_file
+
+  if a:bang
     let l:cmd = "mksession!"
   endif
 
-  execute l:cmd . " " . s:ses_path . a:ses_title
+  echo l:cmd . " " . s:ses_file
+  execute l:cmd . " " . s:ses_file
 endfunction
 
 function! custom#mks#rmses(ses_title)
@@ -22,10 +31,6 @@ function! custom#mks#rmses(ses_title)
   if v:shell_error
     echo "Could not delete file: " . a:ses_title
   endif
-endfunction
-
-function! custom#mks#ldses(ses_title)
-  execute "source " . s:ses_path . a:ses_title
 endfunction
 
 function! custom#mks#complete(A,L,P)

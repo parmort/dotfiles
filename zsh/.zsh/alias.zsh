@@ -5,16 +5,17 @@ alias la="exa -a --group-directories-first"
 alias ll="exa -lahg --git --group-directories-first"
 alias lc="clear && exa -lahg --git --group-directories-first"
 alias lt="exa --tree"
-alias c.="cd .."
-alias c="cd ~"
 
 alias q="clear"
 alias e="exit"
 
 # Folder switching shortcuts
-alias cdd="cd ~/dotfiles"
-alias cdb="cd ~/.build"
-alias cdc="cd ~/code"
+alias c.="cd .."
+alias c="cd ~"
+alias cdd="cd ~/dotfiles && ls"
+alias cdb="cd ~/.build && ls"
+alias cdc="cd ~/code && ls"
+alias cdo="cd ~/docs && ls"
 
 # Easy source of config
 alias sb="source ~/.zshrc"

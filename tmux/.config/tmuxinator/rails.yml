@@ -1,0 +1,12 @@
+# /home/nolan/.config/tmuxinator/rails.yml
+
+name: rails_<%= File.basename(Dir.pwd) %>
+root: <%= Dir.pwd %>
+
+windows:
+  - editor:
+      layout: e0cc,155x40,0,0[155x29,0,0,7,155x10,0,30,13]
+      panes:
+        - vim
+        -
+  - server: bundle exec rails s

@@ -5,11 +5,9 @@ export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="sorin"
+ZSH_THEME=""
+# ZSH_THEME="sorin"
+# ZSH_THEME="geometry/geometry"
 
 # Set list of themes to pick from when loading at random
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
@@ -45,10 +43,6 @@ COMPLETION_WAITING_DOTS="true"
 # Use a different custom folder than $ZSH/custom
 ZSH_CUSTOM=~/.zsh
 
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(git archlinux stow tmux fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -76,3 +70,8 @@ fi
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+fpath=( "$HOME/.zsh/funcs" $fpath )
+
+autoload -U promptinit; promptinit
+prompt pure

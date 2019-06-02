@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+echo "" | xclip -i -selection primary
+echo "" | xclip -i -selection secondary
+echo "" | xclip -i -selection clipboard
+echo "" | xclip -i -selection buffer-cut
+
+echo "Cleared clipboard"

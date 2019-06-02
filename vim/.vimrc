@@ -16,8 +16,11 @@ endif
 call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'junegunn/goyo.vim'
+  Plug 'junegunn/limelight.vim'
   Plug 'ledger/vim-ledger', { 'for': 'ledger' }
-  Plug 'mxw/vim-jsx'
+  Plug 'lervag/vimtex', { 'for': 'tex' }
+  Plug 'mustache/vim-mustache-handlebars' ", { 'for':  }
   Plug 'parmort/vim-factorybot', { 'on': 'Efactory' }
   Plug 'parmort/vim-audit'
   Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -31,15 +34,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-projectionist'
+  Plug 'tpope/vim-ragtag'
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
   Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-rsi'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
-  Plug 'Valloric/ListToggle'
   Plug 'vimoutliner/vimoutliner', { 'for': 'votl' }
-  Plug 'vim-scripts/ZoomWin'
   Plug 'w0rp/ale'
   Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
@@ -49,12 +51,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'nanotech/jellybeans.vim'
 
   if has('nvim')
-    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    " Plug 'Shougo/neco-vim', { 'for': 'vim' }
-    " Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
-    " Plug 'uplus/deoplete-solargraph', { 'for': 'ruby' }
-    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-    
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/neco-vim', { 'for': 'vim' }
+    Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+    Plug 'tbodt/deoplete-tabnine', { 'for': 'ruby', 'do': './install.sh' }
   endif
 call plug#end()
 " }}}
@@ -70,6 +70,7 @@ set lazyredraw                 " Only redraw the screen when no user input occur
 set backspace=eol,indent,start " Make the backspace behave normally
 set clipboard=unnamedplus      " Make vim use the C-c clipboard
 set scrolloff=3                " Set scrolloff
+set linebreak                  " Wrap lines at `breakat`
 setglobal spelllang=en_us      " Spellchecking
 
 " File Searching {{{{
@@ -181,6 +182,22 @@ if has('nvim')
   let g:rspec_command = ':call custom#misc#runspecs("{spec}")'
 endif
 " }}}}
+" Goyo {{{{
+function! s:goyo_enter()
+  set wrap
+endfunction
+
+function! s:goyo_leave()
+  set nowrap
+  SourceConf
+endfunction
+
+autocmd! User GoyoEnter nested call custom#goyo#goyo_enter()
+autocmd! User GoyoLeave nested call custom#goyo#goyo_leave()
+" }}}}
+" vimtex {{{{
+let g:vimtex_view_general_viewer = 'zathura'
+" }}}}
 
 " }}}
 " Commands -------------------------------------------------------- {{{
@@ -194,12 +211,31 @@ command! FocusLine cal custom#misc#focusline()
 " Reload configuration without losing filetype specific stuff
 command! -bar SourceConf cal custom#misc#sourceConf()
 
-command! -nargs=1 -bar -bang -complete=customlist,custom#mks#complete Mksession cal custom#mks#mkses("<args>", "<bang>")
-command! -nargs=1 -bar -complete=customlist,custom#mks#complete Rmsession cal custom#mks#rmses("<args>")
-command! -nargs=1 -bar -complete=customlist,custom#mks#complete Ldsession cal custom#mks#ldses("<args>")
+command! -nargs=? -bar -bang -complete=customlist,custom#mks#complete Mksession cal custom#mks#mkses(<q-args>, <bang>0)
+command! -nargs=1 -bar -complete=customlist,custom#mks#complete Rmsession cal custom#mks#rmses(<q-args>)
 
+command! -bang -nargs=0 QFix call QFixToggle(<bang>0)
+function! QFixToggle(loc)
+  if a:loc
+    if exists("g:lfix_win")
+      lclose
+      unlet g:lfix_win
+    else
+      lopen 10
+      let g:lfix_win = bufnr("$")
+    endif
+  else
+    if exists("g:qfix_win")
+      cclose
+      unlet g:qfix_win
+    else
+      copen 10
+      let g:qfix_win = bufnr("$")
+    endif
+  endif
+endfunction
 " }}}
-" Mappings -------------------------------------------------------- {{{
+" Mappings ------------------------------------------------------- {{{
 
 " Prefix Keys {{{{
 nnoremap <Space> <nop>
@@ -218,8 +254,8 @@ nnoremap : ;
 
 " Function Keys {{{{
 set pastetoggle=<F2>
-let g:lt_quickfix_list_toggle_map = '<F3>'
-let g:lt_location_list_toggle_map = '<F4>'
+nnoremap <F3> :QFix<CR>
+nnoremap <F4> :QFix!<CR>
 " nnoremap <F5>
 nnoremap <F6> :SpellToggle<CR>
 " nnoremap <F7>
@@ -230,6 +266,9 @@ nnoremap <F6> :SpellToggle<CR>
 " }}}}
 
 nnoremap <Space>q @q
+
+" Still retain little-used functionality of comma
+nnoremap ,, ,
 
 " Buffer navigation
 nnoremap <leader>bn :tabn<CR>
@@ -268,11 +307,8 @@ inoremap <C-u> <esc>mzgUiw`za
 nnoremap <silent> gp :call custom#misc#projectFile()<CR>
 
 " Unimpaired++
-try
-  unmap [e
-  unmap ]e
-catch /E31/
-endtry
+call custom#misc#nunmap("[e")
+call custom#misc#nunmap("]e")
 
 nmap [ee <plug>unimpairedMoveUp
 xmap [ee <plug>unimpairedMoveSelectionUp
@@ -296,11 +332,20 @@ endif
 nnoremap ga :A<CR>
 nnoremap gr :R<CR>
 
-nnoremap <leader>h :CommandTHelp<CR>
+nmap <C-p> <Plug>(CommandT)
+nmap <leader>h <Plug>(CommandTHelp)
+nmap <leader>s <Plug>(CommandTBuffer)
+nmap <leader>j <nop>
 
 nnoremap <leader>gg :find Gemfile<CR>
 
-nnoremap <silent> <leader>c :%s/^[	\ ]*#[\ \n].*//g<CR>:%s/^\n//g<CR>:nohl<CR>gg
+nnoremap <silent> <localleader>c :%s/^[	\ ]*#[\ \n].*//g<CR>:%s/^\n//g<CR>:nohl<CR>gg
+
+nnoremap go :Goyo<CR>
+
+nnoremap <leader>x :Texplore<CR>
+
+vnoremap K k
 " }}}
 " Abbrevs --------------------------------------------------------- {{{
 

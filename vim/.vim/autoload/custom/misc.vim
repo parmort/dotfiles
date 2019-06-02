@@ -31,21 +31,28 @@ function! custom#misc#sourceConf()
   let l:pos = getcurpos()
   update
   so ~/.vimrc
-  edit
-  call setpos('.', pos)
-  call custom#misc#focusline()
+  try
+    edit
+    call setpos('.', pos)
+    call custom#misc#focusline()
+  catch /E32/
+  endtry
 endfunction
 
 function! custom#misc#projectFile()
-  let l:fname = '~/.projects'
-  let l:buf = bufwinnr(l:fname)
-  if l:buf ==? -1
-    execute 'vsp '.l:fname
-  else
-    execute 'buffer '.l:buf
-    write
-    execute 'bdelete '.l:fname
-  endif
+  let l:fname = ['project.otl', fnamemodify('~/.projects', ':p')]
+  for name in l:fname
+    let bufnr = bufnr(name)
+    if bufnr != -1
+      execute 'bwipeout '.bufnr
+      return
+    endif
+    if filereadable(name)
+      execute 'vsp | e '.name
+      redraw
+      return
+    endif
+  endfor
 endfunction
 
 function! custom#misc#runspecs(spec)
@@ -57,4 +64,11 @@ function! custom#misc#settabspace(spc)
   exe 'set tabstop='.a:spc
   exe 'set softtabstop='.a:spc
   exe 'set shiftwidth='.a:spc
+endfunction
+
+function! custom#misc#nunmap(key)
+  try
+    exec "nunmap ".a:key
+  catch /E31/
+  endtry
 endfunction
