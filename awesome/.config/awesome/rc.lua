@@ -102,7 +102,7 @@ local themes = {
     "rainbow",         -- 8
     "steamburn",       -- 9
     "vertex",          -- 10
-    "parmort-prawd",   -- 11
+    "parmort",         -- 11
 }
 
 local chosen_theme = themes[11]
@@ -113,7 +113,8 @@ local shift        = "Shift"
 local ctrl         = "Control"
 local terminal     = "st"
 local editor       = os.getenv("EDITOR") or "vim"
-local browser      = "firefox"
+local browser      = "chromium"
+-- local browser      = "firefox"
 local scrlocker    = "dm-tool switch-to-greeter"
 
 awful.util.terminal = terminal

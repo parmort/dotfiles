@@ -1,25 +1,6 @@
 ! Just comment out current scheme and add a new line for a new scheme
-#include ".xrdb/jellybeans.xrdb"
+#include ".xrdb/theme.xrdb"
 
 ! st.St.font: mono:pixelsize=13:antialias=true:autohint=true
 *.font: mono:pixelsize=13:antialias=true:autohint=true
 *.alpha: 255
-*.background: BACKGROUND
-*.foreground: FOREGROUND
-
-*.color0 : COLOR_0
-*.color1 : COLOR_1
-*.color2 : COLOR_2
-*.color3 : COLOR_3
-*.color4 : COLOR_4
-*.color5 : COLOR_5
-*.color6 : COLOR_6
-*.color7 : COLOR_7
-*.color8 : COLOR_8
-*.color9 : COLOR_9
-*.color10: COLOR_10
-*.color11: COLOR_11
-*.color12: COLOR_12
-*.color13: COLOR_13
-*.color14: COLOR_14
-*.color15: COLOR_15

@@ -15,6 +15,7 @@ endif
 " Vim-Plug -------------------------------------------------------- {{{
 call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'chriskempson/base16-vim'
   Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
@@ -33,6 +34,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-obsession'
   Plug 'tpope/vim-projectionist'
   Plug 'tpope/vim-ragtag'
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
@@ -42,6 +44,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
   Plug 'vimoutliner/vimoutliner', { 'for': 'votl' }
+  Plug 'vimwiki/vimwiki'
   Plug 'w0rp/ale'
   Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
@@ -67,7 +70,7 @@ set nowrap                     " Don't wrap lines
 set autoindent                 " Copy indent from previous line
 set copyindent                 " Copy indent structure (i.e. tabs and spaces)
 set lazyredraw                 " Only redraw the screen when no user input occurs
-set backspace=eol,indent,start " Make the backspace behave normally
+set bs=eol,start               " Make the backspace behave normally
 set clipboard=unnamedplus      " Make vim use the C-c clipboard
 set scrolloff=3                " Set scrolloff
 set linebreak                  " Wrap lines at `breakat`
@@ -145,28 +148,37 @@ if has('vertsplit')
   set splitright
 endif
 " }}}}
+" Statusline {{{{
+set noshowmode
+set laststatus=2
+function! s:statusline() abort
+  call Base16hi("User1", g:base16_gui0C, g:base16_gui02, g:base16_cterm0C, g:base16_cterm02)
+  call Base16hi("User2", g:base16_gui08, g:base16_gui02, g:base16_cterm08, g:base16_cterm02)
+  call Base16hi("User3", g:base16_gui0A, g:base16_gui02, g:base16_cterm0A, g:base16_cterm02)
+endfunction
+set statusline=
+      \%1*%{custom#statusline#mode()}\ %*%{custom#statusline#git()}%{custom#statusline#name()}\ %{custom#statusline#mod()}
+      \%=%{custom#statusline#type()}\ [%2*%{custom#statusline#err()}%*,\ %3*%{custom#statusline#warn()}%*]\
+      \ [U+%0004.B]\ [%4.l/%Lℓ,\ %3.p%%]
+" }}}}
 " Colorscheme {{{{
 set background=dark " Give vim a dark background
 set termguicolors   " Have vim use GUI colors
 
-colorscheme jellybeans
+hi Comment cterm=italic gui=italic
 
-hi StatusLine guifg=#e8e8d3 guibg=#333333 gui=none
-hi TabLine guifg=#e8e8d3 guibg=#333333 gui=italic
-hi TabLineSel guifg=#e8e8d3 guibg=#333333 gui=bold
-hi TabLineFill guibg=#333333
+function! s:base16_customize() abort
+  call Base16hi("WildMenu", g:base16_gui05, g:base16_gui03, g:base16_cterm05, g:base16_cterm03)
+endfunction
+augroup on_change_colorschema
+  autocmd!
+  autocmd ColorScheme * call s:base16_customize()
+  autocmd ColorScheme * call s:statusline()
+augroup END
+
+colorscheme base16-material-darker
+
 autocmd FileType json syntax match Comment +\/\/.\+$+
-" }}}}
-" Statusline {{{{
-set noshowmode
-set laststatus=2
-hi User1 guifg=#EBCB8B guibg=#333333
-hi User2 guifg=#bf5858 guibg=#333333
-hi User3 guifg=#ab8e38 guibg=#333333
-set statusline=
-      \%1*%{custom#statusline#mode()}\ %*%{custom#statusline#name()}\ \ %{custom#statusline#git()}%{custom#statusline#mod()}
-      \%=%{custom#statusline#type()}\ [%2*%{custom#statusline#err()}%*,\ %3*%{custom#statusline#warn()}%*]\
-      \ [U+%0004.B]\ [%4.l/%Lℓ,\ %3.p%%]
 " }}}}
 " Tabline {{{{
 if has('windows')
@@ -198,6 +210,10 @@ autocmd! User GoyoLeave nested call custom#goyo#goyo_leave()
 " vimtex {{{{
 let g:vimtex_view_general_viewer = 'zathura'
 " }}}}
+" vimwiki {{{{{
+let g:vimwiki_list = [{'path': '~/docs/vimwiki/',
+      \ 'syntax': 'markdown', 'ext': '.mdown'}]
+" }}}}}
 
 " }}}
 " Commands -------------------------------------------------------- {{{

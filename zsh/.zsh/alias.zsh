@@ -34,10 +34,12 @@ alias vim=nvim
 alias mutt=neomutt
 alias man=manpages
 
+alias "ec-"="ec -"
+
 #===========#
 #-Functions-#
 #===========#
 
 gal() { alias | grep "^$1" }
-ec() { find ~/dotfiles/* -type f | grep -v ".*\.png" | fzf | xargs -r $EDITOR }
 ses() { find ~/.vim/sessions/* -type f | fzf | xargs -r $EDITOR -S }
+theme() { sed 1q ~/.xrdb/theme.xrdb | cut -c 10- }

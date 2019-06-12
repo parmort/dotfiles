@@ -41,7 +41,7 @@ function! custom#statusline#git()
     return ''
   endif
 
-  return s:netrw() ? '' : s:surround(' '.fugitive#Head())
+  return s:netrw() ? '' : s:surround(' '.fugitive#Head()).' '
 endfunction
 
 function! custom#statusline#err()
