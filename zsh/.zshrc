@@ -1,6 +1,9 @@
-# If you come from bash you might have to change your $PATH.
+export GOPATH=$HOME/godir
+
 export PATH=$HOME/.bin:$HOME/.scripts:$PATH
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH=$GOPATH:$GOPATH/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -66,8 +69,6 @@ fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

@@ -1,6 +1,3 @@
-" Add curly brace spacing convention
-inoremap <buffer> {<Space> {<Space><Esc>maa<Space>}<Esc>`a:delmarks<Space>a<CR>a
-
 " Move param to instance variable
 nnoremap <buffer> <CR>i yiwo@<Esc>pa = <Esc>p
 

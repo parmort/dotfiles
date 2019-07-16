@@ -1,9 +1,7 @@
 # Folder Viewing
 alias ls="exa --group-directories-first"
 alias l="exa --group-directories-first"
-alias la="exa -a --group-directories-first"
 alias ll="exa -lahg --git --group-directories-first"
-alias lc="clear && exa -lahg --git --group-directories-first"
 alias lt="exa --tree"
 
 alias q="clear"
@@ -16,6 +14,7 @@ alias cdd="cd ~/dotfiles && ls"
 alias cdb="cd ~/.build && ls"
 alias cdc="cd ~/code && ls"
 alias cdo="cd ~/docs && ls"
+alias cdg="cd ~/gdrive && ls"
 
 # Easy source of config
 alias sb="source ~/.zshrc"
@@ -35,6 +34,7 @@ alias mutt=neomutt
 alias man=manpages
 
 alias "ec-"="ec -"
+alias ds=~/.scripts/drivesync
 
 #===========#
 #-Functions-#

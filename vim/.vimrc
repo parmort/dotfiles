@@ -70,7 +70,7 @@ set nowrap                     " Don't wrap lines
 set autoindent                 " Copy indent from previous line
 set copyindent                 " Copy indent structure (i.e. tabs and spaces)
 set lazyredraw                 " Only redraw the screen when no user input occurs
-set bs=eol,start               " Make the backspace behave normally
+set bs=eol,start               " Make the backspace behave normally except indent
 set clipboard=unnamedplus      " Make vim use the C-c clipboard
 set scrolloff=3                " Set scrolloff
 set linebreak                  " Wrap lines at `breakat`
@@ -286,9 +286,9 @@ nnoremap <Space>q @q
 " Still retain little-used functionality of comma
 nnoremap ,, ,
 
-" Buffer navigation
-nnoremap <leader>bn :tabn<CR>
-nnoremap <leader>bp :tabp<CR>
+" Stop using custom mappings for already decent mappings
+nnoremap <leader>bn :echo "Use gt"<CR>
+nnoremap <leader>bp :echo "Use gT"<CR>
 
 nnoremap <leader>e mmggVG
 
@@ -362,6 +362,8 @@ nnoremap go :Goyo<CR>
 nnoremap <leader>x :Texplore<CR>
 
 vnoremap K k
+
+vnoremap p <esc>:echo 'Use "_p instead'<CR>gv
 " }}}
 " Abbrevs --------------------------------------------------------- {{{
 

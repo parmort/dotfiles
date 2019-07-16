@@ -295,7 +295,7 @@ globalkeys = my_table.join(
     awful.key({ modkey, shift }, "d", function () lain.util.delete_tag() end,
               {description = "delete tag", group = "tag"}),
     -- Go to previous tag
-    awful.key({ modkey }, "\\", awful.tag.history.restore,
+    awful.key({ modkey }, "Tab", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
     -- }}}}
 

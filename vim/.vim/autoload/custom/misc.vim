@@ -40,7 +40,7 @@ function! custom#misc#sourceConf()
 endfunction
 
 function! custom#misc#projectFile()
-  let l:fname = ['project.otl', fnamemodify('~/.projects', ':p')]
+  let l:fname = ['project.otl', '.project', fnamemodify('~/.projects', ':p')]
   for name in l:fname
     let bufnr = bufnr(name)
     if bufnr != -1

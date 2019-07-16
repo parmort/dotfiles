@@ -1,3 +1,11 @@
 let b:AutoPairs = g:AutoPairs
 let b:AutoPairs["<%"]  = "%>"
 let b:AutoPairs["<%="] = "%>"
+
+" Run tests
+nnoremap <buffer> <CR>t :!clear<CR>:call RunCurrentSpecFile()<CR>
+nnoremap <buffer> <CR>a :!clear<CR>:call RunAllSpecs()<CR>
+nnoremap <buffer> <CR>s :!clear<CR>:call RunNearestSpec()<CR>
+
+" Insert `<% end %>` on a new line
+nnoremap <buffer> <silent> <CR>e mmo<% end %><esc>`m:delmarks m<CR>
