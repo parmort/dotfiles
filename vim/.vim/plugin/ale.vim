@@ -1,15 +1,19 @@
+scriptencoding utf-8
 let g:ale_set_loclist = 1
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
-let g:ale_linters = {
-      \  'javascript': ['eslint'],
-      \  'python': ['pylint', 'flake8'],
-      \  'html': ['htmlhint'],
-      \  'java': ['javac'],
-      \  'asm': []
-      \ }
 
-let g:ale_sign_column_always = 1
+let g:ale_linters = {}
+let g:ale_linters['javascript'] = ['eslint']
+let g:ale_linters['python'] = ['pylint', 'flake8']
+let g:ale_linters['html'] = ['htmlhint']
+let g:ale_linters['java'] = ['javac']
+let g:ale_linters['asm'] = []
+let g:ale_linters['vim'] = ['vint']
+
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
+
 let g:ale_sign_error = '‣'
 let g:ale_sign_warning = '•'
 

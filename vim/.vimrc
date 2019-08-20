@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/limelight.vim'
   Plug 'ledger/vim-ledger', { 'for': 'ledger' }
   Plug 'lervag/vimtex', { 'for': 'tex' }
-  Plug 'mustache/vim-mustache-handlebars' ", { 'for':  }
+  Plug 'mustache/vim-mustache-handlebars'
   Plug 'parmort/vim-factorybot', { 'on': 'Efactory' }
   Plug 'parmort/vim-audit'
   Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -38,7 +38,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-projectionist'
   Plug 'tpope/vim-ragtag'
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
-  Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-rsi'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
@@ -56,8 +55,11 @@ call plug#begin('~/.vim/plugged')
   if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/neco-vim', { 'for': 'vim' }
-    Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
-    Plug 'tbodt/deoplete-tabnine', { 'for': 'ruby', 'do': './install.sh' }
+
+    Plug 'autozimu/LanguageClient-neovim', {
+          \ 'branch': 'next',
+          \ 'do': 'bash install.sh',
+          \}
   endif
 call plug#end()
 " }}}
@@ -75,6 +77,7 @@ set clipboard=unnamedplus      " Make vim use the C-c clipboard
 set scrolloff=3                " Set scrolloff
 set linebreak                  " Wrap lines at `breakat`
 setglobal spelllang=en_us      " Spellchecking
+set signcolumn=yes
 
 " File Searching {{{{
 set path+=**
@@ -189,6 +192,28 @@ endif
 " Deoplete {{{{
 let g:deoplete#enable_at_startup = 1
 " }}}}
+" ALE {{{
+let g:ale_disable_lsp = 1
+" }}}
+" LanguageClient-neovim {{{
+let g:LanguageClient_serverCommands = {}
+
+" npm i -g javascript-typescript-langserver
+let s:jsts_lsp = executable('javascript-typescript-stdio') ?
+      \ [exepath('javascript-typescript-stdio')] :
+      \ []
+
+" gem install solargraph
+let s:rb_lsp = executable('solargraph') ?
+      \ [exepath('solargraph'), 'stdio'] :
+      \ []
+
+let g:LanguageClient_serverCommands['javascript'] = s:jsts_lsp
+let g:LanguageClient_serverCommands['typescript'] = s:jsts_lsp
+let g:LanguageClient_serverCommands['ruby'] = s:rb_lsp
+
+let g:LanguageClient_hoverPreview = "Always"
+" }}}
 " vim-rspec {{{{
 if has('nvim')
   let g:rspec_command = ':call custom#misc#runspecs("{spec}")'
@@ -362,8 +387,6 @@ nnoremap go :Goyo<CR>
 nnoremap <leader>x :Texplore<CR>
 
 vnoremap K k
-
-vnoremap p <esc>:echo 'Use "_p instead'<CR>gv
 " }}}
 " Abbrevs --------------------------------------------------------- {{{
 
@@ -390,6 +413,7 @@ augroup macros
 
   " Add a semicolon to the end of current line
   au FileType javascript,typescript,cpp,arduino nnoremap <CR>s maA;<Esc>`a:delmarks<Space>a<CR>
+  au FileType vim nnoremap <CR>s maggOscriptencoding utf-8<Esc>`a:delmarks a<CR>
 
 augroup END
 " }}}
