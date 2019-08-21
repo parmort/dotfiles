@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+ln -s ~/.zsh/pure/pure.zsh ~/.zsh/funcs/prompt_pure_setup
+ln -s ~/.zsh/pure/async.zsh ~/.zsh/funcs/async

@@ -1,5 +1,5 @@
 ! Just comment out current scheme and add a new line for a new scheme
-#include ".xrdb/theme.xrdb"
+!#include ".xrdb/theme.xrdb"
 
 ! st.St.font: mono:pixelsize=13:antialias=true:autohint=true
 *.font: mono:pixelsize=13:antialias=true:autohint=true

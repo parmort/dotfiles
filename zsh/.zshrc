@@ -46,7 +46,7 @@ COMPLETION_WAITING_DOTS="true"
 # Use a different custom folder than $ZSH/custom
 ZSH_CUSTOM=~/.zsh
 
-plugins=(git archlinux stow tmux fast-syntax-highlighting)
+plugins=(git stow fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 

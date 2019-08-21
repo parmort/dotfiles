@@ -65,6 +65,7 @@ end
 
 run_on_start({
   'nm-applet &',
+  'pamac-tray &',
 })
 
 -- This function will run once, when Awesome is first started
@@ -192,6 +193,7 @@ lain.layout.cascade.tile.nmaster       = 5
 lain.layout.cascade.tile.ncol          = 2
 
 beautiful.init(string.format("%s/.config/awesome/%s/theme.lua", os.getenv("HOME"), chosen_theme))
+beautiful.icon_theme = "Papirus-Dark"
 -- }}}
 
 -- {{{ Screen
@@ -335,18 +337,15 @@ globalkeys = my_table.join(
     -- {{{{ MPD
 
     awful.key({}, "XF86AudioRaiseVolume", function ()
-            os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
-            beautiful.volume.update()
+            os.execute(string.format("amixer -q set Master 1%%+"))
         end, {description = "volume up", group = "MPD"}),
 
     awful.key({}, "XF86AudioLowerVolume", function ()
-            os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
-            beautiful.volume.update()
+            os.execute(string.format("amixer -q set Master 1%%-"))
         end, {description = "volume down", group = "MPD"}),
 
     awful.key({}, "XF86AudioMute", function ()
-            os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
-            beautiful.volume.update()
+            os.execute(string.format("amixer -q set Master toggle"))
         end, {description = "toggle mute", group = "MPD"}),
 
     awful.key({}, "XF86AudioPlay", function ()

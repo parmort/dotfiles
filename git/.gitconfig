@@ -1,13 +1,12 @@
 [user]
   email = parvus.mortalis@gmail.com
   name = Nolan Prochnau
-  signingkey = Nolan Prochnau <parvus.mortalis@gmail.com>
 
 [core]
   editor = nvim
 
-[commit]
-  gpgsign = true
+; [commit]
+;   gpgsign = true
 
 [alias]
 # Show the history
