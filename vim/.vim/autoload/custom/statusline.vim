@@ -44,14 +44,16 @@ function! custom#statusline#git()
   return s:netrw() ? '' : s:surround(fugitive#Head()).' '
 endfunction
 
-function! custom#statusline#err()
-  let l:counts = ale#statusline#Count(bufnr(''))
-  return l:counts.error + l:counts.style_error
-endfunction
+function! custom#statusline#coc()
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) || get(g:, 'coc_status', '') == '' | return '' | endif
+  let msgs = []
 
-function! custom#statusline#warn()
-  let l:counts = ale#statusline#Count(bufnr(''))
-  return l:counts.total - (l:counts.error + l:counts.style_error)
+  call add(msgs, 'E' . get(info, 'error', 0))
+  call add(msgs, 'W' . get(info, 'warning', 0))
+
+  let str = join(msgs, ' ') . get(g:, 'coc_status', '')
+  return s:surround(str)
 endfunction
 
 " PRIVATE FUNCS

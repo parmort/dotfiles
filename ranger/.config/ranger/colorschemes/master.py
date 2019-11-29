@@ -1,0 +1,1 @@
+/home/nolan/code/ranger-mastermind/master.py

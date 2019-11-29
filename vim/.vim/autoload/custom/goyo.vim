@@ -5,8 +5,7 @@ function! custom#goyo#goyo_enter()
   nnoremap j gj
   nnoremap k gk
   Limelight
-  call deoplete#disable()
-  silent call AutoPairsToggle()
+  CocDisable
 endfunction
 
 function! custom#goyo#goyo_leave()
@@ -16,7 +15,6 @@ function! custom#goyo#goyo_leave()
   Limelight!
   unmap j
   unmap k
-  so ~/.vimrc
-  call deoplete#enable()
-  silent call AutoPairsToggle()
+  cal custom#misc#sourceConf()
+  CocEnable
 endfunction

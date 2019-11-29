@@ -11,6 +11,7 @@ if has('multi_byte')
   setglobal fileencodings=utf-8
 endif
 
+" Download vim-plug if not downloaded
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -19,13 +20,13 @@ end
 " }}}
 " Vim-Plug -------------------------------------------------------- {{{
 call plug#begin('~/.vim/plugged')
+  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'chriskempson/base16-vim'
-  Plug 'jiangmiao/auto-pairs'
-  Plug 'junegunn/goyo.vim'
+  Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
   Plug 'junegunn/limelight.vim'
   Plug 'ledger/vim-ledger', { 'for': 'ledger' }
   Plug 'lervag/vimtex', { 'for': 'tex' }
+  Plug 'lifepillar/vim-colortemplate'
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'parmort/vim-factorybot', { 'on': 'Efactory' }
   Plug 'parmort/vim-audit'
@@ -33,6 +34,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'PotatoesMaster/i3-vim-syntax'
   Plug 'romainl/vim-cool'
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+  Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
   Plug 'tpope/vim-bundler'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dispatch'
@@ -47,25 +49,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-vinegar'
-  Plug 'vimoutliner/vimoutliner', { 'for': 'votl' }
-  Plug 'vimwiki/vimwiki'
-  Plug 'w0rp/ale'
+  Plug 'vimjas/vim-python-pep8-indent', { 'for': 'python' }
   Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
     \ }
 
   " Colorscheme
-  Plug 'nanotech/jellybeans.vim'
-
-  if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/neco-vim', { 'for': 'vim' }
-
-    Plug 'autozimu/LanguageClient-neovim', {
-          \ 'branch': 'next',
-          \ 'do': 'bash install.sh',
-          \}
-  endif
+  Plug '~/code/mountaintop'
 call plug#end()
 " }}}
 " Settings ------------------------------------------------------- {{{
@@ -87,6 +77,7 @@ set signcolumn=yes
 " File Searching {{{{
 set path+=**
 set wildmenu
+set wildignore=*.o
 " }}}}
 " Belloff {{{{
 if exists('&belloff')
@@ -156,72 +147,32 @@ if has('vertsplit')
   set splitright
 endif
 " }}}}
-" Statusline {{{{
-set noshowmode
-set laststatus=2
-function! s:statusline() abort
-  call Base16hi("User1", g:base16_gui0C, g:base16_gui02, g:base16_cterm0C, g:base16_cterm02)
-  call Base16hi("User2", g:base16_gui08, g:base16_gui02, g:base16_cterm08, g:base16_cterm02)
-  call Base16hi("User3", g:base16_gui0A, g:base16_gui02, g:base16_cterm0A, g:base16_cterm02)
-endfunction
-set statusline=
-      \%1*%{custom#statusline#mode()}\ %*%{custom#statusline#git()}%{custom#statusline#name()}\ %{custom#statusline#mod()}
-      \%=%{custom#statusline#type()}\ [%2*%{custom#statusline#err()}%*,\ %3*%{custom#statusline#warn()}%*]\
-      \ [U+%0004.B]\ [%4.l/%Lℓ,\ %3.p%%]
-" }}}}
 " Colorscheme {{{{
 set background=dark " Give vim a dark background
 set termguicolors   " Have vim use GUI colors
 
+colorscheme mtntop
+
 hi Comment cterm=italic gui=italic
-
-function! s:base16_customize() abort
-  call Base16hi("WildMenu", g:base16_gui05, g:base16_gui03, g:base16_cterm05, g:base16_cterm03)
-endfunction
-augroup on_change_colorschema
-  autocmd!
-  autocmd ColorScheme * call s:base16_customize()
-  autocmd ColorScheme * call s:statusline()
-augroup END
-
-colorscheme base16-material-darker
-
 autocmd FileType json syntax match Comment +\/\/.\+$+
+" }}}}
+" Statusline {{{{
+set noshowmode
+set laststatus=2
+
+hi User1 guibg=#141416 guifg=#ffff82
+hi User2 guibg=#141416 guifg=#60a84c
+hi User3 guibg=NONE guifg=#60a84c
+
+set statusline=
+      \%1*%{custom#statusline#mode()}\ %2*%{custom#statusline#git()}%*%{custom#statusline#name()}\ %{custom#statusline#mod()}
+      \%=%{custom#statusline#type()}\ %{custom#statusline#coc()}\
+      \ [U+%0004.B]\ [%4.l/%4.Lℓ,\ %3.p%%]
 " }}}}
 " Tabline {{{{
 if has('windows')
   set showtabline=2
   set tabline=%!custom#tabline#line()
-endif
-" }}}}
-" Deoplete {{{{
-let g:deoplete#enable_at_startup = 1
-" }}}}
-" ALE {{{
-let g:ale_disable_lsp = 1
-" }}}
-" LanguageClient-neovim {{{
-let g:LanguageClient_serverCommands = {}
-
-" npm i -g javascript-typescript-langserver
-let s:jsts_lsp = executable('javascript-typescript-stdio') ?
-      \ [exepath('javascript-typescript-stdio')] :
-      \ []
-
-" gem install solargraph
-let s:rb_lsp = executable('solargraph') ?
-      \ [exepath('solargraph'), 'stdio'] :
-      \ []
-
-let g:LanguageClient_serverCommands['javascript'] = s:jsts_lsp
-let g:LanguageClient_serverCommands['typescript'] = s:jsts_lsp
-let g:LanguageClient_serverCommands['ruby'] = s:rb_lsp
-
-let g:LanguageClient_hoverPreview = "Always"
-" }}}
-" vim-rspec {{{{
-if has('nvim')
-  let g:rspec_command = ':call custom#misc#runspecs("{spec}")'
 endif
 " }}}}
 " Goyo {{{{
@@ -240,10 +191,97 @@ autocmd! User GoyoLeave nested call custom#goyo#goyo_leave()
 " vimtex {{{{
 let g:vimtex_view_general_viewer = 'zathura'
 " }}}}
-" vimwiki {{{{{
-let g:vimwiki_list = [{'path': '~/docs/vimwiki/',
-      \ 'syntax': 'markdown', 'ext': '.mdown'}]
+" Endwise {{{{
+let g:endwise_no_mappings = 0
+"}}}}
+" COC {{{{{
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+inoremap <expr> <Plug>CustomCocCR pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+imap <CR> <Plug>CustomCocCR<Plug>DiscretionaryEnd
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <C-d> <Plug>(coc-range-select)
+xmap <silent> <C-d> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " }}}}}
+" vim-rspec {{{{
+let g:rspec_command = "call custom#misc#runspecs('{spec}')"
+" }}}}
 
 " }}}
 " Commands -------------------------------------------------------- {{{
@@ -320,10 +358,7 @@ nnoremap ,, ,
 nnoremap <leader>bn :echo "Use gt"<CR>
 nnoremap <leader>bp :echo "Use gT"<CR>
 
-nnoremap <leader>e mmggVG
-
-" Autocomplete text
-inoremap <C-]> <C-x><C-]>
+nnoremap <leader>e ggVG
 
 " Basic operations made simpler
 nnoremap <leader>q :bd!<CR>
@@ -334,7 +369,7 @@ nnoremap <leader><C-q> :qa!<CR>
 nnoremap <leader><Tab> i<Tab><Esc>
 nnoremap <leader><Space> i<Space><Esc>
 
-" Make Formatting Uniform
+" Delete unnecessary whitespace
 nnoremap <leader>d<Tab> ma:%s/	/  /g<CR>`a:delmarks a<CR>
 nnoremap <leader>d<Space> ma:let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar>
       \ :nohl <Bar> :unlet _s <CR>`a:delmarks a<CR>
@@ -346,12 +381,6 @@ nnoremap zX zA
 " Make Y behave like other capitals
 nnoremap Y y$
 
-" Turn previous word uppercase
-inoremap <C-u> <esc>mzgUiw`za
-
-" Project file
-nnoremap <silent> gp :call custom#misc#projectFile()<CR>
-
 " Unimpaired++
 call custom#misc#nunmap("[e")
 call custom#misc#nunmap("]e")
@@ -361,36 +390,45 @@ xmap [ee <plug>unimpairedMoveSelectionUp
 nmap ]ee <plug>unimpairedMoveDown
 xmap ]ee <plug>unimpairedMoveSelectionDown
 
-nnoremap [ev :e ~/.vimrc<CR>
-nnoremap ]ev :tabnew ~/.vimrc<CR>
+nnoremap [ev :e ~/.vim/vimrc<CR>
+nnoremap ]ev :tabnew ~/.vim/vimrc<CR>
 
 nnoremap [ea :e ~/.vim/autoload<CR>
 nnoremap ]ea :tabnew ~/.vim/autoload<CR>
 
 nnoremap [ad :ALEDetail<CR>
 
+" Text object for one character
 onoremap <silent> ic :norm! v<CR>
 
+" Make escape behave sanely in terminal mode
 if has('nvim')
   tnoremap <ESC> <C-\><C-n>
 endif
 
+" Projectionist
 nnoremap ga :A<CR>
 nnoremap gr :R<CR>
 
+" Remap CommandT mappings
 nmap <C-p> <Plug>(CommandT)
 nmap <leader>h <Plug>(CommandTHelp)
 nmap <leader>s <Plug>(CommandTBuffer)
 nmap <leader>j <nop>
 
+" Open the gemfile; use find to err if file not found
 nnoremap <leader>gg :find Gemfile<CR>
 
+" TODO: Move to ruby ftplugin
 nnoremap <silent> <localleader>c :%s/^[	\ ]*#[\ \n].*//g<CR>:%s/^\n//g<CR>:nohl<CR>gg
 
+" Open Goyo
 nnoremap go :Goyo<CR>
 
+" Open Netrw in current folder
 nnoremap <leader>x :Texplore<CR>
 
+" I have a habit of holding shift for too long in v-line
 vnoremap K k
 " }}}
 " Abbrevs --------------------------------------------------------- {{{
@@ -403,9 +441,6 @@ cnoreabbrev pi PlugInstall
 cnoreabbrev pu PlugUpdate
 cnoreabbrev pc PlugClean
 
-" UltiSnips
-cnoreabbrev snipe UltiSnipsEdit
-
 " Source vimrc
 cnoreabbrev vs SourceConf
 
@@ -417,7 +452,7 @@ inoreabbrev <expr> #!! "#!/usr/bin/" . (empty(&filetype) ? 'bash' : 'env '.&file
 augroup macros
 
   " Add a semicolon to the end of current line
-  au FileType javascript,typescript,cpp,arduino nnoremap <CR>s maA;<Esc>`a:delmarks<Space>a<CR>
+  au FileType javascript,typescript,cpp,arduino,java nnoremap <CR>s maA;<Esc>`a:delmarks<Space>a<CR>
   au FileType vim nnoremap <CR>s maggOscriptencoding utf-8<Esc>`a:delmarks a<CR>
 
 augroup END

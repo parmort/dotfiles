@@ -11,10 +11,8 @@ alias e="exit"
 alias c.="cd .."
 alias c="cd ~"
 alias cdd="cd ~/dotfiles && ls"
-alias cdb="cd ~/.build && ls"
+alias cdb="cd ~/build && ls"
 alias cdc="cd ~/code && ls"
-alias cdo="cd ~/docs && ls"
-alias cdg="cd ~/gdrive && ls"
 
 # Easy source of config
 alias sb="source ~/.zshrc"

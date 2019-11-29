@@ -1,2 +1,2 @@
 nnoremap <buffer> <localleader>s :source %<CR>
-let b:AutoPairs = { "'": "'", '(':')', '[':']', '{':'}' }
+let b:coc_pairs_disabled = ['"']

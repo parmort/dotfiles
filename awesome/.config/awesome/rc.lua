@@ -10,7 +10,6 @@ local awful         = require("awful")
 local wibox         = require("wibox")
 local beautiful     = require("beautiful")
 local naughty       = require("naughty")
-local lain          = require("lain")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
                       require("awful.hotkeys_popup.keys")
 local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -51,6 +50,10 @@ end
 local function swap_dir (dir)
   awful.client.swap.global_bydirection(dir)
 end
+
+function gap_inc(incr)
+  beautiful.useless_gap = beautiful.useless_gap + incr
+end
 -- }}}
 
 -- {{{ Autostart windowless processes
@@ -66,6 +69,7 @@ end
 run_on_start({
   'nm-applet &',
   'pamac-tray &',
+  'xmodmap ~/.Xmodmap &'
 })
 
 -- This function will run once, when Awesome is first started
@@ -121,12 +125,6 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
-    -- lain.layout.cascade,
-    -- lain.layout.cascade.tile,
-    lain.layout.centerwork,
-    -- lain.layout.centerwork.horizontal,
-    -- lain.layout.termfair,
-    -- lain.layout.termfair.center,
 }
 
 awful.util.taglist_buttons = my_table.join(
@@ -182,16 +180,6 @@ awful.util.tasklist_buttons = my_table.join(
     awful.button({ }, 5, function () awful.client.focus.byidx(-1) end)
 )
 
--- lain.layout.termfair.nmaster           = 3
--- lain.layout.termfair.ncol              = 1
--- lain.layout.termfair.center.nmaster    = 1
--- lain.layout.termfair.center.ncol       = 3
-lain.layout.cascade.tile.offset_x      = 2
-lain.layout.cascade.tile.offset_y      = 32
-lain.layout.cascade.tile.extra_padding = 5
-lain.layout.cascade.tile.nmaster       = 5
-lain.layout.cascade.tile.ncol          = 2
-
 beautiful.init(string.format("%s/.config/awesome/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 beautiful.icon_theme = "Papirus-Dark"
 -- }}}
@@ -220,6 +208,8 @@ globalkeys = my_table.join(
     -- X screen locker
     awful.key({ modkey }, "x", function () os.execute(scrlocker) end,
               {description = "lock screen", group = "hotkeys"}),
+    awful.key({ modkey, shift }, "q", function () os.execute("systemctl suspend") end,
+              {description = "suspend", group = "hotkeys"}),
     -- }}}}
 
     -- {{{{ Screen
@@ -269,17 +259,6 @@ globalkeys = my_table.join(
     -- }}}}
 
     -- {{{{ Tag
-    -- Dynamic tagging
-    awful.key({ modkey, shift }, "n", function () lain.util.add_tag() end,
-              {description = "add new tag", group = "tag"}),
-    awful.key({ modkey, shift }, "r", function () lain.util.rename_tag() end,
-              {description = "rename tag", group = "tag"}),
-    awful.key({ modkey, shift }, "Left", function () lain.util.move_tag(-1) end,
-              {description = "move tag to the left", group = "tag"}),
-    awful.key({ modkey, shift }, "Right", function () lain.util.move_tag(1) end,
-              {description = "move tag to the right", group = "tag"}),
-    awful.key({ modkey, shift }, "d", function () lain.util.delete_tag() end,
-              {description = "delete tag", group = "tag"}),
     -- Go to previous tag
     awful.key({ modkey }, "Tab", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
@@ -322,9 +301,9 @@ globalkeys = my_table.join(
               {description = "decrease the number of columns", group = "layout"}),
 
     -- Make gaps bigger/smaller
-    awful.key({ altkey, shift }, "j", function() lain.util.useless_gaps_resize(-1) end,
+    awful.key({ altkey, shift }, "j", gap_inc(1),
               {description = "increase gaps", group = "layout"}),
-    awful.key({ altkey, shift }, "k", function() lain.util.useless_gaps_resize( 1) end,
+    awful.key({ altkey, shift }, "k", gap_inc(-1),
               {description = "decrease gaps", group = "layout"}),
 
     awful.key({ hypkey }, "space", function() awful.layout.inc(1) end,
@@ -406,8 +385,6 @@ local move_by = 15
 clientkeys = my_table.join(
     awful.key({ modkey }, "q", function (c) c:kill() end,
               {description = "close", group = "client"}),
-    awful.key({ altkey, shift }, "m", lain.util.magnify_client,
-              {description = "magnify client", group = "client"}),
     awful.key({ modkey, shift }, "space", awful.client.floating.toggle,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, ctrl }, "Return", function (c) c:swap(awful.client.getmaster()) end,

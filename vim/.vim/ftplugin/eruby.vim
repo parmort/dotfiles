@@ -1,6 +1,6 @@
 let b:AutoPairs = g:AutoPairs
-let b:AutoPairs["<%"]  = "%>"
-let b:AutoPairs["<%="] = "%>"
+let b:coc_pairs = [["<%", "%>"]]
+let b:coc_pairs += ["<%=", "%>"]
 
 " Run tests
 nnoremap <buffer> <CR>t :!clear<CR>:call RunCurrentSpecFile()<CR>

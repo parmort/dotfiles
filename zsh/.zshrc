@@ -4,6 +4,7 @@ export PATH=$HOME/.bin:$HOME/.scripts:$PATH
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$GOPATH:$GOPATH/bin:$PATH
+export PATH=.git/safe/../../bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -76,3 +77,7 @@ fpath=( "$HOME/.zsh/funcs" $fpath )
 
 autoload -U promptinit; promptinit
 prompt pure
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/nolan/.sdkman"
+[[ -s "/home/nolan/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nolan/.sdkman/bin/sdkman-init.sh"

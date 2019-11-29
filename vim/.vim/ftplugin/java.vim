@@ -1,2 +1,2 @@
 setl foldmethod=syntax
-let b:dispatch = 'processing-java --sketch=%:p:h --run'
+let b:dispatch = 'javac -d . %:p:h/*.java'

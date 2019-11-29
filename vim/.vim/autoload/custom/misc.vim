@@ -30,29 +30,13 @@ endfunction
 function! custom#misc#sourceConf()
   let l:pos = getcurpos()
   update
-  so ~/.vimrc
+  so ~/.vim/vimrc
   try
     edit
     call setpos('.', pos)
     call custom#misc#focusline()
   catch /E32/
   endtry
-endfunction
-
-function! custom#misc#projectFile()
-  let l:fname = ['project.otl', '.project', fnamemodify('~/.projects', ':p')]
-  for name in l:fname
-    let bufnr = bufnr(name)
-    if bufnr != -1
-      execute 'bwipeout '.bufnr
-      return
-    endif
-    if filereadable(name)
-      execute 'vsp | e '.name
-      redraw
-      return
-    endif
-  endfor
 endfunction
 
 function! custom#misc#runspecs(spec)
