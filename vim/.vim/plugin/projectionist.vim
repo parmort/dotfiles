@@ -11,13 +11,20 @@ let g:projectionist_heuristics = {
       \     "dispatch": "ruby {}_test.rb"
       \   }
       \ },
-      \ "src/*.c&src/*.h&test/test_*.c": {
-      \   "src/*.c": { "type": "implement", "alternate": "src/{}.h" },
-      \   "src/*.h": { "type": "header", "alternate": "src/{}.c" },
-      \   "test/test_*.c": { "type": "test" }
+      \ "src/*.c&include/*.h": {
+      \   "src/*.c": { "type": "implement", "alternate": "include/{}.h" },
+      \   "include/*.h": { "type": "header", "alternate": "src/{}.c" },
       \ },
       \ "*.cpp&*.hpp": {
       \   "*.cpp": { "type": "src", "alternate": "{}.hpp" },
       \   "*.hpp": { "type": "header", "alternate": "{}.cpp" }
+      \ },
+      \ "test/factories.rb|test/factories/*.rb": {
+      \   "test/factories.rb": { "type": "factory" },
+      \   "test/factories/*.rb": { "type": "factory" }
+      \ },
+      \ "spec/factories.rb|spec/factories/*.rb": {
+      \   "spec/factories.rb": { "type": "factory" },
+      \   "spec/factories/*.rb": { "type": "factory" }
       \ }
       \ }
