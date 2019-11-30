@@ -28,7 +28,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'lervag/vimtex', { 'for': 'tex' }
   Plug 'lifepillar/vim-colortemplate'
   Plug 'mustache/vim-mustache-handlebars'
-  Plug 'parmort/vim-factorybot', { 'on': 'Efactory' }
   Plug 'parmort/vim-audit'
   Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
   Plug 'PotatoesMaster/i3-vim-syntax'
@@ -55,7 +54,7 @@ call plug#begin('~/.vim/plugged')
     \ }
 
   " Colorscheme
-  Plug '~/code/mountaintop'
+  Plug '~/code/mtntop'
 call plug#end()
 " }}}
 " Settings ------------------------------------------------------- {{{

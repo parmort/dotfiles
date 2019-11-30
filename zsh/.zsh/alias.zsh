@@ -39,5 +39,5 @@ alias ds=~/.scripts/drivesync
 #===========#
 
 gal() { alias | grep "^$1" }
-ses() { find ~/.vim/sessions/* -type f | fzf | xargs -r $EDITOR -S }
+# ses() { find ~/.vim/sessions/* -type f | fzf | xargs -r $EDITOR -S }
 theme() { sed 1q ~/.xrdb/theme.xrdb | cut -c 10- }
