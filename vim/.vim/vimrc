@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
   Plug 'junegunn/limelight.vim'
+  Plug 'kovetskiy/sxhkd-vim'
   Plug 'ledger/vim-ledger', { 'for': 'ledger' }
   Plug 'lervag/vimtex', { 'for': 'tex' }
   Plug 'lifepillar/vim-colortemplate'
@@ -34,7 +35,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'romainl/vim-cool'
   Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
   Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
-  Plug 'tpope/vim-bundler'
+  Plug 'tpope/vim-bundler', { 'for': 'ruby' }
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-endwise'
@@ -66,7 +67,7 @@ set nowrap                     " Don't wrap lines
 set autoindent                 " Copy indent from previous line
 set copyindent                 " Copy indent structure (i.e. tabs and spaces)
 set lazyredraw                 " Only redraw the screen when no user input occurs
-set bs=eol,start               " Make the backspace behave normally except indent
+set bs=eol,start,indent        " Make the backspace behave normally except indent
 set clipboard=unnamedplus      " Make vim use the C-c clipboard
 set scrolloff=3                " Set scrolloff
 set linebreak                  " Wrap lines at `breakat`

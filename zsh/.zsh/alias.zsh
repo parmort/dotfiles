@@ -29,15 +29,11 @@ alias more=less
 alias which=whence
 alias vim=nvim
 alias mutt=neomutt
-alias man=manpages
 
 alias "ec-"="ec -"
-alias ds=~/.scripts/drivesync
 
 #===========#
 #-Functions-#
 #===========#
 
 gal() { alias | grep "^$1" }
-# ses() { find ~/.vim/sessions/* -type f | fzf | xargs -r $EDITOR -S }
-theme() { sed 1q ~/.xrdb/theme.xrdb | cut -c 10- }
