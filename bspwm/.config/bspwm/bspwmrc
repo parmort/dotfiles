@@ -1,0 +1,39 @@
+#! /bin/sh
+
+launch() {
+  killall -q $1
+  while pgrep -u $UID -x $1 >/dev/null; do sleep 1; done
+  $@ &
+}
+
+startup() {
+  [ ! -e /tmp/bspwm_started ] && launch $@
+}
+
+launch sxhkd -c ~/.config/bspwm/sxhkdrc &
+
+# Panel
+startup polybar -c ~/.config/bspwm/polybar.conf bar &
+
+# Background
+startup nitrogen --restore
+
+# Tray applets
+launch nm-applet
+launch pamac-tray
+
+# Make sure keycode remaps are correct
+launch xmodmap ~/.Xmodmap
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc config top_padding 20
+
+touch /tmp/bspwm_started

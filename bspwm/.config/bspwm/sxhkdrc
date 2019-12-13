@@ -1,0 +1,74 @@
+# vim: fdm=marker : noexpandtab :
+
+# Sessions {{{
+
+# Lock
+super + x
+	dm-tool switch-to-greeter
+
+# Suspend
+super + shift + x
+	systemctl suspend
+
+# Logout
+super + Escape
+	$HOME/.config/bspwm/quit
+
+# }}}
+# BSPWM {{{
+
+# Restart
+hyper + shift + r
+	bspc wm --restart
+
+# Close window
+super + q
+	bspc node --close
+
+# Focus windows
+super + {h,j,k,l}
+	bspc node --focus {west,south,north,east}
+
+# Move windows
+super + shift + {h,j,k,l}
+	bspc node --swap {west,south,north,east}
+
+# Resize windows
+# super + {u,i,o,p}
+# 	herbstclient resize {left,down,up,right} +15
+super + {u,p}
+	bspc node --resize right '{-5,5}' 0
+super + {o,i}
+	bspc node --resize down 0 '{-5,5}'
+
+# Toggle fullscreen
+hyper + f
+	bspc node --state \~fullscreen
+
+# Toggle floating
+hyper + @space
+	bspc node --state \~floating
+
+# Tags {{{{
+super + {1-9}
+	bspc desktop --focus '^{1-9}'
+super + shift {1-9}
+	bspc node --to-desktop '^{1-9}'
+# }}}}
+
+# }}}
+# Launcher {{{
+
+# Prompt
+super + d
+	dmenu_run
+
+# Terminal
+super + Return
+	termite
+
+# Web Browser
+super + w
+	firefox
+
+# }}}

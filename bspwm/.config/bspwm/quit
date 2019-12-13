@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm /tmp/bspwm_started
+bspc quit
