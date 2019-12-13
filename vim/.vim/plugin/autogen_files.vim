@@ -5,9 +5,9 @@ function! s:chkdir(dir)
   endif
 endfunction
 
-call s:chkdir('~/.vim/tmp/swap//')
-call s:chkdir('~/.vim/tmp/backup//')
-call s:chkdir('~/.vim/tmp/undo//')
+call s:chkdir($HOME . '/.vim/tmp/swap//')
+call s:chkdir($HOME . '/.vim/tmp/backup//')
+call s:chkdir($HOME . '/.vim/tmp/undo//')
 
 " swapfile and backup file
 if exists('$SUDO_USER')
