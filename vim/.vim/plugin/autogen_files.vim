@@ -1,3 +1,14 @@
+function! s:chkdir(dir)
+  if !isdirectory(a:dir) && confirm("Create directory ".a:dir."?", "&Yes\n&No") ==# 1
+    call mkdir(a:dir, 'p')
+    echom 'Directory `'.a:dir.'` created.'
+  endif
+endfunction
+
+call s:chkdir('~/.vim/tmp/swap//')
+call s:chkdir('~/.vim/tmp/backup//')
+call s:chkdir('~/.vim/tmp/undo//')
+
 " swapfile and backup file
 if exists('$SUDO_USER')
   set noswapfile
