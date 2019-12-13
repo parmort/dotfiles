@@ -1,9 +1,7 @@
 #!/usr/bin/bash
 
-if [ "$1" = "-" ] && [ -a ~/.eclf ]; then
-  $EDITOR $(<~/.eclf)
-  exit 0
+if [ "$1" != "-" ] || [ ! -e ~/.eclf ]; then
+  find ~/dotfiles/* -type f | grep -v ".*\.png" | fzf > ~/.eclf
 fi
 
-find ~/dotfiles/* -type f | grep -v ".*\.png" | cut --delimiter=/ -f 5- | fzf > ~/.eclf
 $EDITOR $(<~/.eclf)
