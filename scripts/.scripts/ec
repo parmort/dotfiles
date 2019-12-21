@@ -1,7 +1,9 @@
 #!/usr/bin/bash
 
-if [ "$1" != "-" ] || [ ! -e ~/.eclf ]; then
-  find ~/dotfiles/* -type f | grep -v ".*\.png" | fzf > ~/.eclf
+LASTFILE=/tmp/ec_lastfile
+
+if [ "$1" != "-" ] || [ ! -e $LASTFILE ]; then
+  find ~/dotfiles/* -type f | grep -v ".*\.png" | fzf > $LASTFILE
 fi
 
-$EDITOR $(<~/.eclf)
+$EDITOR $(<$LASTFILE)
