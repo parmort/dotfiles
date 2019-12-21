@@ -42,4 +42,6 @@ bspc config focused_border_color "#2d5fa8"
 
 bspc config top_padding 20
 
+bspc rule -a Zathura state=tiled
+
 touch /tmp/bspwm_started

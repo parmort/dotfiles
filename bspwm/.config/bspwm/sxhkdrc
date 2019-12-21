@@ -34,8 +34,6 @@ super + shift + {h,j,k,l}
 	bspc node --swap {west,south,north,east}
 
 # Resize windows
-# super + {u,i,o,p}
-# 	herbstclient resize {left,down,up,right} +15
 super + {u,p}
 	bspc node --resize right '{-5,5}' 0
 super + {o,i}
@@ -48,6 +46,10 @@ hyper + f
 # Toggle floating
 hyper + @space
 	bspc node --state \~floating
+
+# Cycle layouts (monocle|tiled)
+hyper + m
+	bspc desktop --layout next
 
 # Tags {{{{
 super + {1-9}
