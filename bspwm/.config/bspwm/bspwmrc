@@ -1,6 +1,7 @@
 #! /bin/sh
 
 launch() {
+  # Kill all processes and launch argument
   killall -q $1
   while pgrep -u $UID -x $1 >/dev/null; do sleep 1; done
   $@ &
@@ -22,8 +23,9 @@ startup nitrogen --restore
 launch nm-applet
 launch pamac-tray
 
-# Make sure keycode remaps are correct
+# Xorg settings
 launch xmodmap ~/.Xmodmap
+launch xrdb ~/.Xresources
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9
 
@@ -33,6 +35,10 @@ bspc config window_gap          12
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
+
+bspc config normal_border_color "#222027"
+bspc config active_border_color "#477b7e"
+bspc config focused_border_color "#2d5fa8"
 
 bspc config top_padding 20
 

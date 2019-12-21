@@ -72,3 +72,13 @@ super + w
 	firefox
 
 # }}}
+# Media Keys {{{
+XF86AudioMute
+	amixer set Master toggle
+
+XF86AudioLowerVolume
+	amixer set Master 2%-
+
+XF86AudioRaiseVolume
+	amixer set Master 2%+
+# }}}
