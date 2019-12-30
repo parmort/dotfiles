@@ -45,6 +45,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-projectionist'
   Plug 'tpope/vim-ragtag'
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
+  Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-rsi'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
@@ -73,6 +74,11 @@ set scrolloff=3                " Set scrolloff
 set linebreak                  " Wrap lines at `breakat`
 setglobal spelllang=en_us      " Spellchecking
 set signcolumn=yes
+
+let s:TRUSTED_LOCAL = '.git/safe/../../.vimrc.local'
+if filereadable(s:TRUSTED_LOCAL)
+  execute "source " . s:TRUSTED_LOCAL
+endif
 
 " File Searching {{{{
 set path+=**
@@ -430,6 +436,9 @@ nnoremap <leader>x :Texplore<CR>
 
 " I have a habit of holding shift for too long in v-line
 vnoremap K k
+
+" Dispatch
+nnoremap <leader>d :Dispatch<CR>
 " }}}
 " Abbrevs --------------------------------------------------------- {{{
 

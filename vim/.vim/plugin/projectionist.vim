@@ -15,6 +15,10 @@ let g:projectionist_heuristics = {
       \   "src/*.c": { "type": "implement", "alternate": "include/{}.h" },
       \   "include/*.h": { "type": "header", "alternate": "src/{}.c" },
       \ },
+      \ "*.c&*.h": {
+      \   "*.c": { "type": "implement", "alternate": "{}.h" },
+      \   "*.h": { "type": "header", "alternate": "{}.c" },
+      \ },
       \ "*.cpp&*.hpp": {
       \   "*.cpp": { "type": "src", "alternate": "{}.hpp" },
       \   "*.hpp": { "type": "header", "alternate": "{}.cpp" }
