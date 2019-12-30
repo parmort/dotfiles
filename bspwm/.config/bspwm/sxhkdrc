@@ -73,6 +73,13 @@ super + Return
 super + w
 	firefox
 
+# Calculator
+super + c
+	termite --class=Calculator -e qalc
+
+super + r
+	termite --class=FileManager -e ranger
+
 # }}}
 # Media Keys {{{
 XF86AudioMute
