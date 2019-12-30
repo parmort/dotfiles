@@ -1,18 +1,14 @@
+# vim: set ft=dosini :
+
 [user]
   email = parvus.mortalis@gmail.com
   name = Nolan Prochnau
 
 [core]
   editor = nvim
-  pager = most
-
-; [commit]
-;   gpgsign = true
+  pager = less
+  excludesfile = ~/.gitignore1
 
 [alias]
-# Show the history
   hist = log --pretty=format:\"%C(green)%h %C(yellow)%ad %C(blue)[%cn]%C(red)%d %C(reset)%s\" --decorate --date=short
-# Show the last commit
-  last = log -1 --show-signature
-
-# vim: set ft=dosini :
+  last = "!f() { export GIT_PAGER=''; git log -1 --show-signature; }; f"
