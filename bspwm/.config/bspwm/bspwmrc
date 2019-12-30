@@ -21,7 +21,6 @@ startup nitrogen --restore
 
 # Tray applets
 launch nm-applet
-launch pamac-tray
 
 # Xorg settings
 launch xmodmap ~/.Xmodmap
@@ -42,7 +41,8 @@ bspc config focused_border_color "#2d5fa8"
 
 bspc config top_padding 20
 
-# Rules
+# Rules, start be removing all
+bspc rule -r "*"
 bspc rule -a Zathura state=tiled
 bspc rule -a Calculator state=floating
 bspc rule -a FileManager state=floating
