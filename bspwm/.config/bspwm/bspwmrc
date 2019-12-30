@@ -19,9 +19,6 @@ startup polybar -c ~/.config/bspwm/polybar.conf bar &
 # Background
 startup nitrogen --restore
 
-# Tray applets
-launch nm-applet
-
 # Xorg settings
 launch xmodmap ~/.Xmodmap
 launch xrdb ~/.Xresources
@@ -46,5 +43,6 @@ bspc rule -r "*"
 bspc rule -a Zathura state=tiled
 bspc rule -a Calculator state=floating
 bspc rule -a FileManager state=floating
+bspc rule -a Nm-connection-editor state=floating
 
 touch /tmp/bspwm_started
