@@ -56,7 +56,7 @@ call plug#begin('~/.vim/plugged')
     \ }
 
   " Colorscheme
-  Plug '~/code/mtntop'
+  Plug '/home/nolan/code/mtntop'
 call plug#end()
 " }}}
 " Settings ------------------------------------------------------- {{{
