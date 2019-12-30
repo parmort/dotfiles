@@ -7,3 +7,6 @@
 [submodule "awesome/.config/awesome/vicious"]
 	path = awesome/.config/awesome/vicious
 	url = git://github.com/vicious-widgets/vicious.git
+[submodule "polybar/.config/polybar-scripts"]
+	path = polybar/.config/polybar-scripts
+	url = https://github.com/polybar/polybar-scripts
