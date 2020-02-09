@@ -8,7 +8,7 @@ launch() {
 }
 
 startup() {
-  [ ! -e /tmp/bspwm_started ] && launch $@
+  [ ! -e /tmp/bspwm-started ] && launch $@
 }
 
 launch sxhkd -c ~/.config/bspwm/sxhkdrc &
@@ -45,4 +45,4 @@ bspc rule -a Calculator state=floating
 bspc rule -a FileManager state=floating
 bspc rule -a Nm-connection-editor state=floating
 
-touch /tmp/bspwm_started
+touch /tmp/bspwm-started

@@ -2,8 +2,8 @@ if !has('folding')
   finish
 endif
 
-" Automatically fold lines that have the same indent value
-set foldmethod=indent
+" Fold lines based on syntax
+set foldmethod=syntax
 
 " Don't fold any lines
 set foldlevelstart=99

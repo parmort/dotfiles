@@ -8,7 +8,7 @@ super + x
 
 # Suspend
 super + shift + x
-	systemctl suspend
+	rm /tmp/bspwm-started; systemctl suspend
 
 # Logout
 super + Escape
@@ -47,6 +47,10 @@ hyper + f
 hyper + @space
 	bspc node --state \~floating
 
+# Toggle pseudo_tiled (helpful for debugging)
+hyper + t
+	bspc node --state \~pseudo_tiled
+
 # Cycle layouts (monocle|tiled)
 hyper + m
 	bspc desktop --layout next
@@ -71,7 +75,7 @@ super + Return
 
 # Web Browser
 super + w
-	firefox
+	brave
 
 # Calculator
 super + c
