@@ -19,7 +19,7 @@ if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
 end
 " }}}
 " Vim-Plug -------------------------------------------------------- {{{
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugins')
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }

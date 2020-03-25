@@ -5,9 +5,9 @@ function! s:chkdir(dir)
   endif
 endfunction
 
-call s:chkdir($HOME . '/.vim/tmp/swap//')
-call s:chkdir($HOME . '/.vim/tmp/backup//')
-call s:chkdir($HOME . '/.vim/tmp/undo//')
+call s:chkdir($XDG_CACHE_HOME . '/nvim/swap//')
+call s:chkdir($XDG_CACHE_HOME . '/nvim/backup//')
+call s:chkdir($XDG_CACHE_HOME . '/nvim/undo//')
 
 " swapfile and backup file
 if exists('$SUDO_USER')
@@ -15,9 +15,9 @@ if exists('$SUDO_USER')
   set nobackup
   set nowritebackup
 else
-  set directory=~/.vim/tmp/swap//
+  set directory=$XDG_CACHE_HOME/nvim/swap//
   set directory+=.
-  set backupdir=~/.vim/tmp/backup//
+  set backupdir=$XDG_CACHE_HOME/nvim/backup//
   set backupdir+=.
 endif
 
@@ -26,7 +26,7 @@ if has('persistent_undo')
   if exists('$SUDO_USER')
     set noundofile
   else
-    set undodir=~/.vim/tmp/undo//
+    set undodir=$XDG_CACHE_HOME/nvim/undo//
     set undodir+=.
     set undofile
   endif
