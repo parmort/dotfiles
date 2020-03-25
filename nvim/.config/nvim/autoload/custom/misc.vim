@@ -30,7 +30,7 @@ endfunction
 function! custom#misc#sourceConf()
   let l:pos = getcurpos()
   update
-  so ~/.vim/vimrc
+  so $MYVIMRC
   try
     edit
     call setpos('.', pos)

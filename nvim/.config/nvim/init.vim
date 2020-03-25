@@ -12,7 +12,7 @@ if has('multi_byte')
 endif
 
 " Download vim-plug if not downloaded
-if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -396,11 +396,11 @@ xmap [ee <plug>unimpairedMoveSelectionUp
 nmap ]ee <plug>unimpairedMoveDown
 xmap ]ee <plug>unimpairedMoveSelectionDown
 
-nnoremap [ev :e ~/.vim/vimrc<CR>
-nnoremap ]ev :tabnew ~/.vim/vimrc<CR>
+nnoremap [ev :e ~/.config/nvim/init.vim<CR>
+nnoremap ]ev :tabnew ~/.config/nvim/init.vim<CR>
 
-nnoremap [ea :e ~/.vim/autoload<CR>
-nnoremap ]ea :tabnew ~/.vim/autoload<CR>
+nnoremap [ea :e ~/.config/nvim/autoload<CR>
+nnoremap ]ea :tabnew ~/.config/nvim/autoload<CR>
 
 nnoremap [ad :ALEDetail<CR>
 
