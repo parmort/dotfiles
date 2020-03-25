@@ -15,9 +15,10 @@ let g:projectionist_heuristics = {
       \   "src/*.c": { "type": "implement", "alternate": "include/{}.h" },
       \   "include/*.h": { "type": "header", "alternate": "src/{}.c" },
       \ },
-      \ "*.c&*.h": {
-      \   "*.c": { "type": "implement", "alternate": "{}.h" },
-      \   "*.h": { "type": "header", "alternate": "{}.c" },
+      \ "src/*.c&test/*.c": {
+      \   "*": { "dispatch": "make test" },
+      \   "src/*.c": { "type": "src", "alternate": "test/test_{}.c" },
+      \   "test/test_*.c": { "type": "test", "alternate": "src/{}.c" },
       \ },
       \ "*.cpp&*.hpp": {
       \   "*.cpp": { "type": "src", "alternate": "{}.hpp" },
@@ -30,5 +31,9 @@ let g:projectionist_heuristics = {
       \ "spec/factories.rb|spec/factories/*.rb": {
       \   "spec/factories.rb": { "type": "factory" },
       \   "spec/factories/*.rb": { "type": "factory" }
-      \ }
+      \ },
+      \ "*.sh&*_test.sh": {
+      \   "*.sh": { "type": "src", "alternate": "{}_test.sh", "dispatch": "bats {}_test.sh" },
+      \   "*_test.sh": { "type": "test", "alternate": "{}.sh", "dispatch": "bats {file}" },
+      \ },
       \ }

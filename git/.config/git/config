@@ -7,7 +7,7 @@
 [core]
   editor = nvim
   pager = less
-  excludesfile = ~/.gitignore1
+  excludesfile = $XDG_CONFIG_HOME/git/ignore
 
 [alias]
   hist = log --pretty=format:\"%C(green)%h %C(yellow)%ad %C(blue)[%cn]%C(red)%d %C(reset)%s\" --decorate --date=short

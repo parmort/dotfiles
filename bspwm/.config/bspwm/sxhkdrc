@@ -71,18 +71,18 @@ super + d
 
 # Terminal
 super + Return
-	termite
+	$TERMINAL
 
 # Web Browser
 super + w
-	brave
+	$BROWSER
 
 # Calculator
 super + c
-	termite --class=Calculator -e qalc
+	$TERMINAL --class=Calculator -e qalc
 
 super + r
-	termite --class=FileManager -e ranger
+	$TERMINAL --class=FileManager -e ranger
 
 # }}}
 # Media Keys {{{

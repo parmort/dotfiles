@@ -6,6 +6,7 @@ alias lt="exa --tree"
 
 alias q="clear"
 alias e="exit"
+alias restart=reboot
 
 # Folder switching shortcuts
 alias c.="cd .."
@@ -13,9 +14,10 @@ alias c="cd ~"
 alias cdd="cd ~/dotfiles && ls"
 alias cdb="cd ~/build && ls"
 alias cdc="cd ~/code && ls"
+alias cde="cd ~/code/exercism && ls"
 
 # Easy source of config
-alias sb="source ~/.zshrc"
+alias sb="source $ZDOTDIR/.zshrc"
 
 # Git stuff
 alias gh="git hist"
@@ -28,7 +30,7 @@ alias more=less
 alias which=whence
 alias vim=nvim
 alias mutt=neomutt
-
+alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
 alias "ec-"="ec -"
 
 #===========#

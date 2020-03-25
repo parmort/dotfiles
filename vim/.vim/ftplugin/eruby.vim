@@ -1,4 +1,3 @@
-let b:AutoPairs = g:AutoPairs
 let b:coc_pairs = [["<%", "%>"]]
 let b:coc_pairs += ["<%=", "%>"]
 
