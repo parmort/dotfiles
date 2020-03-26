@@ -1,3 +1,9 @@
+# Path
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH=.git/safe/../../bin:$PATH
+
 # Default programs
 export EDITOR="nvim"
 export TERMINAL="termite"
@@ -24,4 +30,8 @@ export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 export HISTFILE="$XDG_DATA_HOME"/zsh/history
-export XAUTHORITY="$XDG_CACHE_HOME"/Xauthority
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
+export SOLARGRAPH_CACHE="$XDG_CACHE_HOME"/solargraph
