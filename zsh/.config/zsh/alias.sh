@@ -1,3 +1,12 @@
+function _git_current_branch() {
+  local ref
+  ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null)
+  local ret=$?
+  [[ $ret == 128 ]] && return  # no git repo.
+  [[ $ret != 0 ]] && ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
+  echo ${ref#refs/heads/}
+}
+
 # Folder Viewing
 alias ls="exa --group-directories-first"
 alias l="exa --group-directories-first"
@@ -20,9 +29,20 @@ alias cde="cd ~/code/exercism && ls"
 alias sb="source $ZDOTDIR/.zshrc"
 
 # Git stuff
+alias g="git"
+alias gst="git status"
+alias ga="git add"
+alias gaa="git add -A"
+alias gc="git commit -v"
+alias gcm="git commit -m"
+alias gca="git commit -v --amend"
+alias gp="git push"
+alias gpf="git push --force-with-lease"
+alias gpsup="git push --set-upstream origin $(_git_current_branch)"
+alias gl="git pull"
 alias gh="git hist"
+alias gcl="git clone"
 alias "gc-"="git checkout --"
-alias gcaa="git commit -v --amend"
 alias glast="git last"
 
 # Program substitutions
