@@ -1,0 +1,27 @@
+set preview false
+set previewer ~/.config/lf/preview
+set hidden true
+set drawbox true
+set ignorecase true
+
+# Custom Funcs
+cmd open ${{
+  case $(file --mime-type "$f" -bL) in
+    text/*|application/json) $EDITOR "$f";;
+    image/*) viewnior "$f" & disown;;
+    application/pdf) zathura "$f" & disown;;
+    *) xdg-open "$f" ;;
+  esac
+}}
+
+cmd edit $$EDITOR "$f"
+
+map d
+map m
+
+map dd delete
+map md push %mkdir<space>
+map t push %touch<space>
+
+map <enter> open
+map l open
