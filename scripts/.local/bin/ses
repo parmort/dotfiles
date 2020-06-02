@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 
 if [ "$1" = "-d" ]; then
-  find ~/.vim/sessions/* -type f | fzf | xargs -r rm
+  find ~/.config/nvim/sessions/* -type f | fzf | xargs -r rm
   exit 0;
 fi
 
-find ~/.vim/sessions/* -type f | fzf | xargs -r $EDITOR -S
+find ~/.config/nvim/sessions/* -type f | fzf | xargs -r $EDITOR -S

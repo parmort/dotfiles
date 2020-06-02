@@ -1,0 +1,163 @@
+let SessionLoad = 1
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/code/todo/todo-frontend
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +1 ~/code/todo/todo-frontend
+badd +27 src/app/app.module.ts
+badd +31 src/app/todo.service.ts
+badd +1 src/app/dashboard/dashboard.component.html
+badd +3 src/app/dashboard/dashboard.component.ts
+badd +37 src/app/todo/todo.component.ts
+badd +8 src/app/todo/todo.component.html
+badd +1 src/app/app.component.ts
+badd +30 src/app/todo.model.ts
+badd +13 src/app/app-routing.module.ts
+badd +1 src/app/todo-detail
+badd +15 src/app/todo-detail/todo-detail.component.ts
+badd +1 src/app/todo-detail/todo-detail.component.html
+badd +35 src/app/edit-todo/edit-todo.component.ts
+badd +1 src/app/edit-todo/edit-todo.component.html
+argglobal
+%argdel
+edit src/app/dashboard/dashboard.component.ts
+set splitbelow splitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=99
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+13
+normal! zo
+let s:l = 13 - ((12 * winheight(0) + 24) / 48)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+13
+normal! 013|
+lcd ~/code/todo/todo-frontend
+tabedit ~/code/todo/todo-frontend/src/app/todo/todo.component.ts
+set splitbelow splitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=99
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 37 - ((36 * winheight(0) + 24) / 48)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+37
+normal! 052|
+lcd ~/code/todo/todo-frontend
+tabedit ~/code/todo/todo-frontend/src/app/todo.service.ts
+set splitbelow splitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=99
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+9
+normal! zo
+let s:l = 31 - ((30 * winheight(0) + 24) / 48)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+31
+normal! 045|
+lcd ~/code/todo/todo-frontend
+tabedit ~/code/todo/todo-frontend/src/app/app.module.ts
+set splitbelow splitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=99
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+13
+normal! zo
+let s:l = 15 - ((14 * winheight(0) + 24) / 48)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+15
+normal! 03|
+lcd ~/code/todo/todo-frontend
+tabedit ~/code/todo/todo-frontend/src/app/todo.model.ts
+set splitbelow splitright
+wincmd t
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+argglobal
+setlocal fdm=syntax
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=99
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 21 - ((20 * winheight(0) + 24) / 48)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+21
+normal! 023|
+lcd ~/code/todo/todo-frontend
+tabnext 3
+if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 winminheight=1 winminwidth=1 shortmess=filmnrxIAc
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if filereadable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+let g:this_session = v:this_session
+let g:this_obsession = v:this_session
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

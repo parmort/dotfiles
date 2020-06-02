@@ -25,10 +25,7 @@ call plug#begin('~/.local/share/nvim/plugins')
   Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
   Plug 'junegunn/limelight.vim'
   Plug 'kovetskiy/sxhkd-vim'
-  Plug 'ledger/vim-ledger', { 'for': 'ledger' }
-  Plug 'lervag/vimtex', { 'for': 'tex' }
   Plug 'lifepillar/vim-colortemplate'
-  Plug 'mustache/vim-mustache-handlebars'
   Plug 'parmort/vim-audit'
   Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
   Plug 'PotatoesMaster/i3-vim-syntax'
@@ -67,7 +64,7 @@ set hidden                     " Don't quit abandoned buffers
 set nowrap                     " Don't wrap lines
 set autoindent                 " Copy indent from previous line
 set copyindent                 " Copy indent structure (i.e. tabs and spaces)
-set lazyredraw                 " Only redraw the screen when no user input occurs
+" set lazyredraw                 " Only redraw the screen when no user input occurs
 set bs=eol,start,indent        " Make the backspace behave normally except indent
 set clipboard=unnamedplus      " Make vim use the C-c clipboard
 set scrolloff=3                " Set scrolloff
@@ -155,7 +152,7 @@ endif
 " }}}}
 " Colorscheme {{{{
 set background=dark " Give vim a dark background
-set termguicolors   " Have vim use GUI colors
+set termguicolors
 
 colorscheme mtntop
 
@@ -172,7 +169,7 @@ hi User3 guibg=NONE guifg=#60a84c
 
 set statusline=
       \%1*%{custom#statusline#mode()}\ %2*%{custom#statusline#git()}%*%{custom#statusline#name()}\ %{custom#statusline#mod()}
-      \%=%{custom#statusline#type()}\ %{custom#statusline#coc()}\
+      \%=%{custom#statusline#type()}\ %{custom#statusline#coc()}\ %{ObsessionStatus()}\
       \ [U+%0004.B]\ [%4.l/%4.Lℓ,\ %3.p%%]
 " }}}}
 " Tabline {{{{
@@ -302,7 +299,7 @@ command! FocusLine cal custom#misc#focusline()
 command! -bar SourceConf cal custom#misc#sourceConf()
 
 command! -nargs=? -bar -bang -complete=customlist,custom#mks#complete Mksession cal custom#mks#mkses(<q-args>, <bang>0)
-command! -nargs=1 -bar -complete=customlist,custom#mks#complete Rmsession cal custom#mks#rmses(<q-args>)
+command! -nargs=? -bar -complete=customlist,custom#mks#complete Rmsession cal custom#mks#rmses(<q-args>)
 
 command! -bang -nargs=0 QFix call QFixToggle(<bang>0)
 function! QFixToggle(loc)

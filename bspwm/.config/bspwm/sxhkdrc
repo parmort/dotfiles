@@ -8,7 +8,7 @@ super + x
 
 # Suspend
 super + shift + x
-	rm /tmp/bspwm-started; systemctl suspend
+	systemctl suspend
 
 # Logout
 super + Escape
@@ -79,10 +79,10 @@ super + w
 
 # Calculator
 super + c
-	$TERMINAL --class=Calculator -e qalc
+	$TERMINAL --class=Alacritty,Calculator -e qalc
 
 super + r
-	$TERMINAL --class=FileManager -e ranger
+	$TERMINAL --class=Alacritty,FileManager -e lf
 
 # }}}
 # Media Keys {{{

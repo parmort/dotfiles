@@ -1,10 +1,17 @@
-# vim: ft=sh :
-
 # Load fzf
 [ -f ~/.local/bin/fzf.zsh ] && source ~/.local/bin/fzf.zsh
 
 source $ZDOTDIR/alias.sh
 source $ZDOTDIR/stow.sh
+
+# Auto cd into typed directory
+setopt autocd
+
+# Completion
+autoload -U compinit
+zstyle ':completion:*' menu select
+compinit
+_comp_options+=(globdots)
 
 # Theme
 autoload -U promptinit; promptinit
@@ -47,3 +54,5 @@ export SPACESHIP_JOBS_AMOUNT_PREFIX=" "
 # Set keymap to emacs mode. Because 'vi' is in my $EDITOR, zsh autosets it to
 # vi-mode
 bindkey -e
+
+source $ZDOTDIR/plugs/fsh/fast-syntax-highlighting.plugin.zsh

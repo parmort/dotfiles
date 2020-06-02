@@ -1,4 +1,13 @@
 #!/bin/bash
 
-rm /tmp/bspwm_started
-bspc quit
+choice="$(printf "shutdown\\nlogout\\nrestart" | dmenu)"
+
+case $choice in
+  shutdown) shutdown -h now;;
+  restart) reboot;;
+  logout)
+    rm /tmp/bspwm_started
+    bspc quit
+    ;;
+esac
+

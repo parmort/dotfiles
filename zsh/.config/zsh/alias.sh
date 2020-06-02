@@ -2,8 +2,10 @@ function _git_current_branch() {
   local ref
   ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null)
   local ret=$?
-  [[ $ret == 128 ]] && return  # no git repo.
-  [[ $ret != 0 ]] && ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
+  if [[ $ret != 0 ]]; then
+    [[ $ret == 128 ]] && return  # no git repo.
+    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
+  fi
   echo ${ref#refs/heads/}
 }
 
@@ -44,6 +46,16 @@ alias gh="git hist"
 alias gcl="git clone"
 alias "gc-"="git checkout --"
 alias glast="git last"
+alias gra="git remote add"
+alias grbi="git rebase -i"
+alias gsm="git submodule"
+
+# Tmux
+alias t="tmux"
+alias ta="tmux attach -t"
+alias tl="tmux list-sessions"
+alias tk="tmux kill-session -t"
+alias tn="tmux new-session -s"
 
 # Program substitutions
 alias more=less
@@ -58,7 +70,7 @@ alias "ec-"="ec -"
 #===========#
 
 # Grep through aliases
-gal() { alias | grep "^$1" }
+gal() { alias | grep --color "^$1" }
 
 # Generate rails project with solargraph definitions
 rg() { rails new $1 -T --database=postgresql && wget -O $1/config/definitions.rb https://gist.githubusercontent.com/castwide/28b349566a223dfb439a337aea29713e/raw/d1d4462b92f411b378d87a39482b830e012513bd/rails.rb }

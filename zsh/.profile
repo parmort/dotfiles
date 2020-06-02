@@ -1,12 +1,6 @@
-# Path
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH=.git/safe/../../bin:$PATH
-
 # Default programs
 export EDITOR="nvim"
-export TERMINAL="termite"
+export TERMINAL="alacritty"
 export BROWSER="brave"
 export READER="zathura"
 export FILE="lf"
@@ -20,6 +14,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export NODE_REPL_HISTORY=$XDG_DATA_HOME/node_repl_history
 export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEAuthority
 export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
 export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
@@ -35,3 +30,10 @@ export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 export SOLARGRAPH_CACHE="$XDG_CACHE_HOME"/solargraph
+
+# Path
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$GEM_HOME/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.local/share/npm/bin:$PATH"
+export PATH=.git/safe/../../bin:$PATH

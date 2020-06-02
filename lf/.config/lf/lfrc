@@ -16,12 +16,31 @@ cmd open ${{
 
 cmd edit $$EDITOR "$f"
 
+cmd gitinit %git init
+cmd gitadd %git add "$f"
+cmd gitaddall %git add -A
+cmd gitcommit %git commit -v
+cmd gitrm %git rm --cached "$f"
+
+cmd gitstatus !{{
+  clear
+  git status
+}}
+
 map d
 map m
 
 map dd delete
 map md push %mkdir<space>
+map mf $$EDITOR<space>
 map t push %touch<space>
 
 map <enter> open
 map l open
+
+map gs gitstatus
+map gi gitinit
+map ga gitadd
+map gA gitaddall
+map gc gitcommit
+map gr gitrm

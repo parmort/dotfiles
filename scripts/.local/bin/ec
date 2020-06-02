@@ -4,6 +4,10 @@ LASTFILE=/tmp/ec_lastfile
 
 if [ "$1" != "-" ] || [ ! -e $LASTFILE ]; then
   find ~/dotfiles/* -type f | grep -v ".*\.png" | fzf > $LASTFILE
+
+  if [ $? -ne 0 ]; then
+    exit
+  fi
 fi
 
 $EDITOR $(<$LASTFILE)

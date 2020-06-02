@@ -36,4 +36,8 @@ let g:projectionist_heuristics = {
       \   "*.sh": { "type": "src", "alternate": "{}_test.sh", "dispatch": "bats {}_test.sh" },
       \   "*_test.sh": { "type": "test", "alternate": "{}.sh", "dispatch": "bats {file}" },
       \ },
+      \ "*.component.ts": {
+      \   "*.component.ts": { "type": "component", "alternate": "{}.component.html" },
+      \   "*.component.html": { "type": "html", "alternate": "{}.component.ts" },
+      \ },
       \ }

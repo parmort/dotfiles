@@ -1,9 +1,5 @@
-[submodule "zsh/.zsh/plugins/fast-syntax-highlighting"]
-	path = zsh/.zsh/plugins/fast-syntax-highlighting
-	url = git://github.com/zdharma/fast-syntax-highlighting.git
-[submodule "zsh/.zsh/pure"]
-	path = zsh/.zsh/pure
-	url = https://github.com/sindresorhus/pure
-[submodule "awesome/.config/awesome/vicious"]
+# vim: noexpandtab :
+
+[submodule "awesome/vicious"]
 	path = awesome/.config/awesome/vicious
 	url = git://github.com/vicious-widgets/vicious.git
