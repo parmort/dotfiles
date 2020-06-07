@@ -1,6 +1,19 @@
 #!/bin/bash
 
-[ "$1" = "zsh" ] && git submodule update zsh && exit 0
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+_plug_zsh() {
+  cd $(git rev-parse --show-toplevel)/zsh/.config/zsh/plugs
+  for plug in */; do
+    cd $plug
+    echo -e "$GREEN$plug$NC"
+    echo "  $(git pull)"
+    cd ..
+  done
+}
+
+[ "$1" = "zsh" ] && _plug_zsh && exit 0
 
 echo "Option '$1' not recognized" 1>&2
 exit 1
