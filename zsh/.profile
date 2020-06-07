@@ -24,7 +24,6 @@ export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
-export HISTFILE="$XDG_DATA_HOME"/zsh/history
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle

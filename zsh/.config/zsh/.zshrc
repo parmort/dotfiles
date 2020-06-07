@@ -8,9 +8,17 @@ source $ZDOTDIR/stow.sh
 # Auto cd into typed directory
 setopt autocd
 
+# Stop freezing
+stty stop undef
+
 # Set keymap to emacs mode. Because 'vi' is in my $EDITOR, zsh autosets it to
 # vi-mode
 bindkey -e
+
+# History
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.cache/zsh/history
 
 # Completion
 autoload -U compinit
@@ -35,4 +43,8 @@ export SPACESHIP_CHAR_SUFFIX=" "
 export SPACESHIP_GIT_STATUS_DELETED=x
 export SPACESHIP_JOBS_AMOUNT_PREFIX=" "
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=0"
+
+# Plugins
 source $ZDOTDIR/plugs/fsh/fast-syntax-highlighting.plugin.zsh
+source $ZDOTDIR/plugs/zsh-autosuggestions/zsh-autosuggestions.zsh
