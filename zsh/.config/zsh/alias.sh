@@ -49,6 +49,7 @@ alias glast="git last"
 alias gra="git remote add"
 alias grbi="git rebase -i"
 alias gsm="git submodule"
+alias gd="git diff"
 
 # Tmux
 alias t="tmux"

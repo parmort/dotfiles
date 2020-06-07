@@ -1,0 +1,6 @@
+#!/bin/bash
+
+[ "$1" = "zsh" ] && git submodule update zsh && exit 0
+
+echo "Option '$1' not recognized" 1>&2
+exit 1

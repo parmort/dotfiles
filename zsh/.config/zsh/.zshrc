@@ -1,6 +1,7 @@
 # Load fzf
 [ -f ~/.local/bin/fzf.zsh ] && source ~/.local/bin/fzf.zsh
 
+# Load aliases
 source $ZDOTDIR/alias.sh
 source $ZDOTDIR/stow.sh
 
