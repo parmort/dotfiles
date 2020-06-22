@@ -16,6 +16,9 @@ launch polybar -c ~/.config/bspwm/polybar.conf bar &
 launch nitrogen --restore
 launch picom
 
+# Notifications
+launch dunst
+
 # Xorg settings
 launch xmodmap $XDG_CONFIG_HOME/xorg/Xmodmap
 launch xrdb $XDG_CONFIG_HOME/xorg/Xresources
@@ -41,3 +44,7 @@ bspc rule -a Zathura state=tiled
 bspc rule -a Calculator state=floating
 bspc rule -a FileManager state=floating
 bspc rule -a Nm-connection-editor state=floating
+
+# Math: (screen_size / 2) - (window_size / 2)
+# Set for 1920x1080 display. If different res, recalculate coords!
+bspc rule -a Wttr state=floating rectangle=1000x610+460+235
