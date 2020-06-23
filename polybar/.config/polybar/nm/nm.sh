@@ -46,7 +46,7 @@ network_print() {
 
         printf "\n"
     else
-        echo "#3"
+        echo "Offline"
     fi
 }
 
