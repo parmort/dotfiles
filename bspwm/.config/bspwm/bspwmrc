@@ -44,7 +44,8 @@ bspc rule -a Zathura state=tiled
 bspc rule -a Calculator state=floating
 bspc rule -a FileManager state=floating
 bspc rule -a Nm-connection-editor state=floating
+bspc rule -a Newsboat desktop=^9 follow=on
 
-# Math: (screen_size / 2) - (window_size / 2)
+# Coord Math: (screen_size / 2) - (window_size / 2)
 # Set for 1920x1080 display. If different res, recalculate coords!
 bspc rule -a Wttr state=floating rectangle=1000x610+460+235

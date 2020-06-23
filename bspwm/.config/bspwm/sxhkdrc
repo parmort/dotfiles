@@ -81,8 +81,13 @@ super + w
 super + c
 	$TERMINAL --class=Alacritty,Calculator -e qalc
 
+# FileManager
 super + r
 	$TERMINAL --class=Alacritty,FileManager -e lf
+
+# Newsboat
+super + n
+	$TERMINAL --class=Alacritty,Newsboat -e newsboat
 
 # }}}
 # Media Keys {{{

@@ -1,5 +1,7 @@
 cookie-cache "~/.local/share/newsboat/cookies"
 
+prepopulate-query-feeds yes
+
 urls-source "newsblur"
 
 newsblur-login "parmort"
