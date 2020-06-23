@@ -1,0 +1,3 @@
+#!/bin/bash
+
+notify-send --icon=software-update-available "Newsboat" "$1"
