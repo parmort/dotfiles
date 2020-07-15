@@ -7,8 +7,6 @@ launch() {
   $@ &
 }
 
-launch sxhkd -c ~/.config/bspwm/sxhkdrc &
-
 # Panel
 launch polybar -c ~/.config/bspwm/polybar.conf bar &
 
@@ -20,8 +18,11 @@ launch picom
 launch dunst
 
 # Xorg settings
-launch xmodmap $XDG_CONFIG_HOME/xorg/Xmodmap
-launch xrdb $XDG_CONFIG_HOME/xorg/Xresources
+xmodmap $XDG_CONFIG_HOME/xorg/Xmodmap
+xrdb $XDG_CONFIG_HOME/xorg/Xresources
+
+# Keybinds (must be after xmodmap)
+launch sxhkd -c ~/.config/bspwm/sxhkdrc &
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9
 
@@ -48,4 +49,5 @@ bspc rule -a Newsboat desktop=^9 follow=on
 
 # Coord Math: (screen_size / 2) - (window_size / 2)
 # Set for 1920x1080 display. If different res, recalculate coords!
+
 bspc rule -a Wttr state=floating rectangle=1000x610+460+235
