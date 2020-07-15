@@ -15,6 +15,10 @@ let g:projectionist_heuristics = {
       \   "src/*.c": { "type": "implement", "alternate": "include/{}.h" },
       \   "include/*.h": { "type": "header", "alternate": "src/{}.c" },
       \ },
+      \ "src/*.c&inc/*.h": {
+      \   "src/*.c": { "type": "implement", "alternate": "inc/{}.h" },
+      \   "inc/*.h": { "type": "header", "alternate": "src/{}.c" },
+      \ },
       \ "src/*.c&test/*.c": {
       \   "*": { "dispatch": "make test" },
       \   "src/*.c": { "type": "src", "alternate": "test/test_{}.c" },

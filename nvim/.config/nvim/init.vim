@@ -21,6 +21,7 @@ end
 " Vim-Plug -------------------------------------------------------- {{{
 call plug#begin('~/.local/share/nvim/plugins')
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  Plug 'bfrg/vim-cpp-modern'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
   Plug 'junegunn/limelight.vim'
@@ -42,7 +43,6 @@ call plug#begin('~/.local/share/nvim/plugins')
   Plug 'tpope/vim-projectionist'
   Plug 'tpope/vim-ragtag'
   Plug 'tpope/vim-rails', { 'for': 'ruby' }
-  Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-rsi'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
