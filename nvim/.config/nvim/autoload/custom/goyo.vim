@@ -2,8 +2,10 @@ function! custom#goyo#goyo_enter()
   setl wrap
   setl nocursorline
   setl spell
-  nnoremap j gj
-  nnoremap k gk
+  if !exists('g:loaded_flashy') || !g:inFlashy
+    nnoremap j gj
+    nnoremap k gk
+  endif
   Limelight
   CocDisable
 endfunction
@@ -13,8 +15,9 @@ function! custom#goyo#goyo_leave()
   setl cursorline
   setl nospell
   Limelight!
-  unmap j
-  unmap k
-  cal custom#misc#sourceConf()
+  if !exists('g:loaded_flashy') || !g:inFlashy
+    unmap j
+    unmap k
+  endif
   CocEnable
 endfunction

@@ -54,6 +54,8 @@ call plug#begin('~/.local/share/nvim/plugins')
 
   " Colorscheme
   Plug '/home/nolan/code/mtntop'
+
+  Plug '/home/nolan/code/vim-flashy'
 call plug#end()
 " }}}
 " Settings ------------------------------------------------------- {{{
@@ -168,7 +170,7 @@ hi User2 guibg=#141416 guifg=#60a84c
 hi User3 guibg=NONE guifg=#60a84c
 
 set statusline=
-      \%1*%{custom#statusline#mode()}\ %2*%{custom#statusline#git()}%*%{custom#statusline#name()}\ %{custom#statusline#mod()}
+      \%1*%{custom#statusline#mode()}\ %2*%{custom#statusline#git()}%*%{custom#statusline#name()}%{custom#statusline#ff()}\ %{custom#statusline#mod()}
       \%=%{custom#statusline#type()}\ %{custom#statusline#coc()}\ %{ObsessionStatus()}\
       \ [U+%0004.B]\ [%4.l/%4.Lℓ,\ %3.p%%]
 " }}}}

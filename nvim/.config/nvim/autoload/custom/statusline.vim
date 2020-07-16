@@ -36,12 +36,16 @@ function! custom#statusline#mod()
         \ '')
 endfunction
 
+function! custom#statusline#ff()
+  return s:surround(&ff ==# 'dos' ? 'DOS' : '')
+endfunction
+
 function! custom#statusline#git()
   if !exists('b:git_dir')
     return ''
   endif
 
-  return s:netrw() ? '' : s:surround(fugitive#Head()).' '
+  return s:netrw() ? '' : s:surround(fugitive#Head()) . ' '
 endfunction
 
 function! custom#statusline#coc()
@@ -55,8 +59,6 @@ function! custom#statusline#coc()
   let str = join(msgs, ' ') . get(g:, 'coc_status', '')
   return s:surround(str)
 endfunction
-
-" PRIVATE FUNCS
 
 function! s:surround(val)
   if a:val != ''
