@@ -1,0 +1,5 @@
+# vim: ft=python :
+
+# Disable REPL history
+import readline
+readline.set_auto_history(False)
