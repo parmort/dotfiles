@@ -1,1 +1,26 @@
-include ./theme
+set default-bg                  "#282c34"
+set default-fg                  "#abb2bf"
+
+set statusbar-bg                "#2c323c"
+set statusbar-fg                "#abb2bf"
+
+set inputbar-bg                 "#2c323c"
+set inputbar-fg                 "#abb2bf"
+
+set notification-bg             "#2c323c"
+set notification-fg             "#abb2bf"
+
+set notification-error-bg       "#2c323c"
+set notification-error-fg       "#be5046"
+
+set notification-warning-bg     "#2c323c"
+set notification-warning-fg     "#d19a66"
+
+set highlight-color             "#3e4452"
+set highlight-active-color      "#3e4452"
+
+set completion-bg               "#333841"
+set completion-fg               "#abb2bf"
+
+set completion-highlight-bg     "#4b5263"
+set completion-highlight-fg     "#abb2bf"

@@ -124,31 +124,31 @@ font:
 
 colors:
   primary:
-    background: '#222027'
-    foreground: '#fff7d8'
+    background: '#282c34'
+    foreground: '#abb2bf'
 
   selection:
-    background: '#141416'
+    background: '#3e4452'
 
   normal:
-    black:   '#141416'
-    red:     '#b74147'
-    green:   '#60a84c'
-    yellow:  '#e96942'
-    blue:    '#2d5fa8'
-    magenta: '#823d88'
-    cyan:    '#477b7e'
-    white:   '#e0d9be'
+    black:   '#4b5263'
+    red:     '#b35046'
+    green:   '#98c379'
+    yellow:  '#d19a66'
+    blue:    '#61afef'
+    magenta: '#c678dd'
+    cyan:    '#56b6c2'
+    white:   '#828997'
 
   bright:
-    black:   '#222027'
-    red:     '#b74147'
-    green:   '#60a84c'
-    yellow:  '#e96942'
-    blue:    '#2d5fa8'
-    magenta: '#823d88'
-    cyan:    '#477b7e'
-    white:   '#fff7d8'
+    black:   '#5c6370'
+    red:     '#e06c75'
+    green:   '#98c379'
+    yellow:  '#e5c07b'
+    blue:    '#61afef'
+    magenta: '#c678dd'
+    cyan:    '#56b6c2'
+    white:   '#abb2bf'
 
 visual_bell:
   duration: 0
