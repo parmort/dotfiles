@@ -48,4 +48,4 @@ These dotfiles are represented under the [DWTFYWWI License][3].
 
 [3]: https://github.com/parmort/DWTFYWWI
 
-Copyright (c) 2018-2019 N. Prochnau. No rights reserved.
+Copyright (c) 2018&ndash;2020 N. Prochnau. No rights reserved.
