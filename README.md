@@ -40,7 +40,7 @@ of my unused configs in their final forms:
 - [termite][796ab5c]
 - [urlview][796ab5c]
 
-[796ab5c]: https://github.com/parmort/dotfiles/commit/796ab5c5ecc33461dc995a3abf103c3ef6b98b14
+[796ab5c]: https://github.com/parmort/dotfiles/tree/796ab5c5ecc33461dc995a3abf103c3ef6b98b14
 
 ## And Their License
 
