@@ -11,7 +11,7 @@ launch() {
 launch polybar -c ~/.config/bspwm/polybar.conf bar &
 
 # Background
-launch nitrogen --restore
+xwallpaper --zoom ~/pictures/current_wall
 launch picom
 
 # Notifications

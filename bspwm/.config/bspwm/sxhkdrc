@@ -89,6 +89,10 @@ super + r
 super + n
 	$TERMINAL --class=Alacritty,Newsboat -e newsboat
 
+# Wallpaper selector
+hyper + g
+	selbg
+
 # }}}
 # Media Keys {{{
 XF86AudioMute

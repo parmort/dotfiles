@@ -1,4 +1,5 @@
 #!/bin/sh
 
 choice=$(find ~/pictures/wall | grep -E 'png|jpg' | cut -c 27- | dmenu -l 10)
-feh --bg-scale ~/pictures/wall/$choice
+cp ~/pictures/wall/$choice ~/pictures/current_wall
+xwallpaper --zoom ~/pictures/current_wall
