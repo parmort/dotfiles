@@ -26,21 +26,20 @@ I used to keep all of my configs, even if I wasn't using the program. Now, I get
 rid of all of my unused configs. If you want to take a look at them, here's a list
 of my unused configs in their final forms:
 
-- [AwesomeWM][796ab5c]
-- [HerbstluftWM][796ab5c]
-- [i3][796ab5c]
-- [Random JS configs][796ab5c]
-- [mpd][796ab5c]
-- [mutt][796ab5c]
-- [ncmpcpp][796ab5c]
-- [polybar][796ab5c] (I now keep polybar configs with my WM configs)
-- [ranger][796ab5c]
-- [Random Ruby configs][796ab5c]
-- [taskwarrior][796ab5c]
-- [termite][796ab5c]
-- [urlview][796ab5c]
+- [AwesomeWM][7344e69]
+- [HerbstluftWM][7344e69]
+- [i3][7344e69]
+- [Random JS configs][7344e69]
+- [mpd][7344e69]
+- [mutt][7344e69]
+- [ncmpcpp][7344e69]
+- [ranger][7344e69]
+- [Random Ruby configs][7344e69]
+- [taskwarrior][7344e69]
+- [termite][7344e69]
+- [urlview][7344e69]
 
-[796ab5c]: https://github.com/parmort/dotfiles/tree/796ab5c5ecc33461dc995a3abf103c3ef6b98b14~1
+[7344e69]: https://github.com/parmort/dotfiles/tree/7344e69247384a98138cd072f3c224f8c3bf5fd3~1
 
 ## And Their License
 
