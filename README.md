@@ -17,8 +17,8 @@ install them and `stow -D */` to uninstall them. The `*/` in those commands can
 be substituted with any of the subdirectories you choose, `*/` is just a wildcard
 to select all subdirectories.
 
-***Hint:*** *Once `oh-my-zsh` is installed, you can use aliases from a stow
-plugin! With my config aliases, type `gal s` and the aliases should pop up*
+***Hint:*** *Use `gal s` to see all stow aliases once the zsh configs have been
+installed.*
 
 ## And a Few Notes on Them
 
