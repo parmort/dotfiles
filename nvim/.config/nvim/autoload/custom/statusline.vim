@@ -8,7 +8,7 @@ function! custom#statusline#mode()
         \ 'v': 'VISUAL',
         \ 'V': 'V-LINE',
         \ '':'V-BLCK',
-        \ 'c': 'SEARCH',
+        \ 'c': 'C-LINE',
         \ 't': ' TERM '
         \ }
   return '[' . (s:netrw() ? 'NETRW' : get(l:modes, mode(), '')) . ']'
@@ -49,15 +49,12 @@ function! custom#statusline#git()
 endfunction
 
 function! custom#statusline#coc()
-  let info = get(b:, 'coc_diagnostic_info', {})
-  if empty(info) || get(g:, 'coc_status', '') == '' | return '' | endif
-  let msgs = []
+  let l:status = trim(get(g:, 'coc_status', ''))
+  return l:status == '' ? '' : s:surround(l:status) . ' '
+endfunction
 
-  call add(msgs, 'E' . get(info, 'error', 0))
-  call add(msgs, 'W' . get(info, 'warning', 0))
-
-  let str = join(msgs, ' ') . get(g:, 'coc_status', '')
-  return s:surround(str)
+function! custom#statusline#obsession()
+  return ObsessionStatus() ==# '' ? '' : ObsessionStatus() . ' '
 endfunction
 
 function! s:surround(val)

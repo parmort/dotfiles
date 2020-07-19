@@ -1,3 +1,4 @@
+" scriptencoding utf-8
 " File: vimrc
 " Author: S. Numerius <parvus.mortalis@gmail.com>
 
@@ -53,7 +54,7 @@ call plug#begin('~/.local/share/nvim/plugins')
     \ }
 
   " Colorscheme
-  Plug '/home/nolan/code/mtntop'
+  Plug 'rakr/vim-one'
 
   Plug '/home/nolan/code/vim-flashy'
 call plug#end()
@@ -156,23 +157,23 @@ endif
 set background=dark " Give vim a dark background
 set termguicolors
 
-colorscheme mtntop
+let g:one_allow_italics = 1
+colorscheme one
 
-hi Comment cterm=italic gui=italic
+call one#highlight('TabLine', '282c34', '3e4452', 'none')
+call one#highlight('TabLineSel', '61afef', '282c34', 'none')
+call one#highlight('MatchParen', '', '', 'none')
+
 autocmd FileType json syntax match Comment +\/\/.\+$+
 " }}}}
 " Statusline {{{{
 set noshowmode
 set laststatus=2
 
-hi User1 guibg=#141416 guifg=#ffff82
-hi User2 guibg=#141416 guifg=#60a84c
-hi User3 guibg=NONE guifg=#60a84c
-
 set statusline=
-      \%1*%{custom#statusline#mode()}\ %2*%{custom#statusline#git()}%*%{custom#statusline#name()}%{custom#statusline#ff()}\ %{custom#statusline#mod()}
-      \%=%{custom#statusline#type()}\ %{custom#statusline#coc()}\ %{ObsessionStatus()}\
-      \ [U+%0004.B]\ [%4.l/%4.Lℓ,\ %3.p%%]
+      \%{custom#statusline#mode()}\ %{custom#statusline#git()}%{custom#statusline#name()}%{custom#statusline#ff()}\ %{custom#statusline#mod()}
+      \%=%{custom#statusline#type()}\ %{custom#statusline#coc()}%{custom#statusline#obsession()}
+      \[U+%0004.B]\ [%4.l/%4.Lℓ,\ %3.p%%]
 " }}}}
 " Tabline {{{{
 if has('windows')
