@@ -1,8 +1,0 @@
-# Either `classic` or `alternative`
-user_interface = alternative
-
-# Sorting preference
-media_library_primary_tag = artist
-
-# Startup on media library
-startup_screen = media_library

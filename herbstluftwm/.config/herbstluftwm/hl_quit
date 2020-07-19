@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-rm -f /tmp/herbstluft_started
-herbstclient quit
