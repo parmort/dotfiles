@@ -1,0 +1,28 @@
+# vim: filetype=neomuttrc
+# muttrc file for account pj-cock
+set realname = "Sat Num"
+set from = "parmortsjunk@cock.li"
+set sendmail = "msmtp -a pj-cock"
+alias me Sat Num <parmortsjunk@cock.li>
+set folder = "/home/nolan/.local/share/mail/pj-cock"
+set header_cache = /home/nolan/.cache/mutt-wizard/pj-cock/headers
+set message_cachedir = /home/nolan/.cache/mutt-wizard/pj-cock/bodies
+set mbox_type = Maildir
+
+bind index,pager gg noop
+bind index,pager g noop
+bind index gg first-entry
+macro index o "<shell-escape>mailsync -V pj-cock<enter>" "run mbsync to sync pj-cock"
+
+set spoolfile = "+INBOX"
+set record = "+Sent"
+set postponed = "+Drafts"
+set trash = "+Trash"
+
+unmailboxes *
+mailboxes =pj-cock =------------------- "=INBOX" "=Drafts" "=Sent" "=Junk" "=Trash"
+macro index,pager gi "<change-folder>=INBOX<enter>" "go to inbox"
+macro index,pager gs "<change-folder>=Sent<enter>" "go to sent"
+macro index,pager gd "<change-folder>=Drafts<enter>" "go to drafts"
+macro index,pager gt "<change-folder>=Trash<enter>" "go to trash"
+macro index,pager gj "<change-folder>=Junk<enter>" "go to junk"

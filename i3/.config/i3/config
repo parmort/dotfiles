@@ -1,0 +1,231 @@
+# vim: filetype=i3 foldmethod=marker:
+
+# Set Mod keys {{{
+set $mod Mod4
+set $alt Mod3
+floating_modifier $mod
+# }}}
+
+# Set variables to frequently used applications {{{
+set $term termite
+set $browser firefox
+# }}}
+
+# Execute startup tasks {{{
+exec_always --no-startup-id bash /home/nolan/.config/polybar/launch.sh
+exec_always --no-startup-id feh --bg-scale ~/.config/i3/wallpaper.png
+exec_always --no-startup-id compton
+# }}}
+
+# Setup required for i3-gaps {{{
+hide_edge_borders both
+for_window [class="^.*"] border pixel 0
+
+set $innergaps 5
+set $outergaps 10
+gaps inner $innergaps
+gaps outer $outergaps
+# }}}
+
+# Dropdown Terminals {{{
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 1094 630
+for_window [instance="dropdown"] move scratchpad
+for_window [instance="dropdown"] border pixel 3
+exec --no-startup-id $term --name=dropdown
+
+for_window [instance="rangerdrop"] floating enable
+for_window [instance="rangerdrop"] border pixel 3
+for_window [instance="rangerdrop"] move scratchpad
+exec --no-startup-id $term --name=rangerdrop -e ranger
+
+for_window [instance="ncmpcpp"] floating enable
+for_window [instance="ncmpcpp"] resize set 1094 630
+for_window [instance="ncmpcpp"] border pixel 3
+for_window [instance="ncmpcpp"] move scratchpad
+exec --no-startup-id $term --name=ncmpcpp -e ncmpcpp
+# }}}
+
+# Ranger {{{
+for_window [instance="ranger"] floating enable
+for_window [instance="ranger"] border pixel 3
+# }}}
+
+# Colors {{{
+set $bd  "#557b93"
+set $bg  "#285577"
+set $txt "#ffffff"
+set $ind "#2e9ef4"
+# }}}
+
+# class        bd  bg  txt  ind
+client.focused $bd $bg $txt $ind
+
+bindsym $mod+Return          split horizontal ;; exec $term
+bindsym $mod+Shift+Return    split vertical ;; exec $term
+
+bindsym $alt+Return          [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center;
+
+bindsym $mod+Shift+space     floating toggle
+bindsym $alt+space           [instance="rangerdrop"] scratchpad show; [instance="rangerdrop"] move position center;
+
+bindsym $mod+Escape          exec sudo shutdown now
+bindsym $mod+Shift+Escape    exec sudo reboot
+
+bindsym $mod+a               exec $term -e R
+
+bindsym $mod+d               exec --no-startup-id dmenu_run
+bindsym $mod+Shift+d         gaps inner current set 0; gaps outer current set 0
+
+bindsym $mod+e               exec --no-startup-id $term -e vim
+
+bindsym $mod+h               focus left
+bindsym $mod+Shift+h         move left 30
+
+bindsym $mod+i               exec $term -e htop
+bindsym $mod+Shift+i         resize grow height 10 px or 10 ppt
+
+bindsym $mod+j               focus down
+bindsym $mod+Shift+j         move down 30
+
+bindsym $mod+k               focus up
+bindsym $mod+Shift+k         move up 30
+
+bindsym $mod+l               focus right
+bindsym $mod+Shift+l         move right 30
+
+bindsym $mod+Shift+o         resize grow width 10 px or 10 ppt
+
+bindsym $mod+q               kill
+bindsym $mod+Shift+q         kill
+
+bindsym $mod+r               exec $term -e ranger --name ranger
+bindsym $alt+Shift+r         restart
+
+bindsym $mod+s               gaps inner current plus 5
+bindsym $mod+Shift+s         gaps inner current minus 5
+
+bindsym $mod+t               split toggle
+bindsym $mod+Shift+t         gaps inner current set 15; gaps outer current set 15
+
+bindsym $mod+Shift+u         resize shrink height 10 px or 10 ppt
+
+bindsym $mod+w               exec $browser
+bindsym $mod+Shift+w         exec rofi -show window -font "Consolas 20" -lines 3 -eh 2 -width 100 -padding 500 -opacity "50"
+
+bindsym $mod+x               exec --no-startup-id ~/.config/i3/lock.sh
+bindsym $mod+Shift+x         exec mpc stop; exec i3-msg exit
+
+bindsym $mod+y               exec $term -e "calcurse"
+bindsym $mod+Shift+y         resize shrink width 10 px or 10 ppt
+
+bindsym $mod+z               gaps outer current plus 5
+bindsym $mod+Shift+z         gaps outer current minus 5
+
+bindsym F1                   exec --no-startup-id echo "help" > /dev/null
+bindsym F11                  fullscreen toggle
+
+bindsym $mod+F2              exec $term -e xprop
+bindsym $mod+F3              exec --no-startup-id arandr
+bindsym $mod+F4              exec --no-startup-id sudo systemctl suspend
+
+# Media Keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
+bindsym XF86AudioMute        exec --no-startup-id pamixer -t
+bindsym XF86AudioPlay        exec --no-startup-id mpc toggle
+bindsym XF86AudioStop        exec --no-startup-id mpc stop
+bindsym XF86AudioNext        exec --no-startup-id mpc next
+bindsym XF86AudioPrev        exec --no-startup-id mpc prev
+bindsym XF86AudioMedia       [instance="ncmpcpp"] scratchpad show; [instance="ncmpcpp"] move position center;
+
+# Workspaces
+set $wk01 1
+set $wk02 2
+set $wk03 3
+set $wk04 4
+set $wk05 5
+set $wk06 6
+set $wk07 7
+set $wk08 8
+set $wk09 9
+set $wk00 0
+set $wk11 11
+set $wk12 12
+set $wk13 13
+set $wk14 14
+set $wk15 15
+set $wk16 16
+set $wk17 17
+set $wk18 18
+set $wk19 19
+set $wk10 10
+
+# Switch to Workspace
+bindsym $mod+1 workspace $wk01
+bindsym $mod+2 workspace $wk02
+bindsym $mod+3 workspace $wk03
+bindsym $mod+4 workspace $wk04
+bindsym $mod+5 workspace $wk05
+bindsym $mod+6 workspace $wk06
+bindsym $mod+7 workspace $wk07
+bindsym $mod+8 workspace $wk08
+bindsym $mod+9 workspace $wk09
+bindsym $mod+0 workspace $wk00
+bindsym $alt+1 workspace $wk11
+bindsym $alt+2 workspace $wk12
+bindsym $alt+3 workspace $wk13
+bindsym $alt+4 workspace $wk14
+bindsym $alt+5 workspace $wk15
+bindsym $alt+6 workspace $wk16
+bindsym $alt+7 workspace $wk17
+bindsym $alt+8 workspace $wk18
+bindsym $alt+9 workspace $wk19
+bindsym $alt+0 workspace $wk10
+
+# Move Window to Workspace
+bindsym $mod+Shift+1 move container to workspace $wk01
+bindsym $mod+Shift+2 move container to workspace $wk02
+bindsym $mod+Shift+3 move container to workspace $wk03
+bindsym $mod+Shift+4 move container to workspace $wk04
+bindsym $mod+Shift+5 move container to workspace $wk05
+bindsym $mod+Shift+6 move container to workspace $wk06
+bindsym $mod+Shift+7 move container to workspace $wk07
+bindsym $mod+Shift+8 move container to workspace $wk08
+bindsym $mod+Shift+9 move container to workspace $wk09
+bindsym $mod+Shift+0 move container to workspace $wk00
+bindsym $alt+Shift+1 move container to workspace $wk11
+bindsym $alt+Shift+2 move container to workspace $wk12
+bindsym $alt+Shift+3 move container to workspace $wk13
+bindsym $alt+Shift+4 move container to workspace $wk14
+bindsym $alt+Shift+5 move container to workspace $wk15
+bindsym $alt+Shift+6 move container to workspace $wk16
+bindsym $alt+Shift+7 move container to workspace $wk17
+bindsym $alt+Shift+8 move container to workspace $wk18
+bindsym $alt+Shift+9 move container to workspace $wk19
+bindsym $alt+Shift+0 move container to workspace $wk10
+
+# Bind workspaces to certain monitors
+set $intern LVDS-1
+set $extern VGA-1
+
+workspace $wk01 output $intern
+workspace $wk02 output $intern
+workspace $wk03 output $intern
+workspace $wk04 output $intern
+workspace $wk05 output $intern
+workspace $wk06 output $intern
+workspace $wk07 output $intern
+workspace $wk08 output $intern
+workspace $wk09 output $intern
+workspace $wk00 output $intern
+workspace $wk11 output $extern
+workspace $wk12 output $extern
+workspace $wk13 output $extern
+workspace $wk14 output $extern
+workspace $wk15 output $extern
+workspace $wk16 output $extern
+workspace $wk17 output $extern
+workspace $wk18 output $extern
+workspace $wk19 output $extern
+workspace $wk10 output $extern
