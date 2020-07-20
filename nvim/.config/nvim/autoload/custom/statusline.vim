@@ -37,7 +37,7 @@ function! custom#statusline#mod()
 endfunction
 
 function! custom#statusline#ff()
-  return s:surround(&ff ==# 'dos' ? 'DOS' : '')
+  return &ff !=# 'dos' ? '' : s:surround('DOS') . ' '
 endfunction
 
 function! custom#statusline#git()
@@ -50,11 +50,19 @@ endfunction
 
 function! custom#statusline#coc()
   let l:status = trim(get(g:, 'coc_status', ''))
-  return l:status == '' ? '' : s:surround(l:status) . ' '
+  let l:info = get(b:, 'coc_diagnostic_info', {})
+  let l:string = l:info == {} ? l:status :
+        \ l:status == '' ? s:coc_errors(l:info) :
+        \ l:status . ', ' . s:coc_errors(l:info)
+  return l:string == '' ? '' : s:surround(l:string) . ' '
 endfunction
 
 function! custom#statusline#obsession()
   return ObsessionStatus() ==# '' ? '' : ObsessionStatus() . ' '
+endfunction
+
+function! custom#statusline#spell()
+  return &spell == 0 ? '' : s:surround('SPL') . ' '
 endfunction
 
 function! s:surround(val)
@@ -63,6 +71,19 @@ function! s:surround(val)
   endif
 
   return ''
+endfunction
+
+function! s:coc_errors(info)
+  let l:errors = get(a:info, 'error', 0)
+  let l:warnings = get(a:info, 'warning', 0)
+  if l:warnings == 0
+    let l:string = l:errors == 0 ? '' : 'E' . l:errors
+  else
+    let l:string = l:errors == 0 ? 'W' . l:warnings :
+          \ 'W' . l:warnings . ' E' . l:errors
+  endif
+
+  return l:string
 endfunction
 
 function! s:helpfile()

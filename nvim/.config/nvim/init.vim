@@ -196,7 +196,7 @@ set noshowmode
 set laststatus=2
 
 set statusline=
-      \%{custom#statusline#mode()}\ %{custom#statusline#git()}%{custom#statusline#name()}%{custom#statusline#ff()}\ %{custom#statusline#mod()}
+      \%{custom#statusline#mode()}\ %{custom#statusline#git()}%{custom#statusline#name()}\ %{custom#statusline#ff()}%{custom#statusline#spell()}%{custom#statusline#mod()}
       \%=%{custom#statusline#type()}\ %{custom#statusline#coc()}%{custom#statusline#obsession()}
       \[U+%0004.B]\ [%4.l/%4.Lℓ,\ %3.p%%]
 " }}}}
