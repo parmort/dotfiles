@@ -21,42 +21,67 @@ end
 " }}}
 " Vim-Plug -------------------------------------------------------- {{{
 call plug#begin('~/.local/share/nvim/plugins')
-  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-  Plug 'bfrg/vim-cpp-modern'
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-  Plug 'junegunn/limelight.vim'
-  Plug 'kovetskiy/sxhkd-vim'
-  Plug 'lifepillar/vim-colortemplate'
-  Plug 'parmort/vim-audit'
-  Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-  Plug 'PotatoesMaster/i3-vim-syntax'
-  Plug 'romainl/vim-cool'
-  Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
-  Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
-  Plug 'tpope/vim-bundler', { 'for': 'ruby' }
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-dispatch'
-  Plug 'tpope/vim-endwise'
-  Plug 'tpope/vim-eunuch'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-obsession'
-  Plug 'tpope/vim-projectionist'
-  Plug 'tpope/vim-ragtag'
-  Plug 'tpope/vim-rails', { 'for': 'ruby' }
-  Plug 'tpope/vim-rsi'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-unimpaired'
-  Plug 'tpope/vim-vinegar'
-  Plug 'vimjas/vim-python-pep8-indent', { 'for': 'python' }
-  Plug 'wincent/command-t', {
-    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
-    \ }
 
-  " Colorscheme
-  Plug 'rakr/vim-one'
+fun! BuildVBG(info)
+  !./install.sh
+  UpdateRemotePlugins
+endfun
 
-  Plug '/home/nolan/code/vim-flashy'
+" Misc. Features
+Plug 'romainl/vim-cool'
+Plug 'ThePrimeagen/vim-be-good', { 'do': function('BuildVBG') }
+Plug 'tpope/vim-obsession'
+
+" Mappings / Commands
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-rsi'
+
+" Writing
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight'}
+
+" Tie-ins
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-dispatch'
+
+" Misc. Filetypes
+" NOTE: If more than one for a filetype, extract to own section
+Plug 'bfrg/vim-cpp-modern'
+Plug 'kovetskiy/sxhkd-vim'
+Plug 'parmort/vim-audit', { 'for': 'vim.vimrc' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+
+" Completion / Code generation
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-surround'
+
+" Ruby
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+
+" Python
+Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
+Plug 'vimjas/vim-python-pep8-indent', { 'for': 'python' }
+
+" File searching and navigation
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-vinegar'
+Plug 'wincent/command-t', {
+  \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
+  \ }
+
+" Colorscheme
+Plug 'rakr/vim-one'
+
+" Local Plugins
+Plug '/home/nolan/code/vim-flashy'
+
 call plug#end()
 " }}}
 " Settings ------------------------------------------------------- {{{
