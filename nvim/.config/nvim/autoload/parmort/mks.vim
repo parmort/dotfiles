@@ -10,7 +10,7 @@ if !exists("s:ses_file")
   let s:ses_file = ""
 endif
 
-function! custom#mks#mkses(ses_file, bang)
+function! parmort#mks#mkses(ses_file, bang)
   if exists("g:loaded_obsession")
     echo execute("Obsession " . s:ses_path . a:ses_file)
   else
@@ -18,7 +18,7 @@ function! custom#mks#mkses(ses_file, bang)
   endif
 endfunction
 
-function! custom#mks#rmses(ses_file)
+function! parmort#mks#rmses(ses_file)
   if exists("g:loaded_obsession") && a:ses_file ==# ""
     echo execute("Obsession!")
   else
@@ -30,7 +30,7 @@ function! custom#mks#rmses(ses_file)
   endif
 endfunction
 
-function! custom#mks#complete(A,L,P)
+function! parmort#mks#complete(A,L,P)
   return systemlist("ls " . s:ses_path)
 endfunction
 

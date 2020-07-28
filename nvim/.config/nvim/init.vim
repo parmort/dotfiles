@@ -38,8 +38,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-rsi'
 
 " Writing
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-Plug 'junegunn/limelight.vim', { 'on': 'Limelight'}
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 " Tie-ins
 Plug 'christoomey/vim-tmux-navigator'
@@ -50,6 +50,7 @@ Plug 'tpope/vim-dispatch'
 " NOTE: If more than one for a filetype, extract to own section
 Plug 'bfrg/vim-cpp-modern'
 Plug 'kovetskiy/sxhkd-vim'
+Plug 'ledger/vim-ledger', { 'for': 'ledger' }
 Plug 'parmort/vim-audit', { 'for': 'vim.vimrc' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
@@ -150,7 +151,7 @@ set listchars+=precedes:«
 " }}}}
 " Indenting {{{{
 " Make tabs be 2 characters in width and use spaces
-cal custom#misc#settabspace(2)
+cal parmort#misc#settabspace(2)
 set smarttab
 set expandtab
 set shiftround
@@ -196,14 +197,14 @@ set noshowmode
 set laststatus=2
 
 set statusline=
-      \%{custom#statusline#mode()}\ %{custom#statusline#git()}%{custom#statusline#name()}\ %{custom#statusline#ff()}%{custom#statusline#spell()}%{custom#statusline#mod()}
-      \%=%{custom#statusline#type()}\ %{custom#statusline#coc()}%{custom#statusline#obsession()}
+      \%{parmort#statusline#mode()}\ %{parmort#statusline#git()}%{parmort#statusline#name()}\ %{parmort#statusline#ff()}%{parmort#statusline#spell()}%{parmort#statusline#mod()}
+      \%=%{parmort#statusline#type()}\ %{parmort#statusline#coc()}%{parmort#statusline#obsession()}
       \[U+%0004.B]\ [%4.l/%4.Lℓ,\ %3.p%%]
 " }}}}
 " Tabline {{{{
 if has('windows')
   set showtabline=2
-  set tabline=%!custom#tabline#line()
+  set tabline=%!parmort#tabline#line()
 endif
 " }}}}
 " Goyo {{{{
@@ -216,8 +217,8 @@ function! s:goyo_leave()
   SourceConf
 endfunction
 
-autocmd! User GoyoEnter nested call custom#goyo#goyo_enter()
-autocmd! User GoyoLeave nested call custom#goyo#goyo_leave()
+autocmd! User GoyoEnter nested call parmort#goyo#goyo_enter()
+autocmd! User GoyoLeave nested call parmort#goyo#goyo_leave()
 " }}}}
 " vimtex {{{{
 let g:vimtex_view_general_viewer = 'zathura'
@@ -301,23 +302,23 @@ nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " }}}}}
 " vim-rspec {{{{
-let g:rspec_command = "call custom#misc#runspecs('{spec}')"
+let g:rspec_command = "call parmort#misc#runspecs('{spec}')"
 " }}}}
 
 " }}}
 " Commands -------------------------------------------------------- {{{
 
 " Use a command to return to the git project root
-command! Root cal custom#misc#groot()
+command! Root cal parmort#misc#groot()
 
 " Focus current fold
-command! FocusLine cal custom#misc#focusline()
+command! FocusLine cal parmort#misc#focusline()
 
 " Reload configuration without losing filetype specific stuff
-command! -bar SourceConf cal custom#misc#sourceConf()
+command! -bar SourceConf cal parmort#misc#sourceConf()
 
-command! -nargs=? -bar -bang -complete=customlist,custom#mks#complete Mksession cal custom#mks#mkses(<q-args>, <bang>0)
-command! -nargs=? -bar -complete=customlist,custom#mks#complete Rmsession cal custom#mks#rmses(<q-args>)
+command! -nargs=? -bar -bang -complete=customlist,parmort#mks#complete Mksession cal parmort#mks#mkses(<q-args>, <bang>0)
+command! -nargs=? -bar -complete=customlist,parmort#mks#complete Rmsession cal parmort#mks#rmses(<q-args>)
 
 command! -bang -nargs=0 QFix call QFixToggle(<bang>0)
 function! QFixToggle(loc)
@@ -403,8 +404,8 @@ nnoremap zX zA
 nnoremap Y y$
 
 " Unimpaired++
-call custom#misc#nunmap("[e")
-call custom#misc#nunmap("]e")
+call parmort#misc#nunmap("[e")
+call parmort#misc#nunmap("]e")
 
 nmap [ee <plug>unimpairedMoveUp
 xmap [ee <plug>unimpairedMoveSelectionUp

@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-function! custom#statusline#mode()
+function! parmort#statusline#mode()
   let l:modes = {
         \ 'n': 'NORMAL',
         \ 'i': 'INSERT',
@@ -14,19 +14,19 @@ function! custom#statusline#mode()
   return '[' . (s:netrw() ? 'NETRW' : get(l:modes, mode(), '')) . ']'
 endfunction
 
-function! custom#statusline#name()
+function! parmort#statusline#name()
   return s:helpfile() ? expand('%:t:r') :
         \ s:netrw() ? b:netrw_curdir :
         \ expand('%:t')
 endfunction
 
-function! custom#statusline#type()
+function! parmort#statusline#type()
   return s:helpfile() ? '' :
         \ s:netrw() ? '' :
         \ &filetype
 endfunction
 
-function! custom#statusline#mod()
+function! parmort#statusline#mod()
   return s:surround(
         \ s:helpfile() ? 'HLP':
         \ s:netrw() ? '' :
@@ -36,11 +36,11 @@ function! custom#statusline#mod()
         \ '')
 endfunction
 
-function! custom#statusline#ff()
+function! parmort#statusline#ff()
   return &ff !=# 'dos' ? '' : s:surround('DOS') . ' '
 endfunction
 
-function! custom#statusline#git()
+function! parmort#statusline#git()
   if !exists('b:git_dir')
     return ''
   endif
@@ -48,7 +48,7 @@ function! custom#statusline#git()
   return s:netrw() ? '' : s:surround(fugitive#Head()) . ' '
 endfunction
 
-function! custom#statusline#coc()
+function! parmort#statusline#coc()
   let l:status = trim(get(g:, 'coc_status', ''))
   let l:info = get(b:, 'coc_diagnostic_info', {})
   let l:string = l:info == {} ? l:status :
@@ -57,11 +57,11 @@ function! custom#statusline#coc()
   return l:string == '' ? '' : s:surround(l:string) . ' '
 endfunction
 
-function! custom#statusline#obsession()
+function! parmort#statusline#obsession()
   return ObsessionStatus() ==# '' ? '' : ObsessionStatus() . ' '
 endfunction
 
-function! custom#statusline#spell()
+function! parmort#statusline#spell()
   return &spell == 0 ? '' : s:surround('SPL') . ' '
 endfunction
 

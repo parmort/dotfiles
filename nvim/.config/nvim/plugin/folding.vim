@@ -12,4 +12,4 @@ set foldlevelstart=99
 set foldnestmax=1
 
 " Set how folds look. See vim/autoload/autoload.vim
-set foldtext=custom#misc#foldtext()
+set foldtext=parmort#misc#foldtext()

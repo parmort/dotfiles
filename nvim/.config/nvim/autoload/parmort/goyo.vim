@@ -1,4 +1,4 @@
-function! custom#goyo#goyo_enter()
+function! parmort#goyo#goyo_enter()
   setl wrap
   setl nocursorline
   setl spell
@@ -10,7 +10,7 @@ function! custom#goyo#goyo_enter()
   CocDisable
 endfunction
 
-function! custom#goyo#goyo_leave()
+function! parmort#goyo#goyo_leave()
   setl nowrap
   setl cursorline
   setl nospell
