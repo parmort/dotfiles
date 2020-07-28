@@ -1,4 +1,3 @@
-" scriptencoding utf-8
 " File: vimrc
 " Author: S. Numerius <parvus.mortalis@gmail.com>
 
@@ -22,12 +21,12 @@ end
 " Vim-Plug -------------------------------------------------------- {{{
 call plug#begin('~/.local/share/nvim/plugins')
 
-fun! BuildVBG(info)
+fun! BuildVBG(info) abort
   !./install.sh
   UpdateRemotePlugins
 endfun
 
-" Misc. Features
+" Misc.
 Plug 'romainl/vim-cool'
 Plug 'ThePrimeagen/vim-be-good', { 'do': function('BuildVBG') }
 Plug 'tpope/vim-obsession'
@@ -71,8 +70,10 @@ Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 Plug 'vimjas/vim-python-pep8-indent', { 'for': 'python' }
 
 " File searching and navigation
+Plug 'fsharpasharp/vim-dirvinist'
+Plug 'justinmk/vim-dirvish'
+Plug 'kristijanhusak/vim-dirvish-git'
 Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-vinegar'
 Plug 'wincent/command-t', {
   \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
   \ }
@@ -304,6 +305,19 @@ nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " vim-rspec {{{{
 let g:rspec_command = "call parmort#misc#runspecs('{spec}')"
 " }}}}
+" dirvish {{{{
+let g:dirvish_mode = ':sort ,^.*[\/],'
+
+let g:dirvish_git_indicators = {
+      \ 'Modified': '!',
+      \ 'Staged': '+',
+      \ 'Untracked': '?',
+      \ 'Renamed': '»',
+      \ 'Unmerged': '=',
+      \ 'Ignored': 'I',
+      \ 'Unknown': ''
+      \ }
+" }}}}
 
 " }}}
 " Commands -------------------------------------------------------- {{{
@@ -473,8 +487,9 @@ cnoreabbrev vs SourceConf
 inoreabbrev <expr> #!! "#!/usr/bin/" . (empty(&filetype) ? 'bash' : 'env '.&filetype)
 
 " }}}
-" Macros ----------------------------------------------------------- {{{
+" Macros ---------------------------------------------------------- {{{
 augroup macros
+  au!
 
   " Add a semicolon to the end of current line
   au FileType javascript,typescript,cpp,arduino,java nnoremap <CR>s maA;<Esc>`a:delmarks<Space>a<CR>

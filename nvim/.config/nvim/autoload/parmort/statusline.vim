@@ -17,6 +17,7 @@ endfunction
 function! parmort#statusline#name()
   return s:helpfile() ? expand('%:t:r') :
         \ s:netrw() ? b:netrw_curdir :
+        \ s:dirvish() ? expand('%:.') :
         \ expand('%:t')
 endfunction
 
@@ -87,7 +88,7 @@ function! s:coc_errors(info)
 endfunction
 
 function! s:helpfile()
-  return &filetype =~# '\v(help)'
+  return &filetype ==# '\v(help)'
 endfunction
 
 function! s:ro()
@@ -95,5 +96,9 @@ function! s:ro()
 endfunction
 
 function! s:netrw()
-  return &filetype =~# '\v(netrw)'
+  return &filetype ==# '\v(netrw)'
+endfunction
+
+function! s:dirvish() abort
+  return &filetype ==# 'dirvish'
 endfunction
