@@ -99,3 +99,6 @@
 [submodule "vim/vim-pathogen"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
+[submodule "vim/fzf"]
+	path = nvim/.config/nvim/pack/bundle/opt/fzf
+	url = https://github.com/junegunn/fzf

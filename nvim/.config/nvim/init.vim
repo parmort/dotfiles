@@ -24,7 +24,7 @@ if &loadplugins
     packadd! goyo.vim
     packadd! limelight.vim
 
-    " Navigation
+    " Tie-ins
     packadd! vim-tmux-navigator
     packadd! vim-fugitive
     packadd! vim-dispatch
@@ -53,6 +53,7 @@ if &loadplugins
     packadd! vim-python-pep8-indent
 
     " Navigation
+    packadd! fzf
     packadd! vim-dirvish
     packadd! vim-projectionist
     packadd! command-t

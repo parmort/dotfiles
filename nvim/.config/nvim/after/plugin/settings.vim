@@ -17,6 +17,8 @@ if filereadable(s:TRUSTED_LOCAL)
   execute "source " . s:TRUSTED_LOCAL
 endif
 
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
 " File Searching {{{{
 set path+=**
 set wildmenu

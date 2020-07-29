@@ -61,6 +61,7 @@ _plug_add() {
   esac
 
   git submodule add --name $2/$4 https://github.com/$3/$4
+  vim -c "helptags $4" -c "q"
 }
 
 _plug_list() {
