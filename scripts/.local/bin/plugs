@@ -9,6 +9,7 @@ _plug_update() {
       git submodule foreach '
         if [ "${sm_path##nvim/.config/nvim/pack/bundle/opt/}" != "$sm_path" ]; then
           echo "$(git submodule update --remote --merge)"
+          vim -c "helptags $sm_path" -c "q"
         else
           echo "  Leaving $sm_path"
         fi

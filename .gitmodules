@@ -84,18 +84,18 @@
 [submodule "vim/vim-python-pep8-indent"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-python-pep8-indent
 	url = https://github.com/vimjas/vim-python-pep8-indent
-[submodule "vim/vim-dirvinist"]
-	path = nvim/.config/nvim/pack/bundle/opt/vim-dirvinist
-	url = https://github.com/fsharpasharp/vim-dirvinist
 [submodule "vim/vim-dirvish"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish
-[submodule "vim/vim-dirvish-git"]
-	path = nvim/.config/nvim/pack/bundle/opt/vim-dirvish-git
-	url = https://github.com/kristijanhusak/vim-dirvish-git
 [submodule "vim/vim-projectionist"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist
 [submodule "vim/command-t"]
 	path = nvim/.config/nvim/pack/bundle/opt/command-t
 	url = https://github.com/wincent/command-t
+[submodule "vim/vim-pathogen"]
+	path = nvim/.config/nvim/pack/bundle/opt/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
+[submodule "vim/vim-one"]
+	path = nvim/.config/nvim/pack/bundle/opt/vim-one
+	url = https://github.com/rakr/vim-one
