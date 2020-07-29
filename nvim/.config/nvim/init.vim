@@ -9,6 +9,13 @@ if has('multi_byte')
   scriptencoding utf-8
   setglobal fileencodings=utf-8
 endif
+
+if !has('nvim')
+  set runtimepath+=$XDG_CONFIG_HOME/nvim,$XDG_CONFIG_HOME/nvim/after
+  set packpath+=$XDG_CONFIG_HOME/nvim,$XDG_CONFIG_HOME/nvim/after
+  set term=xterm-256color
+endif
+
 " }}}
 " Plugins --------------------------------------------------------- {{{
 if &loadplugins
