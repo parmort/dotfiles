@@ -3,6 +3,20 @@
 GREEN='\033[0;32m'
 NC='\033[0m'
 
+_plug_remove() {
+  [ -z "$1" ] && echo "Path to a submodule needed" 1>&2 && exit 1
+
+  case "${1%%/*}" in
+    nvim) local path=.git/modules/vim ;;
+    zsh) local path=.git/modules/zsh ;;
+    *) echo "Unknown type '${1%%/*}'" && exit 1 ;;
+  esac
+
+  git submodule deinit -f $1
+  rm -rf $path/${1##*/}
+  git rm -f $1
+}
+
 _plug_update() {
   case "$1" in
     vim)
@@ -71,6 +85,9 @@ case "$1" in
     ;;
   update)
     _plug_update $2
+    ;;
+  rm)
+    _plug_remove $2
     ;;
   *)
     echo "Option '$1' not recognized" 1>&2

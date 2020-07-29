@@ -93,9 +93,9 @@
 [submodule "vim/command-t"]
 	path = nvim/.config/nvim/pack/bundle/opt/command-t
 	url = https://github.com/wincent/command-t
-[submodule "vim/vim-pathogen"]
-	path = nvim/.config/nvim/pack/bundle/opt/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen
 [submodule "vim/vim-one"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-one
 	url = https://github.com/rakr/vim-one
+[submodule "vim/vim-pathogen"]
+	path = nvim/.config/nvim/pack/bundle/opt/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
