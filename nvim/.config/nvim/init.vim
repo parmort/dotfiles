@@ -52,7 +52,6 @@ if &loadplugins
 
     " Ruby
     packadd! vim-rails
-    packadd! vim-rspec
     packadd! vim-bundler
 
     " Python
