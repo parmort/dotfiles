@@ -7,6 +7,9 @@
   pager = less
   excludesfile = $XDG_CONFIG_HOME/git/ignore
 
+[advice]
+  detachedHead = false
+
 [alias]
   hist = log --pretty=format:\"%C(green)%h %C(yellow)%ad %C(blue)[%cn]%C(red)%d %C(reset)%s\" --decorate --date=short
   last = "!f() { export GIT_PAGER=''; git log -1 --show-signature; }; f"
