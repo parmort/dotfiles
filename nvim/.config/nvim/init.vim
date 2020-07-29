@@ -28,7 +28,6 @@ endfun
 
 " Misc.
 Plug 'romainl/vim-cool'
-Plug 'ThePrimeagen/vim-be-good', { 'do': function('BuildVBG') }
 Plug 'tpope/vim-obsession'
 
 " Mappings / Commands

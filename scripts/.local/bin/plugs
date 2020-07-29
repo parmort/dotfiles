@@ -3,17 +3,76 @@
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-_plug_zsh() {
-  cd $(git rev-parse --show-toplevel)/zsh/.config/zsh/plugs
-  for plug in */; do
-    cd $plug
-    echo -e "$GREEN$plug$NC"
-    echo "  $(git pull)"
-    cd ..
-  done
+_plug_update() {
+  case "$1" in
+    vim)
+      git submodule foreach '
+        if [ "${sm_path##nvim/.config/nvim/pack/bundle/opt/}" != "$sm_path" ]; then
+          echo "$(git submodule update --remote --merge)"
+        else
+          echo "  Leaving $sm_path"
+        fi
+      '
+      ;;
+    zsh)
+      git submodule foreach '
+        if [ "${sm_path##zsh/.config/zsh/plugs/}" != "$sm_path" ]; then
+          git submodule update --remote --merge
+          echo -e "  \033[0;32mUpdating $sm_path\033[0m"
+        else
+          echo "  Leaving $sm_path"
+        fi
+      '
+      ;;
+    *)
+      echo "Unknown type '$1'" 1>&2
+      exit 1
+      ;;
+  esac
 }
 
-[ "$1" = "zsh" ] && _plug_zsh && exit 0
+_plug_add() {
+  case "$2" in
+    vim)
+      cd $(git rev-parse --show-toplevel)/nvim/.config/nvim/pack/bundle/opt
+      ;;
+    zsh)
+      cd $(git rev-parse --show-toplevel)/zsh/.config/zsh/plugs
+      ;;
+    *)
+      echo "Unknown type '$2'" 1>&2
+      exit 1
+      ;;
+  esac
 
-echo "Option '$1' not recognized" 1>&2
-exit 1
+  git submodule add --name $2/$4 https://github.com/$3/$4
+}
+
+_plug_list() {
+  case "$1" in
+    vim)
+      git submodule status | grep "vim" | awk '{print $2}' | cut -c 35- | less
+      ;;
+    zsh)
+      git submodule status | grep "zsh" | awk '{print $2}' | cut -c 23- | less
+      ;;
+    *)
+      git submodule status | awk '{print $2}' | less
+  esac
+}
+
+case "$1" in
+  add)
+    _plug_add "$@"
+    ;;
+  list)
+    _plug_list $2
+    ;;
+  update)
+    _plug_update $2
+    ;;
+  *)
+    echo "Option '$1' not recognized" 1>&2
+    exit 1
+    ;;
+esac
