@@ -3,7 +3,7 @@
 LASTFILE=/tmp/ec_lastfile
 
 if [ "$1" != "-" ] || [ ! -e $LASTFILE ]; then
-  find ~/dotfiles/* -type f | grep -v ".*\.png" | fzf > $LASTFILE
+  find ~/dotfiles/* -type f | grep -v ".*\.png" | fzf --preview 'highlight {} -O ansi --force' > $LASTFILE
 
   if [ $? -ne 0 ]; then
     exit
