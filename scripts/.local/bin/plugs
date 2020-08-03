@@ -64,6 +64,24 @@ _plug_add() {
   vim -c "helptags $4" -c "q"
 }
 
+_plug_add_ssh() {
+  case "$2" in
+    vim)
+      cd $(git rev-parse --show-toplevel)/nvim/.config/nvim/pack/bundle/opt
+      ;;
+    zsh)
+      cd $(git rev-parse --show-toplevel)/zsh/.config/zsh/plugs
+      ;;
+    *)
+      echo "Unknown type '$2'" 1>&2
+      exit 1
+      ;;
+  esac
+
+  git submodule add --name $2/$4 git@github.com:$3/$4
+  vim -c "helptags $4" -c "q"
+}
+
 _plug_list() {
   case "$1" in
     vim)
@@ -78,18 +96,11 @@ _plug_list() {
 }
 
 case "$1" in
-  add)
-    _plug_add "$@"
-    ;;
-  list)
-    _plug_list $2
-    ;;
-  update)
-    _plug_update $2
-    ;;
-  rm)
-    _plug_remove $2
-    ;;
+  add) _plug_add "$@" ;;
+  add-ssh) _plug_add_ssh "$@" ;;
+  list) _plug_list $2 ;;
+  update) _plug_update $2 ;;
+  rm) _plug_remove $2 ;;
   *)
     echo "Option '$1' not recognized" 1>&2
     exit 1

@@ -102,3 +102,6 @@
 [submodule "vim/fzf"]
 	path = nvim/.config/nvim/pack/bundle/opt/fzf
 	url = https://github.com/junegunn/fzf
+[submodule "vim/vim-flashy"]
+	path = nvim/.config/nvim/pack/bundle/opt/vim-flashy
+	url = git@github.com:parmort/vim-flashy
