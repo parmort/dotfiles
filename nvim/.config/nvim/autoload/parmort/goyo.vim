@@ -7,7 +7,7 @@ function! parmort#goyo#goyo_enter()
     nnoremap k gk
   endif
   Limelight
-  CocDisable
+  silent CocDisable
 endfunction
 
 function! parmort#goyo#goyo_leave()
@@ -19,5 +19,5 @@ function! parmort#goyo#goyo_leave()
     unmap j
     unmap k
   endif
-  CocEnable
+  silent CocEnable
 endfunction

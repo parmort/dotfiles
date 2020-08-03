@@ -23,4 +23,9 @@ let g:projectionist_heuristics = {
       \   "*.component.ts": { "type": "component", "alternate": "{}.component.html" },
       \   "*.component.html": { "type": "html", "alternate": "{}.component.ts" },
       \ },
+      \ "*.lua": {
+      \   "*": {
+      \     "dispatch": ":luafile %"
+      \   }
+      \ }
       \ }
