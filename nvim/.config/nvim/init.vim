@@ -40,7 +40,6 @@ if &loadplugins
     packadd! vim-cpp-modern
     packadd! sxhkd-vim
     packadd! vim-ledger
-    packadd! vim-audit
     packadd! vim-javascript
 
     " Code completion
@@ -155,11 +154,8 @@ endif
 " Projectionist
 nnoremap ga :A<CR>
 
-" Remap CommandT mappings
-nmap <C-p> <Plug>(CommandT)
-nmap <leader>h <Plug>(CommandTHelp)
-nmap <leader>s <Plug>(CommandTBuffer)
-nmap <leader>j <nop>
+" Help searching
+nnoremap <leader>h :FZFHelp<CR>
 
 " Open the gemfile; use find to err if file not found
 nnoremap <leader>gg :find Gemfile<CR>
