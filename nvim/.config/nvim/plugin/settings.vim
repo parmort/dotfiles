@@ -31,7 +31,7 @@ set listchars+=extends:»  " When line extends past right of screen
 set listchars+=precedes:« " When line extends past left of screen
 
 " Set tab spacing (handy helper in ftplugins)
-call parmort#misc#settabspace(2)
+call parmort#settabspace(2)
 
 set path+=**              " Recurse into subdirectories
 set wildmenu              " The command completion menu

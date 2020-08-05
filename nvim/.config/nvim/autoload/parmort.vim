@@ -4,14 +4,14 @@ let s:middot='·'
 let s:raquo='»'
 let s:small_l='ℓ'
 
-function! parmort#misc#foldtext() abort
+function! parmort#foldtext() abort
   let l:lines='[' . (v:foldend - v:foldstart + 1) . s:small_l . ']'
   let l:first=substitute(getline(v:foldstart), '\v *', '', '')
   let l:dashes=substitute(v:folddashes, '-', s:middot, 'g')
   return s:raquo . l:dashes . l:lines . ': ' . l:first
 endfunction
 
-function! parmort#misc#groot()
+function! parmort#groot()
   let root = systemlist('git rev-parse --show-toplevel')[0]
   if v:shell_error
     echo 'Not in git repo'
@@ -21,36 +21,36 @@ function! parmort#misc#groot()
   endif
 endfunction
 
-function! parmort#misc#focusline()
+function! parmort#focusline()
   if &foldmethod ==# 'marker'
     execute "keepjumps normal! zMzvzz"
   endif
 endfunction
 
-function! parmort#misc#sourceConf()
+function! parmort#sourceConf()
   let l:pos = getcurpos()
   update
   so $MYVIMRC
   try
     edit
     call setpos('.', pos)
-    call parmort#misc#focusline()
+    call parmort#focusline()
   catch /E32/
   endtry
 endfunction
 
-function! parmort#misc#runspecs(spec)
+function! parmort#runspecs(spec)
   execute 'tabnew | terminal rspec '.a:spec
   execute feedkeys('\<c-\>\<c-n>')
 endfunction
 
-function! parmort#misc#settabspace(spc)
+function! parmort#settabspace(spc)
   exe 'set tabstop='.a:spc
   exe 'set softtabstop='.a:spc
   exe 'set shiftwidth='.a:spc
 endfunction
 
-function! parmort#misc#nunmap(key)
+function! parmort#nunmap(key)
   try
     exec "nunmap ".a:key
   catch /E31/

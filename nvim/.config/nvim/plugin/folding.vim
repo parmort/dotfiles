@@ -7,4 +7,4 @@ set foldmethod=syntax
 set foldlevelstart=99
 set foldnestmax=1
 
-set foldtext=parmort#misc#foldtext()
+set foldtext=parmort#foldtext()

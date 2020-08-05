@@ -76,10 +76,10 @@ endif
 " Commands -------------------------------------------------------- {{{
 
 " Focus current fold
-command! FocusLine call parmort#misc#focusline()
+command! FocusLine call parmort#focusline()
 
 " Reload configuration without losing filetype specific stuff
-command! -bar SourceConf call parmort#misc#sourceConf()
+command! -bar SourceConf call parmort#sourceConf()
 
 command! -nargs=? -bar -bang -complete=customlist,parmort#mks#complete Mksession call parmort#mks#mkses(<q-args>, <bang>0)
 command! -nargs=? -bar -complete=customlist,parmort#mks#complete Rmsession call parmort#mks#rmses(<q-args>)
@@ -124,8 +124,8 @@ nnoremap zX zA
 nnoremap Y y$
 
 " Unimpaired++
-call parmort#misc#nunmap("[e")
-call parmort#misc#nunmap("]e")
+call parmort#nunmap("[e")
+call parmort#nunmap("]e")
 
 nmap [ee <plug>unimpairedMoveUp
 xmap [ee <plug>unimpairedMoveSelectionUp
