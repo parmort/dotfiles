@@ -48,9 +48,6 @@
 [submodule "vim/vim-ledger"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-ledger
 	url = https://github.com/ledger/vim-ledger
-[submodule "vim/vim-audit"]
-	path = nvim/.config/nvim/pack/bundle/opt/vim-audit
-	url = https://github.com/parmort/vim-audit
 [submodule "vim/vim-javascript"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
