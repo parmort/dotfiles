@@ -18,6 +18,7 @@ launch picom
 launch dunst
 
 # Xorg settings (don't use launch helper)
+setxkbmap -layout us,us -variant ,colemak -option 'grp:menu_toggle'
 xmodmap $XDG_CONFIG_HOME/xorg/Xmodmap
 
 # Keybinds (must be after xmodmap)
