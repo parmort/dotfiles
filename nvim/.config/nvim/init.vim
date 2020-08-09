@@ -16,6 +16,11 @@ if !has('nvim')
   set term=xterm-256color
 endif
 
+" Open the current directory if no command-line arguments were passed in
+if empty(argv())
+  edit .
+endif
+
 " }}}
 " Plugins --------------------------------------------------------- {{{
 if &loadplugins

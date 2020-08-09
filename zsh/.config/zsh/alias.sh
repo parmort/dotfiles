@@ -65,6 +65,7 @@ alias tn="tmux new-session -s"
 
 # Program substitutions
 alias more=less
+alias vim=nvim
 alias which=whence
 alias mutt=neomutt
 alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
@@ -79,14 +80,6 @@ gal() { alias | grep --color "^$1" }
 
 # Generate rails project with solargraph definitions
 rg() { rails new $1 -T --database=postgresql && wget -O $1/config/definitions.rb https://gist.githubusercontent.com/castwide/28b349566a223dfb439a337aea29713e/raw/d1d4462b92f411b378d87a39482b830e012513bd/rails.rb }
-
-vim() {
-  if [ -z "$1" ]; then
-    nvim .
-  else
-    nvim "$@"
-  fi
-}
 
 # Wrap ag command until it supports config file
 # https://github.com/ggreer/the_silver_searcher/pull/709

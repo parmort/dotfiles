@@ -9,6 +9,11 @@ local function readTags(file)
 end
 
 local function helptags()
+  if vim.fn.has('nvim') == 0 then
+    print('Neovim required to run helptags.')
+    return
+  end
+
   if vim.g.loaded_fzf == nil then
     print('FZF not loaded.')
     return

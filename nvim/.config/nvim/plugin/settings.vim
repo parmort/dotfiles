@@ -85,3 +85,11 @@ if has('windows')
   set showtabline=2       " Always show the tabline
   set tabline=%!parmort#tabline#line() " Set the tabline
 endif
+
+if has('viminfo')
+  if has('nvim')
+    set shadafile=NONE
+  else
+    set viminfofile=NONE
+  endif
+endif
