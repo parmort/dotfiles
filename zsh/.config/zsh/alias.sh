@@ -64,7 +64,7 @@ alias tk="tmux kill-session -t"
 alias tn="tmux new-session -s"
 
 # Program substitutions
-alias more=less
+alias more="less -iFMRSX"
 alias vim=nvim
 alias which=whence
 alias mutt=neomutt
