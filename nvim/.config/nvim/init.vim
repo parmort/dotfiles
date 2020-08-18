@@ -26,11 +26,14 @@ endif
 if &loadplugins
   if has('packages')
     " Misc.
-    packadd! vim-cool
     packadd! vim-obsession
     packadd! vim-eunuch
     packadd! vim-unimpaired
     packadd! vim-rsi
+
+    " Searching
+    packadd! loupe
+    packadd! vim-cool
 
     " Focus / Zen
     packadd! goyo.vim

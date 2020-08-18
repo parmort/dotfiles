@@ -23,7 +23,7 @@ _plug_update() {
       git submodule foreach '
         if [ "${sm_path##nvim/.config/nvim/pack/bundle/opt/}" != "$sm_path" ]; then
           echo "$(git submodule update --remote --merge)"
-          vim -c "helptags $sm_path" -c "q"
+          vim -c "helptags ALL" -c "q"
         else
           echo "  Leaving $sm_path"
         fi
@@ -61,7 +61,7 @@ _plug_add() {
   esac
 
   git submodule add --name $2/$4 https://github.com/$3/$4
-  vim -c "helptags $4" -c "q"
+  vim -c "helptags ALL" -c "q"
 }
 
 _plug_add_ssh() {
@@ -79,7 +79,7 @@ _plug_add_ssh() {
   esac
 
   git submodule add --name $2/$4 git@github.com:$3/$4
-  vim -c "helptags $4" -c "q"
+  vim -c "helptags ALL" -c "q"
 }
 
 _plug_list() {
