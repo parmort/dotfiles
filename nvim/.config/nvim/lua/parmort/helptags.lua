@@ -22,8 +22,8 @@ local function helptags()
   local tagFiles = vim.fn.findfile('doc/tags', vim.api.nvim_get_option('runtimepath'), -1)
   local tags = {}
 
-  for _, file in pairs(tagFiles) do
-    tags = vim.tbl_extend('force', tags, readTags(file))
+  for _, file in ipairs(tagFiles) do
+    for _, tag in ipairs(readTags(file)) do table.insert(tags, tag) end
   end
 
   vim.fn['fzf#run'](vim.fn['fzf#wrap']({ sink = 'help'; source = tags}))

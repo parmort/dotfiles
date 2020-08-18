@@ -179,6 +179,10 @@ vnoremap K k
 
 " Dispatch
 nnoremap <leader>d :Dispatch<CR>
+
+" Loupe
+nnoremap <nop> <Plug>(LoupeClearHighlight)
+
 " }}}
 " Abbrevs --------------------------------------------------------- {{{
 
