@@ -93,3 +93,5 @@ if has('viminfo')
     set viminfofile=NONE
   endif
 endif
+
+let g:netrw_dirhistmax = 0 " Turn off netrw history
