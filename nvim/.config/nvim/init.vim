@@ -69,7 +69,6 @@ if &loadplugins
     packadd! fzf
     packadd! vim-dirvish
     packadd! vim-projectionist
-    packadd! command-t
 
     " Colorscheme
     packadd! vim-one

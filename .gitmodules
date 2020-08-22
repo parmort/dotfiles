@@ -87,9 +87,6 @@
 [submodule "vim/vim-projectionist"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist
-[submodule "vim/command-t"]
-	path = nvim/.config/nvim/pack/bundle/opt/command-t
-	url = https://github.com/wincent/command-t
 [submodule "vim/vim-one"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-one
 	url = https://github.com/rakr/vim-one
