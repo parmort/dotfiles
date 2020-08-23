@@ -17,7 +17,7 @@ if !has('nvim')
 endif
 
 " Open the current directory if no command-line arguments were passed in
-if empty(argv())
+if !argc(-1)
   edit .
 endif
 
@@ -51,7 +51,10 @@ if &loadplugins
     packadd! vim-javascript
 
     " Code completion
-    packadd! coc.nvim
+    " packadd! coc.nvim
+    packadd! nvim-lsp
+    packadd! deoplete.nvim
+    packadd! deoplete-lsp
     packadd! vim-commentary
     packadd! vim-endwise
     packadd! vim-ragtag
