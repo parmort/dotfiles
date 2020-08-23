@@ -51,9 +51,6 @@
 [submodule "vim/vim-javascript"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
-[submodule "vim/coc.nvim"]
-	path = nvim/.config/nvim/pack/bundle/opt/coc.nvim
-	url = https://github.com/neoclide/coc.nvim
 [submodule "vim/vim-commentary"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-commentary
 	url = https://github.com/tpope/vim-commentary
