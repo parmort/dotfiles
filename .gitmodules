@@ -108,3 +108,6 @@
 [submodule "vim/deoplete-lsp"]
 	path = nvim/.config/nvim/pack/bundle/opt/deoplete-lsp
 	url = https://github.com/Shougo/deoplete-lsp
+[submodule "vim/auto-pairs"]
+	path = nvim/.config/nvim/pack/bundle/opt/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs

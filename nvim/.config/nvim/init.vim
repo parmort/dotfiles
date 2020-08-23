@@ -51,6 +51,7 @@ if &loadplugins
     packadd! vim-javascript
 
     " Code completion
+    packadd! auto-pairs
     packadd! nvim-lsp
     packadd! deoplete.nvim
     packadd! deoplete-lsp
