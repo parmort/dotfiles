@@ -112,19 +112,19 @@ function! s:loclist()
   endtry
 endfunction
 
-nnoremap <F3> :cw<CR>
-nnoremap <F4> :lw<CR>
-nnoremap <F6> :SpellToggle<CR>
+nnoremap <F3> <cmd>cw<CR>
+nnoremap <F4> <cmd>lw<CR>
+nnoremap <F6> <cmd>SpellToggle<CR>
 
 " Get used to new mappings
-nnoremap <localleader>q :echo "Use Space q"<CR>
-nnoremap <localleader><S-q> :echo "Use Space S-q"<CR>
-nnoremap <localleader><C-q> :echo "Use Space C-q"<CR>
+nnoremap <localleader>q <cmd>echo "Use Space q"<CR>
+nnoremap <localleader><S-q> <cmd>echo "Use Space S-q"<CR>
+nnoremap <localleader><C-q> <cmd>echo "Use Space C-q"<CR>
 
 " Basic operations made simpler
-nnoremap <leader>q :bd!<CR>
-nnoremap <leader><S-q> :wqa!<CR>
-nnoremap <leader><C-q> :qa!<CR>
+nnoremap <leader>q <cmd>bd!<CR>
+nnoremap <leader><S-q> <cmd>wqa!<CR>
+nnoremap <leader><C-q> <cmd>qa!<CR>
 
 " Map za and zA to zx and zX
 nnoremap zx za
@@ -143,18 +143,18 @@ nmap ]ee <plug>unimpairedMoveDown
 xmap ]ee <plug>unimpairedMoveSelectionDown
 
 " Open vimrc in current or new tab
-nnoremap [ev :e ~/.config/nvim/init.vim<CR>
-nnoremap ]ev :tabnew ~/.config/nvim/init.vim<CR>
+nnoremap [ev <cmd>e ~/.config/nvim/init.vim<CR>
+nnoremap ]ev <cmd>tabnew ~/.config/nvim/init.vim<CR>
 
 " Open vim folder in current or new tab
-nnoremap [ea :e ~/.config/nvim<CR>
-nnoremap ]ea :tabnew ~/.config/nvim<CR>
+nnoremap [ea <cmd>e ~/.config/nvim<CR>
+nnoremap ]ea <cmd>tabnew ~/.config/nvim<CR>
 
 " Select all the things
 nnoremap [h ggVG
 
 " Text object for one character (for mnemonic purposes)
-onoremap <silent> ic :norm! v<CR>
+onoremap <silent> ic <cmd>norm! v<CR>
 
 " Make escape behave sanely in terminal mode
 if has('nvim')
@@ -162,25 +162,25 @@ if has('nvim')
 endif
 
 " Projectionist
-nnoremap ga :A<CR>
+nnoremap ga <cmd>A<CR>
 
 " Help searching
-nnoremap <leader>h :FZFHelp<CR>
+nnoremap <leader>h <cmd>FZFHelp<CR>
 
 " Open the gemfile; use find to err if file not found
-nnoremap <leader>gg :find Gemfile<CR>
+nnoremap <leader>gg <cmd>find Gemfile<CR>
 
 " Open Goyo
-nnoremap go :Goyo<CR>
+nnoremap go <cmd>Goyo<CR>
 
-" Open Netrw in current folder
-nnoremap <leader>x :tabnew <bar> Dirvish <CR>
+" Open directory in current folder
+nnoremap <leader>x <cmd>tabnew .<CR>
 
 " I have a habit of holding shift for too long in v-line
 vnoremap K k
 
 " Dispatch
-nnoremap <leader>d :Dispatch<CR>
+nnoremap <leader>d <cmd>Dispatch<CR>
 
 " Loupe
 nnoremap <nop> <Plug>(LoupeClearHighlight)
