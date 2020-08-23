@@ -51,7 +51,6 @@ if &loadplugins
     packadd! vim-javascript
 
     " Code completion
-    " packadd! coc.nvim
     packadd! nvim-lsp
     packadd! deoplete.nvim
     packadd! deoplete-lsp
