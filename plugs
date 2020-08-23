@@ -95,12 +95,19 @@ _plug_list() {
   esac
 }
 
+_plug_alias() {
+  echo '[alias]' >> .git/config
+  echo '	plugs = !./plugs' >> .git/config
+  echo 'Added alias to `.git/config`'
+}
+
 case "$1" in
   add) _plug_add "$@" ;;
   add-ssh) _plug_add_ssh "$@" ;;
   list) _plug_list $2 ;;
   update) _plug_update $2 ;;
   rm) _plug_remove $2 ;;
+  alias) _plug_alias ;;
   *)
     echo "Option '$1' not recognized" 1>&2
     exit 1
