@@ -22,7 +22,7 @@ installed.*
 
 ## And a Few Notes on Them
 
-I wrote a small script to help manage my plugins. Run `./plugs/alias` to alias
+I wrote a small script to help manage my plugins. Run `./plugs alias` to alias
 it to the repo's local config, making `git plugs ...` work in this repo.
 
 I used to keep all of my configs, even if I wasn't using the program. Now, I get
