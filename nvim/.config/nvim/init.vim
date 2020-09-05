@@ -30,6 +30,7 @@ if &loadplugins
     packadd! vim-eunuch
     packadd! vim-unimpaired
     packadd! vim-rsi
+    packadd! vim-repeat
 
     " Searching
     packadd! loupe

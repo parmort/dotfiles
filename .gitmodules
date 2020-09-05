@@ -111,3 +111,6 @@
 [submodule "vim/auto-pairs"]
 	path = nvim/.config/nvim/pack/bundle/opt/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
+[submodule "vim/vim-repeat"]
+	path = nvim/.config/nvim/pack/bundle/opt/vim-repeat
+	url = https://github.com/tpope/vim-repeat
