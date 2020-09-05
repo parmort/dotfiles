@@ -56,3 +56,19 @@ function! parmort#nunmap(key)
   catch /E31/
   endtry
 endfunction
+
+function! parmort#traverse(file) abort
+  let l:path=fnamemodify(expand('%') || getcwd(), ':p')
+
+  while 1
+    let l:candidate=l:path . '/' . a:file
+
+    if filereadable(l:candidate)
+      return l:candidate
+    elseif l:path == '' || l:path =='/'
+      return ''
+    endif
+
+    let l:path=fnamemodify(l:path, ':h')
+  endwhile
+endfunction

@@ -17,7 +17,7 @@ if !has('nvim')
 endif
 
 " Open the current directory if no command-line arguments were passed in
-if !argc(-1)
+if has('vim_starting') && !argc(-1)
   edit .
 endif
 
@@ -167,9 +167,6 @@ nnoremap ga <cmd>A<CR>
 " Help searching
 nnoremap <leader>h <cmd>FZFHelp<CR>
 
-" Open the gemfile; use find to err if file not found
-nnoremap <leader>gg <cmd>find Gemfile<CR>
-
 " Open Goyo
 nnoremap go <cmd>Goyo<CR>
 
@@ -181,9 +178,13 @@ vnoremap K k
 
 " Dispatch
 nnoremap <leader>d <cmd>Dispatch<CR>
+nnoremap <leader>m <cmd>Make<CR>
 
 " Loupe
 nnoremap <nop> <Plug>(LoupeClearHighlight)
+
+" Fugitive
+nnoremap <leader>g <cmd>G<CR>
 
 " }}}
 " Abbrevs --------------------------------------------------------- {{{

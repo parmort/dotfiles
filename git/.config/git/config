@@ -5,7 +5,6 @@
 [core]
   editor = nvim
   pager = less
-  excludesfile = $XDG_CONFIG_HOME/git/ignore
 
 [advice]
   detachedHead = false

@@ -9,7 +9,6 @@ set clipboard=unnamedplus " Make vim use the C-c clipboard
 set scrolloff=3           " Set scrolloff
 set linebreak             " Wrap lines at `breakat`
 setglobal spelllang=en_us " Spellchecking
-set signcolumn=yes        " Keep the gutter always on
 set cmdheight=2           " Raise height below statusline to 2 lines (better for COC)
 set updatetime=300        " Lower time for CursorHold autocmds
 set noshowmode            " Don't show mode messages

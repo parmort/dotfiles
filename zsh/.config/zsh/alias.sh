@@ -25,7 +25,7 @@ alias c="cd ~"
 alias cdd="cd ~/dotfiles && ls"
 alias cdb="cd ~/build && ls"
 alias cdc="cd ~/code && ls"
-alias cde="cd ~/code/exercism && ls"
+alias cdo="cd ~/code/competitive && ls"
 
 # Easy source of config
 alias sb="source $ZDOTDIR/.zshrc"

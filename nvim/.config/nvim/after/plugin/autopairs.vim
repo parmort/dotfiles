@@ -9,6 +9,3 @@ let g:AutoPairsShortcutJump = ''
 let g:AutoPairsShortcutBackInsert = ''
 let g:AutoPairsMapCh = 0
 let g:AutoPairsCenterLine = 0
-
-" I do want fly mode
-let g:AutoPairsFlyMode = 1

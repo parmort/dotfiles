@@ -3,6 +3,11 @@ if !exists('g:loaded_projectionist')
 endif
 
 let g:projectionist_heuristics = {
+      \ "*": {
+      \   "*.ts": { "dispatch": "yarn start", "console": "node" },
+      \   "*.js": { "console": "node" },
+      \   "*.lua": { "dispatch": ":luafile {}" }
+      \ },
       \ "*.rb&*_test.rb": {
       \   "*_test.rb": {
       \     "type": "test",
@@ -23,9 +28,4 @@ let g:projectionist_heuristics = {
       \   "*.component.ts": { "type": "component", "alternate": "{}.component.html" },
       \   "*.component.html": { "type": "html", "alternate": "{}.component.ts" },
       \ },
-      \ "*.lua": {
-      \   "*": {
-      \     "dispatch": ":luafile %"
-      \   }
-      \ }
       \ }
