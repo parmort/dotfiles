@@ -90,9 +90,6 @@
 [submodule "vim/vim-pathogen"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
-[submodule "vim/fzf"]
-	path = nvim/.config/nvim/pack/bundle/opt/fzf
-	url = https://github.com/junegunn/fzf
 [submodule "vim/vim-flashy"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-flashy
 	url = git@github.com:parmort/vim-flashy
@@ -114,3 +111,6 @@
 [submodule "vim/vim-repeat"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-repeat
 	url = https://github.com/tpope/vim-repeat
+[submodule "vim/command-t"]
+	path = nvim/.config/nvim/pack/bundle/opt/command-t
+	url = https://github.com/wincent/command-t
