@@ -50,6 +50,7 @@ if &loadplugins
     packadd! sxhkd-vim
     packadd! vim-ledger
     packadd! vim-javascript
+    packadd! nlua.nvim
 
     " Code completion
     packadd! auto-pairs
