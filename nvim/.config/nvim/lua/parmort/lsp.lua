@@ -20,6 +20,8 @@ local function configureBuffer()
   mapluafn('i', '<C-s>', 'vim.lsp.buf.signature_help()')
 
   vim.api.nvim_win_set_option(0, 'signcolumn', 'yes')
+
+  require'completion'.on_attach()
 end
 
 local common = {

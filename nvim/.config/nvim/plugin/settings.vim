@@ -22,6 +22,10 @@ set shortmess+=I          " Don't show the intro message
 set shortmess+=A          " Don't show the "Attention" swapfile message
 set shortmess+=c          " Don't show completion messages
 
+set completeopt=menuone   " Show the PUM, even if there is only one match
+set completeopt+=noinsert " Don't insert text until user selects a match
+set completeopt+=noselect " Don't auto-select matches
+
 set list                  " Display chars set in listchars
 set listchars=trail:·     " Trailing space
 set listchars+=tab:»·     " Explicit tabs (usually expanded)

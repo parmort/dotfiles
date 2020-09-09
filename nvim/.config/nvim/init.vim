@@ -54,9 +54,8 @@ if &loadplugins
 
     " Code completion
     packadd! auto-pairs
+    packadd! completion-nvim
     packadd! nvim-lsp
-    packadd! deoplete.nvim
-    packadd! deoplete-lsp
     packadd! vim-commentary
     packadd! vim-endwise
     packadd! vim-ragtag
