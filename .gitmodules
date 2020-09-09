@@ -98,7 +98,7 @@
 	url = https://github.com/wincent/loupe
 [submodule "vim/nvim-lsp"]
 	path = nvim/.config/nvim/pack/bundle/opt/nvim-lsp
-	url = https://github.com/neovim/nvim-lsp
+	url = https://github.com/neovim/nvim-lspconfig
 [submodule "vim/deoplete.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/deoplete.nvim
 	url = https://github.com/Shougo/deoplete.nvim
