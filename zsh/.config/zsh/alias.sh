@@ -55,6 +55,7 @@ alias gcb="git checkout -b"
 alias gcm="git checkout master"
 alias gbr="git branch"
 alias grm="git rm"
+alias gvim="vim -c 'Gstatus' -c 'wincmd o'"
 
 # Tmux
 alias t="tmux"
