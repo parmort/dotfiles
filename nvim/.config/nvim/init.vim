@@ -53,6 +53,7 @@ if &loadplugins
     packadd! nlua.nvim
 
     " Code completion
+    packadd! nvim-treesitter
     packadd! auto-pairs
     packadd! completion-nvim
     packadd! nvim-lsp

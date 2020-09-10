@@ -114,3 +114,6 @@
 [submodule "vim/auto-pairs"]
 	path = nvim/.config/nvim/pack/bundle/opt/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
+[submodule "vim/nvim-treesitter"]
+	path = nvim/.config/nvim/pack/bundle/opt/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
