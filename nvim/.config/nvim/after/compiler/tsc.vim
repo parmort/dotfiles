@@ -3,6 +3,7 @@ if exists(':CompilerSet') != 2
 endif
 
 let s:pack_path = parmort#traverse('package.json')
+let s:lint='tsc\ --noEmit\ --incremental\ false'
 
 if len(s:pack_path) > 1
   try
@@ -16,8 +17,6 @@ if len(s:pack_path) > 1
       endif
     endif
   catch
-    " No package.json found, so just compile and get errors in qf
-    let s:lint='yarn\ run\ tsc\ --noEmit\ --incremental\ false'
   endtry
 endif
 
