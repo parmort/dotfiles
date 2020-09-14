@@ -4,10 +4,13 @@
 
 [core]
   editor = nvim
-  pager = less
+  pager = delta
 
 [advice]
   detachedHead = false
+
+[interactive]
+  diffFilter = delta --color-only
 
 [alias]
   hist = log --pretty=format:\"%C(green)%h %C(yellow)%ad %C(blue)[%cn]%C(red)%d %C(reset)%s\" --decorate --date=short
@@ -17,3 +20,13 @@
 
 [pull]
   rebase = false
+
+[delta]
+  minus-style = "#e06c75" "#3e4452"
+  minus-emph-style = "#e06c75" bold "#3e4452"
+  minus-non-emph-style = syntax auto
+  plus-style = "#98c379" "#3e4452"
+  plus-emph-style = "#98c379" bold "#3e4452"
+  plus-non-emph-style = syntax auto
+  file-style = "#d19a66" auto
+  file-decoration-style = blue box
