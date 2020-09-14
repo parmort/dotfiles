@@ -44,10 +44,41 @@ list of my unused configs in their final forms:
 
 [7344e69]: https://github.com/parmort/dotfiles/tree/7344e69247384a98138cd072f3c224f8c3bf5fd3~1
 
+## And the Programs I Use
+
+Not all of these are represented in my dotfiles, since I don't configure them
+(like Brave). This is just here to tell me what I need to set up a new machine.
+
+- Brave
+- Alacritty
+- `yay`
+- Neovim nightly (built from source)
+- Polybar
+- BSPWM
+- SXHKD
+- Zathura (`zathura` & `zathura-pdf-poppler`)
+- GNU Stow
+- SXIV
+- `lf`
+- Dunst
+- Tmux
+- Zsh
+
+## Fonts
+
+This is a list of fonts I have used in the past, starting from 2020-09-13. To
+make my life easier, I alias the `monospace` font in my font config to the font
+and just reference `monospace` whenever I need to set a font.
+
+- *Current:* Victor Mono
+- mononoki
+
 ## And Their License
 
-These dotfiles are represented under the [DWTFYWWI License][3].
+I encourage you to peruse these dotfiles. Gain inspiration, steal a few things,
+I don't care. Just don't clone these and use them yourself. [Here's @wincent's
+take on this.][ghvid].
 
-[3]: https://github.com/parmort/DWTFYWWI
+[ghvid]: https://www.youtube.com/watch?v=M25oA2x66Kw
 
 Copyright (c) 2018&ndash;2020 N. Prochnau. No rights reserved.
