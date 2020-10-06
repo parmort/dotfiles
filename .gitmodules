@@ -117,3 +117,12 @@
 [submodule "vim/nvim-treesitter"]
 	path = nvim/.config/nvim/pack/bundle/opt/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule "vim/telescope.nvim"]
+	path = nvim/.config/nvim/pack/bundle/opt/telescope.nvim
+	url = https://github.com/nvim-lua/telescope.nvim
+[submodule "vim/plenary.nvim"]
+	path = nvim/.config/nvim/pack/bundle/opt/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "vim/popup.nvim"]
+	path = nvim/.config/nvim/pack/bundle/opt/popup.nvim
+	url = https://github.com/nvim-lua/popup.nvim

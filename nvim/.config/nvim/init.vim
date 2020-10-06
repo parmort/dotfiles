@@ -32,10 +32,6 @@ if &loadplugins
     packadd! vim-rsi
     packadd! vim-repeat
 
-    " Searching
-    packadd! loupe
-    packadd! vim-cool
-
     " Focus / Zen
     packadd! goyo.vim
     packadd! limelight.vim
@@ -72,8 +68,15 @@ if &loadplugins
 
     " Navigation
     packadd! command-t
+    packadd! telescope.nvim
     packadd! vim-dirvish
     packadd! vim-projectionist
+    packadd! loupe
+    packadd! vim-cool
+
+    " Libs
+    packadd! plenary.nvim
+    packadd! popup.nvim
 
     " Colorscheme
     packadd! vim-one
