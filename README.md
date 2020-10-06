@@ -63,7 +63,7 @@ Not all of these are represented in my dotfiles, since I don't configure them
 - Dunst
 - Tmux
 - Zsh
-- [delta][https://github.com/dandavison/delta]
+- [delta](https://github.com/dandavison/delta)
 
 ## Fonts
 
