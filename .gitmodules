@@ -102,9 +102,6 @@
 [submodule "vim/vim-repeat"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-repeat
 	url = https://github.com/tpope/vim-repeat
-[submodule "vim/command-t"]
-	path = nvim/.config/nvim/pack/bundle/opt/command-t
-	url = https://github.com/wincent/command-t
 [submodule "vim/nlua.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/nlua.nvim
 	url = https://github.com/tjdevries/nlua.nvim

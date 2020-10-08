@@ -67,7 +67,6 @@ if &loadplugins
     packadd! vim-python-pep8-indent
 
     " Navigation
-    packadd! command-t
     packadd! telescope.nvim
     packadd! vim-dirvish
     packadd! vim-projectionist
@@ -168,9 +167,6 @@ endif
 
 " Projectionist
 nnoremap ga <cmd>A<CR>
-
-" Help searching
-nnoremap <leader>h <cmd>CommandTHelp<CR>
 
 " Open Goyo
 nnoremap go <cmd>Goyo<CR>
