@@ -67,6 +67,7 @@ alias tn="tmux new-session -s"
 # Program substitutions
 alias more="less -iFMRSX"
 alias vim=nvim
+alias "v."="nvim -c 'set rtp+=$(pwd)'"
 alias which=whence
 alias mutt=neomutt
 alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
