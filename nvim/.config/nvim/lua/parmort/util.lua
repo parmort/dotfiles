@@ -15,4 +15,9 @@ function M.prequire(pkg)
   end
 end
 
+function M.rerequire(pkg)
+  require'plenary.reload'.reload_module(pkg)
+  return require(pkg)
+end
+
 return util
