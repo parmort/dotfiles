@@ -78,7 +78,7 @@ and just reference `monospace` whenever I need to set a font.
 
 I encourage you to peruse these dotfiles. Gain inspiration, steal a few things,
 I don't care. Just don't clone these and use them yourself. [Here's @wincent's
-take on this.][ghvid].
+take on this][ghvid].
 
 [ghvid]: https://www.youtube.com/watch?v=M25oA2x66Kw
 
