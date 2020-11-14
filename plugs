@@ -20,24 +20,10 @@ _plug_remove() {
 _plug_update() {
   case "$1" in
     vim)
-      git submodule foreach '
-        if [ "${sm_path##nvim/.config/nvim/pack/bundle/opt/}" != "$sm_path" ]; then
-          echo "$(git submodule update --remote --merge $sm_path)"
-          vim -u NONE -c "helptags $sm_path/doc" -c "q"
-        else
-          echo "  Leaving $sm_path"
-        fi
-      '
+      git submodule update --remote --merge nvim/.config/nvim/pack/bundle/opt
       ;;
     zsh)
-      git submodule foreach '
-        if [ "${sm_path##zsh/.config/zsh/plugs/}" != "$sm_path" ]; then
-          git submodule update --remote --merge
-          echo -e "  \033[0;32mUpdating $sm_path\033[0m"
-        else
-          echo "  Leaving $sm_path"
-        fi
-      '
+      git submodule update --remote --merge zsh/.config/zsh/plugs
       ;;
     *)
       echo "Unknown type '$1'" 1>&2

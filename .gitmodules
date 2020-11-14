@@ -48,9 +48,6 @@
 [submodule "vim/vim-ledger"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-ledger
 	url = https://github.com/ledger/vim-ledger
-[submodule "vim/vim-javascript"]
-	path = nvim/.config/nvim/pack/bundle/opt/vim-javascript
-	url = https://github.com/pangloss/vim-javascript
 [submodule "vim/vim-commentary"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-commentary
 	url = https://github.com/tpope/vim-commentary
@@ -123,3 +120,6 @@
 [submodule "vim/telescope.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/telescope.nvim
 	url = https://github.com/nvim-lua/telescope.nvim
+[submodule "vim/vim-javascript"]
+	path = nvim/.config/nvim/pack/bundle/opt/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
