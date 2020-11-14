@@ -1,6 +1,6 @@
 local function map(key, act)
   local action = function(act)
-    local str = "<cmd>lua require'parmort.util'.rerequire'parmort.telescope'."
+    local str = "<cmd>lua require'parmort.telescope'."
     return str .. act .. "()<CR>"
   end
 

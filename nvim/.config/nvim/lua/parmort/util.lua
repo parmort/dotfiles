@@ -15,9 +15,14 @@ function M.prequire(pkg)
   end
 end
 
-function M.rerequire(pkg)
-  require'plenary.reload'.reload_module(pkg)
-  return require(pkg)
+function M.highlight(group, attr)
+  local cmd = 'highlight '..group
+
+  for k,v in pairs(attr) do
+    cmd = cmd..' '..k..'='..v
+  end
+
+  vim.cmd(cmd)
 end
 
 return util
