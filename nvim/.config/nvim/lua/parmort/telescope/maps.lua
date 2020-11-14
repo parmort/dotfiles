@@ -1,9 +1,12 @@
-local map = vim.api.nvim_set_keymap
+local function map(key, act)
+  local action = function(act)
+    local str = "<cmd>lua require'parmort.util'.rerequire'parmort.telescope'."
+    return str .. act .. "()<CR>"
+  end
 
-local function action(act)
-  local str = "<cmd>lua require'parmort.util'.rerequire'parmort.telescope'."
-  return str .. act .. "()<CR>"
+  vim.api.nvim_set_keymap('n', key, action(act), {noremap = true})
 end
 
-map('n', '<leader>t', action'git_files', {})
-map('n', '<leader>h', action'help_tags', {})
+map('<leader>t', 'git_files')
+map('<leader>h', 'help_tags')
+map('<leader>p', 'reloader')

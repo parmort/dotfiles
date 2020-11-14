@@ -17,4 +17,8 @@ function P.help_tags()
   telescope.help_tags(global{})
 end
 
+function P.reloader()
+  telescope.reloader(global{})
+end
+
 return P
