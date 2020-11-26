@@ -4,6 +4,6 @@ endif
 
 set foldmethod=indent
 set foldlevelstart=99
-set foldnestmax=2
+set foldnestmax=10
 
 set foldtext=parmort#foldtext()

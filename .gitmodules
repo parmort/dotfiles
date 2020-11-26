@@ -123,3 +123,6 @@
 [submodule "vim/vim-javascript"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
+[submodule "vim/vim-scriptease"]
+	path = nvim/.config/nvim/pack/bundle/opt/vim-scriptease
+	url = https://github.com/tpope/vim-scriptease

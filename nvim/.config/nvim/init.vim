@@ -31,6 +31,7 @@ if &loadplugins
     packadd! vim-unimpaired
     packadd! vim-rsi
     packadd! vim-repeat
+    packadd! vim-scriptease
 
     " Focus / Zen
     packadd! goyo.vim
