@@ -41,6 +41,7 @@ if &loadplugins
     packadd! vim-tmux-navigator
     packadd! vim-fugitive
     packadd! vim-dispatch
+    packadd! vim-dadbod
 
     " Misc. Filetypes
     packadd! vim-cpp-modern

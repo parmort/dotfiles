@@ -126,3 +126,6 @@
 [submodule "vim/vim-scriptease"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-scriptease
 	url = https://github.com/tpope/vim-scriptease
+[submodule "vim/vim-dadbod"]
+	path = nvim/.config/nvim/pack/bundle/opt/vim-dadbod
+	url = https://github.com/tpope/vim-dadbod
