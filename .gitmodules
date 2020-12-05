@@ -105,9 +105,6 @@
 [submodule "vim/completion-nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/completion-nvim
 	url = https://github.com/nvim-lua/completion-nvim
-[submodule "vim/auto-pairs"]
-	path = nvim/.config/nvim/pack/bundle/opt/auto-pairs
-	url = https://github.com/jiangmiao/auto-pairs
 [submodule "vim/nvim-treesitter"]
 	path = nvim/.config/nvim/pack/bundle/opt/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
@@ -129,3 +126,6 @@
 [submodule "vim/vim-dadbod"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-dadbod
 	url = https://github.com/tpope/vim-dadbod
+[submodule "vim/vim-closer"]
+	path = nvim/.config/nvim/pack/bundle/opt/vim-closer
+	url = https://github.com/rstacruz/vim-closer

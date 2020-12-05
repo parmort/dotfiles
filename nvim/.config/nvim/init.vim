@@ -52,7 +52,7 @@ if &loadplugins
 
     " Code completion
     packadd! nvim-treesitter
-    packadd! auto-pairs
+    packadd! vim-closer
     packadd! completion-nvim
     packadd! nvim-lsp
     packadd! vim-commentary
