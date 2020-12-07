@@ -6,6 +6,9 @@
   editor = nvim
   pager = delta
 
+[merge]
+  tool = nvimdiff
+
 [advice]
   detachedHead = false
 
