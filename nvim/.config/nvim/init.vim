@@ -53,12 +53,14 @@ if &loadplugins
     " Code completion
     packadd! nvim-treesitter
     packadd! vim-closer
-    packadd! completion-nvim
     packadd! nvim-lsp
     packadd! vim-commentary
     packadd! vim-endwise
     packadd! vim-ragtag
     packadd! vim-surround
+
+    packadd! deoplete.nvim
+    packadd! deoplete-lsp
 
     " Ruby
     packadd! vim-rails

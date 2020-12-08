@@ -102,9 +102,6 @@
 [submodule "vim/nlua.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/nlua.nvim
 	url = https://github.com/tjdevries/nlua.nvim
-[submodule "vim/completion-nvim"]
-	path = nvim/.config/nvim/pack/bundle/opt/completion-nvim
-	url = https://github.com/nvim-lua/completion-nvim
 [submodule "vim/nvim-treesitter"]
 	path = nvim/.config/nvim/pack/bundle/opt/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
@@ -129,3 +126,9 @@
 [submodule "vim/vim-closer"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-closer
 	url = https://github.com/rstacruz/vim-closer
+[submodule "vim/deoplete.nvim"]
+	path = nvim/.config/nvim/pack/bundle/opt/deoplete.nvim
+	url = https://github.com/shougo/deoplete.nvim
+[submodule "vim/deoplete-lsp"]
+	path = nvim/.config/nvim/pack/bundle/opt/deoplete-lsp
+	url = https://github.com/shougo/deoplete-lsp

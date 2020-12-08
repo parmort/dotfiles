@@ -28,6 +28,8 @@ local function configureBuffer()
   vim.api.nvim_win_set_option(0, 'signcolumn', 'yes')
 
   highlight()
+
+  vim.fn['deoplete#enable']()
 end
 
 local common = {
