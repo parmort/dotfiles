@@ -1,5 +1,5 @@
-local nvim_lsp = require'nvim_lsp'
-local nlua_lsp = require'nlua.lsp.nvim'
+local lspconfig = require'lspconfig'
+local nlua = require'nlua.lsp.nvim'
 
 vim.fn.sign_define('LspDiagnosticsSignError', { text = 'E»' })
 vim.fn.sign_define('LspDiagnosticsSignWarning', { text = 'W»' })
@@ -28,17 +28,15 @@ local function configureBuffer()
   vim.api.nvim_win_set_option(0, 'signcolumn', 'yes')
 
   highlight()
-
-  require'completion'.on_attach()
 end
 
 local common = {
   on_attach = configureBuffer,
 }
 
-nlua_lsp.setup(nvim_lsp, common)
+nlua.setup(lspconfig, common)
 
-nvim_lsp.tsserver.setup(common)
-nvim_lsp.vimls.setup(common)
-nvim_lsp.ccls.setup(common)
-nvim_lsp.solargraph.setup(common)
+lspconfig.tsserver.setup(common)
+lspconfig.vimls.setup(common)
+lspconfig.ccls.setup(common)
+lspconfig.solargraph.setup(common)
