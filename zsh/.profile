@@ -33,6 +33,9 @@ export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 export SOLARGRAPH_CACHE="$XDG_CACHE_HOME"/solargraph
 
+# Fivemat config (see https://github.com/tpope/fivemat)
+export FIVEMAT_PROFILE=1
+
 # Path
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$GEM_HOME/bin:$PATH"
