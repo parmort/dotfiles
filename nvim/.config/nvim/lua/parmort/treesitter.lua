@@ -1,27 +1,13 @@
-local au = require'parmort.util'.au
+local au = require'parmort.util.au'
+local configs = require'nvim-treesitter.configs'
 
-require'nvim-treesitter.configs'.setup {
+configs.setup {
   highlight = {
     enable = true
   }
 }
 
-local function installed_ts(filetype)
-  return vim.tbl_contains({
-    'c', 'lua', 'ruby', 'cpp'
-  }, filetype)
-end
-
-function ParmortTreesitterFolding()
-  if installed_ts(vim.bo.filetype) then
-    vim.wo.foldmethod = 'expr'
-    vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
-  else
-    vim.wo.foldmethod = 'indent'
-  end
-end
-
-au.g('ParmortTSFolding')
+au.g('ParmortTreeSitter')
   au.c('!')
-  au.c('Filetype', '*', 'call v:lua.ParmortTreesitterFolding()')
+  au.c('Filetype', '*', 'lua require("parmort.foldmethod")()')
 au.g('END')
