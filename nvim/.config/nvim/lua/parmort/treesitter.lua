@@ -8,7 +8,7 @@ require'nvim-treesitter.configs'.setup {
 
 local function installed_ts(filetype)
   return vim.tbl_contains({
-    'c', 'lua', 'ruby'
+    'c', 'lua', 'ruby', 'cpp'
   }, filetype)
 end
 
