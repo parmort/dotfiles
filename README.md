@@ -46,14 +46,14 @@ list of my unused configs in their final forms:
 
 ## And the Programs I Use
 
-Not all of these are represented in my dotfiles, since I don't configure them
-(like Brave). This is just here to tell me what I need to set up a new machine.
+Not all of these are represented in my dotfiles, since I don't configure them.
+This is just here to tell me what I need to set up a new machine.
 
-- Brave
+- Firefox
 - Alacritty
 - `yay`
 - Neovim nightly (built from source)
-- Polybar
+- Polybar (found in `bspwm` folder)
 - BSPWM
 - SXHKD
 - Zathura (`zathura` & `zathura-pdf-poppler`)
@@ -69,7 +69,8 @@ Not all of these are represented in my dotfiles, since I don't configure them
 
 This is a list of fonts I have used in the past, starting from 2020-09-13. To
 make my life easier, I alias the `monospace` font in my font config to the font
-and just reference `monospace` whenever I need to set a font.
+and just reference `monospace` whenever I need to set a font. That way, I only
+change the font name in one place.
 
 - *Current:* Victor Mono
 - mononoki
