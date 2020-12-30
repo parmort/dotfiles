@@ -1,16 +1,17 @@
 #!/usr/bin/sh
 
-chosen="$(lsblk -rpo 'name,type,size,mountpoint' | awk '$2=="part"&&$4==""{printf "%s (%s)\n",$1,$3}' | fzf | awk '{print $1}')"
+fzf_cmd="fzf --reverse --height 10"
+chosen="$(lsblk -rpo 'name,type,size,mountpoint' | awk '$2=="part"&&$4==""{printf "%s (%s)\n",$1,$3}' | $fzf_cmd | awk '{print $1}')"
 
-mountlist="/home/nolan/.scripts/mountlist"
+mountlist="/home/nolan/.config/mountlist"
 
 if [ -z $chosen ]; then
   notify-send "Could not mount"
   exit
 fi
 
-mountpoint="$(cat $mountlist | fzf)"
+mountpoint="$(cat $mountlist | $fzf_cmd)"
 
-sudo -A mount $chosen $mountpoint
+sudo -A mount $chosen $mountpoint -o user,umask=000
 
-notify-send "Mounted $chosen to $mountpoint"
+notify-send "Mount" "$chosen ==> $mountpoint"

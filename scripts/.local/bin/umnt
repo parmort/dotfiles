@@ -1,12 +1,15 @@
 #!/usr/bin/sh
 
-chosen="$(lsblk -rpo "name,type,mountpoint" | awk '$2=="part"&&$3!~/\/boot|\/home$|SWAP/&&length($3)>1{printf "%s (%s)\n",$3,$1}' | fzf | awk '{print $1}')"
+fzf_cmd="fzf --reverse --height 10"
+chosen="$(lsblk -rpo "name,type,mountpoint" | awk '$2=="part"&&$3!~/\/boot|\/home$|SWAP/&&length($3)>1{printf "%s -> %s\n",$3,$1}' | $fzf_cmd)"
+mntpt="$(echo $chosen | awk '{print $1}')"
+drive="$(echo $chosen | awk '{print $3}')"
 
-if [ -z $chosen ]; then
+if [ -z $mntpt ]; then
   notify-send "Could not unmount"
   exit
 fi
 
-sudo -A umount $chosen
+sudo -A umount $mntpt
 
-notify-send "Unmounted drive\nfrom $chosen"
+notify-send "Mount" "$drive =/= $mntpt"
