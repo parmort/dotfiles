@@ -18,7 +18,7 @@
 [alias]
   hist = log --pretty=format:\"%C(green)%h %C(yellow)%ad %C(blue)[%cn]%C(red)%d %C(reset)%s\" --decorate --date=short
   last = "!f() { GIT_PAGER='' git log -1 --show-signature; }; f"
-  nuke = "!f() { git push --delete origin $1; git branch -d $1; }; f"
+  nuke = "!f() { git push --delete origin $1; git branch -D $1; }; f"
   unstage = restore --staged
 
 [pull]

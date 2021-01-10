@@ -132,3 +132,6 @@
 [submodule "vim/deoplete-lsp"]
 	path = nvim/.config/nvim/pack/bundle/opt/deoplete-lsp
 	url = https://github.com/shougo/deoplete-lsp
+[submodule "bspwm/swallow"]
+	path = bspwm/.config/bspwm/swallow
+	url = https://github.com/JopStro/bspswallow.git

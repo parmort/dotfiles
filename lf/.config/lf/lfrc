@@ -8,7 +8,7 @@ set ignorecase true
 cmd open ${{
   case $(file --mime-type "$f" -bL) in
     text/*|application/json) $EDITOR "$f";;
-    image/*) viewnior "$f" & disown;;
+    image/*) sxiv "$f" & disown;;
     application/pdf) zathura "$f" & disown;;
     *) xdg-open "$f" ;;
   esac
