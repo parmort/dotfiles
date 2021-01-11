@@ -1,4 +1,4 @@
-# vim: fdm=marker : noexpandtab :
+# vim: fdm=marker noexpandtab
 
 # Sessions {{{
 
@@ -67,7 +67,7 @@ super + shift {1-9}
 
 # Prompt
 super + d
-	dmenu_run
+	noswallow_dmenu
 
 # Terminal
 super + Return

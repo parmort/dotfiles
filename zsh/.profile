@@ -1,6 +1,6 @@
 # Default programs
 export EDITOR="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="kitty"
 export BROWSER="firefox"
 export READER="zathura"
 export FILE="lf"
