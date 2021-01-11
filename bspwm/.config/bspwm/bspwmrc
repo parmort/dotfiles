@@ -25,7 +25,10 @@ xrdb $XDG_CONFIG_HOME/xorg/Xresources
 # Keybinds (must be after xmodmap)
 launch sxhkd -c ~/.config/bspwm/sxhkdrc &
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9
+# Swallowing
+pgrep bspswallow || bspswallow &
+
+bspc monitor -d 1 2 3 4 5
 
 bspc config border_width         2
 bspc config window_gap          12
