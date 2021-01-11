@@ -25,11 +25,11 @@
   rebase = false
 
 [delta]
-  minus-style = "#e06c75" "#3e4452"
-  minus-emph-style = "#e06c75" bold "#3e4452"
+  minus-style = red normal
+  minus-emph-style = red bold normal
   minus-non-emph-style = syntax auto
-  plus-style = "#98c379" "#3e4452"
-  plus-emph-style = "#98c379" bold "#3e4452"
+  plus-style = green normal
+  plus-emph-style = green bold normal
   plus-non-emph-style = syntax auto
-  file-style = "#d19a66" auto
+  file-style = yellow auto
   file-decoration-style = blue box

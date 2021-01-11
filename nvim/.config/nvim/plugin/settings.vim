@@ -28,7 +28,7 @@ set completeopt+=noselect " Don't auto-select matches
 
 set list                  " Display chars set in listchars
 set listchars=trail:·     " Trailing space
-set listchars+=tab:»·     " Explicit tabs (usually expanded)
+set listchars+=tab:~>     " Explicit tabs (usually expanded)
 set listchars+=nbsp:∅     " Non-breaking space (almost never occurrs)
 set listchars+=extends:»  " When line extends past right of screen
 set listchars+=precedes:« " When line extends past left of screen
