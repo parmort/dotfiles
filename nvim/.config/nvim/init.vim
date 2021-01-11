@@ -1,4 +1,5 @@
 " Author: N. Prochnau <parvus.mortalis@gmail.com>
+" vim: foldmethod=marker
 
 " Preamble -------------------------------------------------------- {{{
 
@@ -75,7 +76,6 @@ if &loadplugins
     packadd! vim-dirvish
     packadd! vim-projectionist
     packadd! loupe
-    packadd! vim-cool
 
     " Libs
     packadd! plenary.nvim
@@ -83,6 +83,7 @@ if &loadplugins
 
     " Colorscheme
     packadd! vim-one
+    packadd! seoul256.vim
   else
     " Catchall, in case I'm ever using an old vim (Hey, wait! You use neovim!)
     source $HOME/.config/nvim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
@@ -190,6 +191,9 @@ nnoremap <nop> <Plug>(LoupeClearHighlight)
 
 " Fugitive
 nnoremap <leader>g <cmd>G<CR>
+
+" Turn off highlighting
+nnoremap <silent> gl :nohlsearch<C-R>=has('diff')?'<BAR>diffupdate':''<CR><CR>
 
 " }}}
 " Abbrevs --------------------------------------------------------- {{{

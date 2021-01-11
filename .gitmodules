@@ -135,3 +135,6 @@
 [submodule "bspwm/swallow"]
 	path = bspwm/.config/bspwm/swallow
 	url = https://github.com/JopStro/bspswallow.git
+[submodule "vim/seoul256.vim"]
+	path = nvim/.config/nvim/pack/bundle/opt/seoul256.vim
+	url = https://github.com/junegunn/seoul256.vim
