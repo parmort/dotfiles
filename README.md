@@ -41,8 +41,10 @@ list of my unused configs in their final forms:
 - [taskwarrior][7344e69]
 - [termite][7344e69]
 - [urlview][7344e69]
+- [alacritty][31ecb5c]
 
 [7344e69]: https://github.com/parmort/dotfiles/tree/7344e69247384a98138cd072f3c224f8c3bf5fd3~1
+[31ecb5c]: https://github.com/parmort/dotfiles/commit/31ecb5c6b5948e4e1ca212a297e607ae972c302c~1
 
 ## And the Programs I Use
 
