@@ -50,6 +50,7 @@ bspc rule -a Calculator state=floating
 bspc rule -a FileManager state=floating
 bspc rule -a Nm-connection-editor state=floating
 bspc rule -a Newsboat desktop=^9 follow=on
+bspc rule -a Pavucontrol state=floating
 
 # Coord Math to center window: (screen_size / 2) - (window_size / 2)
 # Set for 1920x1080 display. If different res, recalculate coords!
