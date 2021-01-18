@@ -47,6 +47,10 @@ function! s:SeoulColors()
   call s:hi('TabLine', '#999872', '#565656', 'none')
   call s:hi('TabLineSel', 'fg', 'bg', 'bold')
   call s:hi('User3', '#be7572', 'bg', 'bold')
+
+  " Statusline
+
+  call s:hi('User4', '#9a7372', '#dfdebd', 'bold,reverse,italic')
 endfunction
 
 function! s:SeoulColorsPre()
