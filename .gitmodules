@@ -1,8 +1,5 @@
 # vim: noexpandtab :
 
-[submodule "awesome/vicious"]
-	path = awesome/.config/awesome/vicious
-	url = git://github.com/vicious-widgets/vicious.git
 [submodule "zsh/fsh"]
 	path = zsh/.config/zsh/plugs/fsh
 	url = https://github.com/zdharma/fast-syntax-highlighting
@@ -141,3 +138,6 @@
 [submodule "vim/vimtex"]
 	path = nvim/.config/nvim/pack/bundle/opt/vimtex
 	url = https://github.com/lervag/vimtex
+[submodule "polybar/scripts"]
+	path = polybar/.config/polybar/scripts
+	url = https://github.com/parmort/polybar-scripts

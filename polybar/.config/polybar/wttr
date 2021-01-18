@@ -1,0 +1,65 @@
+#!/bin/sh
+
+weather=$(curl -s wttr.in/Exton?format=j1)
+
+if [ $(echo "$weather" | grep -E "(Unknown|curl|HTML)" | wc -l) -gt 0 ]; then
+  echo " WTTR"
+  exit
+fi
+
+table=$(echo $weather | jq '.current_condition|.[0]|{temp: .temp_F, code: .weatherCode}')
+temp=$(echo $table | jq -r '.temp')
+
+case $(echo $table | jq -r '.code') in
+  395) icon=" ";;
+  392) icon=" ";;
+  389) icon=" ";;
+  386) icon=" ";;
+  377) icon=" ";;
+  374) icon=" ";;
+  371) icon=" ";;
+  368) icon=" ";;
+  365) icon=" ";;
+  362) icon=" ";;
+  359) icon=" ";;
+  356) icon=" ";;
+  353) icon=" ";;
+  350) icon=" ";;
+  338) icon=" ";;
+  335) icon=" ";;
+  332) icon=" ";;
+  329) icon=" ";;
+  326) icon=" ";;
+  323) icon=" ";;
+  320) icon=" ";;
+  317) icon=" ";;
+  314) icon=" ";;
+  311) icon=" ";;
+  308) icon=" ";;
+  305) icon=" ";;
+  302) icon=" ";;
+  299) icon=" ";;
+  296) icon=" ";;
+  293) icon=" ";;
+  284) icon=" ";;
+  281) icon=" ";;
+  266) icon=" ";;
+  263) icon=" ";;
+  260) icon=" ";;
+  248) icon=" ";;
+  230) icon=" ";;
+  227) icon=" ";;
+  200) icon=" ";;
+  185) icon=" ";;
+  182) icon=" ";;
+  179) icon=" ";;
+  176) icon=" ";;
+  143) icon=" ";;
+  122) icon=" ";;
+  119) icon=" ";;
+  116) icon=" ";;
+  113) icon=" ";;
+  *) icon=" ";;
+esac
+
+echo $icon $temp
