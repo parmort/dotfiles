@@ -138,6 +138,3 @@
 [submodule "vim/vimtex"]
 	path = nvim/.config/nvim/pack/bundle/opt/vimtex
 	url = https://github.com/lervag/vimtex
-[submodule "polybar/scripts"]
-	path = polybar/.config/polybar/scripts
-	url = https://github.com/parmort/polybar-scripts
