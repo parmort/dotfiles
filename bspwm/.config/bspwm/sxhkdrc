@@ -79,15 +79,15 @@ super + w
 
 # Calculator
 super + c
-	$TERMINAL --class=Alacritty,Calculator -e qalc
+	$TERMINAL --class=Calculator -e qalc
 
 # FileManager
 super + r
-	$TERMINAL --class=Alacritty,FileManager -e lf
+	$TERMINAL --class=FileManager -e lf
 
 # Newsboat
 super + n
-	$TERMINAL --class=Alacritty,Newsboat -e newsboat
+	$TERMINAL --class=Newsboat -e newsboat
 
 # Wallpaper selector
 hyper + g
