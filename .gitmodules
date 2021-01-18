@@ -138,3 +138,6 @@
 [submodule "vim/seoul256.vim"]
 	path = nvim/.config/nvim/pack/bundle/opt/seoul256.vim
 	url = https://github.com/junegunn/seoul256.vim
+[submodule "vim/vimtex"]
+	path = nvim/.config/nvim/pack/bundle/opt/vimtex
+	url = https://github.com/lervag/vimtex
