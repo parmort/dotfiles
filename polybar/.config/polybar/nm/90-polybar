@@ -1,9 +1,0 @@
-#!/bin/sh
-
-PATH=/home/nolan/.config/polybar/nm/nm.sh
-
-case "$2" in
-        up|down)
-            sh $PATH --update
-        ;;
-esac
