@@ -27,7 +27,7 @@ launch sxhkd -c ~/.config/bspwm/sxhkdrc &
 # Swallowing
 pgrep bspswallow || bspswallow &
 
-bspc monitor -d 1 2 3 4 5
+bspc monitor -d 1 2 3 4 5 M
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -49,6 +49,7 @@ bspc rule -a Calculator state=floating
 bspc rule -a Nm-connection-editor state=floating
 bspc rule -a Newsboat desktop=^9 follow=on
 bspc rule -a Pavucontrol state=floating
+bspc rule -a Mailspring desktop=^6 follow=on
 
 # Coord Math to center window: (screen_size / 2) - (window_size / 2)
 # Set for 1920x1080 display. If different res, recalculate coords!

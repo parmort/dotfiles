@@ -71,23 +71,27 @@ super + d
 
 # Terminal
 super + Return
-	$TERMINAL
+	noswallow_open $TERMINAL
 
 # Web Browser
 super + w
-	$BROWSER
+	noswallow_open $BROWSER
+
+# Mail Client
+super + m
+	noswallow_open mailspring
 
 # Calculator
 super + c
-	$TERMINAL --class=Calculator -e qalc
+	noswallow_open $TERMINAL --class=Calculator -e qalc
 
 # FileManager
 super + r
-	$TERMINAL --class=FileManager -e lf
+	noswallow_open $TERMINAL --class=FileManager -e lf
 
 # Newsboat
 super + n
-	$TERMINAL --class=Newsboat -e newsboat
+	noswallow_open $TERMINAL --class=Newsboat -e newsboat
 
 # Wallpaper selector
 hyper + g
