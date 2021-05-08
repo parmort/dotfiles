@@ -47,7 +47,7 @@ hyper + f
 hyper + @space
 	bspc node --state \~floating
 
-# Toggle pseudo_tiled (helpful for debugging)
+# Toggle pseudo_tiled
 hyper + t
 	bspc node --state \~pseudo_tiled
 
@@ -107,4 +107,13 @@ XF86AudioLowerVolume
 
 XF86AudioRaiseVolume
 	amixer set Master 2%+
+
+XF86MonBrightnessUp
+	light -A 2
+
+XF86MonBrightnessDown
+	light -U 2
+
+XF86Search
+	light -S 20
 # }}}
