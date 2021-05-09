@@ -81,17 +81,17 @@ super + w
 super + m
 	noswallow_open mailspring
 
+# Yakyak
+super + y
+	noswallow_open yakyak
+
 # Calculator
 super + c
-	noswallow_open $TERMINAL --class=Calculator -e qalc
+	$TERMINAL --class=Calculator -e qalc
 
 # FileManager
 super + r
-	noswallow_open $TERMINAL --class=FileManager -e lf
-
-# Newsboat
-super + n
-	noswallow_open $TERMINAL --class=Newsboat -e newsboat
+	$TERMINAL --class=FileManager -e lf
 
 # Wallpaper selector
 hyper + g
