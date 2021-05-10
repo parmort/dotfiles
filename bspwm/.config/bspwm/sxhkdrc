@@ -85,6 +85,10 @@ super + m
 super + y
 	noswallow_open yakyak
 
+# Todoist
+super + t
+	noswallow_open todoist
+
 # Calculator
 super + c
 	$TERMINAL --class=Calculator -e qalc
