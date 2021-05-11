@@ -33,3 +33,5 @@
   plus-non-emph-style = syntax auto
   file-style = yellow auto
   file-decoration-style = blue box
+[init]
+	defaultBranch = main
