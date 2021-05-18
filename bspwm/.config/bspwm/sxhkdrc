@@ -67,7 +67,7 @@ super + shift {1-9}
 
 # Prompt
 super + d
-	noswallow_dmenu
+	noswallow_rofi
 
 # Terminal
 super + Return
@@ -100,6 +100,10 @@ super + r
 # Wallpaper selector
 hyper + g
 	selbg
+
+# Screenshots
+Print
+	scrot -so ~/pictures/screen.png && noswallow_open sxiv ~/pictures/screen.png
 
 # }}}
 # Media Keys {{{

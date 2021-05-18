@@ -52,7 +52,7 @@ alias gsm="git submodule"
 alias gd="git diff"
 alias gco="git checkout"
 alias gcb="git checkout -b"
-alias gcm="git checkout master"
+# alias gcm <-- In Functions
 alias gbr="git branch"
 alias grm="git rm"
 alias gvim="vim -c 'Gstatus' -c 'wincmd o'"
@@ -88,4 +88,13 @@ rg() { rails new $1 -T --database=postgresql && wget -O $1/config/definitions.rb
 ag() {
   emulate -L zsh
   command ag --pager="less -iFMRSX" --color-path=34\;3 --color-line-number=35 --color-match=33\;1\;4 "$@"
+}
+
+# Smart git checkout master
+gcm() {
+  if [ "$(git branch | grep main)" ]; then
+    git checkout main
+  else
+    git checkout master
+  fi
 }

@@ -6,6 +6,9 @@
   editor = nvim
   pager = delta
 
+[init]
+  defaultBranch = main
+
 [merge]
   tool = nvimdiff
 
@@ -33,5 +36,3 @@
   plus-non-emph-style = syntax auto
   file-style = yellow auto
   file-decoration-style = blue box
-[init]
-	defaultBranch = main
