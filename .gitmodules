@@ -138,3 +138,6 @@
 [submodule "vim/vimtex"]
 	path = nvim/.config/nvim/pack/bundle/opt/vimtex
 	url = https://github.com/lervag/vimtex
+[submodule "rofi/rofi-bluetooth"]
+	path = rofi/.config/rofi/scripts/rofi-bluetooth
+	url = git@github.com:parmort/rofi-bluetootht
