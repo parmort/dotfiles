@@ -67,7 +67,7 @@ super + shift {1-9}
 
 # Prompt
 super + d
-	noswallow_rofi
+	noswallow_rofi -theme parmort-dmenu -display-drun "Run"
 
 # Terminal
 super + Return

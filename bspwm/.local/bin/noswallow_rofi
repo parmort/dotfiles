@@ -2,7 +2,7 @@
 # Allows for dmenu_run to be used without swallowing the terminal
 
 killall bspswallow
-rofi -show drun -theme parmort-dmenu
+rofi -show drun $@
 
 # Hang until dmenu is closed
 while pidof rofi; do continue
