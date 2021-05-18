@@ -105,6 +105,10 @@ hyper + g
 Print
 	scrot -so ~/pictures/screen.png && noswallow_open sxiv ~/pictures/screen.png
 
+# Bitwarden
+hyper+b
+	bwmenu
+
 # }}}
 # Media Keys {{{
 XF86AudioMute
