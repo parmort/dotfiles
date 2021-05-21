@@ -1,6 +1,6 @@
 #!/bin/bash
 
-choice="$(printf "shutdown\\nlogout\\nrestart" | dmenu)"
+choice="$(printf "shutdown\\nlogout\\nrestart" | rofi -theme parmort-dmenu -dmenu)"
 
 case $choice in
   shutdown) shutdown -h now;;

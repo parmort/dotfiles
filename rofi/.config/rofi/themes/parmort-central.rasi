@@ -67,7 +67,6 @@ case-indicator {
 
 entry {
     padding: 4px 4px;
-    expand: false;
     width: 10em;
     font: "Victor Mono 11";
 }

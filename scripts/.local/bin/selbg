@@ -1,5 +1,6 @@
 #!/bin/sh
 
-choice=$(find ~/pictures/wall | grep -E 'png|jpg' | cut -c 27- | dmenu -l 10)
+picker="rofi -dmenu -theme parmort-central -location 1 -width 100 -l 10"
+choice=$(find ~/pictures/wall | grep -E 'png|jpg' | cut -c 27- | $picker)
 cp ~/pictures/wall/$choice ~/pictures/current_wall
 xwallpaper --zoom ~/pictures/current_wall
