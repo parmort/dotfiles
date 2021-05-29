@@ -89,6 +89,10 @@ super + y
 super + t
 	noswallow_open todoist
 
+# Discord
+hyper + d
+	discord
+
 # Calculator
 super + c
 	$TERMINAL --class=Calculator -e qalc
