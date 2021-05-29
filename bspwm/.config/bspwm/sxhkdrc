@@ -4,11 +4,11 @@
 
 # Lock
 super + x
-	dm-tool switch-to-greeter
+	$HOME/.local/bin/lock
 
 # Suspend
 super + shift + x
-	systemctl suspend
+	$HOME/.local/bin/lock && systemctl suspend
 
 # Logout
 super + Escape
