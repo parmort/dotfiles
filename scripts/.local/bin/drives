@@ -1,0 +1,16 @@
+#!/usr/bin/sh
+
+dmenu="rofi -theme parmort-central -dmenu"
+
+mnt="mount (mt)"
+umnt="umount (ut)"
+
+case $(printf "$mnt\n$umnt"| $dmenu -i -l 2 -p "Which operation?") in
+  $mnt)
+    $HOME/.local/bin/dmenumount
+    ;;
+
+  $umnt)
+    $HOME/.local/bin/dmenuumount
+    ;;
+esac

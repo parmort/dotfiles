@@ -113,6 +113,9 @@ Print
 hyper+b
 	bwmenu
 
+hyper + v
+	$HOME/.local/bin/drives
+
 # }}}
 # Media Keys {{{
 XF86AudioMute
