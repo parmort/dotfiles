@@ -13,6 +13,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # Stock vim support (to load $XDG_CONFIG_HOME/nvim/init.vim)
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/nvim/init.vim" | source $MYVIMRC'
 
+# Golang path
+export GOPATH="$XDG_DATA_HOME/go"
+
 # Clean up home dir
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export LESSHISTFILE="-"
@@ -37,6 +40,7 @@ export SOLARGRAPH_CACHE="$XDG_CACHE_HOME"/solargraph
 export FIVEMAT_PROFILE=1
 
 # Path
+export PATH="$GOPATH:$GOPATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$GEM_HOME/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

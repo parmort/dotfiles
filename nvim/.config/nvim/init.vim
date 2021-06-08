@@ -92,6 +92,9 @@ if &loadplugins
   endif
 endif
 
+" Must be loaded after `packadd!` calls because vim won't load ftdetect properly
+filetype indent plugin on
+syntax on
 " }}}
 " Commands -------------------------------------------------------- {{{
 
