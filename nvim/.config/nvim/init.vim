@@ -35,7 +35,6 @@ if &loadplugins
     packadd! vim-scriptease
 
     " Focus / Zen
-    packadd! goyo.vim
     packadd! limelight.vim
 
     " Tie-ins
