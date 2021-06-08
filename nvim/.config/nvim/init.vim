@@ -34,9 +34,6 @@ if &loadplugins
     packadd! vim-repeat
     packadd! vim-scriptease
 
-    " Focus / Zen
-    packadd! limelight.vim
-
     " Tie-ins
     packadd! vim-tmux-navigator
     packadd! vim-fugitive
