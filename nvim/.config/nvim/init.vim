@@ -79,7 +79,6 @@ if &loadplugins
     packadd! popup.nvim
 
     " Colorscheme
-    packadd! vim-one
     packadd! seoul256.vim
   else
     " Catchall, in case I'm ever using an old vim (Hey, wait! You use neovim!)
