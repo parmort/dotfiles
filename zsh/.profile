@@ -42,7 +42,7 @@ export FIVEMAT_PROFILE=1
 # Path
 export PATH="$GOPATH:$GOPATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$GEM_HOME/bin:$PATH"
+export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.local/share/npm/bin:$PATH"
 export PATH=.git/safe/../../bin:$PATH
