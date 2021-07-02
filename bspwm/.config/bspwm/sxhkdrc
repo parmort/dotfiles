@@ -81,9 +81,9 @@ super + w
 super + m
 	noswallow_open mailspring
 
-# Yakyak
+# Google Chat
 super + y
-	noswallow_open yakyak
+	noswallow_open gtk-launch chrome-mdpkiolbdkhdjpekfbkbmhigcaggjagi-Profile_1
 
 # Todoist
 super + t
@@ -111,7 +111,7 @@ Print
 
 # Bitwarden
 hyper+b
-	bwmenu
+	bwmenu -- -theme parmort-central
 
 hyper + v
 	$HOME/.local/bin/drives

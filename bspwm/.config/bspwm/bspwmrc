@@ -48,11 +48,11 @@ bspc rule -a Zathura state=tiled
 bspc rule -a Calculator state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Mailspring desktop=^6 follow=on
-bspc rule -a yakyak desktop=^7 follow=on
 bspc rule -a Todoist desktop=^7 follow=on
 bspc rule -a firefox desktop=^2 follow=on
 bspc rule -a discord desktop=^8 follow=on
 bspc rule -a "*:*:Print" state=floating
+bspc rule -a "Chromium:crx_mdpkiolbdkhdjpekfbkbmhigcaggjagi" desktop=^7 follow=on
 
 # Coord Math to center window: (screen_size / 2) - (window_size / 2)
 # Set for 1920x1080 display. If different res, recalculate coords!
