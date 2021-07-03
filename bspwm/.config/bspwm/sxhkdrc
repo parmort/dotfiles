@@ -81,9 +81,9 @@ super + w
 super + m
 	noswallow_open mailspring
 
-# Google Chat
+# Yakyak
 super + y
-	noswallow_open gtk-launch chrome-mdpkiolbdkhdjpekfbkbmhigcaggjagi-Profile_1
+	noswallow_open yakyak
 
 # Todoist
 super + t
