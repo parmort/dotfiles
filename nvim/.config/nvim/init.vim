@@ -45,7 +45,6 @@ if &loadplugins
     packadd! sxhkd-vim
     packadd! vim-ledger
     packadd! vim-javascript
-    packadd! nlua.nvim
     packadd! vimtex
 
     " Code completion

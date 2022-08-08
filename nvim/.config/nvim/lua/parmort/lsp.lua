@@ -1,5 +1,4 @@
 local lspconfig = require'lspconfig'
-local nlua = require'nlua.lsp.nvim'
 
 vim.fn.sign_define('LspDiagnosticsSignError', { text = 'E»' })
 vim.fn.sign_define('LspDiagnosticsSignWarning', { text = 'W»' })
@@ -35,8 +34,6 @@ end
 local common = {
   on_attach = configureBuffer,
 }
-
-nlua.setup(lspconfig, common)
 
 lspconfig.tsserver.setup(common)
 lspconfig.vimls.setup(common)
