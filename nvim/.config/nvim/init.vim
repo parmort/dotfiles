@@ -78,7 +78,7 @@ if &loadplugins
     packadd! popup.nvim
 
     " Colorscheme
-    packadd! seoul256.vim
+    packadd! nord-vim
   else
     " Catchall, in case I'm ever using an old vim (Hey, wait! You use neovim!)
     source $HOME/.config/nvim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim

@@ -71,6 +71,6 @@ augroup colorschemes
   autocmd ColorSchemePre seoul256 call <SID>SeoulColorsPre()
 augroup END
 
-colorscheme seoul256
+colorscheme nord
 
 autocmd colorschemes FileType json syntax match Comment +\/\/.\+$+

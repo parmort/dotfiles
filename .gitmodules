@@ -144,3 +144,6 @@
 [submodule "nvim/.config/nvim/pack/bundle/opt/markdown-preview.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/markdown-preview.nvim
 	url = https://github.com/iamcco/markdown-preview.nvim
+[submodule "nvim/.config/nvim/pack/bundle/opt/nord-vim"]
+	path = nvim/.config/nvim/pack/bundle/opt/nord-vim
+	url = https://github.com/arcticicestudio/nord-vim
