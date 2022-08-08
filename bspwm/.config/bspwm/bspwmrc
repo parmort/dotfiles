@@ -11,7 +11,7 @@ launch() {
 launch polybar -c ~/.config/bspwm/polybar.ini bar &
 
 # Background
-xwallpaper --zoom ~/pictures/current_wall
+xwallpaper --zoom ~/pictures/current
 launch picom
 
 # Notifications
