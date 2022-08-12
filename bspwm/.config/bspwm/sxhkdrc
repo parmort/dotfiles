@@ -116,6 +116,9 @@ hyper+b
 hyper + v
 	$HOME/.local/bin/drives
 
+hyper + e
+	splatmoji copy
+
 # }}}
 # Media Keys {{{
 XF86AudioMute

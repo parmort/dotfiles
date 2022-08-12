@@ -82,7 +82,7 @@ endif
 " Set the statusline
 set statusline=
       \%{parmort#statusline#mode()}\ %{parmort#statusline#git()}%{parmort#statusline#name()}\ %{parmort#statusline#spell()}%{parmort#statusline#mod()}
-      \%=%{parmort#statusline#type()}\ %{parmort#statusline#obsession()}%{parmort#statusline#ff()}[%l/%L%4*l%*,\ %p%%]
+      \%=%{parmort#statusline#type()}\ %{parmort#statusline#obsession()}%{parmort#statusline#ff()}[%p%%]
 
 if has('windows')
   set showtabline=2       " Always show the tabline

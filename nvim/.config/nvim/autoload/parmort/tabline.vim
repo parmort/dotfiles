@@ -9,7 +9,7 @@ function! parmort#tabline#line() abort
       let l:labg='%3*'
     else
       let l:hig='%#TabLine#'
-      let l:labg=''
+      let l:labg='%2*'
     end
     let l:line.=l:hig
     let l:line.='%' . i . 'T' " Starts mouse click target region.
