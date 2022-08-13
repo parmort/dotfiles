@@ -72,8 +72,3 @@ function! parmort#traverse(file) abort
     let l:path=fnamemodify(l:path, ':h')
   endwhile
 endfunction
-
-function! parmort#ledger_align(first, count) abort
-  exe (a:first) .. ',' .. (a:first + a:count - 1) .. 'call ledger#align_commodity()'
-endfunction
-
