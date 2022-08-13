@@ -4,7 +4,6 @@
 
 [core]
   editor = nvim
-  pager = delta
 
 [init]
   defaultBranch = main
@@ -15,9 +14,6 @@
 [advice]
   detachedHead = false
 
-[interactive]
-  diffFilter = delta --color-only
-
 [alias]
   hist = log --pretty=format:\"%C(green)%h %C(yellow)%ad %C(blue)[%cn]%C(red)%d %C(reset)%s\" --decorate --date=short
   last = "!f() { GIT_PAGER='' git log -1 --show-signature; }; f"
@@ -26,13 +22,3 @@
 
 [pull]
   rebase = false
-
-[delta]
-  minus-style = red normal
-  minus-emph-style = red bold normal
-  minus-non-emph-style = syntax auto
-  plus-style = green normal
-  plus-emph-style = green bold normal
-  plus-non-emph-style = syntax auto
-  file-style = yellow auto
-  file-decoration-style = blue box
