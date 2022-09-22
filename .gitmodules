@@ -119,7 +119,7 @@
 	url = https://github.com/tpope/vim-dadbod
 [submodule "vim/vim-closer"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-closer
-	url = https://github.com/rstacruz/vim-closer
+	url = https://github.com/parmort/vim-closer
 [submodule "vim/deoplete.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/deoplete.nvim
 	url = https://github.com/shougo/deoplete.nvim
