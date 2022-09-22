@@ -7,8 +7,16 @@ launch() {
   $@ &
 }
 
+# Multiple Monitors
+if [ -x ~/.config/bspwm/detect_monitors ]; then
+  ~/.config/bspwm/detect_monitors
+fi
+
 # Panel
-launch polybar -c ~/.config/bspwm/polybar.ini bar &
+# launch polybar -c ~/.config/bspwm/polybar.ini bar
+if [ -x ~/.config/bspwm/launch_polybar ]; then
+  ~/.config/bspwm/launch_polybar
+fi
 
 # Background
 xwallpaper --zoom ~/pictures/current
@@ -27,7 +35,8 @@ launch sxhkd -c ~/.config/bspwm/sxhkdrc &
 # Swallowing
 pgrep bspswallow || bspswallow &
 
-bspc monitor -d 1 2 3 4 5 M H D
+bspc monitor -d 1 2 3 4 5
+bspc monitor primary -d 1 2 3 4 5 D
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -47,11 +56,8 @@ bspc rule -r "*"
 bspc rule -a Zathura state=tiled
 bspc rule -a Calculator state=floating
 bspc rule -a Pavucontrol state=floating
-bspc rule -a Mailspring desktop=^6 follow=on
-bspc rule -a yakyak desktop=^7 follow=on
-bspc rule -a Todoist desktop=^7 follow=on
 bspc rule -a firefox desktop=^2 follow=on
-bspc rule -a discord desktop=^8 follow=on
+bspc rule -a discord desktop=^6 follow=on
 bspc rule -a "*:*:Print" state=floating
 
 # Coord Math to center window: (screen_size / 2) - (window_size / 2)

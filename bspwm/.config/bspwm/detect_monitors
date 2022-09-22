@@ -1,0 +1,18 @@
+#!/bin/env bash
+# Switches layout, then removes BSPWM monitors that are not needed
+
+if [[ $(xrandr --query | grep 'DP-3-2') = *connected* ]]; then
+  [ -x ~/.screenlayout/dock.sh ] && ~/.screenlayout/dock.sh
+
+  for m in $(bspc query -M --names | grep -v "eDP-1\|DP-3-2"); do
+    bspc monitor $m -r
+  done
+fi
+
+if [ $(xrandr --query | grep '\<connected' | wc -l) -eq 1 ]; then
+  [ -x ~/.screenlayout/internal.sh ] && ~/.screenlayout/internal.sh
+
+  for m in $(bspc query -M --names | grep -v "eDP-1"); do
+    bspc monitor $m -r
+  done
+fi
