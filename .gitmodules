@@ -81,9 +81,6 @@
 [submodule "vim/vim-pathogen"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
-[submodule "vim/vim-flashy"]
-	path = nvim/.config/nvim/pack/bundle/opt/vim-flashy
-	url = git@github.com:parmort/vim-flashy
 [submodule "vim/loupe"]
 	path = nvim/.config/nvim/pack/bundle/opt/loupe
 	url = https://github.com/wincent/loupe
@@ -137,7 +134,7 @@
 	url = https://github.com/lervag/vimtex
 [submodule "rofi/rofi-bluetooth"]
 	path = rofi/.config/rofi/scripts/rofi-bluetooth
-	url = git@github.com:parmort/rofi-bluetootht
+	url = git@github.com:parmort/rofi-bluetooth
 [submodule "nvim/.local/share/nvim/site/pack/discord.nvim/start/discord.nvim"]
 	path = nvim/.local/share/nvim/site/pack/discord.nvim/start/discord.nvim
 	url = https://github.com/aurieh/discord.nvim
