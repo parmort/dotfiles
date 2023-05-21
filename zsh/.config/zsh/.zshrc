@@ -27,9 +27,6 @@ compinit
 _comp_options+=(globdots)
 
 # Theme
-autoload -U promptinit; promptinit
-prompt spaceship
-
 SPACESHIP_PROMPT_ORDER=(
   dir
   git
@@ -38,6 +35,8 @@ SPACESHIP_PROMPT_ORDER=(
 )
 
 export SPACESHIP_PROMPT_ADD_NEWLINE=false
+export SPACESHIP_PROMPT_SEPARATE_LINE=false
+export SPACESHIP_RPROMPT_ADD_NEWLINE=true
 export SPACESHIP_CHAR_SYMBOL="->"
 export SPACESHIP_CHAR_SUFFIX=" "
 export SPACESHIP_GIT_STATUS_DELETED=x
@@ -45,6 +44,8 @@ export SPACESHIP_GIT_STATUS_AHEAD="↑"
 export SPACESHIP_GIT_STATUS_BEHIND="↓"
 export SPACESHIP_GIT_STATUS_DIVERGED="↨"
 export SPACESHIP_JOBS_AMOUNT_PREFIX=" "
+
+source ~/.config/zsh/plugs/spaceship-prompt/spaceship.zsh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=0"
 

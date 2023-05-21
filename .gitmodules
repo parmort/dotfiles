@@ -144,3 +144,6 @@
 [submodule "nvim/.config/nvim/pack/bundle/opt/nord-vim"]
 	path = nvim/.config/nvim/pack/bundle/opt/nord-vim
 	url = https://github.com/arcticicestudio/nord-vim
+[submodule "zsh/.config/zsh/plugs/spaceship-prompt"]
+	path = zsh/.config/zsh/plugs/spaceship-prompt
+	url = https://github.com/spaceship-prompt/spaceship-prompt
