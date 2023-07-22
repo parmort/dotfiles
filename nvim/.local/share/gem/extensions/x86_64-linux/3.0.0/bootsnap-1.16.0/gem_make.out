@@ -1,0 +1,15 @@
+current directory: /home/nolan/dotfiles/nvim/.local/share/gem/gems/bootsnap-1.16.0/ext/bootsnap
+/usr/bin/ruby -I /usr/lib/ruby/3.0.0 extconf.rb
+creating Makefile
+
+current directory: /home/nolan/dotfiles/nvim/.local/share/gem/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230721-7635-aowad5 sitelibdir\=./.gem.20230721-7635-aowad5 clean
+
+current directory: /home/nolan/dotfiles/nvim/.local/share/gem/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230721-7635-aowad5 sitelibdir\=./.gem.20230721-7635-aowad5
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/nolan/dotfiles/nvim/.local/share/gem/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230721-7635-aowad5 sitelibdir\=./.gem.20230721-7635-aowad5 install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20230721-7635-aowad5/bootsnap

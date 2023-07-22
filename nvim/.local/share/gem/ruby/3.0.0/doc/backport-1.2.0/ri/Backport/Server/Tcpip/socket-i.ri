@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"socket:ETI"#Backport::Server::Tcpip#socket;TI"R;T:privateo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@return [TCPSocket];T:
+@fileI"!lib/backport/server/tcpip.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Backport::Server::Tcpip;TcRDoc::NormalClass0

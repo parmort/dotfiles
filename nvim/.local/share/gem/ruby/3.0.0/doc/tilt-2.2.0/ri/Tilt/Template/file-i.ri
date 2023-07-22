@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"	file:ETI"Tilt::Template#file;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"BThe name of the file where the template data was loaded from.;T:
+@fileI"lib/tilt/template.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Tilt::Template;TcRDoc::NormalClass0

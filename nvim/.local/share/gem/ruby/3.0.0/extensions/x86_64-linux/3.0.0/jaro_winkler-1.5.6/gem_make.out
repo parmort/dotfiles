@@ -1,0 +1,18 @@
+current directory: /home/nolan/.local/share/gem/ruby/3.0.0/gems/jaro_winkler-1.5.6/ext/jaro_winkler
+/usr/bin/ruby -I /usr/lib/ruby/3.0.0 extconf.rb
+creating Makefile
+
+current directory: /home/nolan/.local/share/gem/ruby/3.0.0/gems/jaro_winkler-1.5.6/ext/jaro_winkler
+make DESTDIR\= sitearchdir\=./.gem.20230721-16575-foobwm sitelibdir\=./.gem.20230721-16575-foobwm clean
+
+current directory: /home/nolan/.local/share/gem/ruby/3.0.0/gems/jaro_winkler-1.5.6/ext/jaro_winkler
+make DESTDIR\= sitearchdir\=./.gem.20230721-16575-foobwm sitelibdir\=./.gem.20230721-16575-foobwm
+compiling adj_matrix.c
+compiling codepoints.c
+compiling jaro.c
+compiling jaro_winkler.c
+linking shared-object jaro_winkler/jaro_winkler_ext.so
+
+current directory: /home/nolan/.local/share/gem/ruby/3.0.0/gems/jaro_winkler-1.5.6/ext/jaro_winkler
+make DESTDIR\= sitearchdir\=./.gem.20230721-16575-foobwm sitelibdir\=./.gem.20230721-16575-foobwm install
+/usr/bin/install -c -m 0755 jaro_winkler_ext.so ./.gem.20230721-16575-foobwm/jaro_winkler

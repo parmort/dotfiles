@@ -1,0 +1,24 @@
+current directory: /home/nolan/.local/share/gem/ruby/3.0.0/gems/rbs-2.8.4/ext/rbs_extension
+/usr/bin/ruby -I /usr/lib/ruby/3.0.0 extconf.rb
+checking for whether -std=gnu99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /home/nolan/.local/share/gem/ruby/3.0.0/gems/rbs-2.8.4/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20230721-16575-4dsn3z sitelibdir\=./.gem.20230721-16575-4dsn3z clean
+
+current directory: /home/nolan/.local/share/gem/ruby/3.0.0/gems/rbs-2.8.4/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20230721-16575-4dsn3z sitelibdir\=./.gem.20230721-16575-4dsn3z
+compiling constants.c
+compiling lexer.c
+compiling lexstate.c
+compiling location.c
+compiling main.c
+compiling parser.c
+compiling parserstate.c
+compiling ruby_objs.c
+compiling unescape.c
+linking shared-object rbs_extension.so
+
+current directory: /home/nolan/.local/share/gem/ruby/3.0.0/gems/rbs-2.8.4/ext/rbs_extension
+make DESTDIR\= sitearchdir\=./.gem.20230721-16575-4dsn3z sitelibdir\=./.gem.20230721-16575-4dsn3z install
+/usr/bin/install -c -m 0755 rbs_extension.so ./.gem.20230721-16575-4dsn3z

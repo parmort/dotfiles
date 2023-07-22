@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"parsed_tree:ETI")RuboCop::Ext::RegexpNode#parsed_tree;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"-@return [Regexp::Expression::Root, nil] ;TI"DNote: we extend Regexp nodes to provide `loc` and `expression` ;TI"see `ext/regexp_parser`.;T:
+@fileI"#lib/rubocop/ext/regexp_node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"RuboCop::Ext::RegexpNode;TcRDoc::NormalModule0

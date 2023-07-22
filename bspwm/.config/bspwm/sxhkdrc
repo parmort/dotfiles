@@ -2,14 +2,6 @@
 
 # Sessions {{{
 
-# Lock
-super + x
-	$HOME/.local/bin/lock
-
-# Suspend
-super + shift + x
-	$HOME/.local/bin/lock && systemctl suspend
-
 # Logout
 super + Escape
 	$HOME/.config/bspwm/quit

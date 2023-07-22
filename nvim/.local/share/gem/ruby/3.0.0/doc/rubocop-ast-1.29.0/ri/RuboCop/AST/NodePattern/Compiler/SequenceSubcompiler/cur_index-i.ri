@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"cur_index:ETI"GRuboCop::AST::NodePattern::Compiler::SequenceSubcompiler#cur_index;TI"R;T:protectedo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@api private;T:
+@fileI"Blib/rubocop/ast/node_pattern/compiler/sequence_subcompiler.rb;T:0@omit_headings_from_table_of_contents_below0F@I"=RuboCop::AST::NodePattern::Compiler::SequenceSubcompiler;TcRDoc::NormalClass0

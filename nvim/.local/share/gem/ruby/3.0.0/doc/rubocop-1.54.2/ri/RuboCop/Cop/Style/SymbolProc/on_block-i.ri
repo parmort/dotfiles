@@ -1,0 +1,3 @@
+U:RDoc::AnyMethod[iI"on_block:ETI"-RuboCop::Cop::Style::SymbolProc#on_block;TF:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"_rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity;T:
+@fileI")lib/rubocop/cop/style/symbol_proc.rb;T:0@omit_headings_from_table_of_contents_below000[[I"on_numblock;To;;	[o;
+;	[I"^rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity;T;@;0I"(node);T@FI"SymbolProc;TcRDoc::NormalClass00

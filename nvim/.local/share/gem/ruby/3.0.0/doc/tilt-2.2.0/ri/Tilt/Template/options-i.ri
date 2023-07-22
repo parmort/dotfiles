@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"options:ETI"Tilt::Template#options;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"IA Hash of template engine specific options. This is passed directly ;TI"Fto the underlying engine and is not used by the generic template ;TI"interface.;T:
+@fileI"lib/tilt/template.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Tilt::Template;TcRDoc::NormalClass0

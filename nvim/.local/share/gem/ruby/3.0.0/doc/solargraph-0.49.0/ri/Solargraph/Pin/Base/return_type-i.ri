@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"return_type:ETI"&Solargraph::Pin::Base#return_type;TI"W;T:protectedo:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@return [ComplexType];T:
+@fileI"lib/solargraph/pin/base.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Solargraph::Pin::Base;TcRDoc::NormalClass0
