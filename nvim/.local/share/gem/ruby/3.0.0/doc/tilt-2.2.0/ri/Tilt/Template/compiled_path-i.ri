@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"compiled_path:ETI"!Tilt::Template#compiled_path;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[	I"JA path ending in .rb that the template code will be written to, then ;TI"Hrequired, instead of being evaled.  This is useful for determining ;TI"Icoverage of compiled template code, or to use static analysis tools ;TI"#on the compiled template code.;T:
-@fileI"lib/tilt/template.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Tilt::Template;TcRDoc::NormalClass0

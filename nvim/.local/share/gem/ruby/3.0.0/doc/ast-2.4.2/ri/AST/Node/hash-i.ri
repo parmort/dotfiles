@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"	hash:ETI"AST::Node#hash;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"6Returns the precomputed hash value for this node ;TI"@return [Fixnum];T:
-@fileI"lib/ast/node.rb;T:0@omit_headings_from_table_of_contents_below0F@I"AST::Node;TcRDoc::NormalClass0
