@@ -18,6 +18,10 @@ vim.opt.tabline        = '%!parmort#tabline#line()'
 vim.opt.updatetime     = 300            -- Lower time for CursorHold autocmds
 vim.opt.wrap           = false
 
+vim.opt.tabstop     = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth  = 2
+
 vim.opt.shortmess = 'filmnrx'           -- Use abbreviations in messages
 vim.opt.shortmess:append('I')           -- Don't show intro message
 vim.opt.shortmess:append('A')           -- Don't show the swapfile message
