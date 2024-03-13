@@ -1,7 +1,6 @@
-" Author: N. Prochnau <parvus.mortalis@gmail.com>
-" vim: foldmethod=marker
+-- Author: N. Prochnau <parvus.mortalis@gmail.com>
+-- vim: foldmethod=marker
 
-lua <<EOF
 if vim.fn.has('multi_byte') then
   vim.cmd 'setglobal fileencodings=utf-8'
 end
@@ -71,13 +70,4 @@ packadd 'nord-vim'
 require('parmort.opts')
 require('parmort.cmds')
 require('parmort.maps')
-EOF
-" Abbrevs --------------------------------------------------------- {{{
-
-" Use update instead of write
-cnoreabbrev w update
-
-" Source vimrc
-cnoreabbrev vs SourceConf
-
-" }}}
+require('parmort.abbrevs')
