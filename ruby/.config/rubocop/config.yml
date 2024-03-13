@@ -1,0 +1,19 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - '**/schema.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/HashAlignment:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
+Metric/BlockLength:
+  Exclude:
+    - '**/*_spec.rb'

@@ -1,7 +1,7 @@
 " mks.vim: A wrapper around the :mksession command
 " Maintainer: Nolan Prochnau <parvus.mortalis@gmail.com>
 
-let s:ses_path = "$HOME/.config/nvim/sessions/"
+let s:ses_path = "$HOME/.cache/nvim/sessions/"
 if exists("g:ses_path")
   let s:ses_path = g:ses_path
 endif

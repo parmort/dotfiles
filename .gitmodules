@@ -144,3 +144,6 @@
 [submodule "zsh/.config/zsh/plugs/spaceship-prompt"]
 	path = zsh/.config/zsh/plugs/spaceship-prompt
 	url = https://github.com/spaceship-prompt/spaceship-prompt
+[submodule "tmux/.config/tmux/plugins/tpm"]
+	path = tmux/.config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm

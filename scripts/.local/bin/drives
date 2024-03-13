@@ -2,15 +2,65 @@
 
 dmenu="rofi -theme parmort-central -dmenu"
 
+mountnotif() { \
+  notify-send "💻 USB mounting" "$1"
+}
+
+getmount() { \
+  [ -z "$chosen" ] && exit 1
+  mp="$(find $1 | $dmenu -i -p "Type in mount point.")"
+  [ "$mp" = "" ] && exit 1
+  if [ ! -d "$mp" ]; then
+    mkdiryn=$(printf "No\\nYes" | $dmenu -i -p "$mp does not exist. Create it?")
+    [ "$mkdiryn" = "Yes" ] && (mkdir -p "$mp" || sudo -A mkdir -p "$mp")
+  fi
+}
+
+mountdrives() { \
+  usbdrives="$(lsblk -rpo "name,type,size,mountpoint" | awk '$2=="part"&&$4==""{printf "%s (%s)\n",$1,$3}')"
+  chosen="$(echo "$usbdrives" | $dmenu -i -p "Mount which drive?" | awk '{print $1}')"
+
+  # try to mount drive if it's in fstab (user option required)
+  mount "$chosen" && mountnotif "$chosen mounted." && exit 0
+
+  # manually set mountpoint
+  notAlreadyMounted=$(lsblk -nrpo "name,type,mountpoint" | awk '$2=="part"&&$3!~/\/boot|\/home$|SWAP/&&length($3)>1{printf "-not \( -path *%s -prune \) \ \n",$3}')
+  getmount "/mnt/* -maxdepth 5 -type d $notAlreadyMounted"
+
+  partitiontype="$(lsblk -no "fstype" "$chosen")"
+  case "$partitiontype" in
+    "vfat")
+      sudo -A mount -t vfat "$chosen" "$mp" -o rw,umask=0000 \
+        && mountnotif "$chosen mounted to $mp." && exit 0
+      ;;
+    "ntfs")
+      sudo -A mount -t ntfs3 "$chosen" "$mp" -o uid=$(id -u),gid=$(id -g) \
+        && mountnotif "$chosen mounted to $mp." && exit 0
+      ;;
+    *)
+      sudo -A mount "$chosen" "$mp" -o uid=$(id -u),gid=$(id -g) \
+        && mountnotif "$chosen mounted to $mp." && exit 0
+      ;;
+  esac
+  mountnotif "Could not mount $chosen."
+}
+
+unmountdrives() { \
+  drives=$(lsblk -nrpo "name,type,size,mountpoint" | awk '$2=="part"&&$4!~/\/boot|\/home$|SWAP/&&length($4)>1{printf "%s (%s)\n",$4,$3}')
+  [ -z "$drives" ] && mountnotif "No drives to unmount." && exit
+
+  chosen=$(echo "$drives" | $dmenu -i -p "Unmount which drive?" | awk '{print $1}')
+  sudo -A umount "$chosen" && mountnotif "$chosen unmounted."
+}
+
 mnt="mount (mt)"
 umnt="umount (ut)"
 
 case $(printf "$mnt\n$umnt"| $dmenu -i -l 2 -p "Which operation?") in
   $mnt)
-    $HOME/.local/bin/dmenumount
+    mountdrives
     ;;
-
   $umnt)
-    $HOME/.local/bin/dmenuumount
+    unmountdrives
     ;;
 esac

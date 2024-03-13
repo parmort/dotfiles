@@ -12,7 +12,11 @@ if len(s:pack_path) > 1
       if has_key(s:pack_data, 'scripts')
         let s:scripts = s:pack_data['scripts']
         if has_key(s:scripts, 'build')
-          let s:lint = 'yarn\ run\ build'
+          if executable('yarn')
+            let s:lint = 'yarn\ run\ build'
+          else
+            let s:lint = 'npm\ run\ build'
+          endif
         endif
       endif
     endif
@@ -23,9 +27,9 @@ endif
 execute 'CompilerSet makeprg=' . s:lint
 
 CompilerSet errorformat=
-      \%E%f:%l:%c%\\s%\\+-%\\s%\\+%trror%\\s%\\+TS%n:%\\s%\\+%m,
-      \%-G%[%^\ 0-9]%.%#,
-      \%-G%\\s%#
+      \%f(%l\\,%c):\ %trror\ TS%n:\ %m,
+      \%-G>\ %.%#,
+      \%-G
 
 finish " Sample output follows:
 yarn run v1.17.3

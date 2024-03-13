@@ -61,6 +61,7 @@ if &loadplugins
 
     " Ruby
     packadd! vim-rails
+    packadd! vim-rspec
     packadd! vim-bundler
 
     " Python
@@ -122,11 +123,6 @@ endfunction
 nnoremap <F3> <cmd>cw<CR>
 nnoremap <F4> <cmd>lw<CR>
 nnoremap <F6> <cmd>SpellToggle<CR>
-
-" Get used to new mappings
-nnoremap <localleader>q <cmd>echo "Use Space q"<CR>
-nnoremap <localleader><S-q> <cmd>echo "Use Space S-q"<CR>
-nnoremap <localleader><C-q> <cmd>echo "Use Space C-q"<CR>
 
 " Basic operations made simpler
 nnoremap <leader>q <cmd>bd!<CR>

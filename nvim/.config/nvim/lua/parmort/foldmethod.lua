@@ -8,6 +8,8 @@ return function()
     vim.wo.foldmethod = 'expr'
     vim.wo.foldexpr = 'vimtex#fold#level(v:lnum)'
     vim.wo.foldtext = 'vimtex#fold#text()'
+  elseif vim.bo.filetype == 'ledger' then
+    vim.wo.foldmethod = 'syntax'
   else
     vim.wo.foldmethod = 'indent'
   end

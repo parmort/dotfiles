@@ -18,7 +18,7 @@ end
 
 local function configureBuffer()
   mapluafn('n', '<leader>r', 'vim.lsp.buf.rename()')
-  mapluafn('n', '<leader>e', 'vim.lsp.diagnostic.show_line_diagnostics()')
+  mapluafn('n', '<leader>e', 'vim.diagnostic.open_float()')
   mapluafn('n', 'gd', 'vim.lsp.buf.definition()')
   mapluafn('n', 'K', 'vim.lsp.buf.hover()')
 
