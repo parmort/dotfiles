@@ -1,6 +1,10 @@
 " Author: N. Prochnau <parvus.mortalis@gmail.com>
 " vim: foldmethod=marker
 
+lua <<EOF
+require('opts')
+EOF
+
 " Preamble -------------------------------------------------------- {{{
 
 " Use Unicode characters. Has to be at the top of the file.
