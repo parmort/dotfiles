@@ -1,5 +1,4 @@
 -- Author: N. Prochnau <parvus.mortalis@gmail.com>
--- vim: foldmethod=marker
 
 if vim.fn.has('multi_byte') then
   vim.cmd 'setglobal fileencodings=utf-8'
@@ -71,3 +70,4 @@ require('parmort.opts')
 require('parmort.cmds')
 require('parmort.maps')
 require('parmort.abbrevs')
+require('parmort.statusline')
