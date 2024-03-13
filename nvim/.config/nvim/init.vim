@@ -2,7 +2,7 @@
 " vim: foldmethod=marker
 
 lua <<EOF
-require('opts')
+require('parmort.opts')
 EOF
 
 " Preamble -------------------------------------------------------- {{{
