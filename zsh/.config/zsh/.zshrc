@@ -50,5 +50,5 @@ source ~/.config/zsh/plugs/spaceship-prompt/spaceship.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=0"
 
 # Plugins
-source $ZDOTDIR/plugs/fsh/fast-syntax-highlighting.plugin.zsh
+source $ZDOTDIR/plugs/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $ZDOTDIR/plugs/zsh-autosuggestions/zsh-autosuggestions.zsh

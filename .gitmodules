@@ -147,3 +147,6 @@
 [submodule "tmux/.config/tmux/plugins/tpm"]
 	path = tmux/.config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "zsh/.config/zsh/plugs/fast-syntax-highlighting"]
+	path = zsh/.config/zsh/plugs/fast-syntax-highlighting
+	url = https://github.com/zdharma-continuum/fast-syntax-highlighting
