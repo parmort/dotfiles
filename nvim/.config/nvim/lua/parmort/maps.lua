@@ -1,19 +1,12 @@
 local keymap = vim.keymap.set
 
+local util = require('parmort.util.keymap')
+local l = util.leader
+local cmd = util.command
+local plug = util.plug
+
 local function toggle_spellcheck()
   vim.opt.spell = not vim.wo.spell
-end
-
-local function l(map)
-  return '<leader>' .. map
-end
-
-local function cmd(map)
-  return '<cmd>' .. map .. '<CR>'
-end
-
-local function plug(map)
-  return '<plug>' .. map
 end
 
 vim.g.mapleader = ' '

@@ -59,6 +59,8 @@ packadd 'vim-dirvish'
 packadd 'vim-projectionist'
 packadd 'loupe'
 
+packadd 'obsidian.nvim'
+
 -- Libs
 packadd 'plenary.nvim'
 packadd 'popup.nvim'
@@ -71,3 +73,12 @@ require('parmort.cmds')
 require('parmort.maps')
 require('parmort.abbrevs')
 require('parmort.statusline')
+
+require('obsidian').setup {
+  workspaces = {
+    {
+      name = "vault",
+      path = "~/documents/vault"
+    }
+  }
+}

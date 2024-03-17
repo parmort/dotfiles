@@ -70,9 +70,13 @@ lspconfig.solargraph.setup {
 }
 
 lspconfig.lua_ls.setup {
-  on_init = use_luajit,
+  -- on_init = use_luajit,
   on_attach = configureBuffer,
   settings = {
-    Lua = {}
+    Lua = {
+      diagnostics = {
+        globals = {'vim'}
+      }
+    }
   }
 }

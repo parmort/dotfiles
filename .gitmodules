@@ -150,3 +150,6 @@
 [submodule "zsh/.config/zsh/plugs/fast-syntax-highlighting"]
 	path = zsh/.config/zsh/plugs/fast-syntax-highlighting
 	url = https://github.com/zdharma-continuum/fast-syntax-highlighting
+[submodule "nvim/.config/nvim/pack/bundle/opt/obsidian.nvim"]
+	path = nvim/.config/nvim/pack/bundle/opt/obsidian.nvim
+	url = https://github.com/epwalsh/obsidian.nvim
