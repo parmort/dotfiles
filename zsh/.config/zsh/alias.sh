@@ -25,8 +25,9 @@ alias c="cd ~"
 alias cdd="cd ~/dotfiles && ls"
 alias cdb="cd ~/build && ls"
 alias cdc="cd ~/code && ls"
-alias cdo="cd ~/docs && ls"
+alias cdo="cd ~/documents && ls"
 alias cdw="cd /mnt/windows/Users/parvu && ls"
+alias cdv="cd ~/documents/vault/ && ls"
 
 # Easy source of config
 alias sb="source $ZDOTDIR/.zshrc"
@@ -53,10 +54,17 @@ alias gsm="git submodule"
 alias gd="git diff"
 alias gco="git checkout"
 alias gcb="git checkout -b"
-# alias gcm <-- In Functions
 alias gbr="git branch"
 alias grm="git rm"
-alias gvim="vim -c 'Gstatus' -c 'wincmd o'"
+
+# Smart git checkout master
+gcm() {
+  if [ "$(git branch | grep main)" ]; then
+    git checkout main
+  else
+    git checkout master
+  fi
+}
 
 # Tmux
 alias t="tmux"
@@ -74,28 +82,8 @@ alias mutt=neomutt
 alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
 alias "ec-"="ec -"
 
-#===========#
-#-Functions-#
-#===========#
-
 # Grep through aliases
 gal() { alias | grep --color "^$1" }
 
 # Generate rails project with solargraph definitions
 rg() { rails new $1 -T --database=postgresql && wget -O $1/config/definitions.rb https://gist.githubusercontent.com/castwide/28b349566a223dfb439a337aea29713e/raw/d1d4462b92f411b378d87a39482b830e012513bd/rails.rb }
-
-# Wrap ag command until it supports config file
-# https://github.com/ggreer/the_silver_searcher/pull/709
-ag() {
-  emulate -L zsh
-  command ag --pager="less -iFMRSX" --color-path=34\;3 --color-line-number=35 --color-match=33\;1\;4 "$@"
-}
-
-# Smart git checkout master
-gcm() {
-  if [ "$(git branch | grep main)" ]; then
-    git checkout main
-  else
-    git checkout master
-  fi
-}

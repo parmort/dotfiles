@@ -1,0 +1,13 @@
+# vim: set ft=sh :
+
+# Set pager
+--pager="less -iFMRSX"
+
+# Color for path names
+--color-path=34\;3
+
+# Color for line numbers
+--color-line-number=35
+
+# Color for result match numbers
+--color-match=33\;1\;4 "$@"
