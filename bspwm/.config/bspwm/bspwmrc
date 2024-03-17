@@ -32,9 +32,6 @@ xrdb $XDG_CONFIG_HOME/xorg/Xresources
 # Keybinds (must be after xmodmap)
 launch sxhkd -c ~/.config/bspwm/sxhkdrc &
 
-# Swallowing
-pgrep bspswallow || bspswallow &
-
 bspc monitor -d 1 2 3 4 5
 bspc monitor primary -d 1 2 3 4 5 D
 

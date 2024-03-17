@@ -64,27 +64,27 @@ super + shift + {n,p}
 
 # Prompt
 super + d
-	noswallow_rofi -theme parmort-dmenu -display-drun "Run"
+	rofi -show drun -theme parmort-dmenu -display-drun "Run"
 
 # Terminal
 super + Return
-	noswallow_open $TERMINAL
+	$TERMINAL
 
 # Web Browser
 super + w
-	noswallow_open $BROWSER
+	$BROWSER
 
 # Mail Client
 super + m
-	noswallow_open mailspring
+	mailspring
 
 # Yakyak
 super + y
-	noswallow_open yakyak
+	yakyak
 
 # Todoist
 super + t
-	noswallow_open todoist
+	todoist
 
 # Discord
 hyper + d
@@ -104,7 +104,7 @@ hyper + g
 
 # Screenshots
 Print
-	scrot -so ~/pictures/screen.png && noswallow_open sxiv ~/pictures/screen.png
+	scrot -so ~/pictures/screen.png && sxiv ~/pictures/screen.png
 
 # Bitwarden
 hyper+b
