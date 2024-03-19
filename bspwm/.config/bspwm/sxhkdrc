@@ -74,18 +74,6 @@ super + Return
 super + w
 	$BROWSER
 
-# Mail Client
-super + m
-	mailspring
-
-# Yakyak
-super + y
-	yakyak
-
-# Todoist
-super + t
-	todoist
-
 # Discord
 hyper + d
 	discord
