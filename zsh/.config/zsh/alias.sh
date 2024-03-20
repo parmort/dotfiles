@@ -88,5 +88,5 @@ gal() { alias | grep --color "^$1" }
 # Generate rails project with solargraph definitions
 rg() { rails new $1 -T --database=postgresql && wget -O $1/config/definitions.rb https://gist.githubusercontent.com/castwide/28b349566a223dfb439a337aea29713e/raw/d1d4462b92f411b378d87a39482b830e012513bd/rails.rb }
 
-#Obsidian
-alias vlt="cd ~/documents/vault/ && vim -c ':ObsidianQuickSwitch'"
+# Obsidian
+alias vlt="cd ~/documents/vault/ && vim -c ':ObsidianToday'"
