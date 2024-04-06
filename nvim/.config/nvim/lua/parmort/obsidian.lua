@@ -9,13 +9,25 @@ local config = {
   },
 
   mappings = {
-    ['<C-]>'] = {
+    ['<C-]>'] = { -- Open link in vertical split
       action = cmd 'ObsidianFollowLink vsplit',
       opts = { noremap = true, buffer = true }
     },
-    ['<leader>t'] = {
+    ['<leader>t'] = { -- Clobber telescope git mapping when in Obsidian vaults
       action = cmd 'ObsidianQuickSwitch',
       opts = { noremap = true, buffer = true }
+    },
+    ["gf"] = { -- Make `gf` make sense in vaults
+      action = function()
+        return require("obsidian").util.gf_passthrough()
+      end,
+      opts = { noremap = false, expr = true, buffer = true },
+    },
+    ["<cr>"] = { -- Action button that makes good sense
+      action = function()
+        return require("obsidian").util.smart_action()
+      end,
+      opts = { buffer = true, expr = true },
     }
   },
 
