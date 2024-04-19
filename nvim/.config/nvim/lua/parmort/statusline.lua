@@ -29,7 +29,6 @@ local function git_branch()
     return string.format('[%s] ', vim.fn['fugitive#Head']())
   end
 
-  -- return string.format('[%s] ', vim.fn['fugitive#Head']())
   return ''
 end
 
