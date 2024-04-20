@@ -22,10 +22,12 @@ vim.opt.tabstop     = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth  = 2
 
-vim.opt.shortmess = 'filmnrx'           -- Use abbreviations in messages
-vim.opt.shortmess:append('I')           -- Don't show intro message
-vim.opt.shortmess:append('A')           -- Don't show the swapfile message
-vim.opt.shortmess:append('c')           -- Don't show completion messages
+--- Shortmess (see `:help 'shortmess'`)
+-- `filmnrx`: Use abbreviations in messages
+--       `I`: Don't show intro message
+--       `A`: Don't show the swapfile message
+--       `C`: Don't show completion messages
+vim.opt.shortmess = 'filmnrxIAC'
 
 vim.opt.completeopt = {
   'menuone',                           -- Show the PUM, even with only 1 match
@@ -47,12 +49,6 @@ vim.opt.wildignore:append {            -- Ignore files from wildmenu
   '*.o',
   'node_modules'
 }
-
-vim.cmd [[
-  set statusline=
-    \%{parmort#statusline#mode()}\ %{parmort#statusline#git()}%{parmort#statusline#name()}\ %{parmort#statusline#spell()}%{parmort#statusline#mod()}
-    \%=%{parmort#statusline#type()}\ %{parmort#statusline#obsession()}%{parmort#statusline#ff()}[%p%%]
-]]
 
 vim.opt.shadafile   = ''
 vim.opt.viminfofile = ''
