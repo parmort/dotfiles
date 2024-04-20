@@ -1,4 +1,17 @@
-local function mode()
+-- Statusline module definitions. Used in `plugin/statusline.lua`
+local M = {}
+
+local function isHelp()
+  return vim.bo.filetype == 'help'
+end
+
+local function isReadOnly()
+  return vim.bo.readonly or not vim.bo.modifiable
+end
+
+function M.mode()
+  if isHelp() or isReadOnly() then return ' ' end
+
   local function getMode()
     if vim.bo.filetype == 'dirvish' then
       return 'dirvish'
@@ -21,10 +34,10 @@ local function mode()
     ['netrw']   = 'NET-RW',
     ['dirvish'] = 'DIRVSH'
   }
-  return string.format("[%s]", modes[getMode()])
+  return string.format("[%s] ", modes[getMode()])
 end
 
-local function git_branch()
+function M.git_branch()
   if vim.g.loaded_fugitive and vim.fn.FugitiveGitDir() ~= '' then
     return string.format('[%s] ', vim.fn['fugitive#Head']())
   end
@@ -32,19 +45,22 @@ local function git_branch()
   return ''
 end
 
-local function name()
-  if vim.bo.filetype == 'help' then
-    return vim.fn.expand('%:t:r')
+function M.name()
+  local name = ""
+  if isHelp() then
+    name = vim.fn.expand('%:t:r')
   elseif vim.bo.filetype == 'netrw' then
-    return vim.b.netrw_curdir
+    name = vim.b.netrw_curdir
   elseif vim.bo.filetype == 'dirvish' then
-    return vim.fn.expand('%:.')
+    name = vim.fn.expand('%:.')
+  else
+    name = vim.fn.expand('%:t')
   end
 
-  return vim.fn.expand('%:t')
+  return name .. ' '
 end
 
-local function spell()
+function M.spell()
   if vim.wo.spell then
     return '[SPL] '
   end
@@ -52,14 +68,14 @@ local function spell()
   return ''
 end
 
-local function fmod()
-  if vim.bo.filetype == 'help' then
+function M.fmod()
+  if isHelp() then
     return '[HLP]'
   elseif vim.bo.filetype == 'netrw' then
     return ''
   elseif vim.wo.previewwindow then
     return '[PRV]'
-  elseif vim.bo.readonly or not vim.bo.modifiable then
+  elseif isReadOnly() then
     return '[RO]'
   elseif vim.bo.modified then
     return '[+]'
@@ -68,8 +84,8 @@ local function fmod()
   return ''
 end
 
-local function ftype()
-  if vim.bo.filetype == 'help' then
+function M.ftype()
+  if isHelp() then
     return ''
   elseif vim.bo.filetype == 'netrw' then
     return ''
@@ -77,10 +93,11 @@ local function ftype()
     return ''
   end
 
-  return vim.bo.filetype
+  return vim.bo.filetype .. ' '
 end
 
-local function obsession()
+--- @return string
+function M.obsession()
   if not vim.g.loaded_obsession or not vim.g.this_obsession then
     return ''
   end
@@ -88,7 +105,7 @@ local function obsession()
   return vim.fn.ObsessionStatus() .. ' '
 end
 
-local function fformat()
+function M.fformat()
   if vim.bo.fileformat == 'dos' then
     return '[DOS] '
   end
@@ -96,19 +113,4 @@ local function fformat()
   return ''
 end
 
-function Statusline()
-  return table.concat {
-    mode() .. ' ',
-    git_branch(),
-    name() .. ' ',
-    spell(),
-    fmod(),
-    '%=',  -- RIGHT ALIGN
-    ftype() .. ' ',
-    obsession(),
-    fformat(),
-    '[%p%%]'
-  }
-end
-
-vim.opt.statusline = '%!v:lua.Statusline()'
+return M
