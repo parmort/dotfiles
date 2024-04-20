@@ -6,8 +6,8 @@ if [ "$1" = "." ]; then
 fi
 
 if [ "$1" = "-d" ]; then
-  find ~/.config/nvim/sessions/* -type f | fzf | xargs -r rm
+  find ~/.cache/nvim/sessions/* -type f | fzf | xargs -r rm
   exit 0;
 fi
 
-find ~/.config/nvim/sessions/* -type f | fzf | xargs -r $EDITOR -S
+find ~/.cache/nvim/sessions/* -type f | fzf | xargs -r $EDITOR -S
