@@ -153,3 +153,6 @@
 [submodule "nvim/.config/nvim/pack/bundle/opt/obsidian.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/obsidian.nvim
 	url = https://github.com/epwalsh/obsidian.nvim
+[submodule "nvim/.config/nvim/pack/bundle/opt/neodev.nvim"]
+	path = nvim/.config/nvim/pack/bundle/opt/neodev.nvim
+	url = https://github.com/folke/neodev.nvim

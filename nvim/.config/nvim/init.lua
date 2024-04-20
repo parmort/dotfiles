@@ -33,6 +33,7 @@ packadd 'vim-javascript'
 packadd 'vimtex'
 
 -- Code completion
+packadd 'neodev.nvim'
 packadd 'nvim-treesitter'
 packadd 'vim-closer'
 packadd 'nvim-lsp'
