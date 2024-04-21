@@ -2,15 +2,15 @@ local ts_info = require'nvim-treesitter.info'
 
 return function()
   if vim.tbl_contains(ts_info.installed_parsers(), vim.bo.filetype) then
-    vim.wo.foldmethod = 'expr'
-    vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+    vim.opt_local.foldmethod = 'expr'
+    vim.opt_local.foldexpr = 'nvim_treesitter#foldexpr()'
   elseif vim.bo.filetype == 'tex' then
-    vim.wo.foldmethod = 'expr'
-    vim.wo.foldexpr = 'vimtex#fold#level(v:lnum)'
-    vim.wo.foldtext = 'vimtex#fold#text()'
+    vim.opt_local.foldmethod = 'expr'
+    vim.opt_local.foldexpr = 'vimtex#fold#level(v:lnum)'
+    vim.opt_local.foldtext = 'vimtex#fold#text()'
   elseif vim.bo.filetype == 'ledger' then
-    vim.wo.foldmethod = 'syntax'
+    vim.opt_local.foldmethod = 'syntax'
   else
-    vim.wo.foldmethod = 'indent'
+    vim.opt_local.foldmethod = 'indent'
   end
 end

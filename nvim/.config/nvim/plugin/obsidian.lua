@@ -1,4 +1,4 @@
-local cmd = require('parmort.util.keymap').command
+local cmd = require('parmort.keymap').command
 
 local config = {
   workspaces = {

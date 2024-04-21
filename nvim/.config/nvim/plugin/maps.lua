@@ -1,7 +1,7 @@
 local keymap = vim.keymap.set
 
-local util = require('parmort.util.keymap')
-local l = util.leader
+local util = require('parmort.keymap')
+local leader = util.leader
 local cmd = util.command
 local plug = util.plug
 
@@ -19,9 +19,9 @@ keymap('n', ':', ';')
 keymap('n', '<F6>', toggle_spellcheck, {desc = 'Toggle spellcheck'})
 
 -- Make closing operations easier
-keymap('n', l 'q',     cmd 'bd!')
-keymap('n', l '<S-q>', cmd 'wqa!')
-keymap('n', l '<C-q>', cmd 'qa!')
+keymap('n', leader 'q',     cmd 'bd!')
+keymap('n', leader '<S-q>', cmd 'wqa!')
+keymap('n', leader '<C-q>', cmd 'qa!')
 
 keymap('n', 'zx', 'za')
 keymap('n', 'zX', 'zA')
@@ -47,8 +47,8 @@ keymap('n', 'go', cmd 'Goyo')
 
 keymap('v', 'K', 'k') -- I have a habit of holding shift for too long getting into v-line
 
-keymap('n', l 'd', cmd 'Dispatch')
-keymap('n', l 'm', cmd 'Make')
+keymap('n', leader 'd', cmd 'Dispatch')
+keymap('n', leader 'm', cmd 'Make')
 
 keymap('n', '<nop>', plug '(LoupeClearHighlight)')
 

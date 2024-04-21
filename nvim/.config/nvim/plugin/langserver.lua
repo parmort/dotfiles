@@ -2,7 +2,7 @@ require('neodev').setup() -- Needs to come before lspconfig
 local lspconfig = require('lspconfig')
 
 local keymap = vim.keymap.set
-local l = require('parmort.util.keymap').leader
+local l = require('parmort.keymap').leader
 local highlight = require('parmort.util').highlight
 
 local function configureBuffer()

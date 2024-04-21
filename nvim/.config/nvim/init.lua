@@ -18,6 +18,8 @@ packadd 'vim-unimpaired'
 packadd 'vim-rsi'
 packadd 'vim-repeat'
 packadd 'vim-scriptease'
+packadd 'limelight.vim'
+packadd 'goyo.vim'
 
 -- Tie-ins
 packadd 'vim-tmux-navigator'
@@ -68,9 +70,3 @@ packadd 'popup.nvim'
 
 -- Colorscheme
 packadd 'nord-vim'
-
-require('parmort.opts')
-require('parmort.cmds')
-require('parmort.maps')
-require('parmort.abbrevs')
-require('parmort.obsidian')
