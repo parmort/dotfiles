@@ -14,7 +14,6 @@ vim.opt.showmode       = false          -- Don't show mode messages
 vim.opt.showtabline    = 2              -- Always show the tabline
 vim.opt.splitbelow     = true
 vim.opt.splitright     = true
-vim.opt.tabline        = '%!parmort#tabline#line()'
 vim.opt.updatetime     = 300            -- Lower time for CursorHold autocmds
 vim.opt.wrap           = false
 
