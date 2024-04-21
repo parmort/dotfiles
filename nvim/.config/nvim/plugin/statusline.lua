@@ -40,14 +40,22 @@ function Statusline.inactive()
   }
 end
 
+local function set_active_line()
+  vim.opt_local.statusline = '%!v:lua.Statusline.active()'
+end
+
+local function set_inactive_line()
+  vim.opt_local.statusline = '%!v:lua.Statusline.inactive()'
+end
+
 local grp = vim.api.nvim_create_augroup('StatusLine', { clear = true })
 
 vim.api.nvim_create_autocmd({'WinEnter', 'BufEnter'}, {
   pattern = '*', group = grp,
-  command = 'setlocal statusline=%!v:lua.Statusline.active()'
+  callback = set_active_line
 })
 
 vim.api.nvim_create_autocmd({'WinLeave', 'BufLeave'}, {
   pattern = '*', group = grp,
-  command = 'setlocal statusline=%!v:lua.Statusline.inactive()'
+  callback = set_inactive_line
 })

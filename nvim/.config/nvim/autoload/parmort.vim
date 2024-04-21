@@ -4,13 +4,6 @@ let s:middot='·'
 let s:raquo='»'
 let s:small_l='ℓ'
 
-function! parmort#foldtext() abort
-  let l:lines='[' . (v:foldend - v:foldstart + 1) . s:small_l . ']'
-  let l:first=substitute(getline(v:foldstart), '\v *', '', '')
-  let l:dashes=substitute(v:folddashes, '-', s:middot, 'g')
-  return s:raquo . l:dashes . l:lines . ': ' . l:first
-endfunction
-
 function! parmort#groot()
   let root = systemlist('git rev-parse --show-toplevel')[0]
   if v:shell_error

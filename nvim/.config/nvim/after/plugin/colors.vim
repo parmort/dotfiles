@@ -112,10 +112,10 @@ augroup colorschemes
   autocmd ColorScheme seoul256 call <SID>SeoulColors()
   autocmd ColorSchemePre seoul256 call <SID>SeoulColorsPre()
 
-  autocmd ColorScheme nord call <SID>NordColors()
-  autocmd ColorSchemePre nord call <SID>NordColorsPre()
+  " autocmd ColorScheme nord call <SID>NordColors()
+  " autocmd ColorSchemePre nord call <SID>NordColorsPre()
 augroup END
 
-colorscheme nord
+" colorscheme nord
 
 autocmd colorschemes FileType json syntax match Comment +\/\/.\+$+
