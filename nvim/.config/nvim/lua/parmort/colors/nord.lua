@@ -29,18 +29,18 @@ end
 
 function M.colors()
   -- Tabline
-  highlight('TabLine',    gui_attrs(M[10], M[1], 'italic'))
-  highlight('TabLineSel', gui_attrs(nil,      nil,     'bold'))
-  highlight('User3',      gui_attrs(M[8],  nil,     'bold'))
-  highlight('User2',      gui_attrs(M[9],  M[1], nil))
+  highlight('TabLine',      gui_attrs(M[10], M[1], 'italic'))
+  highlight('TabLineSel',   gui_attrs(nil,   nil,  'bold'))
+  highlight('User3',        gui_attrs(M[8],  nil,  'bold'))
+  highlight('User2',        gui_attrs(M[9],  M[1], nil))
 
   -- Statusline
-  highlight('Statusline',   gui_attrs(M[6], M[3], nil))
-  highlight('StatuslineNC', gui_attrs(M[9], M[1], nil))
-  highlight('User4',        gui_attrs(nil,     M[3], 'italic'))
+  highlight('Statusline',   gui_attrs(M[6],  M[3], nil))
+  highlight('StatuslineNC', gui_attrs(M[9],  M[1], nil))
+  highlight('User4',        gui_attrs(nil,   M[3], 'italic'))
 
   -- Fold Text
-  highlight('Folded', gui_attrs(M[10], M[1], 'italic'))
+  highlight('Folded',       gui_attrs(M[10], M[1], 'italic'))
 
   -- Ledger
   highlight('ledgerTransactionMetadata', 'Comment')
