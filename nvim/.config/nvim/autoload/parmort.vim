@@ -4,16 +4,6 @@ let s:middot='·'
 let s:raquo='»'
 let s:small_l='ℓ'
 
-function! parmort#groot()
-  let root = systemlist('git rev-parse --show-toplevel')[0]
-  if v:shell_error
-    echo 'Not in git repo'
-  else
-    execute  'lcd' root
-    echo 'Changed directory to: ' . root
-  endif
-endfunction
-
 function! parmort#focusline()
   if &foldmethod ==# 'marker'
     execute "keepjumps normal! zMzvzz"
@@ -35,12 +25,6 @@ endfunction
 function! parmort#runspecs(spec)
   execute 'tabnew | terminal rspec '.a:spec
   execute feedkeys('\<c-\>\<c-n>')
-endfunction
-
-function! parmort#settabspace(spc)
-  exe 'set tabstop='.a:spc
-  exe 'set softtabstop='.a:spc
-  exe 'set shiftwidth='.a:spc
 endfunction
 
 function! parmort#nunmap(key)
