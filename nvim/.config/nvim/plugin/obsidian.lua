@@ -1,6 +1,7 @@
 local cmd = require('parmort.keymap').command
+local highlight = require('parmort.util').highlight
 
-local config = {
+require('obsidian').setup({
   workspaces = {
     {
       name = "vault",
@@ -36,8 +37,6 @@ local config = {
     return path:with_suffix('.md')
   end,
 
-  ---@param note obsidian.Note
-  ---@return table|?
   note_frontmatter_func = function(note)
     if note.title then
       note:add_alias(note.title)
@@ -55,6 +54,11 @@ local config = {
 
     return out
   end,
-}
 
-require('obsidian').setup(config)
+  callbacks = {
+    enter_note = function(_, _)
+      vim.cmd [[syntax match markdownWikiLink /\[\[.*\]\]/]]
+      highlight('markdownWikiLink', 'markdownLinkText')
+    end
+  }
+})
