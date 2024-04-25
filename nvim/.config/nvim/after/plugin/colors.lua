@@ -1,48 +1,27 @@
--- vim: fdm=marker
-
 vim.opt.background    = 'dark'
 vim.opt.termguicolors = true
 
-local nord  = require('parmort.colors.nord')
-local one   = require('parmort.colors.one')
-local seoul = require('parmort.colors.seoul')
+local confs = vim.api.nvim_get_runtime_file('lua/parmort/colors/*.lua', true)
 
-local grp = vim.api.nvim_create_augroup('ColorSchemes', { clear = true })
+local patterns = {}
+for i,file in ipairs(confs) do
+  patterns[i] = string.sub(string.match(file, 'parmort.+'), 16, -5)
+end
 
--- NORD {{{
+local grp = vim.api.nvim_create_augroup('parmortColorSchemes', { clear = true })
+
 vim.api.nvim_create_autocmd({'ColorSchemePre'}, {
-  pattern = 'nord', group = grp,
-  callback = nord.colors_pre
+  pattern = table.concat(patterns, ','), group = grp,
+  callback = function(ev)
+    require('parmort.colors.'..ev.match).colors_pre()
+  end
 })
 
 vim.api.nvim_create_autocmd({'ColorScheme'}, {
-  pattern = 'nord', group = grp,
-  callback = nord.colors
+  pattern = table.concat(patterns, ','), group = grp,
+  callback = function(ev)
+    require('parmort.colors.'..ev.match).colors()
+  end
 })
--- }}}
-
--- ONE {{{
-vim.api.nvim_create_autocmd({'ColorSchemePre'}, {
-  pattern = 'one', group = grp,
-  callback = one.colors_pre
-})
-
-vim.api.nvim_create_autocmd({'ColorScheme'}, {
-  pattern = 'one', group = grp,
-  callback = one.colors
-})
--- }}}
-
--- SEOUL {{{
-vim.api.nvim_create_autocmd({'ColorSchemePre'}, {
-  pattern = 'seoul', group = grp,
-  callback = seoul.colors_pre
-})
-
-vim.api.nvim_create_autocmd({'ColorScheme'}, {
-  pattern = 'seoul', group = grp,
-  callback = seoul.colors
-})
--- }}}
 
 vim.cmd.colorscheme 'nord'
