@@ -8,6 +8,10 @@ function M.enter()
     vim.cmd [[Limelight]]
     vim.opt_local.spell = true
   end
+
+  if vim.fn.executable('tmux') then
+    vim.fn.system('tmux set -g status off')
+  end
 end
 
 function M.leave()
@@ -17,6 +21,10 @@ function M.leave()
   if vim.o.filetype ~= 'gitcommit' then
     vim.cmd [[Limelight!]]
     vim.opt_local.spell = false
+  end
+
+  if vim.fn.executable('tmux') then
+    vim.fn.system('tmux set -g status on')
   end
 end
 
