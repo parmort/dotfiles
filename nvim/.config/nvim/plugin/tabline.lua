@@ -1,17 +1,20 @@
 Tabline = {}
 
+local labels = {}
+
 --- @param bufnr number
 local function fname(bufnr)
   local name = vim.fn.bufname(bufnr)
 
   if name == '' then
-    name = vim.fn.fnamemodify(name, ':~:.')
+    name = '[No Name]'
+  elseif vim.fn.isdirectory(name) == 1 then
+    name = vim.fn.fnamemodify(name, ':~:h')
   else
     name = vim.fn.fnamemodify(name, ':t')
   end
 
-  return vim.fn.pathshorten(name)
-end
+  return vim.fn.pathshorten(name)end
 
 function Tabline.line()
   local line = {}
@@ -35,16 +38,23 @@ function Tabline.line()
   return string.format('%s%%#TablineFill#%%T', table.concat(line))
 end
 
-function Tabline.label(n)
+function Tabline.label(tabnr)
   -- Remember, lua is 1-indexed
-  local bufnr = vim.fn.tabpagebuflist(n)[vim.fn.tabpagewinnr(n)]
+  local winnr = vim.fn.tabpagewinnr(tabnr)
+  local bufnr = vim.fn.tabpagebuflist(tabnr)[winnr]
 
   local modified = ''
   if vim.fn.getbufinfo(bufnr)[1]['changed'] == 1 then
     modified = ' ●'
   end
 
-  return fname(bufnr) .. modified
+  -- If not a floating window, set the label
+  local winid = vim.fn.win_getid(winnr, tabnr)
+  if vim.api.nvim_win_get_config(winid).relative == '' then
+    labels[tabnr] = fname(bufnr) .. modified
+  end
+
+  return labels[tabnr]
 end
 
 vim.opt.tabline = '%!v:lua.Tabline.line()'

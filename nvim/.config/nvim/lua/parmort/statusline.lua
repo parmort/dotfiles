@@ -2,6 +2,19 @@
 -- Each module must implement an optional default value
 local M = {}
 
+local modes = {
+    ['n']       = 'NORMAL',
+    ['i']       = 'INSERT',
+    ['R']       = 'REPLCE',
+    ['v']       = 'VISUAL',
+    ['V']       = 'V-LINE',
+    ['']      = 'V-BLCK',
+    ['c']       = 'C-LINE',
+    ['t']       = ' TERM ',
+    ['netrw']   = 'NET-RW',
+    ['dirvish'] = 'DIRVSH'
+}
+
 local function isHelp()
   return vim.bo.filetype == 'help'
 end
@@ -35,18 +48,7 @@ function M.mode(default)
     end
   end
 
-  local cur = ({
-    ['n']       = 'NORMAL',
-    ['i']       = 'INSERT',
-    ['R']       = 'REPLCE',
-    ['v']       = 'VISUAL',
-    ['V']       = 'V-LINE',
-    ['']      = 'V-BLCK',
-    ['c']       = 'C-LINE',
-    ['t']       = ' TERM ',
-    ['netrw']   = 'NET-RW',
-    ['dirvish'] = 'DIRVSH'
-  })[getMode()]
+  local cur = modes[getMode()]
 
   if not cur then return default end
   return string.format("[%s] ", cur)
