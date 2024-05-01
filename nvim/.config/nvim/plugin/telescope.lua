@@ -9,3 +9,4 @@ end
 keymap('n', leader 't', 'git_files')
 keymap('n', leader 'h', 'help_tags')
 keymap('n', leader 'p', 'reloader')
+keymap('n', leader 'c', 'commands')

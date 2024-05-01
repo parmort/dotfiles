@@ -19,4 +19,8 @@ function M.reloader()
   telescope.reloader(theme{})
 end
 
+function M.commands()
+  telescope.commands(theme{})
+end
+
 return M
