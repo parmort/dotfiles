@@ -1,10 +1,10 @@
 /* vim: set ft=css : */
 
 * {
-    background-color:            #3f3f3f;
-    border-color:                #282c34;
-    text-color:                  #d0d0d0;
-    font:                        "Victor Mono Bold 11";
+    prompt-color:                #88c0d0;
+    background-color:            #2e3440;
+    text-color:                  #eceff4;
+    font:                        "monospace 11";
     spacing:                     3;
 }
 
@@ -12,32 +12,17 @@ window {
     padding: 5;
 }
 
-mainbox {
-    border:  0;
-    padding: 0;
-}
-
-message {
-    border:       1px dash 0px 0px ;
-    padding:      1px ;
-}
-
-listview {
-    fixed-height: 0;
-    border:       2px dash 0px 0px ;
-    spacing:      2px ;
-    scrollbar:    true;
-    padding:      2px 0px 0px ;
-}
-
 element {
-    border:  0;
     padding: 1px ;
 }
 
-element.selected.normal {
-    background-color: #85add4;
-    text-color:       @background-color;
+element.selected {
+    background-color: @prompt-color;
+}
+
+element-text.selected {
+    background-color: inherit;
+    text-color: @background-color;
 }
 
 scrollbar {
@@ -47,31 +32,13 @@ scrollbar {
     padding:      0;
 }
 
-sidebar {
-    border: 2px dash 0px 0px ;
-}
-
-button.selected {
-    background-color: #85add4;
-    text-color:       @background-color;
-}
-
-inputbar {
-    spacing:    0;
-    padding:    1px ;
-}
-
-case-indicator {
-    spacing:    0;
-}
-
 entry {
     padding: 4px 4px;
     width: 10em;
-    font: "Victor Mono 11";
 }
 
 prompt {
-    padding:          4px;
-    text-color:       #d7afaf;
+    padding: 4px;
+    text-color: @prompt-color;
+    font: "monospace bold 11";
 }
