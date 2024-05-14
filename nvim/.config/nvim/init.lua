@@ -4,10 +4,6 @@ if vim.fn.has('multi_byte') then
   vim.cmd 'setglobal fileencodings=utf-8'
 end
 
-if vim.fn.has('vim_starting') and not vim.fn.argc(-1) then
-  vim.cmd.edit '.'
-end
-
 local function packadd(package)
   vim.cmd.packadd { package, bang = true }
 end
@@ -70,3 +66,6 @@ packadd 'popup.nvim'
 
 -- Colorscheme
 packadd 'nord-vim'
+
+-- CUSTOM --
+packadd 'rasi.vim'
