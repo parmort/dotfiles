@@ -43,6 +43,8 @@ packadd 'vim-surround'
 packadd 'deoplete.nvim'
 packadd 'deoplete-lsp'
 
+packadd 'trouble.nvim'
+
 -- Ruby
 packadd 'vim-rails'
 packadd 'vim-rspec'

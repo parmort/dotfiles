@@ -156,3 +156,6 @@
 [submodule "nvim/.config/nvim/pack/bundle/opt/neodev.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/neodev.nvim
 	url = https://github.com/folke/neodev.nvim
+[submodule "nvim/.config/nvim/pack/bundle/opt/trouble.nvim"]
+	path = nvim/.config/nvim/pack/bundle/opt/trouble.nvim
+	url = https://github.com/folke/trouble.nvim
