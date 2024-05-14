@@ -1,6 +1,3 @@
-# Base16 Material Darker
-# Author: Nate Peterson
-
 set default-bg                  "#212121"
 set default-fg                  "#303030"
 

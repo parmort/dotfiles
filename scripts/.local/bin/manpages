@@ -1,8 +1,0 @@
-#!/usr/bin/bash
-
-if [ -z "$(man -w $1)" ]
-then
-  exit 1
-fi
-
-$EDITOR man://$1

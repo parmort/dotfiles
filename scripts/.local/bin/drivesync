@@ -1,5 +1,0 @@
-#!/usr/bin/bash
-cd /home/nolan/gdrive
-/home/nolan/godir/bin/drive pull -quiet
-/home/nolan/godir/bin/drive push -quiet
-notify-send "~/gdrive synced"

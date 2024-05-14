@@ -1,6 +1,0 @@
-#!/usr/bin/sh
-rm /tmp/screenlock.png
-
-scrot /tmp/screenlock.png
-convert /tmp/screenlock.png -blur 0x20 /tmp/screenlock.png
-i3lock -e -i /tmp/screenlock.png
