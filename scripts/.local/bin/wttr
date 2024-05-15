@@ -62,4 +62,4 @@ case $(echo $table | jq -r '.code') in
   *) icon=" ";;
 esac
 
-echo "%{T4}$icon %{T-}$temp%{T4}%{T-}"
+echo "%{T4}${icon} %{T-}${temp}°F"
