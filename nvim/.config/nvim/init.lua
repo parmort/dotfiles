@@ -21,7 +21,9 @@ packadd 'goyo.vim'
 packadd 'vim-tmux-navigator'
 packadd 'vim-fugitive'
 packadd 'vim-dispatch'
+
 packadd 'vim-dadbod'
+packadd 'vim-dadbod-ui'
 
 -- Misc. Filetypes
 packadd 'vim-cpp-modern'
@@ -29,6 +31,7 @@ packadd 'sxhkd-vim'
 packadd 'vim-ledger'
 packadd 'vim-javascript'
 packadd 'vimtex'
+packadd 'vim-elixir'
 
 -- Code completion
 packadd 'neodev.nvim'

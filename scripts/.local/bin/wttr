@@ -1,6 +1,6 @@
 #!/bin/sh
 
-weather=$(curl -s wttr.in/Exton?format=j1)
+weather=$(curl -s wttr.in/west_chester?format=j1)
 
 if [ $(echo "$weather" | grep -E "(Unknown|curl|HTML)" | wc -l) -gt 0 ]; then
   echo " WTTR"
@@ -62,4 +62,4 @@ case $(echo $table | jq -r '.code') in
   *) icon=" ";;
 esac
 
-echo $icon $temp
+echo "%{T4}$icon %{T-}$temp%{T4}%{T-}"

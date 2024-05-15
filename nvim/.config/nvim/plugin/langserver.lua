@@ -2,15 +2,15 @@ require('neodev').setup() -- Needs to come before lspconfig
 local lspconfig = require('lspconfig')
 
 local keymap = vim.keymap.set
-local l = require('parmort.keymap').leader
+local leader = require('parmort.keymap').leader
 local highlight = require('parmort.util').highlight
 
-local function configureBuffer()
-  keymap('n', l 'r',   vim.lsp.buf.rename)
-  keymap('n', l 'e',   vim.diagnostic.open_float)
-  keymap('n', 'gd',    vim.lsp.buf.definition)
-  keymap('n', 'K',     vim.lsp.buf.hover)
-  keymap('i', '<C-s>', vim.lsp.buf.signature_help)
+local function attachToBuffer()
+  keymap('n', leader 'r', vim.lsp.buf.rename)
+  keymap('n', leader 'e', vim.diagnostic.open_float)
+  keymap('n', 'gd',       vim.lsp.buf.definition)
+  keymap('n', 'K',        vim.lsp.buf.hover)
+  keymap('i', '<C-s>',    vim.lsp.buf.signature_help)
 
   vim.opt.signcolumn = 'yes'
 
@@ -25,8 +25,9 @@ vim.fn.sign_define('LspDiagnosticsSignWarning',     { text = 'W»' })
 vim.fn.sign_define('LspDiagnosticsSignHint',        { text = 'H»' })
 vim.fn.sign_define('LspDiagnosticsSignInformation', { text = 'I»' })
 
-lspconfig.tsserver.setup   { on_attach = configureBuffer }
-lspconfig.vimls.setup      { on_attach = configureBuffer }
-lspconfig.ccls.setup       { on_attach = configureBuffer }
-lspconfig.solargraph.setup { on_attach = configureBuffer }
-lspconfig.lua_ls.setup     { on_attach = configureBuffer }
+lspconfig.tsserver.setup   { on_attach = attachToBuffer }
+lspconfig.vimls.setup      { on_attach = attachToBuffer }
+lspconfig.ccls.setup       { on_attach = attachToBuffer }
+lspconfig.solargraph.setup { on_attach = attachToBuffer }
+lspconfig.lua_ls.setup     { on_attach = attachToBuffer }
+lspconfig.elixirls.setup   { on_attach = attachToBuffer, cmd = {'elixir-ls'} }

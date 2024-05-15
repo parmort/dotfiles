@@ -159,3 +159,9 @@
 [submodule "nvim/.config/nvim/pack/bundle/opt/trouble.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/trouble.nvim
 	url = https://github.com/folke/trouble.nvim
+[submodule "nvim/.config/nvim/pack/bundle/opt/vim-elixir"]
+	path = nvim/.config/nvim/pack/bundle/opt/vim-elixir
+	url = https://github.com/elixir-editors/vim-elixir
+[submodule "nvim/.config/nvim/pack/bundle/opt/vim-dadbod-ui"]
+	path = nvim/.config/nvim/pack/bundle/opt/vim-dadbod-ui
+	url = https://github.com/kristijanhusak/vim-dadbod-ui
