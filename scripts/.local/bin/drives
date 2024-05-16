@@ -34,7 +34,7 @@ mountdrives() { \
         && mountnotif "$chosen mounted to $mp." && exit 0
       ;;
     "ntfs")
-      sudo -A mount -t ntfs3 "$chosen" "$mp" -o uid=$(id -u),gid=$(id -g) \
+      sudo -A mount -t ntfs "$chosen" "$mp" -o uid=$(id -u),gid=$(id -g) \
         && mountnotif "$chosen mounted to $mp." && exit 0
       ;;
     *)
