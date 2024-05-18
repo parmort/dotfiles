@@ -44,6 +44,10 @@ function M.colors()
 
   -- Ledger
   highlight('ledgerTransactionMetadata', 'Comment')
+
+  -- nvim-0.10 backwards-compatibility
+  highlight('NormalFloat', 'Pmenu', { clear = true })
+  highlight('WinSeparator', 'VertSplit')
 end
 
 return M

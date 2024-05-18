@@ -13,10 +13,7 @@ end
 
 function M.colors()
   highlight('Comment', { gui = 'italic' })
-
-  vim.cmd [[highlight clear Visual]]
-  highlight('Visual', 'CursorLine')
-
+  highlight('Visual', 'CursorLine', { clear = true })
   highlight('vimUserFunc', 'Function')
 
   -- Tabline

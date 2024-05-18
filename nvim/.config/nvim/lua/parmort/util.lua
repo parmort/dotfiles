@@ -1,8 +1,23 @@
 local util = {}
 
+---@class HighlightAttributes
+---@field guifg? string GUI Foreground Color
+---@field guibg? string GUI Background Color
+---@field gui? string GUI Attributes
+
+---@class HighlightOpts
+---@field clear? boolean If true, will clear the group first
+
 --- @param group string
---- @param attr table|string If a string, then `group` is linked to `attr`; otherwise, `attr` is a table of attributes
-function util.highlight(group, attr)
+--- @param attr HighlightAttributes|string If `attr` is a string, then `group` is linked to `attr`.
+--- @param opts? HighlightOpts
+function util.highlight(group, attr, opts)
+  opts = opts or { clear = false }
+
+  if opts.clear then
+    vim.cmd(string.format('highlight clear %s', group))
+  end
+
   if type(attr) == 'string' then
     vim.cmd(string.format('highlight link %s %s', group, attr))
     return
@@ -20,7 +35,9 @@ end
 --- @param fg   string|nil
 --- @param bg   string|nil
 --- @param attr string|nil
+--- @return HighlightAttributes
 function util.gui_attrs(fg, bg, attr)
+  --- @type HighlightAttributes
   return {
     guifg = fg or 'fg',
     guibg = bg or 'bg',

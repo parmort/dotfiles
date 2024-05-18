@@ -3,7 +3,6 @@ local lspconfig = require('lspconfig')
 
 local keymap = vim.keymap.set
 local leader = require('parmort.keymap').leader
-local highlight = require('parmort.util').highlight
 
 local function attachToBuffer()
   keymap('n', leader 'r', vim.lsp.buf.rename)
@@ -14,16 +13,19 @@ local function attachToBuffer()
 
   vim.opt.signcolumn = 'yes'
 
-  highlight('LspDiagnosticsDefaultError',   { ctermfg=4, guifg='#e06c75' })
-  highlight('LspDiagnosticsDefaultWarning', { ctermfg=3, guifg='#d19a66' })
-
   vim.fn['deoplete#enable']()
 end
 
-vim.fn.sign_define('LspDiagnosticsSignError',       { text = 'E»' })
-vim.fn.sign_define('LspDiagnosticsSignWarning',     { text = 'W»' })
-vim.fn.sign_define('LspDiagnosticsSignHint',        { text = 'H»' })
-vim.fn.sign_define('LspDiagnosticsSignInformation', { text = 'I»' })
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = 'E»',
+      [vim.diagnostic.severity.WARN]  = 'W»',
+      [vim.diagnostic.severity.HINT]  = 'H»',
+      [vim.diagnostic.severity.INFO]  = 'I»',
+    }
+  }
+})
 
 lspconfig.tsserver.setup   { on_attach = attachToBuffer }
 lspconfig.vimls.setup      { on_attach = attachToBuffer }
