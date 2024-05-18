@@ -58,3 +58,7 @@ vim.opt.wildignore:append({             -- Ignore files from wildmenu
 
 vim.opt.shadafile   = ''
 vim.opt.viminfofile = ''
+
+if vim.fn.executable('ag') then
+  vim.opt.grepprg = 'ag --vimgrep $*'
+end
