@@ -1,14 +1,13 @@
 -- Modules defined in `lua/parmort/statusline.lua`
-Statusline = {}
+Statusline = {} -- keep global!
+local stl_modules = 'parmort.statusline'
 
---- @param name string
---- @param default string|nil
 local function mod(name, default)
   if default then default = string.format("'%s'", default) end
 
   return string.format(
-    [[%%{luaeval("require'parmort.statusline'.%s(%s)")}]],
-    name, default or ''
+    [[%%{luaeval("require'%s'.%s(%s)")}]],
+    stl_modules, name, default or ''
   )
 end
 

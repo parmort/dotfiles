@@ -1,28 +1,30 @@
-vim.opt.clipboard      = 'unnamedplus'  -- Use the normal clipboard
-vim.opt.cmdheight      = 2              -- Set lines below statusline to 2
-vim.opt.textwidth      = 80
-vim.opt.colorcolumn    = {'+1'}         -- Add a cc one after `textwidth`
-vim.opt.cursorline     = true
-vim.opt.expandtab      = true           -- Expand tabs to spaces
-vim.opt.ignorecase     = true
-vim.opt.linebreak      = true           -- Wrap lines at `breakat`
-vim.opt.laststatus     = 2              -- Always display statusline
-vim.opt.number         = true
-vim.opt.relativenumber = true
-vim.opt.scrolloff      = 3
-vim.opt.shiftround     = true           -- Round indent to shiftwidth
-vim.opt.showmode       = false          -- Don't show mode messages
-vim.opt.showtabline    = 2              -- Always show the tabline
-vim.opt.splitbelow     = true
-vim.opt.splitright     = true
-vim.opt.updatetime     = 300            -- Lower time for CursorHold autocmds
-vim.opt.wrap           = false
+local o = vim.opt
 
-vim.opt.tabstop        = 2
-vim.opt.softtabstop    = 2
-vim.opt.shiftwidth     = 2
+o.clipboard      = 'unnamedplus'  -- Use the normal clipboard
+o.cmdheight      = 2              -- Set lines below statusline to 2
+o.textwidth      = 80
+o.colorcolumn    = {'+1'}         -- Add a cc one after `textwidth`
+o.cursorline     = true
+o.expandtab      = true           -- Expand tabs to spaces
+o.ignorecase     = true
+o.linebreak      = true           -- Wrap lines at `breakat`
+o.laststatus     = 2              -- Always display statusline
+o.number         = true
+o.relativenumber = true
+o.scrolloff      = 3
+o.shiftround     = true           -- Round indent to shiftwidth
+o.showmode       = false          -- Don't show mode messages
+o.showtabline    = 2              -- Always show the tabline
+o.splitbelow     = true
+o.splitright     = true
+o.updatetime     = 300            -- Lower time for CursorHold autocmds
+o.wrap           = false
 
-vim.opt.shortmess      = {              -- Use abbreviations in messages
+o.tabstop        = 2
+o.softtabstop    = 2
+o.shiftwidth     = 2
+
+o.shortmess      = {              -- Use abbreviations in messages
   f = true,                             -- (See `:h shortmess` for a more
   i = true,                             -- detail)
   l = true,
@@ -35,14 +37,14 @@ vim.opt.shortmess      = {              -- Use abbreviations in messages
   C = true,                             -- Don't show completion messages
 }
 
-vim.opt.completeopt    = {
+o.completeopt    = {
   'menuone',                            -- Show the PUM, even with only 1 match
   'noinsert',                           -- Don't insert text until user selection
   'noselect',                           -- Don't auto-select matches
 }
 
-vim.opt.list           = true           -- Display chars set in listchars
-vim.opt.listchars      = {
+o.list           = true           -- Display chars set in listchars
+o.listchars      = {
   trail    = '·',                       -- Trailing space
   tab      = '~>',                      -- Non-expanded tabs (usually expanded)
   nbsp     = '∅',                       -- Non-breaking space
@@ -50,15 +52,15 @@ vim.opt.listchars      = {
   precedes = '«',                       -- Line extending past left of screen
 }
 
-vim.opt.path:append('**')               -- Recurse into subdirectories
-vim.opt.wildignore:append({             -- Ignore files from wildmenu
+o.path:append('**')               -- Recurse into subdirectories
+o.wildignore:append({             -- Ignore files from wildmenu
 '*.o',
 'node_modules'
 })
 
-vim.opt.shadafile   = ''
-vim.opt.viminfofile = ''
+o.shadafile   = ''
+o.viminfofile = ''
 
 if vim.fn.executable('ag') then
-  vim.opt.grepprg = 'ag --vimgrep $*'
+  o.grepprg = 'ag --vimgrep $*'
 end

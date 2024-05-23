@@ -6,7 +6,7 @@ vim.g.projectionist_heuristics = {
   ['*'] = {
     ['*.ts'] = { dispatch = 'yarn start', console = 'node' },
     ['*.js'] = { console = 'node' },
-    ['*.lua'] = { dispatch = ':luafile {}' }
+    ['*.lua'] = { dispatch = ':so %' }
   },
 
   ['*.rb&*_test.rb'] = {
@@ -22,9 +22,22 @@ vim.g.projectionist_heuristics = {
     }
   },
 
-  ['src/*.c&inc/*.h'] = {
-    ['src/*.c'] = { type = 'source', alternate = 'inc/{}.h' },
-    ['inc/*.h'] = { type = 'header', alternate = 'src/{}.c' }
+  ['src/&include/'] = {
+    ['src/main.cpp'] = { type = 'implementation' },
+    ['src/*.cpp'] = {
+      type = 'implementation',
+      alternate = 'include/{}.hpp',
+      template = {
+        '#include "{}.hpp"'
+      }
+    },
+    ['include/*.hpp'] = {
+      type = 'header',
+      alternate = 'src/{}.cpp',
+      template = {
+        '#pragma once'
+      }
+    }
   },
 
   ['*.component.ts'] = {

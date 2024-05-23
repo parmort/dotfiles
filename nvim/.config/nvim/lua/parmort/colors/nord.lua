@@ -1,6 +1,6 @@
-local util = require('parmort.util')
-local highlight = util.highlight
-local gui_attrs = util.gui_attrs
+local hi = require('parmort.hi')
+local highlight = hi.highlight
+local gui_attrs = hi.gui_attrs
 
 local M = {
   [0]  = "#2E3440",

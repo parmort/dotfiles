@@ -1,5 +1,5 @@
 local cmd = require('parmort.keymap').command
-local highlight = require('parmort.util').highlight
+local highlight = require('parmort.hi').highlight
 
 require('obsidian').setup({
   workspaces = {

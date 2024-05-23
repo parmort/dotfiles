@@ -27,6 +27,7 @@ launch dunst
 # Xorg settings (don't use launch helper)
 xmodmap $XDG_CONFIG_HOME/xorg/Xmodmap
 xrdb $XDG_CONFIG_HOME/xorg/Xresources
+xsetroot -cursor_name left_ptr
 
 # Keybinds (must be after xmodmap)
 launch sxhkd -c ~/.config/bspwm/sxhkdrc &
