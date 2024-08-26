@@ -32,6 +32,7 @@ packadd 'vim-ledger'
 packadd 'vim-javascript'
 packadd 'vimtex'
 packadd 'vim-elixir'
+packadd 'headlines.nvim' -- fancy markup highlighting
 
 -- Code completion
 packadd 'neodev.nvim'

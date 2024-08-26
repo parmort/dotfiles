@@ -165,3 +165,6 @@
 [submodule "nvim/.config/nvim/pack/bundle/opt/vim-dadbod-ui"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-dadbod-ui
 	url = https://github.com/kristijanhusak/vim-dadbod-ui
+[submodule "nvim/.config/nvim/pack/bundle/opt/headlines.nvim"]
+	path = nvim/.config/nvim/pack/bundle/opt/headlines.nvim
+	url = https://github.com/lukas-reineke/headlines.nvim

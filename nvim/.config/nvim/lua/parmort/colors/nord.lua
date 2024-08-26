@@ -48,6 +48,9 @@ function M.colors()
   -- nvim-0.10 backwards-compatibility
   highlight('NormalFloat', 'Pmenu', { clear = true })
   highlight('WinSeparator', 'VertSplit')
+
+  vim.api.nvim_set_hl(0, 'Headline', { bg = M[3] })
+  vim.api.nvim_set_hl(0, 'CodeBlock', { bg = M[1] })
 end
 
 return M
