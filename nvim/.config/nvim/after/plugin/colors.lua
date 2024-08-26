@@ -21,11 +21,8 @@ vim.api.nvim_create_autocmd({'ColorScheme'}, {
   pattern = table.concat(patterns, ','), group = grp,
   callback = function(ev)
     require('parmort.colors.'..ev.match).colors()
+    require('parmort.colors').colors()
   end
 })
 
 vim.cmd.colorscheme 'nord'
-
--- Persistent configuration can go here
-
-vim.api.nvim_set_hl(0, "@type.builtin", { link = "Type" })

@@ -3,7 +3,6 @@ local ts_conf = require'nvim-treesitter.configs'
 local config = {
   highlight = {
     enable = true,
-    disable = { 'markdown' }
   }
 }
 

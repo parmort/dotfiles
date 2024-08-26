@@ -1,11 +1,20 @@
 #!/bin/sh
 
-weather=$(curl -s wttr.in/west_chester?format=j1)
+weather=$(curl -s "wttr.in/west_chester?format=j1")
 
-if [ $(echo "$weather" | grep -E "(Unknown|curl|HTML)" | wc -l) -gt 0 ]; then
+wttr_exit() {
   echo " WTTR"
   exit
+}
+
+if [ -z "$weather" ]; then
+  sleep 1
+  weather=$(curl -s "wttr.in/west_chester?format=j1")
 fi
+
+[ -z "$weather" ] && wttr_exit
+
+[ $(echo "$weather" | grep -E "(Unknown|curl|HTML)" | wc -l) -gt 0 ] && wttr_exit
 
 table=$(echo $weather | jq '.current_condition|.[0]|{temp: .temp_F, code: .weatherCode}')
 temp=$(echo $table | jq -r '.temp')
