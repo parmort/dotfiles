@@ -17,6 +17,8 @@ packadd 'vim-scriptease'
 packadd 'limelight.vim'
 packadd 'goyo.vim'
 
+packadd 'zen-mode.nvim'
+
 -- Tie-ins
 packadd 'vim-tmux-navigator'
 packadd 'vim-fugitive'

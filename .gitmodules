@@ -168,3 +168,6 @@
 [submodule "nvim/.config/nvim/pack/bundle/opt/headlines.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/headlines.nvim
 	url = https://github.com/lukas-reineke/headlines.nvim
+[submodule "nvim/.config/nvim/pack/bundle/opt/zen-mode.nvim"]
+	path = nvim/.config/nvim/pack/bundle/opt/zen-mode.nvim
+	url = https://github.com/folke/zen-mode.nvim

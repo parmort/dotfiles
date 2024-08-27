@@ -37,13 +37,11 @@ keymap('x', '[ee', plug 'unimpairedMoveSelectionUp',   {remap = true})
 keymap('n', ']ee', plug 'unimpairedMoveDown',          {remap = true})
 keymap('x', ']ee', plug 'unimpairedMoveSelectionDown', {remap = true})
 
-keymap('o', 'ic', cmd 'norm! v', {silent = true, desc = 'Text obj for 1 char'})
-
 keymap('t', '<ESC>', '<C-\\><C-n>', {desc = 'Make ESC sane in term mode'})
 
 keymap('n', 'ga', cmd 'A', {desc = 'Projectionist Alternate'})
 
-keymap('n', 'go', cmd 'Goyo')
+keymap('n', 'go', cmd 'ZenMode')
 
 keymap('v', 'K', 'k') -- I have a habit of holding shift for too long getting into v-line
 
