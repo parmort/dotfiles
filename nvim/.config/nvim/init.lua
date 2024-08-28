@@ -18,6 +18,7 @@ packadd 'limelight.vim'
 packadd 'goyo.vim'
 
 packadd 'zen-mode.nvim'
+packadd 'twilight.nvim'
 
 -- Tie-ins
 packadd 'vim-tmux-navigator'
@@ -65,8 +66,6 @@ packadd 'telescope.nvim'
 packadd 'vim-dirvish'
 packadd 'vim-projectionist'
 packadd 'loupe'
-
-packadd 'obsidian.nvim'
 
 -- Libs
 packadd 'plenary.nvim'

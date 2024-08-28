@@ -5,12 +5,14 @@ require('zen-mode').setup({
     options = {
       number = false,
       relativenumber = false,
-      cursorline = false
+      cursorline = false,
+      wrap = true
     }
   },
   plugins = {
     twilight = { enabled = false }, -- handle twilight enabling myself
     tmux = { enabled = true } -- hide tmux status
   },
-  on_open = require('parmort.zen').enter
+  on_open = require('parmort.zen').enter,
+  on_close = require('parmort.zen').leave
 })

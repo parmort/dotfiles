@@ -171,3 +171,6 @@
 [submodule "nvim/.config/nvim/pack/bundle/opt/zen-mode.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/zen-mode.nvim
 	url = https://github.com/folke/zen-mode.nvim
+[submodule "nvim/.config/nvim/pack/bundle/opt/twilight.nvim"]
+	path = nvim/.config/nvim/pack/bundle/opt/twilight.nvim
+	url = https://github.com/folke/twilight.nvim
