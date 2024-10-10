@@ -4,22 +4,7 @@ end
 
 vim.g.projectionist_heuristics = {
   ['*'] = {
-    ['*.ts'] = { dispatch = 'yarn start', console = 'node' },
-    ['*.js'] = { console = 'node' },
     ['*.lua'] = { dispatch = ':so %' }
-  },
-
-  ['*.rb&*_test.rb'] = {
-    ['*_test.rb'] = {
-      type = 'test',
-      alternate = '{}.rb',
-      dispatch = 'ruby {file}'
-    },
-    ['*.rb'] = {
-      type = 'source',
-      alternate = '{}_test.rb',
-      dispatch = 'ruby {}_test.rb'
-    }
   },
 
   ['src/&include/'] = {
@@ -40,14 +25,15 @@ vim.g.projectionist_heuristics = {
     }
   },
 
-  ['*.component.ts'] = {
-    ['*.component.ts'] = {
-      type = 'component',
-      alternate = '{}.component.html'
+  ['*.tex'] = {
+    ['*.tex'] = {
+      type = 'latex',
+      alternate = '{}_refs.bib',
     },
-    ['*.component.html'] = {
-      type = 'html',
-      alternate = '{}.component.html'
+    ['*_refs.bib'] = {
+      type = 'bibtex',
+      alternate = '{}.tex',
+      make = 'biber {}',
     }
   }
 }
