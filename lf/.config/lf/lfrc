@@ -10,37 +10,40 @@ cmd open ${{
     text/*|application/json) $EDITOR "$f";;
     image/*) sxiv "$f" & disown;;
     application/pdf) zathura "$f" & disown;;
-    *) xdg-open "$f" ;;
+    *) xdg-open "$f" & disown ;;
   esac
 }}
 
-cmd edit $$EDITOR "$f"
+cmd bulkrename ${{
+    tmpfile_old="$(mktemp)"
+    tmpfile_new="$(mktemp)"
 
-cmd gitinit %git init
-cmd gitadd %git add "$f"
-cmd gitaddall %git add -A
-cmd gitcommit %git commit -v
-cmd gitrm %git rm --cached "$f"
+    [ -n "$fs" ] && fs=$(basename -a $fs) || fs=$(ls)
 
-cmd gitstatus !{{
-  clear
-  git status
+    echo "$fs" > "$tmpfile_old"
+    echo "$fs" > "$tmpfile_new"
+    $EDITOR "$tmpfile_new"
+
+    [ "$(wc -l < "$tmpfile_old")" -eq "$(wc -l < "$tmpfile_new")" ] || { rm -f "$tmpfile_old" "$tmpfile_new"; exit 1; }
+
+    paste "$tmpfile_old" "$tmpfile_new" | while IFS="$(printf '\t')" read -r src dst
+    do
+        [ "$src" = "$dst" ] || [ -e "$dst" ] || mv -- "$src" "$dst"
+    done
+
+    rm -f "$tmpfile_old" "$tmpfile_new"
+    lf -remote "send $id unselect"
 }}
 
-map d
-map m
+cmd mkdir $mkdir -p "$@"
+cmd newfile $EDITOR "$@"
 
-map dd delete
-map md push %mkdir<space>
-map mf $$EDITOR<space>
-map t push %touch<space>
+map <c-n> push :mkdir<space>""<left>
+map <c-s-n> push :newfiles<space>""<left>
+map t tag-toggle
+map D delete
 
 map <enter> open
 map l open
 
-map gs gitstatus
-map gi gitinit
-map ga gitadd
-map gA gitaddall
-map gc gitcommit
-map gr gitrm
+map B bulkrename

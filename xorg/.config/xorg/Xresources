@@ -1,3 +1,4 @@
 *.background: #282c34
+*.foreground: #ECEFF4
 
 Xft.dpi: 110

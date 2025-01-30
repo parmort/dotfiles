@@ -174,3 +174,6 @@
 [submodule "nvim/.config/nvim/pack/bundle/opt/twilight.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/twilight.nvim
 	url = https://github.com/folke/twilight.nvim
+[submodule "nvim/.config/nvim/pack/bundle/opt/vim-astro"]
+	path = nvim/.config/nvim/pack/bundle/opt/vim-astro
+	url = https://github.com/wuelnerdotexe/vim-astro

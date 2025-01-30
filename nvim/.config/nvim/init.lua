@@ -20,6 +20,8 @@ packadd 'goyo.vim'
 packadd 'zen-mode.nvim'
 packadd 'twilight.nvim'
 
+packadd 'vimwiki'
+
 -- Tie-ins
 packadd 'vim-tmux-navigator'
 packadd 'vim-fugitive'
@@ -36,6 +38,7 @@ packadd 'vim-javascript'
 packadd 'vimtex'
 packadd 'vim-elixir'
 packadd 'headlines.nvim' -- fancy markup highlighting
+packadd 'vim-astro'
 
 -- Code completion
 packadd 'neodev.nvim'

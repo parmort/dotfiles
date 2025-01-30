@@ -57,6 +57,9 @@ super + {n,p}
 	bspc monitor --focus {next,prev}
 super + shift + {n,p}
 	bspc node --to-monitor {next,prev}
+
+ctrl + alt + Tab
+	bspc desktop --focus last
 # }}}}
 
 # }}}

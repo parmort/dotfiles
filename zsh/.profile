@@ -32,6 +32,7 @@ export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 export SOLARGRAPH_CACHE="$XDG_CACHE_HOME"/solargraph
+export PYENV_ROOT="$XDG_DATA_HOME"/pyenv
 
 # Fivemat config (see https://github.com/tpope/fivemat)
 export FIVEMAT_PROFILE=1
@@ -43,3 +44,4 @@ export PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.local/share/npm/bin:$PATH"
 export PATH=.git/safe/../../bin:$PATH
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"

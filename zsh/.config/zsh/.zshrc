@@ -26,6 +26,9 @@ zstyle ':completion:*' menu select
 compinit
 _comp_options+=(globdots)
 
+# Pyenv
+eval "$(pyenv init -)"
+
 # Theme
 SPACESHIP_PROMPT_ORDER=(
   dir

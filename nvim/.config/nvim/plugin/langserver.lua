@@ -34,3 +34,4 @@ lspconfig.solargraph.setup { on_attach = attachToBuffer }
 lspconfig.lua_ls.setup     { on_attach = attachToBuffer }
 lspconfig.elixirls.setup   { on_attach = attachToBuffer, cmd = {'elixir-ls'} }
 lspconfig.pyright.setup    { on_attach = attachToBuffer }
+lspconfig.astro.setup      { on_attach = attachToBuffer }
