@@ -177,3 +177,6 @@
 [submodule "nvim/.config/nvim/pack/bundle/opt/vim-astro"]
 	path = nvim/.config/nvim/pack/bundle/opt/vim-astro
 	url = https://github.com/wuelnerdotexe/vim-astro
+[submodule "nvim/.config/nvim/pack/bundle/opt/vimwiki"]
+	path = nvim/.config/nvim/pack/bundle/opt/vimwiki
+	url = https://github.com/vimwiki/vimwiki
