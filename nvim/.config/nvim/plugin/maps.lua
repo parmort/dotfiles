@@ -50,4 +50,6 @@ keymap('n', leader 'm', cmd 'Make')
 
 keymap('n', '<nop>', plug '(LoupeClearHighlight)')
 
+keymap('n', leader '<space>', plug 'VimwikiToggleListItem')
+
 keymap('n', 'gl', cmd 'nohlsearch<BAR>diffupdate', {desc = 'Turn off search highlighting'})
