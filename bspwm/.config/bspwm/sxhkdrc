@@ -33,15 +33,11 @@ hyper + {o,i}
 
 # Toggle fullscreen
 hyper + f
-	bspc node --state \~fullscreen
+	bspc node -t \~fullscreen
 
 # Toggle floating
 hyper + @space
-	bspc node --state \~floating
-
-# Toggle pseudo_tiled
-hyper + t
-	bspc node --state \~pseudo_tiled
+	bspc node -t \~floating
 
 # Cycle layouts (monocle|tiled)
 hyper + m
