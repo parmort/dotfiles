@@ -1,12 +1,10 @@
 -- Author: N. Prochnau <parvus.mortalis@gmail.com>
 
 if vim.fn.has('multi_byte') then
-  vim.cmd 'setglobal fileencodings=utf-8'
+  vim.go.fileencodings = 'utf-8'
 end
 
-local function packadd(package)
-  vim.cmd.packadd { package, bang = true }
-end
+local packadd = function(p) vim.cmd.packadd { p, bang = true } end
 
 packadd 'vim-obsession'
 packadd 'vim-eunuch'
