@@ -1,1 +1,1 @@
-vim.keymap.set('n', 'gO', require('parmort.vimwiki').generateTOC, {buffer=true})
+vim.keymap.set('n', 'gO', require('parmort.vimwiki').toc, {buffer=true})

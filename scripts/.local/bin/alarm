@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -z "${1+x}" ]; then
+  echo "Usage: alarm {time} [alarm_duration]"
+  exit 1
+fi
+
+sleep $1
+
+duration="${2-20}"
+
+for i in $(seq 1 $(($duration*2))); do
+  notify-send -a Alarm -i /usr/share/icons/hicolor/32x32/apps/vlc.png "TIMER" "${i}"
+  sleep 0.5
+done

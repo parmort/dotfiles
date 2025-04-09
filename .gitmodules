@@ -180,3 +180,6 @@
 [submodule "nvim/.config/nvim/pack/bundle/opt/vimwiki"]
 	path = nvim/.config/nvim/pack/bundle/opt/vimwiki
 	url = https://github.com/vimwiki/vimwiki
+[submodule "nvim/.config/nvim/pack/bundle/opt/mdx.nvim"]
+	path = nvim/.config/nvim/pack/bundle/opt/mdx.nvim
+	url = https://github.com/davidmh/mdx.nvim
