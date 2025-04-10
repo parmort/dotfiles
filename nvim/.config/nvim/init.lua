@@ -77,3 +77,4 @@ packadd 'nord-vim'
 
 -- CUSTOM --
 packadd 'rasi.vim'
+packadd 'mdx.nvim'
