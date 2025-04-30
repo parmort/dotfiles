@@ -12,7 +12,6 @@ local function register_wiki (name, path)
 end
 
 vim.g.vimwiki_list = {
-  register_wiki('Default',                 '~/documents'),
   register_wiki('MHL123: Music in Film',   school_path 'MHL123'),
   register_wiki('MHL325: History of Rock', school_path 'MHL325'),
 }
