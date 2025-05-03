@@ -47,3 +47,5 @@ set completion-highlight-fg     "#abb2bf"
 set recolor                     true
 set recolor-lightcolor          "rgba(46, 52, 64, 0)"
 set recolor-darkcolor           "#ECEFF4"
+
+set selection-clipboard clipboard

@@ -1,6 +1,6 @@
 local hi = require('parmort.hi')
 local highlight = hi.highlight
-local gui_attrs = hi.gui_attrs
+local gui = hi.gui_attrs
 
 local M = {
   [0]  = "#2E3440",
@@ -29,21 +29,24 @@ end
 
 function M.colors()
   -- Tabline
-  highlight('TabLine',      gui_attrs(M[10], M[1], 'italic'))
-  highlight('TabLineSel',   gui_attrs(nil,   nil,  'bold'))
-  highlight('User3',        gui_attrs(M[8],  nil,  'bold'))
-  highlight('User2',        gui_attrs(M[9],  M[1], nil))
+  highlight('TabLine',      gui(M[10], M[1], 'italic'))
+  highlight('TabLineSel',   gui(nil,   nil,  'bold'))
+  highlight('User3',        gui(M[8],  nil,  'bold'))
+  highlight('User2',        gui(M[9],  M[1], nil))
 
   -- Statusline
-  highlight('Statusline',   gui_attrs(M[6],  M[3], nil))
-  highlight('StatuslineNC', gui_attrs(M[9],  M[1], nil))
-  highlight('User4',        gui_attrs(nil,   M[3], 'italic'))
+  highlight('Statusline',   gui(M[6],  M[3], nil))
+  highlight('StatuslineNC', gui(M[9],  M[1], nil))
+  highlight('User4',        gui(nil,   M[3], 'italic'))
 
   -- Fold Text
-  highlight('Folded',       gui_attrs(M[10], M[1], 'italic'))
+  highlight('Folded',       gui(M[10], M[1], 'italic'))
 
   -- Ledger
   highlight('ledgerTransactionMetadata', 'Comment')
+
+  -- Markdown
+  highlight('@markup.list.markdown', 'Keyword')
 
   -- nvim-0.10 backwards-compatibility
   highlight('NormalFloat', 'Pmenu', { clear = true })
