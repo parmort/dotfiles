@@ -10,7 +10,7 @@ function M.colors_pre()
     custom_highlights = function(c)
       local tabline = {
         bg = c.crust,
-        num = c.sapphire,
+        num = c.lavender,
       }
 
       return {

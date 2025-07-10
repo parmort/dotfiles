@@ -186,3 +186,6 @@
 [submodule "nvim/.config/nvim/pack/bundle/opt/nvim-catppuccin"]
 	path = nvim/.config/nvim/pack/bundle/opt/nvim-catppuccin
 	url = https://github.com/catppuccin/nvim
+[submodule "bspwm/.config/bspwm/catppuccin-polybar"]
+	path = bspwm/.config/bspwm/catppuccin-polybar
+	url = https://github.com/catppuccin/polybar
