@@ -74,6 +74,7 @@ packadd 'popup.nvim'
 
 -- Colorscheme
 packadd 'nord-vim'
+packadd 'nvim-catppuccin'
 
 -- CUSTOM --
 packadd 'rasi.vim'

@@ -183,3 +183,6 @@
 [submodule "nvim/.config/nvim/pack/bundle/opt/mdx.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/mdx.nvim
 	url = https://github.com/davidmh/mdx.nvim
+[submodule "nvim/.config/nvim/pack/bundle/opt/nvim-catppuccin"]
+	path = nvim/.config/nvim/pack/bundle/opt/nvim-catppuccin
+	url = https://github.com/catppuccin/nvim
