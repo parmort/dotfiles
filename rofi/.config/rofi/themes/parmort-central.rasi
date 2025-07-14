@@ -1,7 +1,9 @@
+@import "catppuccin-frappe"
+
 * {
-    prompt-color:                #88c0d0;
-    background-color:            #2e3440;
-    text-color:                  #eceff4;
+    prompt-color:                @lavender;
+    background-color:            @base;
+    text-color:                  @text;
     font:                        "monospace 11";
     spacing:                     3;
 }
