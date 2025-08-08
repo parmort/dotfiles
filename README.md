@@ -55,7 +55,7 @@ This is just here to tell me what I need to set up a new machine.
 - Alacritty
 - `yay`
 - Neovim nightly (built from source)
-- Polybar (found in `bspwm` folder)
+- Polybar (config found in `bspwm` folder)
 - BSPWM
 - SXHKD
 - Zathura (`zathura` & `zathura-pdf-poppler`)
@@ -66,6 +66,7 @@ This is just here to tell me what I need to set up a new machine.
 - Tmux
 - Zsh
 - [delta](https://github.com/dandavison/delta)
+- [rofi-bluetooth](https://github.com/parmort/rofi-bluetooth)
 
 ## Fonts
 
@@ -85,4 +86,4 @@ take on this][ghvid].
 
 [ghvid]: https://www.youtube.com/watch?v=M25oA2x66Kw
 
-Copyright (c) 2018&ndash;2020 N. Prochnau. No rights reserved.
+Copyright (c) 2018&ndash;2025 N. Prochnau. No rights reserved.

@@ -132,9 +132,6 @@
 [submodule "vim/vimtex"]
 	path = nvim/.config/nvim/pack/bundle/opt/vimtex
 	url = https://github.com/lervag/vimtex
-[submodule "rofi/rofi-bluetooth"]
-	path = rofi/.config/rofi/scripts/rofi-bluetooth
-	url = git@github.com:parmort/rofi-bluetooth
 [submodule "nvim/.config/nvim/pack/bundle/opt/markdown-preview.nvim"]
 	path = nvim/.config/nvim/pack/bundle/opt/markdown-preview.nvim
 	url = https://github.com/iamcco/markdown-preview.nvim
