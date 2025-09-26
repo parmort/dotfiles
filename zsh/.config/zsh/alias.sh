@@ -27,7 +27,7 @@ alias cdb="cd ~/build && ls"
 alias cdc="cd ~/code && ls"
 alias cdo="cd ~/documents && ls"
 alias cdw="cd /mnt/windows/Users/parvu && ls"
-alias cdv="cd ~/documents/vault/ && ls"
+alias cdv="cd ~/documents/vimwiki/ && ls"
 
 # Easy source of config
 alias sb="source $ZDOTDIR/.zshrc"

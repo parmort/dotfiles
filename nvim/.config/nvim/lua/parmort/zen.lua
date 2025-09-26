@@ -5,8 +5,13 @@ M.state = {
   spell = false
 }
 
+M.ft = {
+  'markdown',
+  'vimwiki'
+}
+
 function M.enter()
-  if M.state.headline and require('headlines').config[vim.bo.filetype] then
+  if vim.tbl_contains(M.ft, vim.bo.filetype) then
     M.state.spell = vim.opt_local.spell
     vim.opt_local.spell = true
   else
@@ -15,7 +20,7 @@ function M.enter()
 end
 
 function M.leave()
-  if M.state.headline and require('headlines').config[vim.bo.filetype] then
+  if vim.tbl_contains(M.ft, vim.bo.filetype) then
     vim.opt_local.spell = M.state.spell
   else
     require('twilight').disable()
