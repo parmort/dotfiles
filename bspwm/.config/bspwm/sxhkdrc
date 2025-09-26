@@ -90,8 +90,11 @@ hyper + g
 	selbg
 
 # Screenshots
-Print
-	scrot -so ~/pictures/screen.png && sxiv ~/pictures/screen.png
+super + F11
+	flameshot screen
+
+super + shift + F11
+	flameshot gui
 
 # Bitwarden
 hyper+b
