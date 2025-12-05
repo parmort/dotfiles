@@ -1,11 +1,17 @@
 #!/bin/bash
 
-choice="$(printf "shutdown\\nlogout\\nsleep\\nrestart" | rofi -theme parmort-dmenu -dmenu)"
+choices=(shutdown logout sleep restart lock)
+operation="$(printf '%s\n' "${choices[@]}" | rofi -theme parmort-dmenu -dmenu)"
 
-case $choice in
+case $operation in
   shutdown) shutdown -h now;;
   restart) reboot;;
-  sleep) systemctl suspend;;
+  sleep)
+    dm-tool lock
+    systemctl suspend
+    ;;
+  lock)
+    dm-tool lock;;
   logout)
     rm /tmp/bspwm_started
     bspc quit

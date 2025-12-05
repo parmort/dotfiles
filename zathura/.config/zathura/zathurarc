@@ -17,26 +17,29 @@
 
 set font "monospace normal 11"
 
-set default-bg                  "rgba(46, 52, 64, 0.91)"
-set default-fg                  "#8FBCBB"
+set default-bg                  "rgba(48, 52, 70, 0.91)"
+set default-fg                  "#C6D0F5"
 
-set statusbar-bg                "#2c323c"
-set statusbar-fg                "#abb2bf"
+set statusbar-bg                "#232634"
+set statusbar-fg                "#a5adce"
 
-set inputbar-bg                 "#2c323c"
-set inputbar-fg                 "#abb2bf"
+set inputbar-bg                 "#232634"
+set inputbar-fg                 "#c6d0f5"
 
-set notification-bg             "#2c323c"
-set notification-fg             "#abb2bf"
+set notification-bg             "#ca9ee6"
+set notification-fg             "#232634"
 
-set notification-error-bg       "#2c323c"
-set notification-error-fg       "#be5046"
+set notification-error-bg       "#e78284"
+set notification-error-fg       "#232634"
 
-set notification-warning-bg     "#2c323c"
-set notification-warning-fg     "#d19a66"
+set notification-warning-bg     "#ef9f76"
+set notification-warning-fg     "#232634"
 
-set highlight-color             "#3e4452"
-set highlight-active-color      "#3e4452"
+# Selection
+set highlight-color             "rgba(186, 187, 241, 0.5)"
+
+# Search result
+set highlight-active-color      "rgba(229, 200, 144, 0.5)"
 
 set completion-bg               "#333841"
 set completion-fg               "#abb2bf"
@@ -45,7 +48,10 @@ set completion-highlight-bg     "#4b5263"
 set completion-highlight-fg     "#abb2bf"
 
 set recolor                     true
-set recolor-lightcolor          "rgba(46, 52, 64, 0)"
-set recolor-darkcolor           "#ECEFF4"
+set recolor-lightcolor          "rgba(48, 52, 70, 0)"
+set recolor-darkcolor           "#c6d0f5"
 
-set selection-clipboard clipboard
+set selection-clipboard         clipboard
+set statusbar-home-tilde        true
+set scroll-page-aware           true
+set guioptions                  "cs"

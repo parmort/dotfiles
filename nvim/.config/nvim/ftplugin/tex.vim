@@ -1,6 +1,6 @@
 call deoplete#enable()
 compiler tex
-let &makeprg = 'pdflatex -interaction=nonstopmode %:r'
+"let &makeprg = 'pdflatex -interaction=nonstopmode %:r'
 
 setlocal conceallevel=0
 lcd %:h
