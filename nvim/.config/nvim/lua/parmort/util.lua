@@ -10,4 +10,12 @@ function M.github(repo, opts)
   return spec
 end
 
+function M.echo_train(msg)
+  return function()
+    vim.cmd.echohl('ErrorMsg')
+    vim.cmd.echo(string.format([["%s"]], msg))
+    vim.cmd.echohl('None')
+  end
+end
+
 return M

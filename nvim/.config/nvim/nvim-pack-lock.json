@@ -4,9 +4,17 @@
       "rev": "9189e7fa2d9dd54f4f0211c5edfdd6260252fe4b",
       "src": "https://github.com/wincent/loupe"
     },
+    "mini.pick": {
+      "rev": "b4351399db5043a781a32699a1bde60b747f711f",
+      "src": "https://github.com/nvim-mini/mini.pick"
+    },
     "nvim-catppuccin": {
       "rev": "193e123cdbc4dd3e86db883d55349e9587f0ded6",
       "src": "https://github.com/catppuccin/nvim"
+    },
+    "vim-closer": {
+      "rev": "6007d9db0a35e983af246b667282606612076b07",
+      "src": "https://github.com/rstacruz/vim-closer"
     },
     "vim-dirvish": {
       "rev": "6be56227a4207c93cd8b607f52f567a1e13dddb1",
