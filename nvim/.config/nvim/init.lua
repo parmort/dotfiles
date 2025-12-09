@@ -1,70 +1,42 @@
--- Author: N. Prochnau <parvus.mortalis@gmail.com>
+local github = require('parmort.util').github
 
-local packadd = function(p) vim.cmd.packadd { p, bang = true } end
+vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
 
-packadd 'vim-obsession'
-packadd 'vim-eunuch'
-packadd 'vim-unimpaired'
-packadd 'vim-rsi'
-packadd 'vim-repeat'
-packadd 'vim-scriptease'
-packadd 'limelight.vim'
-packadd 'goyo.vim'
+vim.opt.winborder = 'rounded'
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.cursorline = true
+vim.opt.textwidth = 80
+vim.opt.colorcolumn = '+1'
+vim.opt.completeopt = {
+  'menuone',
+  'noselect',
+  'noinsert'
+}
 
-packadd 'zen-mode.nvim'
-packadd 'twilight.nvim'
+vim.keymap.set('n', ';', ':')
+vim.keymap.set('n', ':', ';')
 
-packadd 'vimwiki'
+vim.keymap.set('n', '<leader>q', vim.cmd.q)
+vim.keymap.set('n', '<leader>Q', vim.cmd.qa)
+vim.keymap.set('n', '<leader><C-q>', function() vim.cmd.q { bang = true } end)
 
--- Tie-ins
-packadd 'vim-tmux-navigator'
-packadd 'vim-fugitive'
-packadd 'vim-dispatch'
+vim.pack.add({
+  github('catppuccin/nvim', { name = 'nvim-catppuccin' }),
 
-packadd 'vim-dadbod'
-packadd 'vim-dadbod-ui'
+  github('christoomey/vim-tmux-navigator'),
+  github('justinmk/vim-dirvish'),
+  github('wincent/loupe'),
 
--- Misc. Filetypes
-packadd 'vim-cpp-modern'
-packadd 'sxhkd-vim'
-packadd 'vim-ledger'
-packadd 'vim-javascript'
-packadd 'vimtex'
-packadd 'headlines.nvim' -- fancy markup highlighting
-packadd 'vim-astro'
+  github('tpope/vim-surround'),
+  github('tpope/vim-endwise'),
+  github('tpope/vim-eunuch'),
+})
 
--- Code completion
-packadd 'nvim-treesitter'
-packadd 'vim-closer'
-packadd 'nvim-lsp'
-packadd 'vim-commentary'
-packadd 'vim-endwise'
-packadd 'vim-ragtag'
-packadd 'vim-surround'
+require('catppuccin').setup(require('parmort.catppuccin'))
+vim.cmd.colorscheme 'catppuccin'
 
-packadd 'trouble.nvim'
-
--- Ruby
-packadd 'vim-rails'
-packadd 'vim-rspec'
-packadd 'vim-bundler'
-
--- Python
-packadd 'SimpylFold'
-packadd 'vim-python-pep8-indent'
-
--- Navigation
-packadd 'telescope.nvim'
-packadd 'vim-dirvish'
-packadd 'vim-projectionist'
-packadd 'loupe'
-
--- Libs
-packadd 'plenary.nvim'
-
--- Colorscheme
-packadd 'nord-vim'
-packadd 'nvim-catppuccin'
-
--- CUSTOM --
-packadd 'rasi.vim'
+vim.g.dirvish_mode = [[:sort ,^.*[\/],]]

@@ -1,12 +1,7 @@
-local M = {}
-
-function M.colors_pre()
-  require('catppuccin').setup{
+return {
     flavour = 'frappe',
     transparent_background = true,
-    dim_inactive = {
-      enabled = false
-    },
+    dim_inactive = { enabled = false },
     custom_highlights = function(c)
       local tabline = {
         bg = c.crust,
@@ -30,10 +25,4 @@ function M.colors_pre()
         Folded = { style = {'italic'} }
       }
     end
-  }
-end
-
-function M.colors()
-end
-
-return M
+}

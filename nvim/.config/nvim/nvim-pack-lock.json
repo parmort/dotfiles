@@ -1,0 +1,32 @@
+{
+  "plugins": {
+    "loupe": {
+      "rev": "9189e7fa2d9dd54f4f0211c5edfdd6260252fe4b",
+      "src": "https://github.com/wincent/loupe"
+    },
+    "nvim-catppuccin": {
+      "rev": "193e123cdbc4dd3e86db883d55349e9587f0ded6",
+      "src": "https://github.com/catppuccin/nvim"
+    },
+    "vim-dirvish": {
+      "rev": "6be56227a4207c93cd8b607f52f567a1e13dddb1",
+      "src": "https://github.com/justinmk/vim-dirvish"
+    },
+    "vim-endwise": {
+      "rev": "4994afb0cdf956d9a665a14b9c834869e602c396",
+      "src": "https://github.com/tpope/vim-endwise"
+    },
+    "vim-eunuch": {
+      "rev": "e86bb794a1c10a2edac130feb0ea590a00d03f1e",
+      "src": "https://github.com/tpope/vim-eunuch"
+    },
+    "vim-surround": {
+      "rev": "3d188ed2113431cf8dac77be61b842acb64433d9",
+      "src": "https://github.com/tpope/vim-surround"
+    },
+    "vim-tmux-navigator": {
+      "rev": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a",
+      "src": "https://github.com/christoomey/vim-tmux-navigator"
+    }
+  }
+}
