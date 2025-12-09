@@ -1,20 +1,33 @@
-require('neodev').setup() -- Needs to come before lspconfig
-local lspconfig = require('lspconfig')
-
 local keymap = vim.keymap.set
 local leader = require('parmort.keymap').leader
 
-local function attachToBuffer()
-  keymap('n', leader 'r', vim.lsp.buf.rename)
-  keymap('n', leader 'e', vim.diagnostic.open_float)
-  keymap('n', 'gd',       vim.lsp.buf.definition)
-  keymap('n', 'K',        vim.lsp.buf.hover)
-  keymap('i', '<C-s>',    vim.lsp.buf.signature_help)
+local servers = {
+  ['luals'] = require('parmort.lsp.luals')
+}
 
-  vim.opt.signcolumn = 'yes'
-
-  vim.fn['deoplete#enable']()
+for server, config in pairs(servers) do
+  vim.lsp.config('parmort.'..server, config)
+  vim.lsp.enable('parmort.'..server)
 end
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('parmort.lsp', {}),
+  callback = function(args)
+    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+
+    keymap('n', leader 'r', vim.lsp.buf.rename)
+    keymap('n', leader 'e', vim.diagnostic.open_float)
+    keymap('n', 'gd',       vim.lsp.buf.definition)
+    keymap('n', 'K',        vim.lsp.buf.hover)
+    keymap('i', '<C-s>',    vim.lsp.buf.signature_help)
+
+    vim.opt.signcolumn = 'yes'
+
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = true})
+    end
+  end,
+})
 
 vim.diagnostic.config({
   signs = {
@@ -27,11 +40,7 @@ vim.diagnostic.config({
   }
 })
 
-lspconfig.tsserver.setup   { on_attach = attachToBuffer }
-lspconfig.vimls.setup      { on_attach = attachToBuffer }
-lspconfig.ccls.setup       { on_attach = attachToBuffer }
-lspconfig.solargraph.setup { on_attach = attachToBuffer }
-lspconfig.lua_ls.setup     { on_attach = attachToBuffer }
-lspconfig.elixirls.setup   { on_attach = attachToBuffer, cmd = {'elixir-ls'} }
-lspconfig.pyright.setup    { on_attach = attachToBuffer }
-lspconfig.astro.setup      { on_attach = attachToBuffer }
+-- lspconfig.vimls.setup      { on_attach = attachToBuffer }
+-- lspconfig.ccls.setup       { on_attach = attachToBuffer }
+-- lspconfig.pyright.setup    { on_attach = attachToBuffer }
+-- lspconfig.astro.setup      { on_attach = attachToBuffer }

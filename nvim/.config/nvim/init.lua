@@ -1,9 +1,5 @@
 -- Author: N. Prochnau <parvus.mortalis@gmail.com>
 
-if vim.fn.has('multi_byte') then
-  vim.go.fileencodings = 'utf-8'
-end
-
 local packadd = function(p) vim.cmd.packadd { p, bang = true } end
 
 packadd 'vim-obsession'
@@ -34,12 +30,10 @@ packadd 'sxhkd-vim'
 packadd 'vim-ledger'
 packadd 'vim-javascript'
 packadd 'vimtex'
-packadd 'vim-elixir'
 packadd 'headlines.nvim' -- fancy markup highlighting
 packadd 'vim-astro'
 
 -- Code completion
-packadd 'neodev.nvim'
 packadd 'nvim-treesitter'
 packadd 'vim-closer'
 packadd 'nvim-lsp'
@@ -47,9 +41,6 @@ packadd 'vim-commentary'
 packadd 'vim-endwise'
 packadd 'vim-ragtag'
 packadd 'vim-surround'
-
-packadd 'deoplete.nvim'
-packadd 'deoplete-lsp'
 
 packadd 'trouble.nvim'
 
@@ -70,7 +61,6 @@ packadd 'loupe'
 
 -- Libs
 packadd 'plenary.nvim'
-packadd 'popup.nvim'
 
 -- Colorscheme
 packadd 'nord-vim'
@@ -78,4 +68,3 @@ packadd 'nvim-catppuccin'
 
 -- CUSTOM --
 packadd 'rasi.vim'
-packadd 'mdx.nvim'

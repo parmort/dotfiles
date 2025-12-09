@@ -1,5 +1,6 @@
 local o = vim.opt
 
+o.winborder      = 'rounded'
 o.clipboard      = 'unnamedplus'  -- Use the normal clipboard
 o.cmdheight      = 2              -- Set lines below statusline to 2
 o.textwidth      = 80
