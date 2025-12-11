@@ -1,6 +1,13 @@
 local github = require('parmort.util').github
 local echo_train = require('parmort.util').echo_train
 
+-- Expose a single global for various functions
+if not Parmort then
+  Parmort = {
+    foldtext = require('parmort.foldtext')
+  }
+end
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
@@ -10,6 +17,8 @@ vim.opt.relativenumber = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.cursorline = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 vim.opt.textwidth = 80
 vim.opt.colorcolumn = '+1'
 vim.opt.completeopt = {
@@ -18,7 +27,13 @@ vim.opt.completeopt = {
   'noinsert'
 }
 
-vim.opt.tabline = '%!v:lua.Tabline.line()'
+vim.opt.foldmethod = 'indent'
+vim.opt.foldlevelstart = 99
+vim.opt.foldnestmax = 10
+vim.opt.foldtext = 'v:lua.Parmort.foldtext()'
+
+vim.opt.showtabline = 2
+vim.opt.tabline = '%!v:lua.Parmort.tabline.line()'
 
 vim.keymap.set('n', ';', ':')
 vim.keymap.set('n', ':', ';')

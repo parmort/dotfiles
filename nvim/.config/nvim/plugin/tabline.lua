@@ -1,8 +1,8 @@
-Tabline = {}
+local tabline = {}
+Parmort.tabline = tabline
 
 local labels = {}
 
---- @param bufnr number
 local function fname(bufnr)
   local name = vim.fn.bufname(bufnr)
 
@@ -14,9 +14,10 @@ local function fname(bufnr)
     name = vim.fn.fnamemodify(name, ':t')
   end
 
-  return vim.fn.pathshorten(name)end
+  return vim.fn.pathshorten(name)
+end
 
-function Tabline.line()
+function tabline.line()
   local line = {}
   local cur = vim.fn.tabpagenr()
 
@@ -31,14 +32,15 @@ function Tabline.line()
       label_grp = '%2*'
     end
 
-    line[i] = string.format('%s%%%dT %s%d %s%%{v:lua.Tabline.label(%d)} ',
+    line[i] = string.format(
+      '%s%%%dT %s%d %s%%{v:lua.Parmort.tabline.label(%d)} ',
       hi_grp, i, label_grp, i, hi_grp, i)
   end
 
   return string.format('%s%%#TablineFill#%%T', table.concat(line))
 end
 
-function Tabline.label(tabnr)
+function tabline.label(tabnr)
   -- Remember, lua is 1-indexed
   local winnr = vim.fn.tabpagewinnr(tabnr)
   local bufnr = vim.fn.tabpagebuflist(tabnr)[winnr]
