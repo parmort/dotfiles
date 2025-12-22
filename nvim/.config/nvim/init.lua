@@ -4,7 +4,8 @@ local echo_train = require('parmort.util').echo_train
 -- Expose a single global for various functions
 if not Parmort then
   Parmort = {
-    foldtext = require('parmort.foldtext')
+    foldtext = require('parmort.foldtext'),
+    tabline = require('parmort.tabline')
   }
 end
 
@@ -64,9 +65,9 @@ require('catppuccin').setup(require('parmort.catppuccin'))
 vim.cmd.colorscheme 'catppuccin'
 
 require('mini.pick').setup()
----@diagnostic disable-next-line: undefined-global
-vim.keymap.set('n', '<leader>h', function() MiniPick.builtin.help() end)
----@diagnostic disable-next-line: undefined-global
-vim.keymap.set('n', '<leader>t', function() MiniPick.builtin.files() end)
+--- @diagnostic disable-next-line: undefined-global
+local mp = MiniPick
+vim.keymap.set('n', '<leader>h', function() mp.builtin.help() end)
+vim.keymap.set('n', '<leader>t', function() mp.builtin.files() end)
 
 vim.g.dirvish_mode = [[:sort ,^.*[\/],]]

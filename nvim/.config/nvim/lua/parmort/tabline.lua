@@ -1,7 +1,4 @@
-local tabline = {}
-Parmort.tabline = tabline
-
-local labels = {}
+local M = {}
 
 local function fname(bufnr)
   local name = vim.fn.bufname(bufnr)
@@ -17,7 +14,7 @@ local function fname(bufnr)
   return vim.fn.pathshorten(name)
 end
 
-function tabline.line()
+function M.line()
   local line = {}
   local cur = vim.fn.tabpagenr()
 
@@ -40,7 +37,7 @@ function tabline.line()
   return string.format('%s%%#TablineFill#%%T', table.concat(line))
 end
 
-function tabline.label(tabnr)
+function M.label(tabnr)
   -- Remember, lua is 1-indexed
   local winnr = vim.fn.tabpagewinnr(tabnr)
   local bufnr = vim.fn.tabpagebuflist(tabnr)[winnr]
@@ -50,6 +47,8 @@ function tabline.label(tabnr)
     modified = ' ●'
   end
 
+  local labels = {}
+
   -- If not a floating window, set the label
   local winid = vim.fn.win_getid(winnr, tabnr)
   if vim.api.nvim_win_get_config(winid).relative == '' then
@@ -58,3 +57,5 @@ function tabline.label(tabnr)
 
   return labels[tabnr]
 end
+
+return M

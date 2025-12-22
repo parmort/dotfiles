@@ -22,7 +22,13 @@ return {
 
         WinSeparator = { fg = c.crust },
 
-        Folded = { style = {'italic'} }
+        -- Floats
+        NormalFloat = { bg = c.none },
+        FloatBorder = { bg = c.none },
+        FloatTitle = { bg = c.none },
+        FloatFooter = { bg = c.none },
+
+        Folded = { style = {'italic'} },
       }
     end
 }
