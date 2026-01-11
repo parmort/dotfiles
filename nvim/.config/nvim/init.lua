@@ -59,6 +59,7 @@ vim.pack.add({
   github('rstacruz/vim-closer'),
 
   github('tpope/vim-eunuch'),
+  -- github('ledger/vim-ledger'),
 })
 
 require('catppuccin').setup(require('parmort.catppuccin'))

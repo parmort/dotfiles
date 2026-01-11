@@ -28,6 +28,10 @@
       "rev": "e86bb794a1c10a2edac130feb0ea590a00d03f1e",
       "src": "https://github.com/tpope/vim-eunuch"
     },
+    "vim-ledger": {
+      "rev": "46b4b1158a6304285cab8917a4cd89f641ad8f0f",
+      "src": "https://github.com/ledger/vim-ledger"
+    },
     "vim-surround": {
       "rev": "3d188ed2113431cf8dac77be61b842acb64433d9",
       "src": "https://github.com/tpope/vim-surround"
