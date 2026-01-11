@@ -52,6 +52,7 @@ vim.pack.add({
   github('justinmk/vim-dirvish'),
   github('wincent/loupe'),
   github('nvim-mini/mini.pick'),
+  github('vimwiki/vimwiki'),
 
   -- Bracket/keyword block completion
   github('tpope/vim-surround'),
