@@ -12,6 +12,18 @@
       "rev": "193e123cdbc4dd3e86db883d55349e9587f0ded6",
       "src": "https://github.com/catppuccin/nvim"
     },
+    "sxhkd-vim": {
+      "rev": "7b7937ff5c220fbef3bdd883d567513246516e06",
+      "src": "https://github.com/kovetskiy/sxhkd-vim"
+    },
+    "vim-astro": {
+      "rev": "9b4674ecfe1dd84b5fb9b4de1653975de6e8e2e1",
+      "src": "https://github.com/wuelnerdotexe/vim-astro"
+    },
+    "vim-c-cpp-modern": {
+      "rev": "b194a25209ed99ae73175cc5cbc94b2d5684f657",
+      "src": "https://github.com/bfrg/vim-c-cpp-modern"
+    },
     "vim-closer": {
       "rev": "6007d9db0a35e983af246b667282606612076b07",
       "src": "https://github.com/rstacruz/vim-closer"
@@ -39,6 +51,10 @@
     "vim-tmux-navigator": {
       "rev": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a",
       "src": "https://github.com/christoomey/vim-tmux-navigator"
+    },
+    "vimtex": {
+      "rev": "3abfa1ff75b81c01e4305e8062549ac0ea5cc9b8",
+      "src": "https://github.com/lervag/vimtex"
     },
     "vimwiki": {
       "rev": "72792615e739d0eb54a9c8f7e0a46a6e2407c9e8",

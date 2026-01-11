@@ -60,6 +60,12 @@ vim.pack.add({
   github('rstacruz/vim-closer'),
 
   github('tpope/vim-eunuch'),
+
+  -- Filetypes
+  github('kovetskiy/sxhkd-vim'),
+  github('bfrg/vim-c-cpp-modern'),
+  github('lervag/vimtex'),
+  github('wuelnerdotexe/vim-astro'),
   -- github('ledger/vim-ledger'),
 })
 
