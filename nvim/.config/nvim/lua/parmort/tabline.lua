@@ -34,7 +34,7 @@ function M.line()
       hi_grp, i, label_grp, i, hi_grp, i)
   end
 
-  return string.format('%s%%#TablineFill#%%T', table.concat(line))
+  return table.concat(line) .. '%#TablineFill#%T'
 end
 
 function M.label(tabnr)

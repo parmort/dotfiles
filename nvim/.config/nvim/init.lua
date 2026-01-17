@@ -59,7 +59,10 @@ vim.pack.add({
   github('tpope/vim-endwise'),
   github('rstacruz/vim-closer'),
 
+  -- tpope being a real one
   github('tpope/vim-eunuch'),
+  github('tpope/vim-rsi'),
+  github('tpope/vim-unimpaired'),
 
   -- Filetypes
   github('kovetskiy/sxhkd-vim'),
