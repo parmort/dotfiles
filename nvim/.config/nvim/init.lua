@@ -60,9 +60,11 @@ vim.pack.add({
   github('rstacruz/vim-closer'),
 
   -- tpope being a real one
-  -- github('tpope/vim-eunuch'),
+  github('tpope/vim-eunuch'),
   github('tpope/vim-rsi'),
   github('tpope/vim-unimpaired'),
+  github('tpope/vim-dispatch'),
+  github('tpope/vim-projectionist'),
 
   -- Filetypes
   github('kovetskiy/sxhkd-vim'),
