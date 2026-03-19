@@ -1,5 +1,5 @@
 local github = require('parmort.util').github
-local echo_train = require('parmort.util').echo_train
+local key_train = require('parmort.util').keybind_training
 
 -- Expose a single global for various functions
 if not Parmort then
@@ -43,7 +43,7 @@ vim.keymap.set('n', '<leader>q', vim.cmd.q)
 vim.keymap.set('n', '<leader>Q', vim.cmd.qa)
 vim.keymap.set('n', '<leader><C-q>', function() vim.cmd.q { bang = true } end)
 
-vim.keymap.set('n', 'gl', echo_train('Use <leader>n instead (from loupe)'))
+vim.keymap.set('n', 'gl', key_train('Use <leader>n instead (from loupe)'))
 
 vim.pack.add({
   github('catppuccin/nvim', { name = 'nvim-catppuccin' }),
@@ -60,7 +60,7 @@ vim.pack.add({
   github('rstacruz/vim-closer'),
 
   -- tpope being a real one
-  github('tpope/vim-eunuch'),
+  -- github('tpope/vim-eunuch'),
   github('tpope/vim-rsi'),
   github('tpope/vim-unimpaired'),
 

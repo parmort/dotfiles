@@ -10,11 +10,16 @@ function M.github(repo, opts)
   return spec
 end
 
-function M.echo_train(msg)
+function M.err_to_user(msg)
+  vim.cmd.echohl('ErrorMsg')
+  vim.cmd.echo(string.format([["%s"]], msg))
+  vim.cmd.echohl('None')
+end
+
+---For use with keybinds. Creates a function that echoes `msg`.
+function M.keybind_training(msg)
   return function()
-    vim.cmd.echohl('ErrorMsg')
-    vim.cmd.echo(string.format([["%s"]], msg))
-    vim.cmd.echohl('None')
+    M.err_to_user(msg)
   end
 end
 

@@ -12,6 +12,10 @@
       "rev": "193e123cdbc4dd3e86db883d55349e9587f0ded6",
       "src": "https://github.com/catppuccin/nvim"
     },
+    "nvim-treesitter": {
+      "rev": "2b50ab5ccbcd9e5708deb351308edd738adbf84c",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
     "sxhkd-vim": {
       "rev": "7b7937ff5c220fbef3bdd883d567513246516e06",
       "src": "https://github.com/kovetskiy/sxhkd-vim"

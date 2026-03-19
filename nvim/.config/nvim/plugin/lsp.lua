@@ -1,6 +1,7 @@
-local echo_train = require('parmort.util').echo_train
+local key_train = require('parmort.util').keybind_training
 
 vim.lsp.enable('luals')
+vim.lsp.enable('ccls')
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('parmort.lsp', {}),
@@ -10,7 +11,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.opt.signcolumn = 'yes'
 
     vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-    vim.keymap.set('n', '<leader>r', echo_train('Use `grn` to rename a symbol'))
+    vim.keymap.set('n', '<leader>r', key_train('Use `grn` to rename a symbol'))
 
     if client:supports_method('textDocument/completion') then
       vim.lsp.completion.enable(
