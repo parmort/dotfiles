@@ -27,5 +27,14 @@ vim.g.projectionist_heuristics = {
         '\trm *.pdf',
       }
     }
+  },
+
+  ['init.lua'] = {
+    ['ftplugin/*.lua'] = {
+      type = 'ftplugin'
+    },
+    ['after/plugin/projections.lua'] = {
+      type = 'projections'
+    }
   }
 }
