@@ -1,70 +1,112 @@
--- Author: N. Prochnau <parvus.mortalis@gmail.com>
+local github = require('parmort.util').github
+local key_train = require('parmort.util').keybind_training
 
-local packadd = function(p) vim.cmd.packadd { p, bang = true } end
+-- Expose a single global for various functions
+if not Parmort then
+  Parmort = {
+    foldtext = require('parmort.foldtext'),
+    tabline = require('parmort.tabline')
+  }
+end
 
-packadd 'vim-obsession'
-packadd 'vim-eunuch'
-packadd 'vim-unimpaired'
-packadd 'vim-rsi'
-packadd 'vim-repeat'
-packadd 'vim-scriptease'
-packadd 'limelight.vim'
-packadd 'goyo.vim'
+vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
+vim.opt.winborder = 'rounded'
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.cursorline = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.textwidth = 80
+vim.opt.colorcolumn = '+1'
+vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
+vim.opt.clipboard = 'unnamedplus'
 
-packadd 'zen-mode.nvim'
-packadd 'twilight.nvim'
+vim.opt.foldmethod = 'indent'
+vim.opt.foldlevelstart = 99
+vim.opt.foldnestmax = 10
+vim.opt.foldtext = 'v:lua.Parmort.foldtext()'
 
-packadd 'vimwiki'
+vim.opt.showtabline = 2
+vim.opt.tabline = '%!v:lua.Parmort.tabline.line()'
 
--- Tie-ins
-packadd 'vim-tmux-navigator'
-packadd 'vim-fugitive'
-packadd 'vim-dispatch'
+vim.opt.shortmess:append('I')
+vim.opt.shortmess:remove('l')
 
-packadd 'vim-dadbod'
-packadd 'vim-dadbod-ui'
+vim.opt.list = true
+vim.opt.listchars = {
+  trail    = '·',
+  tab      = '~>',
+  nbsp     = '∅',
+  extends  = '»',
+  precedes = '«',
+}
 
--- Misc. Filetypes
-packadd 'vim-cpp-modern'
-packadd 'sxhkd-vim'
-packadd 'vim-ledger'
-packadd 'vim-javascript'
-packadd 'vimtex'
-packadd 'headlines.nvim' -- fancy markup highlighting
-packadd 'vim-astro'
+vim.keymap.set('n', ';', ':')
+vim.keymap.set('n', ':', ';')
 
--- Code completion
-packadd 'nvim-treesitter'
-packadd 'vim-closer'
-packadd 'nvim-lsp'
-packadd 'vim-commentary'
-packadd 'vim-endwise'
-packadd 'vim-ragtag'
-packadd 'vim-surround'
+vim.keymap.set('n', '<leader>q', vim.cmd.q)
+vim.keymap.set('n', '<leader>Q', vim.cmd.qa)
+vim.keymap.set('n', '<leader><C-q>', function() vim.cmd.q { bang = true } end)
 
-packadd 'trouble.nvim'
+vim.keymap.set('n', 'gl', key_train('Use <leader>n instead (from loupe)'))
 
--- Ruby
-packadd 'vim-rails'
-packadd 'vim-rspec'
-packadd 'vim-bundler'
+vim.keymap.set('n', '<F6>', function()
+  vim.opt.spell = not vim.wo.spell
+end)
 
--- Python
-packadd 'SimpylFold'
-packadd 'vim-python-pep8-indent'
+-- Make fold toggling easier
+vim.keymap.set('n', 'zx', 'za')
+vim.keymap.set('n', 'zX', 'zA')
 
--- Navigation
-packadd 'telescope.nvim'
-packadd 'vim-dirvish'
-packadd 'vim-projectionist'
-packadd 'loupe'
+vim.keymap.set('n', 'Y', 'y$', {desc = 'Yank to end of line'})
+vim.keymap.set('v', 'K', 'k')
 
--- Libs
-packadd 'plenary.nvim'
+vim.pack.add({
+  github('catppuccin/nvim', { name = 'nvim-catppuccin' }),
 
--- Colorscheme
-packadd 'nord-vim'
-packadd 'nvim-catppuccin'
+  github('christoomey/vim-tmux-navigator'),
+  github('justinmk/vim-dirvish'),
+  github('wincent/loupe'),
+  github('nvim-mini/mini.pick'),
+  github('vimwiki/vimwiki'),
 
--- CUSTOM --
-packadd 'rasi.vim'
+  -- Bracket/keyword block completion
+  github('tpope/vim-surround'),
+  github('tpope/vim-endwise'),
+  github('rstacruz/vim-closer'),
+
+  -- tpope being a real one
+  github('tpope/vim-eunuch'),
+  github('tpope/vim-rsi'),
+  github('tpope/vim-unimpaired'),
+  github('tpope/vim-dispatch'),
+  github('tpope/vim-projectionist'),
+
+  -- Filetypes
+  github('kovetskiy/sxhkd-vim'),
+  github('bfrg/vim-c-cpp-modern'),
+  github('lervag/vimtex'),
+  github('wuelnerdotexe/vim-astro'),
+  -- github('ledger/vim-ledger'),
+})
+
+require('catppuccin').setup(require('parmort.catppuccin'))
+vim.cmd.colorscheme 'catppuccin'
+
+require('mini.pick').setup()
+--- @diagnostic disable-next-line: undefined-global
+local mp = MiniPick
+vim.keymap.set('n', '<leader>h', function() mp.builtin.help() end)
+vim.keymap.set('n', '<leader>t', function() mp.builtin.files() end)
+
+vim.g.dirvish_mode = [[:sort ,^.*[\/],]]
+
+vim.keymap.set('n', 'ga', vim.cmd.A, {desc = 'Projectionist alternate'})
+vim.keymap.set('n', '<leader>d', vim.cmd.Dispatch)
+vim.keymap.set('n', '<leader>m', vim.cmd.Make)
+
+vim.keymap.set('n', '<leader><space>', '<Plug>VimwikiToggleListItem')

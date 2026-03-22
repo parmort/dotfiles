@@ -5,4 +5,6 @@ nvim/.config/nvim/sessions
 zsh/.config/zsh/.zcompdump
 nvim/.config/nvim/spell
 
+nvim/.config/nvim/pack/custom
+
 notes.md

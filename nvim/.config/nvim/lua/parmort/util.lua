@@ -1,23 +1,19 @@
-local util = {}
+local M = {}
 
---- @param mode string
---- @param lhs string
---- @param rhs string
---- @param options? {remap:string}
-function util.abbrev(mode, lhs, rhs, options)
-  options = options or {}
-  local command = {
-    cmd = mode,
-    args = {lhs, rhs}
-  }
-
-  if not options.remap then
-    command.cmd = command.cmd .. 'nore'
+function M.github(repo, opts)
+  opts = opts or {}
+  local spec = { src = "https://github.com/"..repo }
+  for k,v in pairs(opts) do
+    spec[k] = v
   end
 
-  command.cmd = command.cmd .. 'abbrev'
-
-  vim.cmd(command)
+  return spec
 end
 
-return util
+function M.keybind_training(msg)
+  return function()
+    vim.notify(msg, vim.log.levels.WARN)
+  end
+end
+
+return M

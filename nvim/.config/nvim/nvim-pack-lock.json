@@ -1,0 +1,84 @@
+{
+  "plugins": {
+    "loupe": {
+      "rev": "9189e7fa2d9dd54f4f0211c5edfdd6260252fe4b",
+      "src": "https://github.com/wincent/loupe"
+    },
+    "mini.pick": {
+      "rev": "b4351399db5043a781a32699a1bde60b747f711f",
+      "src": "https://github.com/nvim-mini/mini.pick"
+    },
+    "nvim-catppuccin": {
+      "rev": "193e123cdbc4dd3e86db883d55349e9587f0ded6",
+      "src": "https://github.com/catppuccin/nvim"
+    },
+    "nvim-treesitter": {
+      "rev": "2b50ab5ccbcd9e5708deb351308edd738adbf84c",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "sxhkd-vim": {
+      "rev": "7b7937ff5c220fbef3bdd883d567513246516e06",
+      "src": "https://github.com/kovetskiy/sxhkd-vim"
+    },
+    "vim-astro": {
+      "rev": "9b4674ecfe1dd84b5fb9b4de1653975de6e8e2e1",
+      "src": "https://github.com/wuelnerdotexe/vim-astro"
+    },
+    "vim-c-cpp-modern": {
+      "rev": "b194a25209ed99ae73175cc5cbc94b2d5684f657",
+      "src": "https://github.com/bfrg/vim-c-cpp-modern"
+    },
+    "vim-closer": {
+      "rev": "6007d9db0a35e983af246b667282606612076b07",
+      "src": "https://github.com/rstacruz/vim-closer"
+    },
+    "vim-dirvish": {
+      "rev": "6be56227a4207c93cd8b607f52f567a1e13dddb1",
+      "src": "https://github.com/justinmk/vim-dirvish"
+    },
+    "vim-dispatch": {
+      "rev": "a2ff28abdb2d89725192db5b8562977d392a4d3f",
+      "src": "https://github.com/tpope/vim-dispatch"
+    },
+    "vim-endwise": {
+      "rev": "4994afb0cdf956d9a665a14b9c834869e602c396",
+      "src": "https://github.com/tpope/vim-endwise"
+    },
+    "vim-eunuch": {
+      "rev": "e86bb794a1c10a2edac130feb0ea590a00d03f1e",
+      "src": "https://github.com/tpope/vim-eunuch"
+    },
+    "vim-ledger": {
+      "rev": "46b4b1158a6304285cab8917a4cd89f641ad8f0f",
+      "src": "https://github.com/ledger/vim-ledger"
+    },
+    "vim-projectionist": {
+      "rev": "5ff7bf79a6ef741036d2038a226bcb5f8b1cd296",
+      "src": "https://github.com/tpope/vim-projectionist"
+    },
+    "vim-rsi": {
+      "rev": "45540637ead22f011e8215f1c90142e49d946a54",
+      "src": "https://github.com/tpope/vim-rsi"
+    },
+    "vim-surround": {
+      "rev": "3d188ed2113431cf8dac77be61b842acb64433d9",
+      "src": "https://github.com/tpope/vim-surround"
+    },
+    "vim-tmux-navigator": {
+      "rev": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a",
+      "src": "https://github.com/christoomey/vim-tmux-navigator"
+    },
+    "vim-unimpaired": {
+      "rev": "db65482581a28e4ccf355be297f1864a4e66985c",
+      "src": "https://github.com/tpope/vim-unimpaired"
+    },
+    "vimtex": {
+      "rev": "3abfa1ff75b81c01e4305e8062549ac0ea5cc9b8",
+      "src": "https://github.com/lervag/vimtex"
+    },
+    "vimwiki": {
+      "rev": "72792615e739d0eb54a9c8f7e0a46a6e2407c9e8",
+      "src": "https://github.com/vimwiki/vimwiki"
+    }
+  }
+}
