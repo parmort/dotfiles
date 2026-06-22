@@ -24,6 +24,7 @@ vim.opt.textwidth = 80
 vim.opt.colorcolumn = '+1'
 vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
 vim.opt.clipboard = 'unnamedplus'
+vim.opt.grepprg = 'rg --vimgrep'
 
 vim.opt.foldmethod = 'indent'
 vim.opt.foldlevelstart = 99
@@ -85,13 +86,17 @@ vim.pack.add({
   github('tpope/vim-unimpaired'),
   github('tpope/vim-dispatch'),
   github('tpope/vim-projectionist'),
+  github('tpope/vim-fugitive'),
 
   -- Filetypes
   github('kovetskiy/sxhkd-vim'),
   github('bfrg/vim-c-cpp-modern'),
   github('lervag/vimtex'),
   github('wuelnerdotexe/vim-astro'),
-  -- github('ledger/vim-ledger'),
+  github('ledger/vim-ledger'),
+
+  -- Compilers
+  -- github('5long/pytest-vim-compiler'),
 })
 
 require('catppuccin').setup(require('parmort.catppuccin'))
@@ -101,7 +106,14 @@ require('mini.pick').setup()
 --- @diagnostic disable-next-line: undefined-global
 local mp = MiniPick
 vim.keymap.set('n', '<leader>h', function() mp.builtin.help() end)
-vim.keymap.set('n', '<leader>t', function() mp.builtin.files() end)
+vim.keymap.set('n', '<leader>t', function()
+  local out = vim.system({'git', 'status'}):wait()
+  if out.code ~= 0 then
+    mp.builtin.files()
+  else
+    mp.builtin.files({tool='git'})
+  end
+end)
 
 vim.g.dirvish_mode = [[:sort ,^.*[\/],]]
 

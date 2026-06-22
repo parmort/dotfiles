@@ -30,6 +30,7 @@ _comp_options+=(globdots)
 SPACESHIP_PROMPT_ORDER=(
   dir
   git
+  venv
   exit_code
   char
 )
